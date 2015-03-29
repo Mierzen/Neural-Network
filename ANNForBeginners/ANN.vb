@@ -1,5 +1,10 @@
-﻿Module ANN
+﻿Imports System
+Imports System.IO
+Imports System.Text
+
+Module ANN
     Public inputs As DataTable
+    Public numInputNodes As Integer
 
     Public Sub loadData()
         Dim lineLength As Integer
@@ -26,6 +31,8 @@
                 End Try
             End While
         End Using
+
+        numInputNodes = lineLength
 
         'Read the data into memory
         Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(Form1.tb_input.Text)
@@ -66,7 +73,38 @@
         Dim numHiddenLayers As Integer = Form1.DataGridView1.RowCount
 
         loadData()
+        initialiseWeightsAllRandom()
+
+
         'normaliseData()
+    End Sub
+
+    Sub initialiseWeightsAllRandom()
+        'input layer weights
+        initialiseRandomWeights(0, numInputNodes)
+
+        'hidden layer weights
+        Dim i As Integer = 1
+        For j = 1 To Form1.DataGridView1.Rows.Count()
+            Dim n As Object = Form1.DataGridView1.Rows(j - 1).Cells(1).FormattedValue
+            initialiseRandomWeights(i, j)
+            i += 1
+        Next
+    End Sub
+
+    Sub initialiseRandomWeights(layerNumber As Integer, numWeights As Integer)
+        Dim fs As FileStream = File.Create("C:\data\weights" & layerNumber & ".csv")
+
+        Dim str As String = Nothing
+
+        For i = 1 To numWeights
+            str &= "0.5,"
+        Next
+        str = Strings.Left(str, Strings.Len(str) - 1)
+
+        Dim info As Byte() = New UTF8Encoding(True).GetBytes(str)
+        fs.Write(info, 0, info.Length)
+        fs.Close()
     End Sub
 
     Function neuronSum(ByVal inputs() As Double, ByVal weights As Double()) As Double

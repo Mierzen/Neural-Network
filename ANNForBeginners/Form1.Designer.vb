@@ -30,6 +30,7 @@ Partial Class Form1
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.HiddenLayerNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HiddenLayerNeuronCount = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btn_addRow = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -76,6 +77,7 @@ Partial Class Form1
         'DataGridView1
         '
         Me.DataGridView1.AllowDrop = True
+        Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
         Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -99,11 +101,21 @@ Partial Class Form1
         Me.HiddenLayerNeuronCount.Name = "HiddenLayerNeuronCount"
         Me.HiddenLayerNeuronCount.Width = 109
         '
+        'btn_addRow
+        '
+        Me.btn_addRow.Location = New System.Drawing.Point(3, 85)
+        Me.btn_addRow.Name = "btn_addRow"
+        Me.btn_addRow.Size = New System.Drawing.Size(24, 23)
+        Me.btn_addRow.TabIndex = 9
+        Me.btn_addRow.Text = "+"
+        Me.btn_addRow.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(653, 378)
+        Me.Controls.Add(Me.btn_addRow)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.tb_input)
@@ -125,5 +137,6 @@ Partial Class Form1
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents HiddenLayerNumber As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents HiddenLayerNeuronCount As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents btn_addRow As System.Windows.Forms.Button
 
 End Class

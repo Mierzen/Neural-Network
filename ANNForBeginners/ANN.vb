@@ -1,8 +1,11 @@
 ﻿Module ANN
-    'Const numInputs As Integer = 6
-    'Const numOutputs As Integer = 2
-    'Const numLayers As Integer 'num hidden layers. Total layers - inputL - outputL
 
+    Public Sub ANN_Start()
+        'Const numInputs As Integer = 6
+        'Const numOutputs As Integer = 2
+        Dim numHiddenLayers As Integer = Form1.DataGridView1.RowCount
+
+    End Sub
 
 
     Function neuronSum(ByVal inputs() As Double, ByVal weights As Double()) As Double

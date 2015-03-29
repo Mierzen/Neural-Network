@@ -22,8 +22,8 @@
         If e.ColumnIndex = 1 Then
             ' 1 should be your column index
             Dim i As Integer
-
-            If Not (Integer.TryParse(Convert.ToString(e.FormattedValue), i)) OrElse (Math.Sign(CInt(e.FormattedValue)) = -1) Then
+            
+            If Not (Integer.TryParse(Convert.ToString(e.FormattedValue), i)) OrElse (Math.Sign(CInt(e.FormattedValue)) = -1) OrElse e.FormattedValue = "" Then
                 e.Cancel = True
                 MsgBox("Please enter a positive integer for the number of neurons")
                 ' the input is numeric 
@@ -38,9 +38,43 @@
         Dim inputs() As Double = {1, 0.25, -0.5}
         Dim weights() As Double = {0.5, 0.5, 0.5}
 
-        MsgBox(ANN.neuronSum(inputs, weights))
+        'MsgBox(ANN.neuronSum(inputs, weights))
 
-        MsgBox(ANN.activationFunction_Sigmoid(ANN.neuronSum(inputs, weights)))
+        'MsgBox(ANN.activationFunction_Sigmoid(ANN.neuronSum(inputs, weights)))
+        Me.Select()
+
+        Dim dataIsValid As Boolean = True
+
+        If DataGridView1.Rows.Count() = 0 Then
+            dataIsValid = False
+        Else
+            For i = 1 To DataGridView1.Rows.Count()
+                Dim n As Object = DataGridView1.Rows(i - 1).Cells(1).FormattedValue
+
+                If n = "" Then
+                    dataIsValid = False
+                    Exit For
+                End If
+
+                If Math.Sign(CInt(n)) <> 1 Then
+                    dataIsValid = False
+                End If
+
+
+
+                If dataIsValid = False Then
+                    Exit For
+                End If
+            Next
+        End If
+
+
+        If dataIsValid = False Then
+            MsgBox("Please check the table values")
+        Else
+            ANN.ANN_Start()
+        End If
+
 
     End Sub
 
@@ -53,5 +87,9 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DataGridView1.Columns(0).ReadOnly = True
+    End Sub
+
+    Private Sub btn_addRow_Click(sender As Object, e As EventArgs) Handles btn_addRow.Click
+        DataGridView1.Rows.Add()
     End Sub
 End Class

@@ -78,11 +78,12 @@ Partial Class Form1
         '
         Me.DataGridView1.AllowDrop = True
         Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
         Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.HiddenLayerNumber, Me.HiddenLayerNeuronCount})
-        Me.DataGridView1.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.DataGridView1.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.DataGridView1.Location = New System.Drawing.Point(27, 82)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False

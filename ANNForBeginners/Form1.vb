@@ -34,6 +34,7 @@
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Application.UseWaitCursor() = True
 
         Dim inputs() As Double = {1, 0.25, -0.5}
         Dim weights() As Double = {0.5, 0.5, 0.5}
@@ -75,7 +76,7 @@
             ANN.ANN_Start()
         End If
 
-
+        Application.UseWaitCursor = False
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click

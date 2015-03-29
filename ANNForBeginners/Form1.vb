@@ -32,7 +32,6 @@
         End If
     End Sub
 
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Application.UseWaitCursor() = True
 
@@ -63,7 +62,6 @@
                 End If
             Next
         End If
-
 
         If dataIsValid = False Then
             MsgBox("Please check the table values")

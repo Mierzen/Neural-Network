@@ -60,8 +60,6 @@ Module ANN
                     MsgBox("Line " & ex.Message & "is not valid and will be skipped.")
                 End Try
             End While
-
-
         End Using
 
         numNodesInLayer(0) = lineLength
@@ -72,8 +70,6 @@ Module ANN
     End Sub
 
     Public Sub ANN_Start()
-        'Const numInputs As Integer = 6
-        'Const numOutputs As Integer = 2
         numHiddenLayers = Form1.DataGridView1.RowCount
         ReDim numNodesInLayer(0 To numHiddenLayers + 1)
         numOutputs = Form1.tb_numOutputs.Text
@@ -162,5 +158,4 @@ Module ANN
 
         Return F
     End Function
-
 End Module

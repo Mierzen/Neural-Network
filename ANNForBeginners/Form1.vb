@@ -39,9 +39,6 @@
         Dim inputs() As Double = {1, 0.25, -0.5}
         Dim weights() As Double = {0.5, 0.5, 0.5}
 
-        'MsgBox(ANN.neuronSum(inputs, weights))
-
-        'MsgBox(ANN.activationFunction_Sigmoid(ANN.neuronSum(inputs, weights)))
         Me.Select()
 
         Dim dataIsValid As Boolean = True
@@ -60,8 +57,6 @@
                 If Math.Sign(CInt(n)) <> 1 Then
                     dataIsValid = False
                 End If
-
-
 
                 If dataIsValid = False Then
                     Exit For

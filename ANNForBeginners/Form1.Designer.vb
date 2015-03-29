@@ -64,6 +64,7 @@ Partial Class Form1
         Me.tb_input.Name = "tb_input"
         Me.tb_input.Size = New System.Drawing.Size(459, 20)
         Me.tb_input.TabIndex = 6
+        Me.tb_input.Text = "C:\Users\Stephan Taljaard\Desktop\test.csv"
         '
         'Button2
         '

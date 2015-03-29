@@ -31,6 +31,8 @@ Partial Class Form1
         Me.HiddenLayerNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HiddenLayerNeuronCount = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btn_addRow = New System.Windows.Forms.Button()
+        Me.tb_numOutputs = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -112,11 +114,30 @@ Partial Class Form1
         Me.btn_addRow.Text = "+"
         Me.btn_addRow.UseVisualStyleBackColor = True
         '
+        'tb_numOutputs
+        '
+        Me.tb_numOutputs.Location = New System.Drawing.Point(136, 266)
+        Me.tb_numOutputs.Name = "tb_numOutputs"
+        Me.tb_numOutputs.Size = New System.Drawing.Size(45, 20)
+        Me.tb_numOutputs.TabIndex = 11
+        Me.tb_numOutputs.Text = "2"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(36, 269)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(94, 13)
+        Me.Label2.TabIndex = 10
+        Me.Label2.Text = "Number of outputs"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(653, 378)
+        Me.Controls.Add(Me.tb_numOutputs)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btn_addRow)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Button2)
@@ -140,5 +161,7 @@ Partial Class Form1
     Friend WithEvents HiddenLayerNumber As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents HiddenLayerNeuronCount As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents btn_addRow As System.Windows.Forms.Button
+    Friend WithEvents tb_numOutputs As System.Windows.Forms.TextBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
 
 End Class

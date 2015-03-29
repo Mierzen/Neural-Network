@@ -4,7 +4,9 @@ Imports System.Text
 
 Module ANN
     Public inputs As DataTable
-    Public numInputNodes As Integer
+    Public numHiddenLayers As Integer
+    Public numNodesInLayer() As Integer 'index = layer number: 0 = input layer, last = last hidden layer.  value = number of neurons in layer
+    Public numOutputs As Integer
 
     Public Sub loadData()
         Dim lineLength As Integer
@@ -31,8 +33,6 @@ Module ANN
                 End Try
             End While
         End Using
-
-        numInputNodes = lineLength
 
         'Read the data into memory
         Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(Form1.tb_input.Text)
@@ -64,13 +64,19 @@ Module ANN
 
         End Using
 
-
+        numNodesInLayer(0) = lineLength
+        For i = 1 To Form1.DataGridView1.Rows.Count
+            numNodesInLayer(i) = Form1.DataGridView1.Rows(i - 1).Cells(1).FormattedValue
+        Next
+        numNodesInLayer(numHiddenLayers + 1) = numOutputs
     End Sub
 
     Public Sub ANN_Start()
         'Const numInputs As Integer = 6
         'Const numOutputs As Integer = 2
-        Dim numHiddenLayers As Integer = Form1.DataGridView1.RowCount
+        numHiddenLayers = Form1.DataGridView1.RowCount
+        ReDim numNodesInLayer(0 To numHiddenLayers + 1)
+        numOutputs = Form1.tb_numOutputs.Text
 
         loadData()
         initialiseWeightsAllRandom()
@@ -80,20 +86,21 @@ Module ANN
     End Sub
 
     Sub initialiseWeightsAllRandom()
-        'input layer weights
-        initialiseRandomWeights(0, numInputNodes)
-
         'hidden layer weights
-        Dim i As Integer = 1
-        For j = 1 To Form1.DataGridView1.Rows.Count()
-            Dim n As Object = Form1.DataGridView1.Rows(j - 1).Cells(1).FormattedValue
-            initialiseRandomWeights(i, j)
-            i += 1
+        For currentLayer = 1 To numHiddenLayers
+            For currentNeuron = 1 To numNodesInLayer(numHiddenLayers - 1)
+                initialiseRandomWeights(CStr(currentLayer) & "-" & CStr(currentNeuron), numNodesInLayer(currentLayer - 1))
+            Next
+        Next
+
+        'output layer weights
+        For currentNeuron = 1 To numNodesInLayer(numHiddenLayers + 1)
+            initialiseRandomWeights(CStr(numHiddenLayers + 1) & "-" & CStr(currentNeuron), numNodesInLayer(numHiddenLayers))
         Next
     End Sub
 
-    Sub initialiseRandomWeights(layerNumber As Integer, numWeights As Integer)
-        Dim fs As FileStream = File.Create("C:\data\weights" & layerNumber & ".csv")
+    Sub initialiseRandomWeights(neuronNumInLayer As String, numWeights As Integer)
+        Dim fs As FileStream = File.Create("C:\data\weights" & neuronNumInLayer & ".csv")
 
         Dim str As String = Nothing
 

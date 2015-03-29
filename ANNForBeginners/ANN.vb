@@ -7,6 +7,7 @@ Module ANN
     Public numHiddenLayers As Integer
     Public numNodesInLayer() As Integer 'index = layer number: 0 = input layer, last = last hidden layer.  value = number of neurons in layer
     Public numOutputs As Integer
+    Public layerSums() As Double
 
     Public Sub loadData()
         Dim lineLength As Integer
@@ -73,6 +74,7 @@ Module ANN
         numHiddenLayers = Form1.DataGridView1.RowCount
         ReDim numNodesInLayer(0 To numHiddenLayers + 1)
         numOutputs = Form1.tb_numOutputs.Text
+        ReDim layerSums(0 To numHiddenLayers + 1)
 
         loadData()
         initialiseWeightsAllRandom()
@@ -85,18 +87,19 @@ Module ANN
         'hidden layer weights
         For currentLayer = 1 To numHiddenLayers
             For currentNeuron = 1 To numNodesInLayer(numHiddenLayers - 1)
-                initialiseRandomWeights(CStr(currentLayer) & "-" & CStr(currentNeuron), numNodesInLayer(currentLayer - 1))
+                initialiseRandomWeights(currentLayer, currentNeuron, numNodesInLayer(currentLayer - 1))
             Next
         Next
 
         'output layer weights
         For currentNeuron = 1 To numNodesInLayer(numHiddenLayers + 1)
-            initialiseRandomWeights(CStr(numHiddenLayers + 1) & "-" & CStr(currentNeuron), numNodesInLayer(numHiddenLayers))
+            initialiseRandomWeights(numHiddenLayers + 1, currentNeuron, numNodesInLayer(numHiddenLayers))
         Next
     End Sub
 
-    Sub initialiseRandomWeights(neuronNumInLayer As String, numWeights As Integer)
-        Dim fs As FileStream = File.Create("C:\data\weights" & neuronNumInLayer & ".csv")
+    Sub initialiseRandomWeights(currentLayer As Integer, currentNeuron As Integer, numWeights As Integer)
+        Dim filepath As String = "C:\data\weights_L" & currentLayer & "N" & currentNeuron & ".csv"
+        Dim fs As FileStream = File.Create(filepath)
 
         Dim str As String = Nothing
 
@@ -111,16 +114,33 @@ Module ANN
     End Sub
 
     Sub neuronSumAll()
-        For i = 1 To Form1.DataGridView1.Rows.Count()
-
+        For currentLayer = 0 To numHiddenLayers '0 to num HL = HL + output layer = HL + 1
+            neuronSum(currentLayer + 1)
         Next
     End Sub
 
-    Function neuronSum(ByVal inputs() As Double, ByVal weights As Double()) As Double
-        If inputs.Length <> weights.Length Then
-            MsgBox("Input array and weight array not equal lenght")
-            Return 0
-        End If
+    Function neuronSum(currentLayer As Integer) As Double
+        Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser("C:\data\weights" & neuronNumInLayer & ".csv")
+            MyReader.TextFieldType = FileIO.FieldType.Delimited
+            MyReader.SetDelimiters(",")
+
+            'first check if each line of the csv is the same lenght
+            lineLength = MyReader.ReadFields().Length
+            lineCount = 1
+
+            While Not MyReader.EndOfData
+                Try
+                    If lineLength <> MyReader.ReadFields().Length Then
+                        MsgBox("All lines in the csv file are not the same lenght." & vbNewLine & "Please fix the line(s).")
+                        Exit Function
+                    Else
+                        lineCount += 1
+                    End If
+                Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
+                    MsgBox("Line " & ex.Message & "is not valid and will be skipped.")
+                End Try
+            End While
+        End Using
 
         Dim sum As Double = 0
 

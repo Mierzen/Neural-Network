@@ -75,7 +75,7 @@ Module ANN
         loadData()
         initialiseWeightsAllRandom()
 
-
+        neuronSumAll()
         'normaliseData()
     End Sub
 
@@ -105,6 +105,12 @@ Module ANN
         Dim info As Byte() = New UTF8Encoding(True).GetBytes(str)
         fs.Write(info, 0, info.Length)
         fs.Close()
+    End Sub
+
+    Sub neuronSumAll()
+        For i = 1 To Form1.DataGridView1.Rows.Count()
+
+        Next
     End Sub
 
     Function neuronSum(ByVal inputs() As Double, ByVal weights As Double()) As Double

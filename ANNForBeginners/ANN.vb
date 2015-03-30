@@ -122,7 +122,13 @@ Module ANN
     Sub neuronCalc(layerToSum As Integer)
         Dim numNeuronsInLayer As Integer = numNodesInLayer(layerToSum)
         Dim numNeuronsInPrevLayer As Integer = numNodesInLayer(layerToSum - 1)
-        Dim sum() As Double
+        Dim sum(numNeuronsInLayer - 1) As Double
+        Const bias = 1
+
+        'Pre-populate sum with bias values
+        For i = 0 To sum.Length - 1
+            sum(i) = bias
+        Next
 
         'read the inputs into memory
         Dim inputs(numNeuronsInPrevLayer - 1) As Double
@@ -133,8 +139,6 @@ Module ANN
         Else 'read from file (it will be the previous HL's activation function values)
 
         End If
-
-        ReDim sum(numNeuronsInLayer - 1)
 
         're-read weights from file
         For currentNeuron = 0 To numNeuronsInLayer - 1
@@ -162,6 +166,7 @@ Module ANN
                 End While
             End Using
 
+            'calculate each node's sum
             For i = 0 To numNeuronsInPrevLayer - 1
                 sum(currentNeuron) += inputs(i) * weights(i)
             Next

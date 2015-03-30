@@ -79,7 +79,7 @@ Module ANN
         loadData()
         initialiseWeightsAllRandom()
 
-        neuronSumAll()
+        neuronCalcAll()
         'normaliseData()
     End Sub
 
@@ -113,13 +113,13 @@ Module ANN
         fs.Close()
     End Sub
 
-    Sub neuronSumAll()
+    Sub neuronCalcAll()
         For currentLayer = 0 To numHiddenLayers '0 to num HL = HL + output layer = HL + 1
-            neuronSum(currentLayer + 1)
+            neuronCalc(currentLayer + 1)
         Next
     End Sub
 
-    Function neuronSum(layerToSum As Integer) As Double
+    Sub neuronCalc(layerToSum As Integer)
         Dim numNeuronsInLayer As Integer = numNodesInLayer(layerToSum)
         Dim numNeuronsInPrevLayer As Integer = numNodesInLayer(layerToSum - 1)
         Dim sum() As Double
@@ -166,12 +166,7 @@ Module ANN
                 sum(currentNeuron) += inputs(i) * weights(i)
             Next
         Next
-
-
-
-
-        Return sum
-    End Function
+    End Sub
 
     Function neuronActivationFunction(functionType As String, x As Double) As Double
         functionType = Strings.LCase(functionType)

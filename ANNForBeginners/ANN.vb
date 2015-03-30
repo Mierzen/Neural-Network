@@ -3,7 +3,7 @@ Imports System.IO
 Imports System.Text
 
 Module ANN
-    Public inputs As DataTable
+    Public inputData(,) As Double
     Public numHiddenLayers As Integer
     Public numNodesInLayer() As Integer 'index = layer number: 0 = input layer, last = last hidden layer.  value = number of neurons in layer
     Public numOutputs As Integer
@@ -41,7 +41,7 @@ Module ANN
             MyReader.SetDelimiters(",")
 
             'Dim inputData(lineLength, lineCount) As Double
-            Dim inputData(lineCount - 1, lineLength - 1) As Double
+            ReDim inputData(lineCount - 1, lineLength - 1)
             Dim i As Integer = 0
             Dim currentRow As String()
             While Not MyReader.EndOfData
@@ -119,34 +119,56 @@ Module ANN
         Next
     End Sub
 
-    Function neuronSum(currentLayer As Integer) As Double
-        Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser("C:\data\weights" & neuronNumInLayer & ".csv")
-            MyReader.TextFieldType = FileIO.FieldType.Delimited
-            MyReader.SetDelimiters(",")
+    Function neuronSum(layerToSum As Integer) As Double
+        Dim numNeuronsInLayer As Integer = numNodesInLayer(layerToSum)
+        Dim numNeuronsInPrevLayer As Integer = numNodesInLayer(layerToSum - 1)
+        Dim sum() As Double
 
-            'first check if each line of the csv is the same lenght
-            lineLength = MyReader.ReadFields().Length
-            lineCount = 1
+        'read the inputs into memory
+        Dim inputs(numNeuronsInPrevLayer - 1) As Double
+        If layerToSum = 1 Then 'the original input data should be used
+            For i = 0 To inputs.Length - 1
+                inputs(i) = inputData(0, i)
+            Next
+        Else 'read from file (it will be the previous HL's activation function values)
 
-            While Not MyReader.EndOfData
-                Try
-                    If lineLength <> MyReader.ReadFields().Length Then
-                        MsgBox("All lines in the csv file are not the same lenght." & vbNewLine & "Please fix the line(s).")
-                        Exit Function
-                    Else
-                        lineCount += 1
-                    End If
-                Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
-                    MsgBox("Line " & ex.Message & "is not valid and will be skipped.")
-                End Try
-            End While
-        End Using
+        End If
 
-        Dim sum As Double = 0
+        ReDim sum(numNeuronsInLayer - 1)
 
-        For i = 0 To inputs.Length - 1
-            sum += inputs(i) * weights(i)
+        're-read weights from file
+        For currentNeuron = 0 To numNeuronsInLayer - 1
+            Dim weights(numNeuronsInPrevLayer - 1) As Double
+
+            Dim filepath As String = "C:\data\weights_L" & layerToSum & "N" & currentNeuron & ".csv"
+            Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(filepath)
+                MyReader.TextFieldType = FileIO.FieldType.Delimited
+                MyReader.SetDelimiters(",")
+
+                Dim currentRow As String()
+                While Not MyReader.EndOfData
+                    Try
+                        currentRow = MyReader.ReadFields()
+
+                        Dim currentField As String
+                        Dim j As Integer = 0
+                        For Each currentField In currentRow
+                            weights(j) = currentField
+                            j += 1
+                        Next
+                    Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
+                        MsgBox("Line " & ex.Message & "is not valid and will be skipped.")
+                    End Try
+                End While
+            End Using
+
+            For i = 0 To numNeuronsInPrevLayer - 1
+                sum(currentNeuron) += inputs(i) * weights(i)
+            Next
         Next
+
+
+
 
         Return sum
     End Function

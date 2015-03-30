@@ -99,18 +99,14 @@ Module ANN
 
     Sub initialiseRandomWeights(currentLayer As Integer, currentNeuron As Integer, numWeights As Integer)
         Dim filepath As String = "C:\data\weights_L" & currentLayer & "N" & currentNeuron & ".csv"
-        Dim fs As FileStream = File.Create(filepath)
 
         Dim str As String = Nothing
-
         For i = 1 To numWeights
             str &= "0.5,"
         Next
         str = Strings.Left(str, Strings.Len(str) - 1)
 
-        Dim info As Byte() = New UTF8Encoding(True).GetBytes(str)
-        fs.Write(info, 0, info.Length)
-        fs.Close()
+        csvCreate(filepath, str)
     End Sub
 
     Sub neuronCalcAll()
@@ -171,6 +167,17 @@ Module ANN
                 sum(currentNeuron) += inputs(i) * weights(i)
             Next
         Next
+
+        'calcute the function value using an activation function
+        Dim str As String = Nothing
+        For i = 0 To numNeuronsInLayer - 1
+            str &= neuronActivationFunction(sum(i)) & ","
+        Next
+        str = Strings.Left(str, Strings.Len(str) - 1)
+
+        Dim filePath As String
+        filePath = "C:\data\functionValues_L" & layerToSum & ".csv"
+        csvCreate(filePath, str)
     End Sub
 
     Function neuronActivationFunction(x As Double, Optional functionType As String = "sigmoid") As Double
@@ -208,4 +215,11 @@ Module ANN
 
         Return F
     End Function
+
+    Sub csvCreate(filePath As String, contents As String)
+        Dim fs As FileStream = File.Create(filePath)
+        Dim info As Byte() = New UTF8Encoding(True).GetBytes(contents)
+        fs.Write(info, 0, info.Length)
+        fs.Close()
+    End Sub
 End Module

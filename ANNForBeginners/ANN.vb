@@ -140,8 +140,8 @@ Module ANN
         For currentNeuron = 0 To numNeuronsInLayer - 1
             Dim weights(numNeuronsInPrevLayer - 1) As Double
 
-            Dim filepath As String = "C:\data\weights_L" & layerToSum & "N" & currentNeuron & ".csv"
-            Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(filepath)
+            Dim filePathWeights As String = "C:\data\weights_L" & layerToSum & "N" & currentNeuron & ".csv"
+            Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(filePathWeights)
                 MyReader.TextFieldType = FileIO.FieldType.Delimited
                 MyReader.SetDelimiters(",")
 

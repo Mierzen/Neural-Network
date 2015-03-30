@@ -191,7 +191,7 @@ Module ANN
             Case "sigmoidshouldered"
                 functionValue = activationFunction_SigmoidShouldered(x)
             Case "tanh"
-                functionValue = activationFunction_tanh(x)
+                functionValue = Math.Tanh(x)
             Case Else
                 MsgBox("Select a valid activation function type")
                 Return 0
@@ -216,10 +216,6 @@ Module ANN
         End If
 
         Return F
-    End Function
-
-    Function activationFunction_tanh(x As Double) As Double
-        Return (Math.Exp(2 * x) - 1) / (Math.Exp(2 * x) + 1)
     End Function
 
     Sub csvCreate(filePath As String, contents As String)

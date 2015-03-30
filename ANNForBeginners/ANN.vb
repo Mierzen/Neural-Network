@@ -102,7 +102,7 @@ Module ANN
 
         Dim str As String = Nothing
         For i = 1 To numWeights
-            str &= "0.5,"
+            str &= random() & ","
         Next
         str = Strings.Left(str, Strings.Len(str) - 1)
 
@@ -224,4 +224,23 @@ Module ANN
         fs.Write(info, 0, info.Length)
         fs.Close()
     End Sub
+
+    Function random() As Double
+        Dim upperbound1 As Integer = -1
+        Dim lowerbound1 As Integer = 4
+        Dim upperbound2 As Integer = -7
+        Dim lowerbound2 As Integer = 3
+
+        Dim randomVal1 As Integer = 0
+        Dim randomVal2 As Integer = 0
+
+        Do Until randomVal1 <> 0
+            randomVal1 = CInt(Math.Floor((upperbound1 - lowerbound1 + 1) * Rnd())) + lowerbound1
+        Loop
+        Do Until randomVal2 <> 0
+            randomVal2 = CInt(Math.Floor((upperbound2 - lowerbound2 + 1) * Rnd())) + lowerbound2
+        Loop
+
+        Return randomVal1 / randomVal2
+    End Function
 End Module

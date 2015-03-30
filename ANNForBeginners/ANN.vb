@@ -86,13 +86,13 @@ Module ANN
     Sub initialiseWeightsAllRandom()
         'hidden layer weights
         For currentLayer = 1 To numHiddenLayers
-            For currentNeuron = 1 To numNodesInLayer(numHiddenLayers - 1)
+            For currentNeuron = 0 To numNodesInLayer(currentLayer) - 1
                 initialiseRandomWeights(currentLayer, currentNeuron, numNodesInLayer(currentLayer - 1))
             Next
         Next
 
         'output layer weights
-        For currentNeuron = 1 To numNodesInLayer(numHiddenLayers + 1)
+        For currentNeuron = 0 To numNodesInLayer(numHiddenLayers + 1) - 1
             initialiseRandomWeights(numHiddenLayers + 1, currentNeuron, numNodesInLayer(numHiddenLayers))
         Next
     End Sub

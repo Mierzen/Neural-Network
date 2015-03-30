@@ -258,11 +258,11 @@ Module ANN
         Return F
     End Function
 
-    Sub calcE(Optional type As String = "MSE")
+    Sub calcE(Optional type As String = "mse")
         type = Strings.LCase(type)
 
         Select Case type
-            Case "mse" Or "rmse"
+            Case "mse", "rmse"
                 Dim sumSquared As Double = 0
                 Dim tempE As Double = 0
 
@@ -276,6 +276,13 @@ Module ANN
                 ElseIf type = "rmse" Then
                     E = Math.Sqrt(tempE)
                 End If
+            Case "arctan", "atan"
+                Dim sumSquaredAtan As Double = 0
+
+                For i = 0 To 3
+                    sumSquaredAtan += Math.Atan(expectedOutputs(i) - actualOutputs(i)) ^ 2
+                Next
+                E = sumSquaredAtan / numOutputs
         End Select
     End Sub
 

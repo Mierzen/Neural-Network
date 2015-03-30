@@ -8,6 +8,9 @@ Module ANN
     Public numNodesInLayer() As Integer 'index = layer number: 0 = input layer, last = last hidden layer.  value = number of neurons in layer
     Public numOutputs As Integer
     Public layerSums() As Double
+    Public expectedOutputs() As Double
+    Public actualOutputs() As Double
+    Public E As Double 'error (e.g. MSE, RMSE)
 
     Public Sub loadData()
         Dim lineLength As Integer
@@ -68,6 +71,32 @@ Module ANN
             numNodesInLayer(i) = Form1.DataGridView1.Rows(i - 1).Cells(1).FormattedValue
         Next
         numNodesInLayer(numHiddenLayers + 1) = numOutputs
+
+        If Form1.chk_learningMode.Checked Then
+            Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(Form1.tb_output.Text)
+                MyReader.TextFieldType = FileIO.FieldType.Delimited
+                MyReader.SetDelimiters(",")
+
+                Dim i As Integer = 0
+                Dim currentRow As String()
+                While Not MyReader.EndOfData
+                    Try
+                        currentRow = MyReader.ReadFields()
+
+                        Dim currentField As String
+                        Dim j As Integer = 0
+                        For Each currentField In currentRow
+                            expectedOutputs(j) = currentField
+                            j += 1
+                        Next
+
+                        i += 1
+                    Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
+                        MsgBox("Line " & ex.Message & "is not valid and will be skipped.")
+                    End Try
+                End While
+            End Using
+        End If
     End Sub
 
     Public Sub ANN_Start()
@@ -76,11 +105,16 @@ Module ANN
         numOutputs = Form1.tb_numOutputs.Text
         ReDim layerSums(0 To numHiddenLayers + 1)
 
+        ReDim expectedOutputs(numOutputs - 1)
+        ReDim actualOutputs(numOutputs - 1)
+
         loadData()
         initialiseWeightsAllRandom()
 
         neuronCalcAll()
         'normaliseData()
+
+        calcE("MSE")
     End Sub
 
     Sub initialiseWeightsAllRandom()
@@ -171,7 +205,13 @@ Module ANN
         'calcute the function value using an activation function
         Dim str As String = Nothing
         For i = 0 To numNeuronsInLayer - 1
-            str &= neuronActivationFunction(sum(i)) & ","
+            Dim functionValue As Double = neuronActivationFunction(sum(i))
+
+            str &= functionValue & ","
+
+            If layerToSum = numHiddenLayers + 1 Then
+                actualOutputs(i) = functionValue
+            End If
         Next
         str = Strings.Left(str, Strings.Len(str) - 1)
 
@@ -217,6 +257,27 @@ Module ANN
 
         Return F
     End Function
+
+    Sub calcE(Optional type As String = "MSE")
+        type = Strings.LCase(type)
+
+        Select Case type
+            Case "mse" Or "rmse"
+                Dim sumSquared As Double = 0
+                Dim tempE As Double = 0
+
+                For i = 0 To 3
+                    sumSquared += (expectedOutputs(i) - actualOutputs(i)) ^ 2
+                Next
+                tempE = sumSquared / numOutputs
+
+                If type = "mse" Then
+                    E = tempE
+                ElseIf type = "rmse" Then
+                    E = Math.Sqrt(tempE)
+                End If
+        End Select
+    End Sub
 
     Sub csvCreate(filePath As String, contents As String)
         Dim fs As FileStream = File.Create(filePath)

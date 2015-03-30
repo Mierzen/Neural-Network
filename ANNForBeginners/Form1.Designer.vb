@@ -33,6 +33,9 @@ Partial Class Form1
         Me.btn_addRow = New System.Windows.Forms.Button()
         Me.tb_numOutputs = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.tb_output = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.chk_learningMode = New System.Windows.Forms.CheckBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -131,11 +134,43 @@ Partial Class Form1
         Me.Label2.TabIndex = 10
         Me.Label2.Text = "Number of outputs"
         '
+        'tb_output
+        '
+        Me.tb_output.Location = New System.Drawing.Point(148, 312)
+        Me.tb_output.Name = "tb_output"
+        Me.tb_output.Size = New System.Drawing.Size(255, 20)
+        Me.tb_output.TabIndex = 13
+        Me.tb_output.Text = "C:\Users\Stephan Taljaard\Desktop\output.csv"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(52, 315)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(90, 13)
+        Me.Label3.TabIndex = 12
+        Me.Label3.Text = "Expected outputs"
+        '
+        'chk_learningMode
+        '
+        Me.chk_learningMode.AutoSize = True
+        Me.chk_learningMode.Checked = True
+        Me.chk_learningMode.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.chk_learningMode.Location = New System.Drawing.Point(39, 295)
+        Me.chk_learningMode.Name = "chk_learningMode"
+        Me.chk_learningMode.Size = New System.Drawing.Size(96, 17)
+        Me.chk_learningMode.TabIndex = 14
+        Me.chk_learningMode.Text = "Learning mode"
+        Me.chk_learningMode.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(653, 378)
+        Me.Controls.Add(Me.chk_learningMode)
+        Me.Controls.Add(Me.tb_output)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.tb_numOutputs)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btn_addRow)
@@ -163,5 +198,8 @@ Partial Class Form1
     Friend WithEvents btn_addRow As System.Windows.Forms.Button
     Friend WithEvents tb_numOutputs As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents tb_output As System.Windows.Forms.TextBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents chk_learningMode As System.Windows.Forms.CheckBox
 
 End Class

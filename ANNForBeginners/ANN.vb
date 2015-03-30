@@ -168,21 +168,29 @@ Module ANN
         Next
     End Sub
 
-    Function neuronActivationFunction(functionType As String, x As Double) As Double
+    Function neuronActivationFunction(x As Double, Optional functionType As String = "sigmoid") As Double
         functionType = Strings.LCase(functionType)
+
+        Dim functionValue As Double
 
         Select Case functionType
             Case "sigmoid"
-                activationFunction_Sigmoid(x)
+                functionValue = activationFunction_Sigmoid(x)
+            Case "sigmoidshouldered"
+                functionValue = activationFunction_SigmoidShouldered(x)
             Case Else
                 MsgBox("Select a valid activation function type")
                 Return 0
         End Select
 
-        Return 0
+        Return functionValue
     End Function
 
     Function activationFunction_Sigmoid(x As Double) As Double
+        Return (1 / (1 + Math.Exp(-x)))
+    End Function
+
+    Function activationFunction_SigmoidShouldered(x As Double) As Double
         Dim F As Double
         F = (1 / (1 + Math.Exp(-x)))
 

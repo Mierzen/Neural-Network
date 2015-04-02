@@ -1,6 +1,7 @@
 ﻿Imports System
 Imports System.IO
 Imports System.Text
+Imports ANNForBeginners.Activation
 
 Module ANN
     Public inputData(,) As Double
@@ -205,7 +206,7 @@ Module ANN
         'calcute the function value using an activation function
         Dim str As String = Nothing
         For i = 0 To numNeuronsInLayer - 1
-            Dim functionValue As Double = neuronActivationFunction(sum(i))
+            Dim functionValue As Double = ActivationFunctions.Evaluate(ActivationFunction.Sigmoid, sum(i))
 
             str &= functionValue & ","
 
@@ -219,44 +220,6 @@ Module ANN
         filePath = "C:\data\functionValues_L" & layerToSum & ".csv"
         csvCreate(filePath, str)
     End Sub
-
-    Function neuronActivationFunction(x As Double, Optional functionType As String = "sigmoid") As Double
-        functionType = Strings.LCase(functionType)
-
-        Dim functionValue As Double
-
-        Select Case functionType
-            Case "sigmoid"
-                functionValue = activationFunction_Sigmoid(x)
-            Case "sigmoidshouldered"
-                functionValue = activationFunction_SigmoidShouldered(x)
-            Case "tanh"
-                functionValue = Math.Tanh(x)
-            Case Else
-                MsgBox("Select a valid activation function type")
-                Return 0
-        End Select
-
-        Return functionValue
-    End Function
-
-    Function activationFunction_Sigmoid(x As Double) As Double
-        Return (1 / (1 + Math.Exp(-x)))
-    End Function
-
-    Function activationFunction_SigmoidShouldered(x As Double) As Double
-        Dim F As Double
-        F = (1 / (1 + Math.Exp(-x)))
-
-        'https://takinginitiative.wordpress.com/2008/04/03/basic-neural-network-tutorial-theory/
-        If F < 0.1 Then
-            F = 0
-        ElseIf F > 0.9 Then
-            F = 0.9
-        End If
-
-        Return F
-    End Function
 
     Sub calcE(Optional type As String = "mse")
         type = Strings.LCase(type)

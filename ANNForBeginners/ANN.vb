@@ -12,6 +12,7 @@ Module ANN
     Public expectedOutputs() As Double
     Public actualOutputs() As Double
     Public E As Double 'error (e.g. MSE, RMSE)
+    Public deltak() As Double
 
     Public Sub loadData()
         Dim lineLength As Integer
@@ -105,6 +106,7 @@ Module ANN
         ReDim numNodesInLayer(0 To numHiddenLayers + 1)
         numOutputs = Form1.tb_numOutputs.Text
         ReDim layerSums(0 To numHiddenLayers + 1)
+        ReDim deltak(0 To numOutputs - 1)
 
         ReDim expectedOutputs(numOutputs - 1)
         ReDim actualOutputs(numOutputs - 1)
@@ -116,6 +118,7 @@ Module ANN
         'normaliseData()
 
         calcE("MSE")
+        calcDeltas()
     End Sub
 
     Sub initialiseWeightsAllRandom()
@@ -229,7 +232,7 @@ Module ANN
                 Dim sumSquared As Double = 0
                 Dim tempE As Double = 0
 
-                For i = 0 To 3
+                For i = 0 To numOutputs - 1
                     sumSquared += (expectedOutputs(i) - actualOutputs(i)) ^ 2
                 Next
                 tempE = sumSquared / numOutputs
@@ -242,11 +245,17 @@ Module ANN
             Case "arctan", "atan"
                 Dim sumSquaredAtan As Double = 0
 
-                For i = 0 To 3
+                For i = 0 To numOutputs - 1
                     sumSquaredAtan += Math.Atan(expectedOutputs(i) - actualOutputs(i)) ^ 2
                 Next
                 E = sumSquaredAtan / numOutputs
         End Select
+    End Sub
+
+    Sub calcDeltas()
+        For i = 0 To numOutputs - 1 'for each output neuron
+            deltak(i) = (actualOutputs(i) - expectedOutputs(i)) * ActivationFunctions.EvaluateDerivative(ActivationFunction.Sigmoid, 0.5)
+        Next
     End Sub
 
     Sub csvCreate(filePath As String, contents As String)

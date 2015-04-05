@@ -6,6 +6,8 @@ Imports ANNForBeginners.BackpropagationNetwork
 
 Module ANN
     Public inputData(,) As Double
+    Public numInputs As Integer
+    Public numInputLines As Integer
     Public numHiddenLayers As Integer
     Public numNodesInLayer() As Integer 'index = layer number: 0 = input layer, last = last hidden layer.  value = number of neurons in layer
     Public numOutputs As Integer
@@ -18,30 +20,6 @@ Module ANN
     Public Sub loadTrainingData()
         Dim lineLength As Integer
         Dim lineCount As Integer
-
-        'first check if each line of the csv is the same lenght (same number of inputs)
-        Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(Form1.tb_input.Text)
-            MyReader.TextFieldType = FileIO.FieldType.Delimited
-            MyReader.SetDelimiters(",")
-
-            lineLength = MyReader.ReadFields().Length
-            lineCount = 1
-
-            While Not MyReader.EndOfData
-                Try
-                    If lineLength <> MyReader.ReadFields().Length Then
-                        MsgBox("All lines in the csv file are not the same lenght." & vbNewLine & "Please fix the line(s).")
-                        Exit Sub
-                    Else
-                        lineCount += 1
-                    End If
-                Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
-                    MsgBox("Line " & ex.Message & "is not valid and will be skipped.")
-                End Try
-            End While
-        End Using
-
-
 
         'Read the input data into memory
         Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(Form1.tb_input.Text)
@@ -113,6 +91,9 @@ Module ANN
 
         ReDim expectedOutputs(numOutputs - 1)
         ReDim actualOutputs(numOutputs - 1)
+
+        'TODO: validate input and output csv's
+        'TODO: after that, create the network
 
         loadTrainingData()
         initialiseWeightsAllRandom()
@@ -262,6 +243,45 @@ Module ANN
         For i = 0 To numOutputs - 1 'for each output neuron
             deltak(i) = (actualOutputs(i) - expectedOutputs(i)) * ActivationFunctions.EvaluateDerivative(ActivationFunction.Sigmoid, 0.5)
         Next
+    End Sub
+
+    Private Sub validateCSV(csvType As String)
+        csvType = Strings.LCase(csvType)
+
+        If Not (csvType = "input") OrElse Not (csvType = "output") Then
+            Throw New ArgumentException("Please specify ONLY ""input"" or ""output"".", csvType)
+        End If
+
+        Dim numParameters As Integer
+        Dim numLines As integer
+
+        'check if each line of the INPUT.csv is the same lenght (same number of inputs)
+        'also gets the number of inputs per line and number of lines
+        Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(Form1.tb_input.Text)
+            MyReader.TextFieldType = FileIO.FieldType.Delimited
+            MyReader.SetDelimiters(",")
+
+            numParameters = MyReader.ReadFields().Length
+            numLines = 1
+
+            While Not MyReader.EndOfData
+                Try
+                    If numParameters <> MyReader.ReadFields().Length Then
+                        MsgBox("All lines in the csv file are not the same lenght." & vbNewLine & "Please fix the line(s).")
+                        Exit Sub
+                    Else
+                        numLines += 1
+                    End If
+                Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
+                    MsgBox("Line " & ex.Message & "is not valid and will be skipped.")
+                End Try
+            End While
+        End Using
+
+        If csvType = "input" Then
+            numInputs = numParameters
+            numInputLines = numLines
+        End If
     End Sub
 
     Sub csvCreate(filePath As String, contents As String)

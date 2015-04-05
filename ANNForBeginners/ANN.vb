@@ -13,6 +13,7 @@ Module ANN
     Public numNodesInLayer() As Integer 'index = layer number: 0 = input layer, last = last hidden layer.  value = number of neurons in layer
     Public numOutputs As Integer
     Public layerSums() As Double
+    Public expectedOutputsPerLine As Integer
     Public expectedOutputs() As Double
     Public actualOutputs() As Double
     Public E As Double 'error (e.g. MSE, RMSE)
@@ -31,6 +32,11 @@ Module ANN
         validateCSV("input")
         If Form1.chk_learningMode.Checked Then
             validateCSV("output")
+        End If
+
+        If expectedOutputsPerLine <> numOutputs Then
+            MsgBox("The number of outputs as set up in the network do not agree with the number of outputs in the training data.")
+            Exit Sub
         End If
 
         Dim network As New BackpropagationNetwork
@@ -238,6 +244,8 @@ Module ANN
         If csvType = "input" Then
             numInputs = numParameters
             numInputLines = numLines
+        Else
+            expectedOutputsPerLine = numParameters
         End If
     End Sub
 

@@ -111,7 +111,7 @@ Module ANN
         initialiseWeightsAllRandom()
 
         neuronCalcAll()
-        'normaliseData()
+        'TODO: normaliseData()
 
         calcE("MSE")
         calcDeltas()

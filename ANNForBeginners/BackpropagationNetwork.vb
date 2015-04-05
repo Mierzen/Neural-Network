@@ -49,23 +49,26 @@ Public Class Layer
     Private network_ As BackpropagationNetwork
     Private _weights As Double()
     Private _outputs As Double()
+    Private _activationFunction As ActivationFunction
+    Private _layerType As ILayer.LayerType_
+    Private _neuronCount As Integer
 
 #Region "Properties"
     Public Overridable ReadOnly Property ActivationFunction As ActivationFunction Implements ILayer.ActivationFunction
         Get
-            Return ActivationFunction
+            Return _activationFunction
         End Get
     End Property
 
     Public ReadOnly Property LayerType As ILayer.LayerType_ Implements ILayer.LayerType
         Get
-            Return LayerType
+            Return _layerType
         End Get
     End Property
 
     Public Overridable ReadOnly Property NeuronCount As Integer Implements ILayer.NeuronCount
         Get
-            Return NeuronCount
+            Return _neuronCount
         End Get
     End Property
 
@@ -93,6 +96,11 @@ Public Class Layer
 #End Region
 
     Public Sub New(NeuronCount As Integer, activationFunction As ActivationFunction, Optional LayerType As ILayer.LayerType_ = ILayer.LayerType_.Hidden)
+
+        _neuronCount = NeuronCount
+        _activationFunction = activationFunction
+        _layerType = LayerType
+
         'set weights = 1 if input layer (it has no weight and activation function), and to random if other type
         'NOTE:  These are the weights going from THIS layer to the next, so they will only be used in the next layers' calculation
         ReDim _weights(0 To NeuronCount - 1)

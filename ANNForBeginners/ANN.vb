@@ -96,13 +96,12 @@ Module ANN
         If Form1.chk_learningMode.Checked Then
             validateCSV("output")
         End If
-        'TODO: after that, create the network
+
+        Dim network As New BackpropagationNetwork
+        network.AddLayer(New Layer(numInputs, ActivationFunction.Linear, ILayer.LayerType_.Input))
 
         loadTrainingData()
         initialiseWeightsAllRandom()
-
-        Dim network As New BackpropagationNetwork
-        network.AddLayer(New Layer(inputData.GetLength(1), ActivationFunction.Linear, ILayer.LayerType_.Input))
 
         neuronCalcAll()
         'normaliseData()

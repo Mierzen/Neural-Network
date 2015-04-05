@@ -52,7 +52,7 @@ Module ANN
 
         'TODO: add training mode and calculation mode ↴
         'load training data into memory
-        loadTrainingData()
+        loadTrainingData() 'TODO: Split data into training, validation and testing sets
 
         neuronCalcAll()
         'TODO: normaliseData()

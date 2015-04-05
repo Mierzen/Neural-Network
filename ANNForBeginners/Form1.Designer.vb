@@ -28,14 +28,15 @@ Partial Class Form1
         Me.tb_input = New System.Windows.Forms.TextBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.HiddenLayerNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.HiddenLayerNeuronCount = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btn_addRow = New System.Windows.Forms.Button()
         Me.tb_numOutputs = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.tb_output = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.chk_learningMode = New System.Windows.Forms.CheckBox()
+        Me.HiddenLayerNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HiddenLayerNeuronCount = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HiddenLayerActivationFunction = New System.Windows.Forms.DataGridViewComboBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -88,25 +89,13 @@ Partial Class Form1
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
         Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.HiddenLayerNumber, Me.HiddenLayerNeuronCount})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.HiddenLayerNumber, Me.HiddenLayerNeuronCount, Me.HiddenLayerActivationFunction})
         Me.DataGridView1.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.DataGridView1.Location = New System.Drawing.Point(27, 82)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.Size = New System.Drawing.Size(332, 150)
         Me.DataGridView1.TabIndex = 8
-        '
-        'HiddenLayerNumber
-        '
-        Me.HiddenLayerNumber.HeaderText = "Hidden Layer number"
-        Me.HiddenLayerNumber.Name = "HiddenLayerNumber"
-        Me.HiddenLayerNumber.Width = 122
-        '
-        'HiddenLayerNeuronCount
-        '
-        Me.HiddenLayerNeuronCount.HeaderText = "Number of hidden neurons"
-        Me.HiddenLayerNeuronCount.Name = "HiddenLayerNeuronCount"
-        Me.HiddenLayerNeuronCount.Width = 109
         '
         'btn_addRow
         '
@@ -163,6 +152,25 @@ Partial Class Form1
         Me.chk_learningMode.Text = "Learning mode"
         Me.chk_learningMode.UseVisualStyleBackColor = True
         '
+        'HiddenLayerNumber
+        '
+        Me.HiddenLayerNumber.HeaderText = "Hidden Layer number"
+        Me.HiddenLayerNumber.Name = "HiddenLayerNumber"
+        Me.HiddenLayerNumber.Width = 122
+        '
+        'HiddenLayerNeuronCount
+        '
+        Me.HiddenLayerNeuronCount.HeaderText = "Number of hidden neurons"
+        Me.HiddenLayerNeuronCount.Name = "HiddenLayerNeuronCount"
+        Me.HiddenLayerNeuronCount.Width = 109
+        '
+        'HiddenLayerActivationFunction
+        '
+        Me.HiddenLayerActivationFunction.HeaderText = "Activation Function"
+        Me.HiddenLayerActivationFunction.Items.AddRange(New Object() {"item 1", "item 2"})
+        Me.HiddenLayerActivationFunction.Name = "HiddenLayerActivationFunction"
+        Me.HiddenLayerActivationFunction.Width = 94
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -193,13 +201,14 @@ Partial Class Form1
     Friend WithEvents tb_input As System.Windows.Forms.TextBox
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents HiddenLayerNumber As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents HiddenLayerNeuronCount As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents btn_addRow As System.Windows.Forms.Button
     Friend WithEvents tb_numOutputs As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents tb_output As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents chk_learningMode As System.Windows.Forms.CheckBox
+    Friend WithEvents HiddenLayerNumber As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents HiddenLayerNeuronCount As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents HiddenLayerActivationFunction As System.Windows.Forms.DataGridViewComboBoxColumn
 
 End Class

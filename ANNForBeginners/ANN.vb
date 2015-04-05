@@ -99,6 +99,12 @@ Module ANN
 
         Dim network As New BackpropagationNetwork
         network.AddLayer(New Layer(numInputs, ActivationFunction.Linear, ILayer.LayerType_.Input))
+        For Each row As DataGridViewRow In Form1.DataGridView1.Rows
+            If Not row.IsNewRow Then
+                network.AddLayer(New Layer(row.Cells("HiddenLayerNeuronCount").Value, row.Cells("HiddenLayerActivationFunction").Value, ILayer.LayerType_.Hidden))
+            End If
+        Next
+
 
         loadTrainingData()
         initialiseWeightsAllRandom()

@@ -35,13 +35,14 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Application.UseWaitCursor() = True
 
+        'TODO: remove this->
         Dim inputs() As Double = {1, 0.25, -0.5}
         Dim weights() As Double = {0.5, 0.5, 0.5}
 
         Me.Select()
 
         Dim dataIsValid As Boolean = True
-
+        'TODO: check if each rows' AF has been selected chosen
         If DataGridView1.Rows.Count() = 0 Then
             dataIsValid = False
         Else
@@ -81,6 +82,9 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DataGridView1.Columns(0).ReadOnly = True
+
+        Dim activationFunctionColumn As DataGridViewComboBoxColumn = DataGridView1.Columns("HiddenLayerActivationFunction")
+        activationFunctionColumn.DataSource = ([Enum].GetValues(GetType(ANNForBeginners.Activation.ActivationFunction)))
     End Sub
 
     Private Sub btn_addRow_Click(sender As Object, e As EventArgs) Handles btn_addRow.Click

@@ -92,7 +92,10 @@ Module ANN
         ReDim expectedOutputs(numOutputs - 1)
         ReDim actualOutputs(numOutputs - 1)
 
-        'TODO: validate input and output csv's
+        validateCSV("input")
+        If Form1.chk_learningMode.Checked Then
+            validateCSV("output")
+        End If
         'TODO: after that, create the network
 
         loadTrainingData()
@@ -252,12 +255,18 @@ Module ANN
             Throw New ArgumentException("Please specify ONLY ""input"" or ""output"".", csvType)
         End If
 
+        Dim csvPath As String
+        If csvType = "input" Then
+            csvPath = Form1.tb_input.Text
+        Else 'output
+            csvPath = Form1.tb_output.Text
+        End If
+
         Dim numParameters As Integer
         Dim numLines As integer
 
-        'check if each line of the INPUT.csv is the same lenght (same number of inputs)
-        'also gets the number of inputs per line and number of lines
-        Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(Form1.tb_input.Text)
+        'check if each line of the csv is the same lenght (same number of parameters)
+        Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(csvPath)
             MyReader.TextFieldType = FileIO.FieldType.Delimited
             MyReader.SetDelimiters(",")
 
@@ -278,6 +287,7 @@ Module ANN
             End While
         End Using
 
+        'save the number of inputs per line and number of lines (NUMBER OF INPUTS)
         If csvType = "input" Then
             numInputs = numParameters
             numInputLines = numLines

@@ -29,7 +29,7 @@ Module ANN
         ReDim expectedOutputs(numOutputs - 1)
         ReDim actualOutputs(numOutputs - 1)
 
-        validateCSV("input")
+        validateCSV("input") 'TODO: just check this again after everything is done
         If Form1.chk_learningMode.Checked Then
             validateCSV("output")
         End If

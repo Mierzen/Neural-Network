@@ -2,6 +2,7 @@
 Imports System.IO
 Imports System.Text
 Imports ANNForBeginners.Activation
+Imports ANNForBeginners.BackpropagationNetwork
 
 Module ANN
     Public inputData(,) As Double
@@ -115,6 +116,9 @@ Module ANN
 
         loadTrainingData()
         initialiseWeightsAllRandom()
+
+        Dim network As New BackpropagationNetwork
+        network.AddLayer(New Layer(inputData.GetLength(1), ActivationFunction.Linear, ILayer.LayerType_.Input))
 
         neuronCalcAll()
         'normaliseData()

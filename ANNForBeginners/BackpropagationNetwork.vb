@@ -165,4 +165,8 @@ Public Class BackpropagationNetwork
     Public Function Layer(index As Integer) As ILayer
         Return networkStructure_.Layers(index)
     End Function
+
+    Public Function Layers() As List(Of ILayer)
+        Return networkStructure_.Layers()
+    End Function
 End Class

@@ -136,7 +136,7 @@ Module ANN
 
         Dim str As String = Nothing
         For i = 1 To numWeights
-            str &= random() & ","
+            str &= random() & "," 'Todo: Move "random" to new util class
         Next
         str = Strings.Left(str, Strings.Len(str) - 1)
 

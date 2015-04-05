@@ -38,12 +38,17 @@ Public Interface ILayer
     ''' <returns></returns>
     ''' <remarks></remarks>
     Property Network As BackpropagationNetwork
+
+    ReadOnly Property Weights As Double()
+    ReadOnly Property Outputs As Double()
 End Interface
 
 Public Class Layer
     Implements ILayer
 
     Private network_ As BackpropagationNetwork
+    Private _weights As Double()
+    Private _outputs As Double()
 
 #Region "Properties"
     Public Overridable ReadOnly Property ActivationFunction As ActivationFunction Implements ILayer.ActivationFunction
@@ -72,9 +77,36 @@ Public Class Layer
             _network = value
         End Set
     End Property
+
+    Public ReadOnly Property Weights As Double() Implements ILayer.Weights
+        Get
+            Return _weights
+        End Get
+    End Property
+
+    Public Overridable ReadOnly Property Outputs As Double() Implements ILayer.Outputs
+        Get
+            Return _outputs
+        End Get
+    End Property
+
 #End Region
 
     Public Sub New(NeuronCount As Integer, activationFunction As ActivationFunction, Optional LayerType As ILayer.LayerType_ = ILayer.LayerType_.Hidden)
+        'set weights = 1 if input layer (it has no weight and activation function), and to random if other type
+        'NOTE:  These are the weights going from THIS layer to the next, so they will only be used in the next layers' calculation
+        ReDim _weights(0 To NeuronCount - 1)
+
+        For i = 0 To NeuronCount - 1
+            If LayerType = ILayer.LayerType_.Input Then
+                _weights(i) = 1
+            Else
+                _weights(i) = ANN.random()
+            End If
+        Next
+
+        'dimensionalize outputs
+        ReDim _outputs(0 To NeuronCount - 1)
 
         'MyBase.new
     End Sub

@@ -101,7 +101,8 @@ Module ANN
         network.AddLayer(New Layer(numInputs, ActivationFunction.Linear, ILayer.LayerType_.Input))
         For Each row As DataGridViewRow In Form1.DataGridView1.Rows
             If Not row.IsNewRow Then
-                network.AddLayer(New Layer(row.Cells("HiddenLayerNeuronCount").Value, row.Cells("HiddenLayerActivationFunction").Value, ILayer.LayerType_.Hidden))
+                network.AddLayer(New Layer(CInt(row.Cells("HiddenLayerNeuronCount").Value), _
+                                           [Enum].Parse(GetType(ActivationFunction), row.Cells("HiddenLayerActivationFunction").Value), ILayer.LayerType_.Hidden))
             End If
         Next
         network.AddLayer(New Layer(numOutputs, ActivationFunction.Linear, ILayer.LayerType_.Output))
@@ -257,8 +258,10 @@ Module ANN
     Private Sub validateCSV(csvType As String)
         csvType = Strings.LCase(csvType)
 
-        If Not (csvType = "input") OrElse Not (csvType = "output") Then
-            Throw New ArgumentException("Please specify ONLY ""input"" or ""output"".", csvType)
+        If csvType <> "input" Then
+            If csvType <> "output" Then
+                Throw New ArgumentException("Please specify ONLY ""input"" or ""output"".", csvType)
+            End If
         End If
 
         Dim csvPath As String
@@ -269,7 +272,7 @@ Module ANN
         End If
 
         Dim numParameters As Integer
-        Dim numLines As integer
+        Dim numLines As Integer
 
         'check if each line of the csv is the same lenght (same number of parameters)
         Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(csvPath)

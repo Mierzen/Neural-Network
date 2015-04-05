@@ -3,6 +3,7 @@ Imports System.IO
 Imports System.Text
 Imports ANNForBeginners.Activation
 Imports ANNForBeginners.BackpropagationNetwork
+Imports ANNForBeginners.NetworkTraining
 
 Module ANN
     Public inputData(,) As Double
@@ -16,71 +17,6 @@ Module ANN
     Public actualOutputs() As Double
     Public E As Double 'error (e.g. MSE, RMSE)
     Public deltak() As Double
-
-    Public Sub loadTrainingData()
-        Dim lineLength As Integer
-        Dim lineCount As Integer
-
-        'Read the input data into memory
-        Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(Form1.tb_input.Text)
-            MyReader.TextFieldType = FileIO.FieldType.Delimited
-            MyReader.SetDelimiters(",")
-
-            'Dim inputData(lineLength, lineCount) As Double
-            ReDim inputData(lineCount - 1, lineLength - 1)
-            Dim i As Integer = 0
-            Dim currentRow As String()
-            While Not MyReader.EndOfData
-                Try
-                    currentRow = MyReader.ReadFields()
-
-                    Dim currentField As String
-                    Dim tempRow(3) As Double
-                    Dim j As Integer = 0
-                    For Each currentField In currentRow
-                        inputData(i, j) = currentField
-                        j += 1
-                    Next
-
-                    i += 1
-                Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
-                    MsgBox("Line " & ex.Message & "is not valid and will be skipped.")
-                End Try
-            End While
-        End Using
-
-        numNodesInLayer(0) = lineLength
-        For i = 1 To Form1.DataGridView1.Rows.Count
-            numNodesInLayer(i) = Form1.DataGridView1.Rows(i - 1).Cells(1).FormattedValue
-        Next
-        numNodesInLayer(numHiddenLayers + 1) = numOutputs
-
-        If Form1.chk_learningMode.Checked Then
-            Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(Form1.tb_output.Text)
-                MyReader.TextFieldType = FileIO.FieldType.Delimited
-                MyReader.SetDelimiters(",")
-
-                Dim i As Integer = 0
-                Dim currentRow As String()
-                While Not MyReader.EndOfData
-                    Try
-                        currentRow = MyReader.ReadFields()
-
-                        Dim currentField As String
-                        Dim j As Integer = 0
-                        For Each currentField In currentRow
-                            expectedOutputs(j) = currentField
-                            j += 1
-                        Next
-
-                        i += 1
-                    Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
-                        MsgBox("Line " & ex.Message & "is not valid and will be skipped.")
-                    End Try
-                End While
-            End Using
-        End If
-    End Sub
 
     Public Sub ANN_Start()
         numHiddenLayers = Form1.DataGridView1.RowCount
@@ -108,6 +44,8 @@ Module ANN
         network.AddLayer(New Layer(numOutputs, ActivationFunction.Linear, ILayer.LayerType_.Output))
         'TODO: check if this^ is right
 
+        'TODO: add training mode and calculation mode ↴
+        'load training data into memory
         loadTrainingData()
         initialiseWeightsAllRandom()
 

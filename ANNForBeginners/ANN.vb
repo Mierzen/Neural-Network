@@ -313,7 +313,7 @@ Module ANN
     Function random() As Double
         Dim upperbound1 As Integer = -1
         Dim lowerbound1 As Integer = 4
-        Dim upperbound2 As Integer = -7
+        Dim upperbound2 As Integer = -2
         Dim lowerbound2 As Integer = 3
 
         Dim randomVal1 As Integer = 0

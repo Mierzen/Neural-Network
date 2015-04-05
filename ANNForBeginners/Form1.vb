@@ -84,7 +84,13 @@
         DataGridView1.Columns(0).ReadOnly = True
 
         Dim activationFunctionColumn As DataGridViewComboBoxColumn = DataGridView1.Columns("HiddenLayerActivationFunction")
-        activationFunctionColumn.DataSource = ([Enum].GetValues(GetType(ANNForBeginners.Activation.ActivationFunction)))
+
+        Dim items As Array
+        items = System.Enum.GetNames(GetType(ANNForBeginners.Activation.ActivationFunction))
+        Dim item As String
+        For Each item In items
+            activationFunctionColumn.Items.Add(item)
+        Next
     End Sub
 
     Private Sub btn_addRow_Click(sender As Object, e As EventArgs) Handles btn_addRow.Click

@@ -94,7 +94,7 @@ Partial Class Form1
         Me.DataGridView1.Location = New System.Drawing.Point(27, 82)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.Size = New System.Drawing.Size(332, 150)
+        Me.DataGridView1.Size = New System.Drawing.Size(523, 150)
         Me.DataGridView1.TabIndex = 8
         '
         'btn_addRow
@@ -167,7 +167,6 @@ Partial Class Form1
         'HiddenLayerActivationFunction
         '
         Me.HiddenLayerActivationFunction.HeaderText = "Activation Function"
-        Me.HiddenLayerActivationFunction.Items.AddRange(New Object() {"item 1", "item 2"})
         Me.HiddenLayerActivationFunction.Name = "HiddenLayerActivationFunction"
         Me.HiddenLayerActivationFunction.Width = 94
         '

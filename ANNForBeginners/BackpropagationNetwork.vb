@@ -162,4 +162,7 @@ Public Class BackpropagationNetwork
         networkStructure_.Layers.Add(layer)
     End Sub
 
+    Public Function Layer(index As Integer) As ILayer
+        Return networkStructure_.Layers(index)
+    End Function
 End Class

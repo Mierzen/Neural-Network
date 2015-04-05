@@ -53,39 +53,12 @@ Module ANN
         'TODO: add training mode and calculation mode ↴
         'load training data into memory
         loadTrainingData()
-        initialiseWeightsAllRandom()
 
         neuronCalcAll()
         'TODO: normaliseData()
 
         calcE("MSE")
         calcDeltas()
-    End Sub
-
-    Sub initialiseWeightsAllRandom()
-        'hidden layer weights
-        For currentLayer = 1 To numHiddenLayers
-            For currentNeuron = 0 To numNodesInLayer(currentLayer) - 1
-                initialiseRandomWeights(currentLayer, currentNeuron, numNodesInLayer(currentLayer - 1))
-            Next
-        Next
-
-        'output layer weights
-        For currentNeuron = 0 To numNodesInLayer(numHiddenLayers + 1) - 1
-            initialiseRandomWeights(numHiddenLayers + 1, currentNeuron, numNodesInLayer(numHiddenLayers))
-        Next
-    End Sub
-
-    Sub initialiseRandomWeights(currentLayer As Integer, currentNeuron As Integer, numWeights As Integer)
-        Dim filepath As String = "C:\data\weights_L" & currentLayer & "N" & currentNeuron & ".csv"
-
-        Dim str As String = Nothing
-        For i = 1 To numWeights
-            str &= random() & "," 'Todo: Move "random" to new util class
-        Next
-        str = Strings.Left(str, Strings.Len(str) - 1)
-
-        csvCreate(filepath, str)
     End Sub
 
     Sub neuronCalcAll()
@@ -256,7 +229,7 @@ Module ANN
         fs.Close()
     End Sub
 
-    Function random() As Double
+    Function random() As Double 'TODO: move to util class if needed
         Dim upperbound1 As Integer = -1
         Dim lowerbound1 As Integer = 4
         Dim upperbound2 As Integer = -2

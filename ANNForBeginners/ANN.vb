@@ -14,15 +14,15 @@ Module ANN
     Public E As Double 'error (e.g. MSE, RMSE)
     Public deltak() As Double
 
-    Public Sub loadData()
+    Public Sub loadTrainingData()
         Dim lineLength As Integer
         Dim lineCount As Integer
 
+        'first check if each line of the csv is the same lenght (same number of inputs)
         Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(Form1.tb_input.Text)
             MyReader.TextFieldType = FileIO.FieldType.Delimited
             MyReader.SetDelimiters(",")
 
-            'first check if each line of the csv is the same lenght
             lineLength = MyReader.ReadFields().Length
             lineCount = 1
 
@@ -40,7 +40,9 @@ Module ANN
             End While
         End Using
 
-        'Read the data into memory
+
+
+        'Read the input data into memory
         Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(Form1.tb_input.Text)
             MyReader.TextFieldType = FileIO.FieldType.Delimited
             MyReader.SetDelimiters(",")
@@ -111,7 +113,7 @@ Module ANN
         ReDim expectedOutputs(numOutputs - 1)
         ReDim actualOutputs(numOutputs - 1)
 
-        loadData()
+        loadTrainingData()
         initialiseWeightsAllRandom()
 
         neuronCalcAll()

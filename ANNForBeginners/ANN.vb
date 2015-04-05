@@ -104,7 +104,8 @@ Module ANN
                 network.AddLayer(New Layer(row.Cells("HiddenLayerNeuronCount").Value, row.Cells("HiddenLayerActivationFunction").Value, ILayer.LayerType_.Hidden))
             End If
         Next
-
+        network.AddLayer(New Layer(numOutputs, ActivationFunction.Linear, ILayer.LayerType_.Output))
+        'TODO: check if this^ is right
 
         loadTrainingData()
         initialiseWeightsAllRandom()

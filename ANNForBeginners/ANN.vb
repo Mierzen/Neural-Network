@@ -68,36 +68,7 @@ Module ANN
         NetworkOperation.networkCalculate(network)
         'TODO: normaliseData()
 
-        calcE("MSE")
         calcDeltas()
-    End Sub
-
-    Sub calcE(Optional type As String = "mse")
-        type = Strings.LCase(type)
-
-        Select Case type
-            Case "mse", "rmse"
-                Dim sumSquared As Double = 0
-                Dim tempE As Double = 0
-
-                For i = 0 To numOutputs - 1
-                    sumSquared += (expectedOutputs(i) - actualOutputs(i)) ^ 2
-                Next
-                tempE = sumSquared / numOutputs
-
-                If type = "mse" Then
-                    E = tempE
-                ElseIf type = "rmse" Then
-                    E = Math.Sqrt(tempE)
-                End If
-            Case "arctan", "atan"
-                Dim sumSquaredAtan As Double = 0
-
-                For i = 0 To numOutputs - 1
-                    sumSquaredAtan += Math.Atan(expectedOutputs(i) - actualOutputs(i)) ^ 2
-                Next
-                E = sumSquaredAtan / numOutputs
-        End Select
     End Sub
 
     Sub calcDeltas()

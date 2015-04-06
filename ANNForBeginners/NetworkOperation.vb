@@ -98,20 +98,26 @@ Module NetworkOperation
     End Sub
 
     Public Sub trainNetwork(ByRef network As BackpropagationNetwork)
+        Dim totalError As Double = 0
+
         For i = 0 To numInputLines - 1
             network.Layer(0).Outputs = Util.GetRow(i, inputData)
 
             networkCalculate(network)
 
-            calcE(network)
+            For j = 0 To network.LastLayer.NeuronCount - 1
+                Dim diff As Double
+                diff = expectedOutputs(i, j) - network.LastLayer.Outputs(j)
+
+                totalError += diff ^ 2
+            Next
         Next
+
+        totalError *= 0.5
     End Sub
 
     Private Sub calcE(network As BackpropagationNetwork) ', Optional type As String = "MSE")
-        For i = 0 To network.LastLayer.NeuronCount - 1
-            Dim diff As Double
-            diff = expectedOutputs(i) - network.LastLayer.Outputs(i)
-        Next
+
 
         'type = Strings.LCase(type)
 

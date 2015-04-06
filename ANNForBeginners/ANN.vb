@@ -11,9 +11,10 @@ Module ANN
     Public numHiddenLayers As Integer
     Public numNodesInLayer() As Integer 'index = layer number: 0 = input layer, last = last hidden layer.  value = number of neurons in layer
     Public numOutputs As Integer
+    Public numOutputLines As Integer
     Public layerSums() As Double
     Public expectedOutputsPerLine As Integer
-    Public expectedOutputs() As Double
+    Public expectedOutputs(,) As Double
     Public actualOutputs() As Double
     Public E As Double 'error (e.g. MSE, RMSE)
     Public deltak() As Double
@@ -25,7 +26,6 @@ Module ANN
         ReDim layerSums(0 To numHiddenLayers + 1)
         ReDim deltak(0 To numOutputs - 1)
 
-        ReDim expectedOutputs(numOutputs - 1)
         ReDim actualOutputs(numOutputs - 1)
 
         validateCSV("input") 'TODO: just check this again after everything is done
@@ -123,6 +123,7 @@ Module ANN
             numInputs = numParameters
             numInputLines = numLines
         Else
+            numOutputLines = numLines
             expectedOutputsPerLine = numParameters
         End If
     End Sub

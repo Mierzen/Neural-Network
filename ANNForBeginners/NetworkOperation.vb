@@ -34,6 +34,7 @@ Module NetworkOperation
             MyReader.TextFieldType = FileIO.FieldType.Delimited
             MyReader.SetDelimiters(",")
 
+            ReDim ANN.expectedOutputs(ANN.numOutputLines - 1, ANN.expectedOutputsPerLine - 1)
             Dim i As Integer = 0
             Dim currentRow As String()
             While Not MyReader.EndOfData
@@ -43,7 +44,7 @@ Module NetworkOperation
                     Dim currentField As String
                     Dim j As Integer = 0
                     For Each currentField In currentRow
-                        ANN.expectedOutputs(j) = currentField
+                        ANN.expectedOutputs(i, j) = currentField
                         j += 1
                     Next
 
@@ -137,5 +138,7 @@ Module NetworkOperation
         '        Next
         '        E = sumSquaredAtan / numOutputs
         'End Select
+
+
     End Sub
 End Module

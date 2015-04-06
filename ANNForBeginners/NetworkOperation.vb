@@ -1,6 +1,6 @@
 ﻿Imports ANNForBeginners.Activation
 
-Module NetworkTraining
+Module NetworkOperation
     Public Sub loadTrainingData()
         'load testing inputs
         Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(Form1.tb_input.Text) 'todo: have separate input for training set and "real" data set

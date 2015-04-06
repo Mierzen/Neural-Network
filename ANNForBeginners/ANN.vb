@@ -3,7 +3,6 @@ Imports System.IO
 Imports System.Text
 Imports ANNForBeginners.Activation
 Imports ANNForBeginners.BackpropagationNetwork
-Imports ANNForBeginners.NetworkTraining
 
 Module ANN
     Public inputData(,) As Double
@@ -61,10 +60,10 @@ Module ANN
 
         'TODO: add training mode and calculation mode ↴
         'load training data into memory
-        loadTrainingData() 'TODO: Split data into training, validation and testing sets
+        NetworkOperation.loadTrainingData() 'TODO: Split data into training, validation and testing sets
 
         'hack neuronCalcAll()
-        NetworkTraining.networkCalculate(network)
+        NetworkOperation.networkCalculate(network)
         'TODO: normaliseData()
 
         calcE("MSE")

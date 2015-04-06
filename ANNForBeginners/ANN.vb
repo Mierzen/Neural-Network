@@ -62,6 +62,8 @@ Module ANN
         'load training data into memory
         NetworkOperation.loadTrainingData() 'TODO: Split data into training, validation and testing sets
 
+        NetworkOperation.trainNetwork(network)
+
         'hack neuronCalcAll()
         NetworkOperation.networkCalculate(network)
         'TODO: normaliseData()

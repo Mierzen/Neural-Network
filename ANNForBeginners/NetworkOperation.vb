@@ -67,16 +67,6 @@ Module NetworkOperation
             sum(i) = bias
         Next
 
-        'read the inputs into memory
-        Dim inputs(prevLayer.NeuronCount - 1) As Double
-        If layerIndex = 1 Then 'then we are doing the first layer. the original input data should be used
-            For i = 0 To inputs.Length - 1
-                inputs(i) = inputData(0, i) 'hack
-            Next
-        Else 'read from file (it will be the previous HL's activation function values)
-
-        End If
-
         'calculate each node's sum
         For currentNeuronInCurrentLayer = 0 To currentLayer.NeuronCount - 1
             For currentNeuronInPrevLayer = 0 To prevLayer.NeuronCount - 1
@@ -107,6 +97,14 @@ Module NetworkOperation
             End If
 
             i += 1
+        Next
+    End Sub
+
+    Public Sub trainNetwork(ByRef network As BackpropagationNetwork)
+        For i = 0 To numInputLines - 1
+            network.Layer(0).Outputs = Util.GetRow(i, inputData)
+
+            networkCalculate(network)
         Next
     End Sub
 End Module

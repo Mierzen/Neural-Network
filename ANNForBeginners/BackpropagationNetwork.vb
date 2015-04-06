@@ -107,13 +107,13 @@ Public Class Layer
         'MyBase.new
     End Sub
 
-    Public Sub GenerateWeights(currentLayerIndex As Integer)
+    Public Sub GenerateWeights(network As BackpropagationNetwork, currentLayerIndex As Integer)
         'set weights = 1 if input layer (it has no weight and activation function), and to random if other type
         'NOTE:  These are the weights going from THIS layer to the next, so they will only be used in the next layers' calculation
-        ReDim _weights(0 To NeuronCount - 1, 0 To _network.Layer(currentLayerIndex + 1).NeuronCount - 1)
+        ReDim _weights(0 To NeuronCount - 1, 0 To network.Layer(currentLayerIndex + 1).NeuronCount - 1)
 
         For i = 0 To NeuronCount - 1
-            For j = 0 To _network.Layer(currentLayerIndex + 1).NeuronCount - 1
+            For j = 0 To network.Layer(currentLayerIndex + 1).NeuronCount - 1
                 If LayerType = ILayer.LayerType_.Input Then
                     _weights(i, j) = 1
                 Else

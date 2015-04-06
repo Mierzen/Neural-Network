@@ -52,7 +52,10 @@ Module ANN
 
         Dim i As Integer = 0
         For Each layer As Layer In network.Layers
-            layer.GenerateWeights(i)
+            If layer.LayerType = ILayer.LayerType_.Output Then
+                Exit For
+            End If
+            layer.GenerateWeights(network, i)
             i += 1
         Next
 

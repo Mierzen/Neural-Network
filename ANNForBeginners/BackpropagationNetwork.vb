@@ -39,7 +39,7 @@ Public Interface ILayer
     ''' <remarks></remarks>
     Property Network As BackpropagationNetwork
 
-    ReadOnly Property Weights As Double(,)
+    Property Weights As Double(,)
     Property Outputs As Double()
 End Interface
 
@@ -81,10 +81,13 @@ Public Class Layer
         End Set
     End Property
 
-    Public ReadOnly Property Weights As Double(,) Implements ILayer.Weights
+    Public Overridable Property Weights As Double(,) Implements ILayer.Weights
         Get
             Return _weights
         End Get
+        Set(value As Double(,))
+            _weights = value
+        End Set
     End Property
 
     Public Overridable Property Outputs As Double() Implements ILayer.Outputs

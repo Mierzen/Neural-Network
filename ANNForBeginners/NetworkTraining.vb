@@ -1,4 +1,6 @@
-﻿Module NetworkTraining
+﻿Imports ANNForBeginners.Activation
+
+Module NetworkTraining
     Public Sub loadTrainingData()
         'load testing inputs
         Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(Form1.tb_input.Text) 'todo: have separate input for training set and "real" data set
@@ -51,5 +53,60 @@
                 End Try
             End While
         End Using
+    End Sub
+
+    Private Sub layerCalculate(network As BackpropagationNetwork, layerIndex As Integer)
+        Dim currentLayer As Layer = network.Layer(layerIndex)
+        Dim prevLayer As Layer = network.Layer(layerIndex - 1)
+
+        Dim sum(currentLayer.NeuronCount - 1) As Double
+        Const bias = 1
+
+        'Pre-populate sums with bias values
+        For i = 0 To sum.Length - 1
+            sum(i) = bias
+        Next
+
+        'read the inputs into memory
+        Dim inputs(prevLayer.NeuronCount - 1) As Double
+        If layerIndex = 1 Then 'then we are doing the first layer. the original input data should be used
+            For i = 0 To inputs.Length - 1
+                inputs(i) = inputData(0, i) 'hack
+            Next
+        Else 'read from file (it will be the previous HL's activation function values)
+
+        End If
+
+        'calculate each node's sum
+        For currentNeuronInCurrentLayer = 0 To currentLayer.NeuronCount - 1
+            For currentNeuronInPrevLayer = 0 To prevLayer.NeuronCount - 1
+                sum(currentNeuronInCurrentLayer) += prevLayer.Outputs(currentNeuronInPrevLayer) * prevLayer.Weights(currentNeuronInPrevLayer, currentNeuronInCurrentLayer)
+            Next
+        Next
+
+        'calcute the function value (output) using an activation function
+        Dim functionValue(currentLayer.NeuronCount - 1) As Double
+        For i = 0 To currentLayer.NeuronCount - 1
+            functionValue(i) = ActivationFunctions.Evaluate(currentLayer.ActivationFunction, sum(i))
+        Next
+
+        currentLayer.Outputs = functionValue
+
+        'If layerIndex = numHiddenLayers + 1 Then 'hack
+        'actualOutputs(i) = functionValue
+        'End If
+    End Sub
+
+    Public Sub networkCalculate(networkToCalculate As BackpropagationNetwork)
+        Dim i As Integer = 0
+        For Each layer In networkToCalculate.Layers
+            If layer.LayerType = ILayer.LayerType_.Input Then
+                'do nothing
+            Else
+                layerCalculate(networkToCalculate, i)
+            End If
+
+            i += 1
+        Next
     End Sub
 End Module

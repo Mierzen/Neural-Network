@@ -63,88 +63,12 @@ Module ANN
         'load training data into memory
         loadTrainingData() 'TODO: Split data into training, validation and testing sets
 
-        neuronCalcAll()
+        'hack neuronCalcAll()
+        NetworkTraining.networkCalculate(network)
         'TODO: normaliseData()
 
         calcE("MSE")
         calcDeltas()
-    End Sub
-
-    Sub neuronCalcAll()
-        For currentLayer = 0 To numHiddenLayers '0 to num HL = HL + output layer = HL + 1
-            neuronCalc(currentLayer + 1)
-        Next
-    End Sub
-
-    Sub neuronCalc(layerToSum As Integer)
-        Dim numNeuronsInLayer As Integer = numNodesInLayer(layerToSum)
-        Dim numNeuronsInPrevLayer As Integer = numNodesInLayer(layerToSum - 1)
-        Dim sum(numNeuronsInLayer - 1) As Double
-        Const bias = 1
-
-        'Pre-populate sum with bias values
-        For i = 0 To sum.Length - 1
-            sum(i) = bias
-        Next
-
-        'read the inputs into memory
-        Dim inputs(numNeuronsInPrevLayer - 1) As Double
-        If layerToSum = 1 Then 'the original input data should be used
-            For i = 0 To inputs.Length - 1
-                inputs(i) = inputData(0, i)
-            Next
-        Else 'read from file (it will be the previous HL's activation function values)
-
-        End If
-
-        're-read weights from file
-        For currentNeuron = 0 To numNeuronsInLayer - 1
-            Dim weights(numNeuronsInPrevLayer - 1) As Double
-
-            Dim filePathWeights As String = "C:\data\weights_L" & layerToSum & "N" & currentNeuron & ".csv"
-            Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(filePathWeights)
-                MyReader.TextFieldType = FileIO.FieldType.Delimited
-                MyReader.SetDelimiters(",")
-
-                Dim currentRow As String()
-                While Not MyReader.EndOfData
-                    Try
-                        currentRow = MyReader.ReadFields()
-
-                        Dim currentField As String
-                        Dim j As Integer = 0
-                        For Each currentField In currentRow
-                            weights(j) = currentField
-                            j += 1
-                        Next
-                    Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
-                        MsgBox("Line " & ex.Message & "is not valid and will be skipped.")
-                    End Try
-                End While
-            End Using
-
-            'calculate each node's sum
-            For i = 0 To numNeuronsInPrevLayer - 1
-                sum(currentNeuron) += inputs(i) * weights(i)
-            Next
-        Next
-
-        'calcute the function value using an activation function
-        Dim str As String = Nothing
-        For i = 0 To numNeuronsInLayer - 1
-            Dim functionValue As Double = ActivationFunctions.Evaluate(ActivationFunction.Sigmoid, sum(i))
-
-            str &= functionValue & ","
-
-            If layerToSum = numHiddenLayers + 1 Then
-                actualOutputs(i) = functionValue
-            End If
-        Next
-        str = Strings.Left(str, Strings.Len(str) - 1)
-
-        Dim filePath As String
-        filePath = "C:\data\functionValues_L" & layerToSum & ".csv"
-        csvCreate(filePath, str)
     End Sub
 
     Sub calcE(Optional type As String = "mse")

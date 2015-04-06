@@ -73,7 +73,7 @@ Module ANN
 
     Sub calcDeltas()
         For i = 0 To numOutputs - 1 'for each output neuron
-            deltak(i) = (actualOutputs(i) - expectedOutputs(i)) * ActivationFunctions.EvaluateDerivative(ActivationFunction.Sigmoid, 0.5)
+            'deltak(i) = (actualOutputs(i) - expectedOutputs(i)) * ActivationFunctions.EvaluateDerivative(ActivationFunction.Sigmoid, 0.5)
         Next
     End Sub
 

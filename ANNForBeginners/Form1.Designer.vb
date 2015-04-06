@@ -22,22 +22,28 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title1 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.tb_input = New System.Windows.Forms.TextBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.HiddenLayerNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HiddenLayerNeuronCount = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HiddenLayerActivationFunction = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.btn_addRow = New System.Windows.Forms.Button()
         Me.tb_numOutputs = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.tb_output = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.chk_learningMode = New System.Windows.Forms.CheckBox()
-        Me.HiddenLayerNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.HiddenLayerNeuronCount = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.HiddenLayerActivationFunction = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.chart_error = New System.Windows.Forms.DataVisualization.Charting.Chart()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chart_error, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
@@ -97,6 +103,24 @@ Partial Class Form1
         Me.DataGridView1.Size = New System.Drawing.Size(523, 150)
         Me.DataGridView1.TabIndex = 8
         '
+        'HiddenLayerNumber
+        '
+        Me.HiddenLayerNumber.HeaderText = "Hidden Layer number"
+        Me.HiddenLayerNumber.Name = "HiddenLayerNumber"
+        Me.HiddenLayerNumber.Width = 122
+        '
+        'HiddenLayerNeuronCount
+        '
+        Me.HiddenLayerNeuronCount.HeaderText = "Number of hidden neurons"
+        Me.HiddenLayerNeuronCount.Name = "HiddenLayerNeuronCount"
+        Me.HiddenLayerNeuronCount.Width = 109
+        '
+        'HiddenLayerActivationFunction
+        '
+        Me.HiddenLayerActivationFunction.HeaderText = "Activation Function"
+        Me.HiddenLayerActivationFunction.Name = "HiddenLayerActivationFunction"
+        Me.HiddenLayerActivationFunction.Width = 94
+        '
         'btn_addRow
         '
         Me.btn_addRow.Location = New System.Drawing.Point(3, 85)
@@ -152,29 +176,35 @@ Partial Class Form1
         Me.chk_learningMode.Text = "Learning mode"
         Me.chk_learningMode.UseVisualStyleBackColor = True
         '
-        'HiddenLayerNumber
+        'chart_error
         '
-        Me.HiddenLayerNumber.HeaderText = "Hidden Layer number"
-        Me.HiddenLayerNumber.Name = "HiddenLayerNumber"
-        Me.HiddenLayerNumber.Width = 122
-        '
-        'HiddenLayerNeuronCount
-        '
-        Me.HiddenLayerNeuronCount.HeaderText = "Number of hidden neurons"
-        Me.HiddenLayerNeuronCount.Name = "HiddenLayerNeuronCount"
-        Me.HiddenLayerNeuronCount.Width = 109
-        '
-        'HiddenLayerActivationFunction
-        '
-        Me.HiddenLayerActivationFunction.HeaderText = "Activation Function"
-        Me.HiddenLayerActivationFunction.Name = "HiddenLayerActivationFunction"
-        Me.HiddenLayerActivationFunction.Width = 94
+        Me.chart_error.BackColor = System.Drawing.Color.Transparent
+        ChartArea1.Name = "ChartArea1"
+        Me.chart_error.ChartAreas.Add(ChartArea1)
+        Legend1.BackColor = System.Drawing.Color.Transparent
+        Legend1.Name = "Legend1"
+        Me.chart_error.Legends.Add(Legend1)
+        Me.chart_error.Location = New System.Drawing.Point(580, 12)
+        Me.chart_error.Name = "chart_error"
+        Series1.ChartArea = "ChartArea1"
+        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Series1.YValuesPerPoint = 6
+        Me.chart_error.Series.Add(Series1)
+        Me.chart_error.Size = New System.Drawing.Size(469, 320)
+        Me.chart_error.TabIndex = 15
+        Me.chart_error.Text = "Network error"
+        Title1.Name = "Title1"
+        Title1.Text = "Network error"
+        Me.chart_error.Titles.Add(Title1)
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(653, 378)
+        Me.ClientSize = New System.Drawing.Size(1061, 378)
+        Me.Controls.Add(Me.chart_error)
         Me.Controls.Add(Me.chk_learningMode)
         Me.Controls.Add(Me.tb_output)
         Me.Controls.Add(Me.Label3)
@@ -190,6 +220,7 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.Text = "Form1"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chart_error, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -209,5 +240,6 @@ Partial Class Form1
     Friend WithEvents HiddenLayerNumber As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents HiddenLayerNeuronCount As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents HiddenLayerActivationFunction As System.Windows.Forms.DataGridViewComboBoxColumn
+    Friend WithEvents chart_error As System.Windows.Forms.DataVisualization.Charting.Chart
 
 End Class

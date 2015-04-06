@@ -115,6 +115,9 @@ Module NetworkOperation
         Next
 
         totalError *= 0.5
+
+        Form1.chart_error.Series("Series1").Points.Add(totalError)
+        Form1.Update()
     End Sub
 
     Private Sub calcE(network As BackpropagationNetwork) ', Optional type As String = "MSE")

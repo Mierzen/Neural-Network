@@ -98,6 +98,7 @@ Module NetworkOperation
     End Sub
 
     Public Sub trainNetwork(ByRef network As BackpropagationNetwork)
+        'TODO: add epoch looping
         Dim totalError As Double = 0
 
         For i = 0 To numInputLines - 1

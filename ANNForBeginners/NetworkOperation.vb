@@ -106,36 +106,36 @@ Module NetworkOperation
         Next
     End Sub
 
-    Private Sub calcE(network As BackpropagationNetwork, Optional type As String = "MSE")
+    Private Sub calcE(network As BackpropagationNetwork) ', Optional type As String = "MSE")
         For i = 0 To network.LastLayer.NeuronCount - 1
             Dim diff As Double
             diff = expectedOutputs(i) - network.LastLayer.Outputs(i)
         Next
 
-        type = Strings.LCase(type)
+        'type = Strings.LCase(type)
 
-        Select Case type
-            Case "mse", "rmse"
-                Dim sumSquared As Double = 0
-                Dim tempE As Double = 0
+        'Select Case type
+        '    Case "mse", "rmse"
+        '        Dim sumSquared As Double = 0
+        '        Dim tempE As Double = 0
 
-                For i = 0 To numOutputs - 1
-                    sumSquared += (expectedOutputs(i) - actualOutputs(i)) ^ 2
-                Next
-                tempE = sumSquared / numOutputs
+        '        For i = 0 To numOutputs - 1
+        '            sumSquared += (expectedOutputs(i) - actualOutputs(i)) ^ 2
+        '        Next
+        '        tempE = sumSquared / numOutputs
 
-                If type = "mse" Then
-                    E = tempE
-                ElseIf type = "rmse" Then
-                    E = Math.Sqrt(tempE)
-                End If
-            Case "arctan", "atan"
-                Dim sumSquaredAtan As Double = 0
+        '        If type = "mse" Then
+        '            E = tempE
+        '        ElseIf type = "rmse" Then
+        '            E = Math.Sqrt(tempE)
+        '        End If
+        '    Case "arctan", "atan"
+        '        Dim sumSquaredAtan As Double = 0
 
-                For i = 0 To numOutputs - 1
-                    sumSquaredAtan += Math.Atan(expectedOutputs(i) - actualOutputs(i)) ^ 2
-                Next
-                E = sumSquaredAtan / numOutputs
-        End Select
+        '        For i = 0 To numOutputs - 1
+        '            sumSquaredAtan += Math.Atan(expectedOutputs(i) - actualOutputs(i)) ^ 2
+        '        Next
+        '        E = sumSquaredAtan / numOutputs
+        'End Select
     End Sub
 End Module

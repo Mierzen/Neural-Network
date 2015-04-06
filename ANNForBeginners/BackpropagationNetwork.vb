@@ -40,7 +40,7 @@ Public Interface ILayer
     Property Network As BackpropagationNetwork
 
     ReadOnly Property Weights As Double(,)
-    ReadOnly Property Outputs As Double()
+    Property Outputs As Double()
 End Interface
 
 Public Class Layer
@@ -87,10 +87,13 @@ Public Class Layer
         End Get
     End Property
 
-    Public Overridable ReadOnly Property Outputs As Double() Implements ILayer.Outputs
+    Public Overridable Property Outputs As Double() Implements ILayer.Outputs
         Get
             Return _outputs
         End Get
+        Set(value As Double())
+            _outputs = value
+        End Set
     End Property
 
 #End Region

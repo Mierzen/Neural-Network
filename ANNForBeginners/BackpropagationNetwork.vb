@@ -39,7 +39,7 @@ Public Interface ILayer
     ''' <remarks></remarks>
     Property Network As BackpropagationNetwork
 
-    ReadOnly Property Weights As Double()
+    ReadOnly Property Weights As Double(,)
     ReadOnly Property Outputs As Double()
 End Interface
 
@@ -47,7 +47,7 @@ Public Class Layer
     Implements ILayer
 
     Private network_ As BackpropagationNetwork
-    Private _weights As Double()
+    Private _weights As Double(,)
     Private _outputs As Double()
     Private _activationFunction As ActivationFunction
     Private _layerType As ILayer.LayerType_
@@ -81,7 +81,7 @@ Public Class Layer
         End Set
     End Property
 
-    Public ReadOnly Property Weights As Double() Implements ILayer.Weights
+    Public ReadOnly Property Weights As Double(,) Implements ILayer.Weights
         Get
             Return _weights
         End Get
@@ -101,22 +101,26 @@ Public Class Layer
         _activationFunction = activationFunction
         _layerType = LayerType
 
-        'set weights = 1 if input layer (it has no weight and activation function), and to random if other type
-        'NOTE:  These are the weights going from THIS layer to the next, so they will only be used in the next layers' calculation
-        ReDim _weights(0 To NeuronCount - 1)
-
-        For i = 0 To NeuronCount - 1
-            If LayerType = ILayer.LayerType_.Input Then
-                _weights(i) = 1
-            Else
-                _weights(i) = ANN.random()
-            End If
-        Next
-
         'dimensionalize outputs
         ReDim _outputs(0 To NeuronCount - 1)
 
         'MyBase.new
+    End Sub
+
+    Public Sub GenerateWeights(currentLayerIndex As Integer)
+        'set weights = 1 if input layer (it has no weight and activation function), and to random if other type
+        'NOTE:  These are the weights going from THIS layer to the next, so they will only be used in the next layers' calculation
+        ReDim _weights(0 To NeuronCount - 1, 0 To _network.Layer(currentLayerIndex + 1).NeuronCount - 1)
+
+        For i = 0 To NeuronCount - 1
+            For j = 0 To _network.Layer(currentLayerIndex + 1).NeuronCount - 1
+                If LayerType = ILayer.LayerType_.Input Then
+                    _weights(i, j) = 1
+                Else
+                    _weights(i, j) = ANN.random()
+                End If
+            Next
+        Next
     End Sub
 
     Public Property Network1 As BackpropagationNetwork Implements ILayer.Network

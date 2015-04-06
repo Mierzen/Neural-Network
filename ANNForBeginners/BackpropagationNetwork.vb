@@ -173,4 +173,8 @@ Public Class BackpropagationNetwork
     Public Function Layers() As List(Of ILayer)
         Return networkStructure_.Layers()
     End Function
+
+    Public Function LayerCount()
+        Return networkStructure_.Layers.Count
+    End Function
 End Class

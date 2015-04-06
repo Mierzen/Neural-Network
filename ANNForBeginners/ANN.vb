@@ -50,6 +50,12 @@ Module ANN
         network.AddLayer(New Layer(numOutputs, ActivationFunction.Linear, ILayer.LayerType_.Output))
         'TODO: check if this^ is right
 
+        Dim i As Integer = 0
+        For Each layer As Layer In network.Layers
+            layer.GenerateWeights(i)
+            i += 1
+        Next
+
         'TODO: add training mode and calculation mode ↴
         'load training data into memory
         loadTrainingData() 'TODO: Split data into training, validation and testing sets

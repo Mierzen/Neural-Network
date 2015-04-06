@@ -183,4 +183,8 @@ Public Class BackpropagationNetwork
     Public Function LayerCount()
         Return networkStructure_.Layers.Count
     End Function
+
+    Public Function LastLayer() As ILayer
+        Return networkStructure_.Layers(networkStructure_.Layers.Count - 1)
+    End Function
 End Class

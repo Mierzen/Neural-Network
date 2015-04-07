@@ -75,6 +75,8 @@ Module NetworkOperation
             Next
         Next
 
+        currentLayer.Inputs = sum
+
         'calcute the function value (output) using an activation function
         Dim functionValue(currentLayer.NeuronCount - 1) As Double
         For i = 0 To currentLayer.NeuronCount - 1

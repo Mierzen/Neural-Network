@@ -101,31 +101,61 @@ Module NetworkOperation
 
     Public Sub trainNetwork(ByRef network As BackpropagationNetwork)
         'TODO: add epoch looping
-        For i = 0 To numInputLines - 1 'for each example
-            Dim totalError As Double = 0
+        For ex = 0 To numInputLines - 1 'for each example
 
-            network.Layer(0).Outputs = Util.GetRow(i, inputData)
-
+            'run the network once to get output values
+            network.Layer(0).Outputs = Util.GetRow(ex, inputData)
             networkCalculate(network)
 
-            For j = 0 To network.LastLayer.NeuronCount - 1 'for each output neuron
-                Dim diff As Double
-                diff = expectedOutputs(i, j) - network.LastLayer.Outputs(j)
+            Dim exampleError As Double = 0
+            Dim delta_j_tempSum As Double = 0
 
-                totalError += diff ^ 2
+            'do error calculation
+            For l = network.LayerCount - 1 To 1 Step -1 'for each layer (exept input layer), calculate the error, starting from the back
+
+                If network.Layer(l).LayerType = ILayer.LayerType_.Output Then
+
+                    For k = 0 To network.LastLayer.NeuronCount - 1 'for each output neuron
+                        Dim diff As Double
+                        diff = expectedOutputs(ex, k) - network.LastLayer.Outputs(k)
+
+                        exampleError += diff ^ 2
+
+                        Dim delta_k As Double
+                        delta_k = diff * ActivationFunctions.EvaluateDerivative(network.Layer(l).ActivationFunction, network.Layer(l).Inputs(k)) 'the formula for delta_k
+
+                        network.Layer(l).Deltas(k) = delta_k
+                    Next
+
+                Else 'hidden layer
+
+                    For i = 0 To network.Layer(l).NeuronCount - 1 'for each neuron in the current layer
+
+                        'for each neuron in the next layer (the layer nearer to the output), calculate the delta_j_tempSum (for use in calculating delta_j)
+                        delta_j_tempSum = 0
+                        For j = 0 To network.Layer(l + 1).NeuronCount - 1
+                            delta_j_tempSum += network.Layer(l + 1).Deltas(j) * network.Layer(l + 1).Weights(i, j)
+                        Next
+
+                        Dim delta_j As Double
+                        delta_j = ActivationFunctions.EvaluateDerivative(network.Layer(l).ActivationFunction, network.Layer(l).Inputs(i)) * delta_j_tempSum 'the formula for delta_j
+
+                        network.Layer(l).Deltas(i) = delta_j
+                    Next
+
+                End If
+
             Next
 
-            totalError *= 0.5
 
-            Form1.chart_error.Series("Series1").Points.Add(totalError)
+
+
+            'todo vv
+            exampleError *= 0.5
+
+            Form1.chart_error.Series("Series1").Points.Add(exampleError)
             Form1.Update()
 
-            calcDeltas()
-
         Next
-    End Sub
-
-    Private Sub calcDeltas()
-
     End Sub
 End Module

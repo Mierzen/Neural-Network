@@ -39,6 +39,13 @@ Public Interface ILayer
     ''' <remarks></remarks>
     Property Network As BackpropagationNetwork
 
+    ''' <summary>
+    ''' Input into each neuron i in the current layer, from the previous layer.
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Property Inputs As Double()
     Property Weights As Double(,)
     Property Outputs As Double()
 End Interface
@@ -47,6 +54,7 @@ Public Class Layer
     Implements ILayer
 
     Private network_ As BackpropagationNetwork
+    Private _inputs As Double()
     Private _weights As Double(,)
     Private _outputs As Double()
     Private _activationFunction As ActivationFunction
@@ -96,6 +104,15 @@ Public Class Layer
         End Get
         Set(value As Double())
             _outputs = value
+        End Set
+    End Property
+
+    Public Overridable Property Inputs As Double() Implements ILayer.Inputs
+        Get
+            Return _inputs
+        End Get
+        Set(value As Double())
+            _inputs = value
         End Set
     End Property
 

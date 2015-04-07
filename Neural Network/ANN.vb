@@ -61,9 +61,9 @@ Module ANN
         'TODO: add training mode and calculation mode ↴
         'load training data into memory
         NetworkOperation.loadTrainingData() 'TODO: Split data into training, validation and testing sets
-
-        NetworkOperation.trainNetwork(network)
-
+        For i = 0 To 1000
+            NetworkOperation.trainNetwork(network, 0.1, 0.15)
+        Next
         'NetworkOperation.networkCalculate(network)
         'TODO: normaliseData()
 

@@ -99,7 +99,7 @@ Module NetworkOperation
         Next
     End Sub
 
-    Public Sub trainNetwork(ByRef network As BackpropagationNetwork)
+    Public Sub trainNetwork(ByRef network As BackpropagationNetwork, learningRate As Double, momentum As Double)
         'TODO: add epoch looping
         For ex = 0 To numInputLines - 1 'for each example
 
@@ -111,6 +111,8 @@ Module NetworkOperation
 
             'do error calculation
             For l = network.LayerCount - 1 To 1 Step -1 'for each layer (exept input layer), calculate the error, starting from the back
+                Dim currentLayer As Layer = network.Layer(l)
+                Dim prevLayer As Layer = network.Layer(l - 1)
 
                 If network.Layer(l).LayerType = ILayer.LayerType_.Output Then
 
@@ -123,7 +125,7 @@ Module NetworkOperation
                         Dim delta_k As Double
                         delta_k = diff * ActivationFunctions.EvaluateDerivative(network.Layer(l).ActivationFunction, network.Layer(l).Inputs(k)) 'the formula for delta_k
 
-                        network.Layer(l).Deltas(k) = delta_k
+                        network.Layers(l).Deltas(k) = delta_k
                     Next
 
                 Else 'hidden layer
@@ -147,6 +149,34 @@ Module NetworkOperation
             Next
 
 
+            'update the weights
+            For layer = 1 To network.LayerCount - 1 'for each layer (except input layer)
+
+                'If network.Layers(layer).LayerType = ILayer.LayerType_.Input Then
+                'do nothing, the input layer does not have weights (or const weights = 1)
+                'Else
+
+                'TODO: maak seker oor die 0 (begin van die video)v
+                For i = 0 To network.Layers(layer - 1).NeuronCount - 1 'for each neuron in the previous layer
+
+                    For j = 0 To layer.NeuronCount - 1 'each neuron in the current layer
+
+                        network.Layers(i).WeightDeltas(i, j) = -learningRate * network.Layer(layer).Deltas(j) * network.Layer(layer - 1).Outputs(i)
+
+                        network.Layer(layer).Weights(i, j) += network.Layers(i).WeightDeltas(i, j) + momentum * network.Layers(i).PreviousWeightDeltas(i, j)
+
+                        network.Layers(i).PreviousWeightDeltas(i, j) = network.Layers(i).WeightDeltas(i, j)
+                    Next
+
+                Next
+
+
+
+                'End If
+
+            Next
+
+            'TODO: Add (optional) bias updating
 
 
             'todo vv

@@ -158,7 +158,6 @@ Public Class Layer
 
         'dimensionalize outputs
         ReDim _outputs(0 To NeuronCount - 1)
-
         'MyBase.new
     End Sub
 
@@ -176,6 +175,11 @@ Public Class Layer
                 End If
             Next
         Next
+
+        'generate empty deltas
+        ReDim _deltas(0 To NeuronCount - 1)
+        ReDim _weightDeltas(0 To NeuronCount - 1, 0 To network.Layer(currentLayerIndex + 1).NeuronCount - 1)
+        ReDim _previousWeightDeltas(0 To NeuronCount - 1, 0 To network.Layer(currentLayerIndex + 1).NeuronCount - 1)
     End Sub
 
     Public Property Network1 As BackpropagationNetwork Implements ILayer.Network

@@ -64,17 +64,9 @@ Module ANN
 
         NetworkOperation.trainNetwork(network)
 
-        'hack neuronCalcAll()
-        NetworkOperation.networkCalculate(network)
+        'NetworkOperation.networkCalculate(network)
         'TODO: normaliseData()
 
-        calcDeltas()
-    End Sub
-
-    Sub calcDeltas()
-        For i = 0 To numOutputs - 1 'for each output neuron
-            'deltak(i) = (actualOutputs(i) - expectedOutputs(i)) * ActivationFunctions.EvaluateDerivative(ActivationFunction.Sigmoid, 0.5)
-        Next
     End Sub
 
     Private Sub validateCSV(csvType As String)

@@ -101,12 +101,12 @@ Module NetworkOperation
         'TODO: add epoch looping
         Dim totalError As Double = 0
 
-        For i = 0 To numInputLines - 1
+        For i = 0 To numInputLines - 1 'for each example
             network.Layer(0).Outputs = Util.GetRow(i, inputData)
 
             networkCalculate(network)
 
-            For j = 0 To network.LastLayer.NeuronCount - 1
+            For j = 0 To network.LastLayer.NeuronCount - 1 'for each output neuron
                 Dim diff As Double
                 diff = expectedOutputs(i, j) - network.LastLayer.Outputs(j)
 
@@ -118,6 +118,8 @@ Module NetworkOperation
 
         Form1.chart_error.Series("Series1").Points.Add(totalError)
         Form1.Update()
+
+        calcDeltas()
     End Sub
 
     Private Sub calcE(network As BackpropagationNetwork) ', Optional type As String = "MSE")
@@ -149,6 +151,10 @@ Module NetworkOperation
         '        E = sumSquaredAtan / numOutputs
         'End Select
 
+
+    End Sub
+
+    Private Sub calcDeltas()
 
     End Sub
 End Module

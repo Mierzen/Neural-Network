@@ -59,7 +59,7 @@
             If F < 0.1 Then
                 F = 0
             ElseIf F > 0.9 Then
-                F = 0.9
+                F = 1
             End If
 
             Return F

@@ -99,9 +99,9 @@ Module NetworkOperation
 
     Public Sub trainNetwork(ByRef network As BackpropagationNetwork)
         'TODO: add epoch looping
-        Dim totalError As Double = 0
-
         For i = 0 To numInputLines - 1 'for each example
+            Dim totalError As Double = 0
+
             network.Layer(0).Outputs = Util.GetRow(i, inputData)
 
             networkCalculate(network)
@@ -112,14 +112,15 @@ Module NetworkOperation
 
                 totalError += diff ^ 2
             Next
+
+            totalError *= 0.5
+
+            Form1.chart_error.Series("Series1").Points.Add(totalError)
+            Form1.Update()
+
+            calcDeltas()
+
         Next
-
-        totalError *= 0.5
-
-        Form1.chart_error.Series("Series1").Points.Add(totalError)
-        Form1.Update()
-
-        calcDeltas()
     End Sub
 
     Private Sub calcE(network As BackpropagationNetwork) ', Optional type As String = "MSE")

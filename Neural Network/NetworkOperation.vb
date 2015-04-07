@@ -1,4 +1,4 @@
-﻿Imports ANNForBeginners.Activation
+﻿Imports NeuralNetwork.Activation
 
 Module NetworkOperation
     Public Sub loadTrainingData()

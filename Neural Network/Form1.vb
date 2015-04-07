@@ -86,7 +86,7 @@
         Dim activationFunctionColumn As DataGridViewComboBoxColumn = DataGridView1.Columns("HiddenLayerActivationFunction")
 
         Dim items As Array
-        items = System.Enum.GetNames(GetType(ANNForBeginners.Activation.ActivationFunction))
+        items = System.Enum.GetNames(GetType(NeuralNetwork.Activation.ActivationFunction))
         Dim item As String
         For Each item In items
             activationFunctionColumn.Items.Add(item)

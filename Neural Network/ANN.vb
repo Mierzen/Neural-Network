@@ -1,8 +1,8 @@
 ﻿Imports System
 Imports System.IO
 Imports System.Text
-Imports ANNForBeginners.Activation
-Imports ANNForBeginners.BackpropagationNetwork
+Imports NeuralNetwork.Activation
+Imports NeuralNetwork.BackpropagationNetwork
 
 Module ANN
     Public inputData(,) As Double

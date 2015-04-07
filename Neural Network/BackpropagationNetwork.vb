@@ -1,4 +1,4 @@
-﻿Imports ANNForBeginners.Activation
+﻿Imports NeuralNetwork.Activation
 
 Public Interface ILayer
     Enum LayerType_

@@ -108,7 +108,6 @@ Module NetworkOperation
             networkCalculate(network)
 
             Dim exampleError As Double = 0
-            Dim delta_j_tempSum As Double = 0
 
             'do error calculation
             For l = network.LayerCount - 1 To 1 Step -1 'for each layer (exept input layer), calculate the error, starting from the back
@@ -132,7 +131,7 @@ Module NetworkOperation
                     For i = 0 To network.Layer(l).NeuronCount - 1 'for each neuron in the current layer
 
                         'for each neuron in the next layer (the layer nearer to the output), calculate the delta_j_tempSum (for use in calculating delta_j)
-                        delta_j_tempSum = 0
+                        Dim delta_j_tempSum As Double = 0
                         For j = 0 To network.Layer(l + 1).NeuronCount - 1
                             delta_j_tempSum += network.Layer(l + 1).Deltas(j) * network.Layer(l + 1).Weights(i, j)
                         Next

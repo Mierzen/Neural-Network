@@ -122,12 +122,21 @@ Public Class Layer
         End Set
     End Property
 
-    Public Overridable Property Deltas As Double() Implements ILayer.Deltas
+    Public Overridable Overloads Property Deltas As Double() Implements ILayer.Deltas
         Get
             Return _deltas
         End Get
         Set(value As Double())
             _deltas = value
+        End Set
+    End Property
+
+    Public Overridable Overloads Property Deltas(index As Integer) As Double
+        Get
+            Return _deltas(index)
+        End Get
+        Set(value As Double)
+            _deltas(index) = value
         End Set
     End Property
 

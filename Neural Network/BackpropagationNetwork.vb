@@ -48,6 +48,7 @@ Public Interface ILayer
     Property Inputs As Double()
     Property Weights As Double(,)
     Property Outputs As Double()
+    Property Deltas As Double()
 End Interface
 
 Public Class Layer
@@ -60,6 +61,7 @@ Public Class Layer
     Private _activationFunction As ActivationFunction
     Private _layerType As ILayer.LayerType_
     Private _neuronCount As Integer
+    Private _deltas As Double()
 
 #Region "Properties"
     Public Overridable ReadOnly Property ActivationFunction As ActivationFunction Implements ILayer.ActivationFunction
@@ -116,6 +118,14 @@ Public Class Layer
         End Set
     End Property
 
+    Public Overridable Property Deltas As Double() Implements ILayer.Deltas
+        Get
+            Return _deltas
+        End Get
+        Set(value As Double())
+            _deltas = value
+        End Set
+    End Property
 #End Region
 
     Public Sub New(NeuronCount As Integer, activationFunction As ActivationFunction, Optional LayerType As ILayer.LayerType_ = ILayer.LayerType_.Hidden)

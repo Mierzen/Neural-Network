@@ -184,9 +184,16 @@ Public Class Layer
                 End If
             Next
         Next
+    End Sub
 
+    Public Sub InitialiseDeltas(network As BackpropagationNetwork, currentLayerIndex As Integer)
         'generate empty deltas
         ReDim _deltas(0 To NeuronCount - 1)
+
+        If currentLayerIndex = network.LayerCount - 1 Then
+            Exit Sub
+        End If
+
         ReDim _weightDeltas(0 To NeuronCount - 1, 0 To network.Layer(currentLayerIndex + 1).NeuronCount - 1)
         ReDim _previousWeightDeltas(0 To NeuronCount - 1, 0 To network.Layer(currentLayerIndex + 1).NeuronCount - 1)
     End Sub

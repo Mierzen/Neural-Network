@@ -58,6 +58,13 @@ Module ANN
             i += 1
         Next
 
+        i = 0
+        For Each layer As Layer In network.Layers
+            layer.InitialiseDeltas(network, i)
+            i += 1
+        Next
+
+
         'TODO: add training mode and calculation mode ↴
         'load training data into memory
         NetworkOperation.loadTrainingData() 'TODO: Split data into training, validation and testing sets

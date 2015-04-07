@@ -49,6 +49,8 @@ Public Interface ILayer
     Property Weights As Double(,)
     Property Outputs As Double()
     Property Deltas As Double()
+    Property WeightDeltas As Double(,)
+    Property PreviousWeightDeltas As Double(,)
 End Interface
 
 Public Class Layer
@@ -62,6 +64,8 @@ Public Class Layer
     Private _layerType As ILayer.LayerType_
     Private _neuronCount As Integer
     Private _deltas As Double()
+    Private _weightDeltas As Double(,)
+    Private _previousWeightDeltas As Double(,)
 
 #Region "Properties"
     Public Overridable ReadOnly Property ActivationFunction As ActivationFunction Implements ILayer.ActivationFunction
@@ -124,6 +128,24 @@ Public Class Layer
         End Get
         Set(value As Double())
             _deltas = value
+        End Set
+    End Property
+
+    Public Overridable Property WeightDeltas As Double(,) Implements ILayer.WeightDeltas
+        Get
+            Return _weightDeltas
+        End Get
+        Set(value As Double(,))
+            _weightDeltas = value
+        End Set
+    End Property
+
+    Public Overridable Property PreviousWeightDeltas As Double(,) Implements ILayer.PreviousWeightDeltas
+        Get
+            Return _previousWeightDeltas
+        End Get
+        Set(value As Double(,))
+            _previousWeightDeltas = value
         End Set
     End Property
 #End Region

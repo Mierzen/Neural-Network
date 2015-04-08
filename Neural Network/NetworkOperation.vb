@@ -161,9 +161,9 @@ Module NetworkOperation
 
                     For j = 0 To network.Layers(layer).NeuronCount - 1 'each neuron in the current layer
 
-                        network.Layers(i).WeightDeltas(i, j) = -learningRate * network.Layers(layer).Deltas(j) * network.Layers(layer - 1).Outputs(i)
+                        network.Layers(i).WeightDeltas(i, j) = learningRate * network.Layers(layer).Deltas(j) * network.Layers(layer - 1).Outputs(i)
 
-                        network.Layers(layer - 1).Weights(i, j) += network.Layers(i).WeightDeltas(i, j) + momentum * network.Layers(i).PreviousWeightDeltas(i, j)
+                        network.Layers(layer - 1).Weights(i, j) -= network.Layers(i).WeightDeltas(i, j) + momentum * network.Layers(i).PreviousWeightDeltas(i, j)
 
                         network.Layers(i).PreviousWeightDeltas(i, j) = network.Layers(i).WeightDeltas(i, j)
                     Next

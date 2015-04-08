@@ -69,6 +69,7 @@ Module ANN
         'load training data into memory
         NetworkOperation.loadTrainingData() 'TODO: Split data into training, validation and testing sets
         For i = 0 To 1000
+            Form1.lb_iterationNum.Text = i
             NetworkOperation.trainNetwork(network, 0.1, 0.15)
         Next
         'NetworkOperation.networkCalculate(network)

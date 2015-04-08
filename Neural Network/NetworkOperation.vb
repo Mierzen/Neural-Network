@@ -183,7 +183,8 @@ Module NetworkOperation
             exampleError *= 0.5
 
             Form1.chart_error.Series("Series1").Points.Add(exampleError)
-            Form1.Update()
+            Form1.chart_error.Update()
+            Form1.lb_iterationNum.Update()
 
         Next
     End Sub

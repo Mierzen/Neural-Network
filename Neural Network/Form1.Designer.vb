@@ -44,6 +44,8 @@ Partial Class Form1
         Me.chart_error = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.combo_outputLayerAF = New System.Windows.Forms.ComboBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.lb_iterationNum = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chart_error, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -218,11 +220,31 @@ Partial Class Form1
         Me.combo_outputLayerAF.Size = New System.Drawing.Size(121, 21)
         Me.combo_outputLayerAF.TabIndex = 17
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(710, 333)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(86, 13)
+        Me.Label5.TabIndex = 18
+        Me.Label5.Text = "Iteration number:"
+        '
+        'lb_iterationNum
+        '
+        Me.lb_iterationNum.AutoSize = True
+        Me.lb_iterationNum.Location = New System.Drawing.Point(802, 333)
+        Me.lb_iterationNum.Name = "lb_iterationNum"
+        Me.lb_iterationNum.Size = New System.Drawing.Size(13, 13)
+        Me.lb_iterationNum.TabIndex = 19
+        Me.lb_iterationNum.Text = "0"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1061, 378)
+        Me.Controls.Add(Me.lb_iterationNum)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.combo_outputLayerAF)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.chart_error)
@@ -264,5 +286,7 @@ Partial Class Form1
     Friend WithEvents chart_error As System.Windows.Forms.DataVisualization.Charting.Chart
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents combo_outputLayerAF As System.Windows.Forms.ComboBox
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents lb_iterationNum As System.Windows.Forms.Label
 
 End Class

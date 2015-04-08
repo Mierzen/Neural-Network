@@ -104,7 +104,7 @@ Module NetworkOperation
         For ex = 0 To numInputLines - 1 'for each example
 
             'run the network once to get output values
-            network.Layers(0).Outputs = Util.GetRow(ex, inputData)
+            network.Layers(0).Outputs = Util.Array.GetRow(ex, inputData)
             networkCalculate(network)
 
             Dim exampleError As Double = 0

@@ -73,7 +73,7 @@
         Application.UseWaitCursor = False
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub btn_selectInput2_Click(sender As Object, e As EventArgs) Handles btn_selectInput.Click
         OpenFileDialog1.ShowDialog()
         If OpenFileDialog1.FileName <> "" Then
             tb_input.Text = OpenFileDialog1.FileName

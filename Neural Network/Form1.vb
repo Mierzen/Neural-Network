@@ -99,4 +99,11 @@
     Private Sub btn_addRow_Click(sender As Object, e As EventArgs) Handles btn_addRow.Click
         DataGridView1.Rows.Add()
     End Sub
+
+    Private Sub btn_selectOutput_Click(sender As Object, e As EventArgs) Handles btn_selectOutput.Click
+        OpenFileDialog1.ShowDialog()
+        If OpenFileDialog1.FileName <> "" Then
+            tb_output.Text = OpenFileDialog1.FileName
+        End If
+    End Sub
 End Class

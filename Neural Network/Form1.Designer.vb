@@ -22,14 +22,14 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title5 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim ChartArea6 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend6 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title6 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title3 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title4 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.tc_modes = New System.Windows.Forms.TabControl()
         Me.tp_training = New System.Windows.Forms.TabPage()
@@ -44,18 +44,20 @@ Partial Class Form1
         Me.lb_iterationNum = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.chart_error = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.combo_outputLayerAF = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.chk_learningMode = New System.Windows.Forms.CheckBox()
-        Me.tb_output = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.tb_numOutputs = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.tp_calculation = New System.Windows.Forms.TabPage()
         Me.HiddenLayerNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HiddenLayerNeuronCount = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HiddenLayerActivationFunction = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.tb_output = New System.Windows.Forms.TextBox()
+        Me.combo_outputLayerAF = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.tb_numOutputs = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.btn_selectOutput = New System.Windows.Forms.Button()
         Me.tc_modes.SuspendLayout()
         Me.tp_training.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -63,6 +65,7 @@ Partial Class Form1
         Me.GroupBox1.SuspendLayout()
         CType(Me.chart_error200, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chart_error, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'OpenFileDialog1
@@ -74,33 +77,27 @@ Partial Class Form1
         '
         Me.tc_modes.Controls.Add(Me.tp_training)
         Me.tc_modes.Controls.Add(Me.tp_calculation)
-        Me.tc_modes.Location = New System.Drawing.Point(12, 26)
+        Me.tc_modes.Location = New System.Drawing.Point(12, 12)
         Me.tc_modes.Name = "tc_modes"
         Me.tc_modes.SelectedIndex = 0
-        Me.tc_modes.Size = New System.Drawing.Size(782, 511)
+        Me.tc_modes.Size = New System.Drawing.Size(782, 539)
         Me.tc_modes.TabIndex = 21
         '
         'tp_training
         '
         Me.tp_training.BackColor = System.Drawing.SystemColors.Control
-        Me.tp_training.Controls.Add(Me.GroupBox2)
+        Me.tp_training.Controls.Add(Me.GroupBox3)
         Me.tp_training.Controls.Add(Me.GroupBox1)
+        Me.tp_training.Controls.Add(Me.GroupBox2)
         Me.tp_training.Controls.Add(Me.chart_error200)
         Me.tp_training.Controls.Add(Me.lb_iterationNum)
         Me.tp_training.Controls.Add(Me.Label5)
         Me.tp_training.Controls.Add(Me.chart_error)
-        Me.tp_training.Controls.Add(Me.combo_outputLayerAF)
-        Me.tp_training.Controls.Add(Me.Label4)
-        Me.tp_training.Controls.Add(Me.chk_learningMode)
-        Me.tp_training.Controls.Add(Me.tb_output)
-        Me.tp_training.Controls.Add(Me.Label3)
-        Me.tp_training.Controls.Add(Me.tb_numOutputs)
-        Me.tp_training.Controls.Add(Me.Label2)
         Me.tp_training.Controls.Add(Me.Button1)
         Me.tp_training.Location = New System.Drawing.Point(4, 22)
         Me.tp_training.Name = "tp_training"
         Me.tp_training.Padding = New System.Windows.Forms.Padding(3)
-        Me.tp_training.Size = New System.Drawing.Size(774, 485)
+        Me.tp_training.Size = New System.Drawing.Size(774, 513)
         Me.tp_training.TabIndex = 0
         Me.tp_training.Text = "Training mode"
         '
@@ -111,7 +108,7 @@ Partial Class Form1
         Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.GroupBox2.Location = New System.Drawing.Point(6, 107)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(555, 219)
+        Me.GroupBox2.Size = New System.Drawing.Size(565, 219)
         Me.GroupBox2.TabIndex = 22
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "HIDDEN LAYERS"
@@ -148,7 +145,7 @@ Partial Class Form1
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(6, 6)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(555, 95)
+        Me.GroupBox1.Size = New System.Drawing.Size(565, 95)
         Me.GroupBox1.TabIndex = 30
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "INPUT"
@@ -169,7 +166,7 @@ Partial Class Form1
         Me.btn_selectInput.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_selectInput.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_selectInput.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
-        Me.btn_selectInput.Location = New System.Drawing.Point(512, 58)
+        Me.btn_selectInput.Location = New System.Drawing.Point(533, 58)
         Me.btn_selectInput.Name = "btn_selectInput"
         Me.btn_selectInput.Size = New System.Drawing.Size(23, 22)
         Me.btn_selectInput.TabIndex = 10
@@ -180,33 +177,33 @@ Partial Class Form1
         Me.tb_input.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tb_input.Location = New System.Drawing.Point(9, 58)
         Me.tb_input.Name = "tb_input"
-        Me.tb_input.Size = New System.Drawing.Size(502, 22)
+        Me.tb_input.Size = New System.Drawing.Size(521, 22)
         Me.tb_input.TabIndex = 9
         Me.tb_input.Text = "C:\Users\Stephan Taljaard\Desktop\test.csv"
         '
         'chart_error200
         '
         Me.chart_error200.BackColor = System.Drawing.Color.Transparent
-        ChartArea5.Name = "ChartArea1"
-        Me.chart_error200.ChartAreas.Add(ChartArea5)
-        Legend5.BackColor = System.Drawing.Color.Transparent
-        Legend5.Name = "Legend1"
-        Me.chart_error200.Legends.Add(Legend5)
+        ChartArea3.Name = "ChartArea1"
+        Me.chart_error200.ChartAreas.Add(ChartArea3)
+        Legend3.BackColor = System.Drawing.Color.Transparent
+        Legend3.Name = "Legend1"
+        Me.chart_error200.Legends.Add(Legend3)
         Me.chart_error200.Location = New System.Drawing.Point(908, 141)
         Me.chart_error200.Name = "chart_error200"
-        Series5.ChartArea = "ChartArea1"
-        Series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series5.Legend = "Legend1"
-        Series5.Name = "Series1"
-        Series5.YValuesPerPoint = 6
-        Me.chart_error200.Series.Add(Series5)
+        Series3.ChartArea = "ChartArea1"
+        Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series3.Legend = "Legend1"
+        Series3.Name = "Series1"
+        Series3.YValuesPerPoint = 6
+        Me.chart_error200.Series.Add(Series3)
         Me.chart_error200.Size = New System.Drawing.Size(294, 185)
         Me.chart_error200.TabIndex = 29
         Me.chart_error200.Text = "Network error (RMSE)"
-        Title5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title5.Name = "Title1"
-        Title5.Text = "Network error (RMSE)"
-        Me.chart_error200.Titles.Add(Title5)
+        Title3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title3.Name = "Title1"
+        Title3.Text = "Network error (RMSE)"
+        Me.chart_error200.Titles.Add(Title3)
         '
         'lb_iterationNum
         '
@@ -229,94 +226,43 @@ Partial Class Form1
         'chart_error
         '
         Me.chart_error.BackColor = System.Drawing.Color.Transparent
-        ChartArea6.Name = "ChartArea1"
-        Me.chart_error.ChartAreas.Add(ChartArea6)
-        Legend6.BackColor = System.Drawing.Color.Transparent
-        Legend6.Name = "Legend1"
-        Me.chart_error.Legends.Add(Legend6)
+        ChartArea4.Name = "ChartArea1"
+        Me.chart_error.ChartAreas.Add(ChartArea4)
+        Legend4.BackColor = System.Drawing.Color.Transparent
+        Legend4.Name = "Legend1"
+        Me.chart_error.Legends.Add(Legend4)
         Me.chart_error.Location = New System.Drawing.Point(552, 52)
         Me.chart_error.Name = "chart_error"
-        Series6.ChartArea = "ChartArea1"
-        Series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series6.Legend = "Legend1"
-        Series6.Name = "Series1"
-        Series6.YValuesPerPoint = 6
-        Me.chart_error.Series.Add(Series6)
+        Series4.ChartArea = "ChartArea1"
+        Series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series4.Legend = "Legend1"
+        Series4.Name = "Series1"
+        Series4.YValuesPerPoint = 6
+        Me.chart_error.Series.Add(Series4)
         Me.chart_error.Size = New System.Drawing.Size(469, 320)
         Me.chart_error.TabIndex = 26
         Me.chart_error.Text = "Network error (RMSE)"
-        Title6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title6.Name = "Title1"
-        Title6.Text = "Network error (RMSE)"
-        Me.chart_error.Titles.Add(Title6)
-        '
-        'combo_outputLayerAF
-        '
-        Me.combo_outputLayerAF.FormattingEnabled = True
-        Me.combo_outputLayerAF.Location = New System.Drawing.Point(384, 238)
-        Me.combo_outputLayerAF.Name = "combo_outputLayerAF"
-        Me.combo_outputLayerAF.Size = New System.Drawing.Size(121, 21)
-        Me.combo_outputLayerAF.TabIndex = 25
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(208, 241)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(172, 15)
-        Me.Label4.TabIndex = 24
-        Me.Label4.Text = "Output layer activation function"
+        Title4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title4.Name = "Title1"
+        Title4.Text = "Network error (RMSE)"
+        Me.chart_error.Titles.Add(Title4)
         '
         'chk_learningMode
         '
         Me.chk_learningMode.AutoSize = True
         Me.chk_learningMode.Checked = True
         Me.chk_learningMode.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.chk_learningMode.Location = New System.Drawing.Point(13, 263)
+        Me.chk_learningMode.Location = New System.Drawing.Point(1169, 48)
         Me.chk_learningMode.Name = "chk_learningMode"
         Me.chk_learningMode.Size = New System.Drawing.Size(113, 19)
         Me.chk_learningMode.TabIndex = 23
         Me.chk_learningMode.Text = "Learning mode"
         Me.chk_learningMode.UseVisualStyleBackColor = True
         '
-        'tb_output
-        '
-        Me.tb_output.Location = New System.Drawing.Point(122, 280)
-        Me.tb_output.Name = "tb_output"
-        Me.tb_output.Size = New System.Drawing.Size(255, 20)
-        Me.tb_output.TabIndex = 22
-        Me.tb_output.Text = "C:\Users\Stephan Taljaard\Desktop\output.csv"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(26, 283)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(101, 15)
-        Me.Label3.TabIndex = 21
-        Me.Label3.Text = "Expected outputs"
-        '
-        'tb_numOutputs
-        '
-        Me.tb_numOutputs.Location = New System.Drawing.Point(115, 234)
-        Me.tb_numOutputs.Name = "tb_numOutputs"
-        Me.tb_numOutputs.Size = New System.Drawing.Size(45, 20)
-        Me.tb_numOutputs.TabIndex = 20
-        Me.tb_numOutputs.Text = "2"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(15, 238)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(108, 15)
-        Me.Label2.TabIndex = 19
-        Me.Label2.Text = "Number of outputs"
-        '
         'Button1
         '
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Location = New System.Drawing.Point(291, 358)
+        Me.Button1.Location = New System.Drawing.Point(566, 17)
         Me.Button1.Margin = New System.Windows.Forms.Padding(2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(195, 30)
@@ -352,12 +298,100 @@ Partial Class Form1
         Me.HiddenLayerActivationFunction.Name = "HiddenLayerActivationFunction"
         Me.HiddenLayerActivationFunction.Width = 190
         '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.btn_selectOutput)
+        Me.GroupBox3.Controls.Add(Me.combo_outputLayerAF)
+        Me.GroupBox3.Controls.Add(Me.Label4)
+        Me.GroupBox3.Controls.Add(Me.tb_numOutputs)
+        Me.GroupBox3.Controls.Add(Me.Label2)
+        Me.GroupBox3.Controls.Add(Me.tb_output)
+        Me.GroupBox3.Controls.Add(Me.Label6)
+        Me.GroupBox3.Font = New System.Drawing.Font("Segoe UI", 8.5!)
+        Me.GroupBox3.Location = New System.Drawing.Point(6, 332)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(565, 141)
+        Me.GroupBox3.TabIndex = 23
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "OUTPUT"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(9, 22)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(546, 34)
+        Me.Label6.TabIndex = 12
+        Me.Label6.Text = "Select csv file containing raw output data (expected outputs), for use in trainin" & _
+    "g." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "The file should not have any headers. Each row represents one ""example"" of o" & _
+    "utputs."
+        '
+        'tb_output
+        '
+        Me.tb_output.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_output.Location = New System.Drawing.Point(12, 65)
+        Me.tb_output.Name = "tb_output"
+        Me.tb_output.Size = New System.Drawing.Size(518, 22)
+        Me.tb_output.TabIndex = 23
+        Me.tb_output.Text = "C:\Users\Stephan Taljaard\Desktop\output.csv"
+        '
+        'combo_outputLayerAF
+        '
+        Me.combo_outputLayerAF.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.combo_outputLayerAF.FormattingEnabled = True
+        Me.combo_outputLayerAF.Location = New System.Drawing.Point(388, 103)
+        Me.combo_outputLayerAF.Name = "combo_outputLayerAF"
+        Me.combo_outputLayerAF.Size = New System.Drawing.Size(167, 24)
+        Me.combo_outputLayerAF.TabIndex = 29
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(187, 106)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(204, 17)
+        Me.Label4.TabIndex = 28
+        Me.Label4.Text = "Output layer activation function"
+        '
+        'tb_numOutputs
+        '
+        Me.tb_numOutputs.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_numOutputs.Location = New System.Drawing.Point(139, 103)
+        Me.tb_numOutputs.Name = "tb_numOutputs"
+        Me.tb_numOutputs.Size = New System.Drawing.Size(42, 22)
+        Me.tb_numOutputs.TabIndex = 27
+        Me.tb_numOutputs.Text = "2"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(9, 106)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(129, 17)
+        Me.Label2.TabIndex = 26
+        Me.Label2.Text = "Number of outputs:"
+        '
+        'btn_selectOutput
+        '
+        Me.btn_selectOutput.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_selectOutput.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_selectOutput.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
+        Me.btn_selectOutput.Location = New System.Drawing.Point(533, 65)
+        Me.btn_selectOutput.Name = "btn_selectOutput"
+        Me.btn_selectOutput.Size = New System.Drawing.Size(23, 22)
+        Me.btn_selectOutput.TabIndex = 30
+        Me.btn_selectOutput.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1491, 549)
+        Me.ClientSize = New System.Drawing.Size(1491, 563)
         Me.Controls.Add(Me.tc_modes)
+        Me.Controls.Add(Me.chk_learningMode)
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Form1"
         Me.Text = "Form1"
@@ -370,7 +404,10 @@ Partial Class Form1
         Me.GroupBox1.PerformLayout()
         CType(Me.chart_error200, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.chart_error, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
@@ -380,13 +417,7 @@ Partial Class Form1
     Friend WithEvents lb_iterationNum As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents chart_error As System.Windows.Forms.DataVisualization.Charting.Chart
-    Friend WithEvents combo_outputLayerAF As System.Windows.Forms.ComboBox
-    Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents chk_learningMode As System.Windows.Forms.CheckBox
-    Friend WithEvents tb_output As System.Windows.Forms.TextBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents tb_numOutputs As System.Windows.Forms.TextBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents tp_calculation As System.Windows.Forms.TabPage
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
@@ -399,5 +430,13 @@ Partial Class Form1
     Friend WithEvents HiddenLayerNumber As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents HiddenLayerNeuronCount As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents HiddenLayerActivationFunction As System.Windows.Forms.DataGridViewComboBoxColumn
+    Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
+    Friend WithEvents combo_outputLayerAF As System.Windows.Forms.ComboBox
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents tb_numOutputs As System.Windows.Forms.TextBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents tb_output As System.Windows.Forms.TextBox
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents btn_selectOutput As System.Windows.Forms.Button
 
 End Class

@@ -180,7 +180,7 @@ Public Class Layer
                 If LayerType = ILayer.LayerType_.Input Then
                     _weights(i, j) = 1
                 Else
-                    _weights(i, j) = ANN.random()
+                    _weights(i, j) = Util.Random.Gaussian()
                 End If
             Next
         Next

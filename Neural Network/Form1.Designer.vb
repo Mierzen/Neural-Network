@@ -22,17 +22,20 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title1 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title2 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title5 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea6 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend6 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title6 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.tc_modes = New System.Windows.Forms.TabControl()
         Me.tp_training = New System.Windows.Forms.TabPage()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btn_addRow = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btn_selectInput = New System.Windows.Forms.Button()
@@ -49,18 +52,17 @@ Partial Class Form1
         Me.tb_numOutputs = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.btn_addRow = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.tp_calculation = New System.Windows.Forms.TabPage()
         Me.HiddenLayerNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HiddenLayerNeuronCount = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HiddenLayerActivationFunction = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.tp_calculation = New System.Windows.Forms.TabPage()
         Me.tc_modes.SuspendLayout()
         Me.tp_training.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.chart_error200, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chart_error, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'OpenFileDialog1
@@ -81,6 +83,7 @@ Partial Class Form1
         'tp_training
         '
         Me.tp_training.BackColor = System.Drawing.SystemColors.Control
+        Me.tp_training.Controls.Add(Me.GroupBox2)
         Me.tp_training.Controls.Add(Me.GroupBox1)
         Me.tp_training.Controls.Add(Me.chart_error200)
         Me.tp_training.Controls.Add(Me.lb_iterationNum)
@@ -94,14 +97,48 @@ Partial Class Form1
         Me.tp_training.Controls.Add(Me.tb_numOutputs)
         Me.tp_training.Controls.Add(Me.Label2)
         Me.tp_training.Controls.Add(Me.Button1)
-        Me.tp_training.Controls.Add(Me.btn_addRow)
-        Me.tp_training.Controls.Add(Me.DataGridView1)
         Me.tp_training.Location = New System.Drawing.Point(4, 22)
         Me.tp_training.Name = "tp_training"
         Me.tp_training.Padding = New System.Windows.Forms.Padding(3)
         Me.tp_training.Size = New System.Drawing.Size(774, 485)
         Me.tp_training.TabIndex = 0
         Me.tp_training.Text = "Training mode"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.btn_addRow)
+        Me.GroupBox2.Controls.Add(Me.DataGridView1)
+        Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.GroupBox2.Location = New System.Drawing.Point(6, 107)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(555, 219)
+        Me.GroupBox2.TabIndex = 22
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "HIDDEN LAYERS"
+        '
+        'btn_addRow
+        '
+        Me.btn_addRow.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_addRow.Location = New System.Drawing.Point(12, 78)
+        Me.btn_addRow.Name = "btn_addRow"
+        Me.btn_addRow.Size = New System.Drawing.Size(24, 23)
+        Me.btn_addRow.TabIndex = 11
+        Me.btn_addRow.Text = "+"
+        Me.btn_addRow.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowDrop = True
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToResizeRows = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.HiddenLayerNumber, Me.HiddenLayerNeuronCount, Me.HiddenLayerActivationFunction})
+        Me.DataGridView1.Cursor = System.Windows.Forms.Cursors.Arrow
+        Me.DataGridView1.Location = New System.Drawing.Point(40, 33)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowHeadersVisible = False
+        Me.DataGridView1.Size = New System.Drawing.Size(504, 176)
+        Me.DataGridView1.TabIndex = 10
         '
         'GroupBox1
         '
@@ -150,26 +187,26 @@ Partial Class Form1
         'chart_error200
         '
         Me.chart_error200.BackColor = System.Drawing.Color.Transparent
-        ChartArea1.Name = "ChartArea1"
-        Me.chart_error200.ChartAreas.Add(ChartArea1)
-        Legend1.BackColor = System.Drawing.Color.Transparent
-        Legend1.Name = "Legend1"
-        Me.chart_error200.Legends.Add(Legend1)
+        ChartArea5.Name = "ChartArea1"
+        Me.chart_error200.ChartAreas.Add(ChartArea5)
+        Legend5.BackColor = System.Drawing.Color.Transparent
+        Legend5.Name = "Legend1"
+        Me.chart_error200.Legends.Add(Legend5)
         Me.chart_error200.Location = New System.Drawing.Point(908, 141)
         Me.chart_error200.Name = "chart_error200"
-        Series1.ChartArea = "ChartArea1"
-        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Series1.YValuesPerPoint = 6
-        Me.chart_error200.Series.Add(Series1)
+        Series5.ChartArea = "ChartArea1"
+        Series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series5.Legend = "Legend1"
+        Series5.Name = "Series1"
+        Series5.YValuesPerPoint = 6
+        Me.chart_error200.Series.Add(Series5)
         Me.chart_error200.Size = New System.Drawing.Size(294, 185)
         Me.chart_error200.TabIndex = 29
         Me.chart_error200.Text = "Network error (RMSE)"
-        Title1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title1.Name = "Title1"
-        Title1.Text = "Network error (RMSE)"
-        Me.chart_error200.Titles.Add(Title1)
+        Title5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title5.Name = "Title1"
+        Title5.Text = "Network error (RMSE)"
+        Me.chart_error200.Titles.Add(Title5)
         '
         'lb_iterationNum
         '
@@ -192,26 +229,26 @@ Partial Class Form1
         'chart_error
         '
         Me.chart_error.BackColor = System.Drawing.Color.Transparent
-        ChartArea2.Name = "ChartArea1"
-        Me.chart_error.ChartAreas.Add(ChartArea2)
-        Legend2.BackColor = System.Drawing.Color.Transparent
-        Legend2.Name = "Legend1"
-        Me.chart_error.Legends.Add(Legend2)
+        ChartArea6.Name = "ChartArea1"
+        Me.chart_error.ChartAreas.Add(ChartArea6)
+        Legend6.BackColor = System.Drawing.Color.Transparent
+        Legend6.Name = "Legend1"
+        Me.chart_error.Legends.Add(Legend6)
         Me.chart_error.Location = New System.Drawing.Point(552, 52)
         Me.chart_error.Name = "chart_error"
-        Series2.ChartArea = "ChartArea1"
-        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Series2.YValuesPerPoint = 6
-        Me.chart_error.Series.Add(Series2)
+        Series6.ChartArea = "ChartArea1"
+        Series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series6.Legend = "Legend1"
+        Series6.Name = "Series1"
+        Series6.YValuesPerPoint = 6
+        Me.chart_error.Series.Add(Series6)
         Me.chart_error.Size = New System.Drawing.Size(469, 320)
         Me.chart_error.TabIndex = 26
         Me.chart_error.Text = "Network error (RMSE)"
-        Title2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title2.Name = "Title1"
-        Title2.Text = "Network error (RMSE)"
-        Me.chart_error.Titles.Add(Title2)
+        Title6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title6.Name = "Title1"
+        Title6.Text = "Network error (RMSE)"
+        Me.chart_error.Titles.Add(Title6)
         '
         'combo_outputLayerAF
         '
@@ -287,49 +324,6 @@ Partial Class Form1
         Me.Button1.Text = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'btn_addRow
-        '
-        Me.btn_addRow.Location = New System.Drawing.Point(13, 140)
-        Me.btn_addRow.Name = "btn_addRow"
-        Me.btn_addRow.Size = New System.Drawing.Size(24, 23)
-        Me.btn_addRow.TabIndex = 10
-        Me.btn_addRow.Text = "+"
-        Me.btn_addRow.UseVisualStyleBackColor = True
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.AllowDrop = True
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToResizeRows = False
-        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
-        Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.HiddenLayerNumber, Me.HiddenLayerNeuronCount, Me.HiddenLayerActivationFunction})
-        Me.DataGridView1.Cursor = System.Windows.Forms.Cursors.Arrow
-        Me.DataGridView1.Location = New System.Drawing.Point(45, 78)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.Size = New System.Drawing.Size(332, 150)
-        Me.DataGridView1.TabIndex = 9
-        '
-        'HiddenLayerNumber
-        '
-        Me.HiddenLayerNumber.HeaderText = "Hidden Layer number"
-        Me.HiddenLayerNumber.Name = "HiddenLayerNumber"
-        Me.HiddenLayerNumber.Width = 142
-        '
-        'HiddenLayerNeuronCount
-        '
-        Me.HiddenLayerNeuronCount.HeaderText = "Number of hidden neurons"
-        Me.HiddenLayerNeuronCount.Name = "HiddenLayerNeuronCount"
-        Me.HiddenLayerNeuronCount.Width = 127
-        '
-        'HiddenLayerActivationFunction
-        '
-        Me.HiddenLayerActivationFunction.HeaderText = "Activation Function"
-        Me.HiddenLayerActivationFunction.Name = "HiddenLayerActivationFunction"
-        Me.HiddenLayerActivationFunction.Width = 103
-        '
         'tp_calculation
         '
         Me.tp_calculation.BackColor = System.Drawing.SystemColors.Control
@@ -339,6 +333,24 @@ Partial Class Form1
         Me.tp_calculation.Size = New System.Drawing.Size(774, 485)
         Me.tp_calculation.TabIndex = 1
         Me.tp_calculation.Text = "Calculation mode"
+        '
+        'HiddenLayerNumber
+        '
+        Me.HiddenLayerNumber.HeaderText = "Hidden Layer #"
+        Me.HiddenLayerNumber.Name = "HiddenLayerNumber"
+        Me.HiddenLayerNumber.Width = 155
+        '
+        'HiddenLayerNeuronCount
+        '
+        Me.HiddenLayerNeuronCount.HeaderText = "# neurons per layer"
+        Me.HiddenLayerNeuronCount.Name = "HiddenLayerNeuronCount"
+        Me.HiddenLayerNeuronCount.Width = 155
+        '
+        'HiddenLayerActivationFunction
+        '
+        Me.HiddenLayerActivationFunction.HeaderText = "Activation Function"
+        Me.HiddenLayerActivationFunction.Name = "HiddenLayerActivationFunction"
+        Me.HiddenLayerActivationFunction.Width = 190
         '
         'Form1
         '
@@ -352,11 +364,12 @@ Partial Class Form1
         Me.tc_modes.ResumeLayout(False)
         Me.tp_training.ResumeLayout(False)
         Me.tp_training.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.chart_error200, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.chart_error, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -375,15 +388,16 @@ Partial Class Form1
     Friend WithEvents tb_numOutputs As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents btn_addRow As System.Windows.Forms.Button
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents HiddenLayerNumber As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents HiddenLayerNeuronCount As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents HiddenLayerActivationFunction As System.Windows.Forms.DataGridViewComboBoxColumn
     Friend WithEvents tp_calculation As System.Windows.Forms.TabPage
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents btn_selectInput As System.Windows.Forms.Button
     Friend WithEvents tb_input As System.Windows.Forms.TextBox
+    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Friend WithEvents btn_addRow As System.Windows.Forms.Button
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents HiddenLayerNumber As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents HiddenLayerNeuronCount As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents HiddenLayerActivationFunction As System.Windows.Forms.DataGridViewComboBoxColumn
 
 End Class

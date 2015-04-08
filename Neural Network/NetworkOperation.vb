@@ -135,7 +135,7 @@ Module NetworkOperation
                         'for each neuron in the next layer (the layer nearer to the output), calculate the delta_j_tempSum (for use in calculating delta_j)
                         Dim delta_j_tempSum As Double = 0
                         For j = 0 To network.Layer(l + 1).NeuronCount - 1
-                            delta_j_tempSum += network.Layer(l + 1).Deltas(j) * network.Layer(l + 1).Weights(i, j)
+                            delta_j_tempSum += network.Layer(l + 1).Deltas(j) * network.Layer(l).Weights(i, j)
                         Next
 
                         Dim delta_j As Double
@@ -157,15 +157,15 @@ Module NetworkOperation
                 'Else
 
                 'TODO: maak seker oor die 0 (begin van die video)v
-                For i = 0 To network.Layers(layer - 1).NeuronCount - 1 'for each neuron in the previous layer
+                For i = 0 To network.Layer(layer - 1).NeuronCount - 1 'for each neuron in the previous layer
 
-                    For j = 0 To layer.NeuronCount - 1 'each neuron in the current layer
+                    For j = 0 To network.Layer(layer).NeuronCount - 1 'each neuron in the current layer
 
-                        network.Layers(i).WeightDeltas(i, j) = -learningRate * network.Layer(layer).Deltas(j) * network.Layer(layer - 1).Outputs(i)
+                        network.Layer(i).WeightDeltas(i, j) = -learningRate * network.Layer(layer).Deltas(j) * network.Layer(layer - 1).Outputs(i)
 
-                        network.Layer(layer).Weights(i, j) += network.Layers(i).WeightDeltas(i, j) + momentum * network.Layers(i).PreviousWeightDeltas(i, j)
+                        network.Layer(layer - 1).Weights(i, j) += network.Layer(i).WeightDeltas(i, j) + momentum * network.Layer(i).PreviousWeightDeltas(i, j)
 
-                        network.Layers(i).PreviousWeightDeltas(i, j) = network.Layers(i).WeightDeltas(i, j)
+                        network.Layer(i).PreviousWeightDeltas(i, j) = network.Layer(i).WeightDeltas(i, j)
                     Next
 
                 Next

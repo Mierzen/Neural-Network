@@ -173,10 +173,10 @@ Public Class Layer
     Public Sub GenerateWeights(network As BackpropagationNetwork, currentLayerIndex As Integer)
         'set weights = 1 if input layer (it has no weight and activation function), and to random if other type
         'NOTE:  These are the weights going from THIS layer to the next, so they will only be used in the next layers' calculation
-        ReDim _weights(0 To NeuronCount - 1, 0 To network.Layer(currentLayerIndex + 1).NeuronCount - 1)
+        ReDim _weights(0 To NeuronCount - 1, 0 To network.Layers(currentLayerIndex + 1).NeuronCount - 1)
 
         For i = 0 To NeuronCount - 1
-            For j = 0 To network.Layer(currentLayerIndex + 1).NeuronCount - 1
+            For j = 0 To network.Layers(currentLayerIndex + 1).NeuronCount - 1
                 If LayerType = ILayer.LayerType_.Input Then
                     _weights(i, j) = 1
                 Else
@@ -194,8 +194,8 @@ Public Class Layer
             Exit Sub
         End If
 
-        ReDim _weightDeltas(0 To NeuronCount - 1, 0 To network.Layer(currentLayerIndex + 1).NeuronCount - 1)
-        ReDim _previousWeightDeltas(0 To NeuronCount - 1, 0 To network.Layer(currentLayerIndex + 1).NeuronCount - 1)
+        ReDim _weightDeltas(0 To NeuronCount - 1, 0 To network.Layers(currentLayerIndex + 1).NeuronCount - 1)
+        ReDim _previousWeightDeltas(0 To NeuronCount - 1, 0 To network.Layers(currentLayerIndex + 1).NeuronCount - 1)
     End Sub
 
     Public Property Network1 As BackpropagationNetwork Implements ILayer.Network
@@ -241,11 +241,11 @@ Public Class BackpropagationNetwork
         networkStructure_.Layers.Add(layer)
     End Sub
 
-    Public Function Layer(index As Integer) As ILayer
+    Public Overloads Function Layers(index As Integer) As ILayer
         Return networkStructure_.Layers(index)
     End Function
 
-    Public Function Layers() As List(Of ILayer)
+    Public Overloads Function Layers() As List(Of ILayer)
         Return networkStructure_.Layers()
     End Function
 

@@ -57,8 +57,8 @@ Module NetworkOperation
     End Sub
 
     Private Sub layerCalculate(network As BackpropagationNetwork, layerIndex As Integer)
-        Dim currentLayer As Layer = network.Layer(layerIndex)
-        Dim prevLayer As Layer = network.Layer(layerIndex - 1)
+        Dim currentLayer As Layer = network.Layers(layerIndex)
+        Dim prevLayer As Layer = network.Layers(layerIndex - 1)
 
         Dim sum(currentLayer.NeuronCount - 1) As Double
         Const bias = 1
@@ -104,17 +104,17 @@ Module NetworkOperation
         For ex = 0 To numInputLines - 1 'for each example
 
             'run the network once to get output values
-            network.Layer(0).Outputs = Util.GetRow(ex, inputData)
+            network.Layers(0).Outputs = Util.GetRow(ex, inputData)
             networkCalculate(network)
 
             Dim exampleError As Double = 0
 
             'do error calculation
             For l = network.LayerCount - 1 To 1 Step -1 'for each layer (exept input layer), calculate the error, starting from the back
-                Dim currentLayer As Layer = network.Layer(l)
-                Dim prevLayer As Layer = network.Layer(l - 1)
+                Dim currentLayer As Layer = network.Layers(l)
+                Dim prevLayer As Layer = network.Layers(l - 1)
 
-                If network.Layer(l).LayerType = ILayer.LayerType_.Output Then
+                If network.Layers(l).LayerType = ILayer.LayerType_.Output Then
 
                     For k = 0 To network.LastLayer.NeuronCount - 1 'for each output neuron
                         Dim diff As Double
@@ -123,25 +123,25 @@ Module NetworkOperation
                         exampleError += diff ^ 2
 
                         Dim delta_k As Double
-                        delta_k = diff * ActivationFunctions.EvaluateDerivative(network.Layer(l).ActivationFunction, network.Layer(l).Inputs(k)) 'the formula for delta_k
+                        delta_k = diff * ActivationFunctions.EvaluateDerivative(network.Layers(l).ActivationFunction, network.Layers(l).Inputs(k)) 'the formula for delta_k
 
                         network.Layers(l).Deltas(k) = delta_k
                     Next
 
                 Else 'hidden layer
 
-                    For i = 0 To network.Layer(l).NeuronCount - 1 'for each neuron in the current layer
+                    For i = 0 To network.Layers(l).NeuronCount - 1 'for each neuron in the current layer
 
                         'for each neuron in the next layer (the layer nearer to the output), calculate the delta_j_tempSum (for use in calculating delta_j)
                         Dim delta_j_tempSum As Double = 0
-                        For j = 0 To network.Layer(l + 1).NeuronCount - 1
-                            delta_j_tempSum += network.Layer(l + 1).Deltas(j) * network.Layer(l).Weights(i, j)
+                        For j = 0 To network.Layers(l + 1).NeuronCount - 1
+                            delta_j_tempSum += network.Layers(l + 1).Deltas(j) * network.Layers(l).Weights(i, j)
                         Next
 
                         Dim delta_j As Double
-                        delta_j = ActivationFunctions.EvaluateDerivative(network.Layer(l).ActivationFunction, network.Layer(l).Inputs(i)) * delta_j_tempSum 'the formula for delta_j
+                        delta_j = ActivationFunctions.EvaluateDerivative(network.Layers(l).ActivationFunction, network.Layers(l).Inputs(i)) * delta_j_tempSum 'the formula for delta_j
 
-                        network.Layer(l).Deltas(i) = delta_j
+                        network.Layers(l).Deltas(i) = delta_j
                     Next
 
                 End If
@@ -157,15 +157,15 @@ Module NetworkOperation
                 'Else
 
                 'TODO: maak seker oor die 0 (begin van die video)v
-                For i = 0 To network.Layer(layer - 1).NeuronCount - 1 'for each neuron in the previous layer
+                For i = 0 To network.Layers(layer - 1).NeuronCount - 1 'for each neuron in the previous layer
 
-                    For j = 0 To network.Layer(layer).NeuronCount - 1 'each neuron in the current layer
+                    For j = 0 To network.Layers(layer).NeuronCount - 1 'each neuron in the current layer
 
-                        network.Layer(i).WeightDeltas(i, j) = -learningRate * network.Layer(layer).Deltas(j) * network.Layer(layer - 1).Outputs(i)
+                        network.Layers(i).WeightDeltas(i, j) = -learningRate * network.Layers(layer).Deltas(j) * network.Layers(layer - 1).Outputs(i)
 
-                        network.Layer(layer - 1).Weights(i, j) += network.Layer(i).WeightDeltas(i, j) + momentum * network.Layer(i).PreviousWeightDeltas(i, j)
+                        network.Layers(layer - 1).Weights(i, j) += network.Layers(i).WeightDeltas(i, j) + momentum * network.Layers(i).PreviousWeightDeltas(i, j)
 
-                        network.Layer(i).PreviousWeightDeltas(i, j) = network.Layer(i).WeightDeltas(i, j)
+                        network.Layers(i).PreviousWeightDeltas(i, j) = network.Layers(i).WeightDeltas(i, j)
                     Next
 
                 Next

@@ -92,6 +92,8 @@
             activationFunctionColumn.Items.Add(item)
             combo_outputLayerAF.Items.Add(item)
         Next
+
+        chart_error200.Titles(0).Text = "Network error (RMSE)" & vbNewLine & "Last 200 iterations"
     End Sub
 
     Private Sub btn_addRow_Click(sender As Object, e As EventArgs) Handles btn_addRow.Click

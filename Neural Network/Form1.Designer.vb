@@ -26,6 +26,10 @@ Partial Class Form1
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Title1 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title2 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
@@ -46,8 +50,10 @@ Partial Class Form1
         Me.combo_outputLayerAF = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.lb_iterationNum = New System.Windows.Forms.Label()
+        Me.chart_error200 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chart_error, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chart_error200, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
@@ -239,11 +245,36 @@ Partial Class Form1
         Me.lb_iterationNum.TabIndex = 19
         Me.lb_iterationNum.Text = "0"
         '
+        'chart_error200
+        '
+        Me.chart_error200.BackColor = System.Drawing.Color.Transparent
+        ChartArea2.Name = "ChartArea1"
+        Me.chart_error200.ChartAreas.Add(ChartArea2)
+        Legend2.BackColor = System.Drawing.Color.Transparent
+        Legend2.Name = "Legend1"
+        Me.chart_error200.Legends.Add(Legend2)
+        Me.chart_error200.Location = New System.Drawing.Point(936, 101)
+        Me.chart_error200.Name = "chart_error200"
+        Series2.ChartArea = "ChartArea1"
+        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Series2.YValuesPerPoint = 6
+        Me.chart_error200.Series.Add(Series2)
+        Me.chart_error200.Size = New System.Drawing.Size(294, 185)
+        Me.chart_error200.TabIndex = 20
+        Me.chart_error200.Text = "Network error (RMSE)"
+        Title2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title2.Name = "Title1"
+        Title2.Text = "Network error (RMSE)"
+        Me.chart_error200.Titles.Add(Title2)
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1061, 378)
+        Me.ClientSize = New System.Drawing.Size(1242, 378)
+        Me.Controls.Add(Me.chart_error200)
         Me.Controls.Add(Me.lb_iterationNum)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.combo_outputLayerAF)
@@ -265,6 +296,7 @@ Partial Class Form1
         Me.Text = "Form1"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.chart_error, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chart_error200, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -289,5 +321,6 @@ Partial Class Form1
     Friend WithEvents combo_outputLayerAF As System.Windows.Forms.ComboBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents lb_iterationNum As System.Windows.Forms.Label
+    Friend WithEvents chart_error200 As System.Windows.Forms.DataVisualization.Charting.Chart
 
 End Class

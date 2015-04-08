@@ -100,13 +100,12 @@ Module NetworkOperation
 
     Public Sub trainNetwork(ByRef network As BackpropagationNetwork, learningRate As Double, momentum As Double)
         'TODO: add epoch looping
+        Dim exampleError(numInputLines - 1) As Double
         For ex = 0 To numInputLines - 1 'for each example
 
             'run the network once to get output values
             network.Layers(0).Outputs = Util.Array.GetRow(ex, inputData)
             networkCalculate(network)
-
-            Dim exampleError As Double = 0
 
             'do error calculation
             For l = network.LayerCount - 1 To 1 Step -1 'for each layer (exept input layer), calculate the error, starting from the back
@@ -119,7 +118,7 @@ Module NetworkOperation
                         Dim diff As Double
                         diff = network.LastLayer.Outputs(k) - expectedOutputs(ex, k)
 
-                        exampleError += diff ^ 2
+                        exampleError(ex) += diff ^ 2
 
                         Dim delta_k As Double
                         delta_k = diff * ActivationFunctions.EvaluateDerivative(network.Layers(l).ActivationFunction, network.Layers(l).Inputs(k)) 'the formula for delta_k
@@ -183,9 +182,15 @@ Module NetworkOperation
             Next
 
             'todo vv
-            exampleError *= 0.5
+            Dim exampleErrorSum As Double
+            For i = 0 To numInputLines - 1
+                exampleErrorSum += exampleError(i)
+            Next
 
-            Form1.chart_error.Series("Series1").Points.Add(exampleError)
+            Dim MSE As Double = exampleErrorSum / numInputLines
+            Dim RMSE As Double = Math.Sqrt(MSE)
+
+            Form1.chart_error.Series("Series1").Points.Add(RMSE)
             Form1.chart_error.Update()
             Form1.lb_iterationNum.Update()
 

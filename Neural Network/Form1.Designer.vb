@@ -198,9 +198,10 @@ Partial Class Form1
         Me.chart_error.Series.Add(Series1)
         Me.chart_error.Size = New System.Drawing.Size(469, 320)
         Me.chart_error.TabIndex = 15
-        Me.chart_error.Text = "Network error"
+        Me.chart_error.Text = "Network error (RMSE)"
+        Title1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Title1.Name = "Title1"
-        Title1.Text = "Network error"
+        Title1.Text = "Network error (RMSE)"
         Me.chart_error.Titles.Add(Title1)
         '
         'Label4

@@ -61,11 +61,10 @@ Module NetworkOperation
         Dim prevLayer As Layer = network.Layers(layerIndex - 1)
 
         Dim sum(currentLayer.NeuronCount - 1) As Double
-        Const bias = 1
 
         'Pre-populate sums with bias values
-        For i = 0 To sum.Length - 1
-            sum(i) = bias
+        For i = 0 To currentLayer.NeuronCount - 1
+            sum(i) = currentLayer.Bias(i)
         Next
 
         'calculate each node's sum
@@ -118,7 +117,7 @@ Module NetworkOperation
 
                     For k = 0 To network.LastLayer.NeuronCount - 1 'for each output neuron
                         Dim diff As Double
-                        diff = expectedOutputs(ex, k) - network.LastLayer.Outputs(k)
+                        diff = network.LastLayer.Outputs(k) - expectedOutputs(ex, k)
 
                         exampleError += diff ^ 2
 
@@ -151,33 +150,37 @@ Module NetworkOperation
 
             'update the weights
             For layer = 1 To network.LayerCount - 1 'for each layer (except input layer)
-
+                Dim currentLayer As Layer = network.Layers(layer)
+                Dim prevLayer As Layer = network.Layers(layer - 1)
                 'If network.Layers(layer).LayerType = ILayer.LayerType_.Input Then
                 'do nothing, the input layer does not have weights (or const weights = 1)
                 'Else
 
                 'TODO: maak seker oor die 0 (begin van die video)v
-                For i = 0 To network.Layers(layer - 1).NeuronCount - 1 'for each neuron in the previous layer
+                For i = 0 To prevLayer.NeuronCount - 1 'for each neuron in the previous layer
 
-                    For j = 0 To network.Layers(layer).NeuronCount - 1 'each neuron in the current layer
+                    For j = 0 To currentLayer.NeuronCount - 1 'each neuron in the current layer
 
-                        network.Layers(i).WeightDeltas(i, j) = learningRate * network.Layers(layer).Deltas(j) * network.Layers(layer - 1).Outputs(i)
+                        prevLayer.WeightDeltas(i, j) = learningRate * currentLayer.Deltas(j) * prevLayer.Outputs(i)
 
-                        network.Layers(layer - 1).Weights(i, j) -= network.Layers(i).WeightDeltas(i, j) + momentum * network.Layers(i).PreviousWeightDeltas(i, j)
+                        prevLayer.Weights(i, j) -= prevLayer.WeightDeltas(i, j) + momentum * prevLayer.PreviousWeightDeltas(i, j)
 
-                        network.Layers(i).PreviousWeightDeltas(i, j) = network.Layers(i).WeightDeltas(i, j)
+                        prevLayer.PreviousWeightDeltas(i, j) = prevLayer.WeightDeltas(i, j)
                     Next
-
                 Next
-
-
-
-                'End If
-
             Next
 
-            'TODO: Add (optional) bias updating
+            'TODO: Add the option to update bias or not
+            For layer = 1 To network.LayerCount - 1 'for each layer (except input layer)
+                For i = 0 To network.Layers(layer).NeuronCount - 1 'each neuron in the current layer
 
+                    network.Layers(layer).BiasDeltas(i) = learningRate * network.Layers(layer).Deltas(i)
+
+                    network.Layers(layer).Bias(i) -= network.Layers(layer).BiasDeltas(i) + momentum * network.Layers(layer).PreviousBiasDeltas(i)
+
+                    network.Layers(layer).PreviousBiasDeltas(i) = network.Layers(layer).BiasDeltas(i)
+                Next
+            Next
 
             'todo vv
             exampleError *= 0.5

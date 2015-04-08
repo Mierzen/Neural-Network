@@ -47,10 +47,13 @@ Public Interface ILayer
     ''' <remarks></remarks>
     Property Inputs As Double()
     Property Weights As Double(,)
+    Property Bias As Double()
     Property Outputs As Double()
     Property Deltas As Double()
     Property WeightDeltas As Double(,)
     Property PreviousWeightDeltas As Double(,)
+    Property BiasDeltas As Double()
+    Property PreviousBiasDeltas As Double()
 End Interface
 
 Public Class Layer
@@ -59,6 +62,7 @@ Public Class Layer
     Private network_ As BackpropagationNetwork
     Private _inputs As Double()
     Private _weights As Double(,)
+    Private _bias As Double()
     Private _outputs As Double()
     Private _activationFunction As ActivationFunction
     Private _layerType As ILayer.LayerType_
@@ -66,6 +70,8 @@ Public Class Layer
     Private _deltas As Double()
     Private _weightDeltas As Double(,)
     Private _previousWeightDeltas As Double(,)
+    Private _biasDeltas As Double()
+    Private _previousBiasDeltas As Double()
 
 #Region "Properties"
     Public Overridable ReadOnly Property ActivationFunction As ActivationFunction Implements ILayer.ActivationFunction
@@ -101,6 +107,24 @@ Public Class Layer
         End Get
         Set(value As Double(,))
             _weights = value
+        End Set
+    End Property
+
+    Public Overridable Overloads Property Bias As Double() Implements ILayer.Bias
+        Get
+            Return _bias
+        End Get
+        Set(value As Double())
+            _bias = value
+        End Set
+    End Property
+
+    Public Overridable Overloads Property Bias(index As Integer) As Double
+        Get
+            Return _bias(index)
+        End Get
+        Set(value As Double)
+            _bias(index) = value
         End Set
     End Property
 
@@ -157,6 +181,24 @@ Public Class Layer
             _previousWeightDeltas = value
         End Set
     End Property
+
+    Public Overridable Property BiasDeltas As Double() Implements ILayer.BiasDeltas
+        Get
+            Return _biasDeltas
+        End Get
+        Set(value As Double())
+            _biasDeltas = value
+        End Set
+    End Property
+
+    Public Overridable Property PreviousBiasDeltas As Double() Implements ILayer.PreviousBiasDeltas
+        Get
+            Return _previousBiasDeltas
+        End Get
+        Set(value As Double())
+            _previousBiasDeltas = value
+        End Set
+    End Property
 #End Region
 
     Public Sub New(NeuronCount As Integer, activationFunction As ActivationFunction, Optional LayerType As ILayer.LayerType_ = ILayer.LayerType_.Hidden)
@@ -186,9 +228,23 @@ Public Class Layer
         Next
     End Sub
 
+    Public Sub GenerateBias(network As BackpropagationNetwork)
+        ReDim _bias(0 To NeuronCount - 1)
+
+        For i = 0 To NeuronCount - 1
+            If LayerType = ILayer.LayerType_.Input Then
+                _bias(i) = 0
+            Else
+                _bias(i) = Util.Random.Gaussian()
+            End If
+        Next
+    End Sub
+
     Public Sub InitialiseDeltas(network As BackpropagationNetwork, currentLayerIndex As Integer)
         'generate empty deltas
         ReDim _deltas(0 To NeuronCount - 1)
+        ReDim _biasDeltas(0 To NeuronCount - 1)
+        ReDim _previousBiasDeltas(0 To NeuronCount - 1)
 
         If currentLayerIndex = network.LayerCount - 1 Then
             Exit Sub

@@ -42,6 +42,8 @@ Partial Class Form1
         Me.Label3 = New System.Windows.Forms.Label()
         Me.chk_learningMode = New System.Windows.Forms.CheckBox()
         Me.chart_error = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.combo_outputLayerAF = New System.Windows.Forms.ComboBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chart_error, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -199,11 +201,30 @@ Partial Class Form1
         Title1.Text = "Network error"
         Me.chart_error.Titles.Add(Title1)
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(187, 269)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(154, 13)
+        Me.Label4.TabIndex = 16
+        Me.Label4.Text = "Output layer activation function"
+        '
+        'combo_outputLayerAF
+        '
+        Me.combo_outputLayerAF.FormattingEnabled = True
+        Me.combo_outputLayerAF.Location = New System.Drawing.Point(347, 261)
+        Me.combo_outputLayerAF.Name = "combo_outputLayerAF"
+        Me.combo_outputLayerAF.Size = New System.Drawing.Size(121, 21)
+        Me.combo_outputLayerAF.TabIndex = 17
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1061, 378)
+        Me.Controls.Add(Me.combo_outputLayerAF)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.chart_error)
         Me.Controls.Add(Me.chk_learningMode)
         Me.Controls.Add(Me.tb_output)
@@ -241,5 +262,7 @@ Partial Class Form1
     Friend WithEvents HiddenLayerNeuronCount As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents HiddenLayerActivationFunction As System.Windows.Forms.DataGridViewComboBoxColumn
     Friend WithEvents chart_error As System.Windows.Forms.DataVisualization.Charting.Chart
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents combo_outputLayerAF As System.Windows.Forms.ComboBox
 
 End Class

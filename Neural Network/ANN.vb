@@ -46,7 +46,7 @@ Module ANN
                                            [Enum].Parse(GetType(ActivationFunction), row.Cells("HiddenLayerActivationFunction").Value), ILayer.LayerType_.Hidden))
             End If
         Next
-        network.AddLayer(New Layer(numOutputs, ActivationFunction.Linear, ILayer.LayerType_.Output))
+        network.AddLayer(New Layer(numOutputs, [Enum].Parse(GetType(ActivationFunction), Form1.combo_outputLayerAF.SelectedItem), ILayer.LayerType_.Output))
         'TODO: check if this^ is right
 
         Dim i As Integer = 0

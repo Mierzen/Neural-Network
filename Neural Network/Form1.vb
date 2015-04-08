@@ -90,6 +90,7 @@
         Dim item As String
         For Each item In items
             activationFunctionColumn.Items.Add(item)
+            combo_outputLayerAF.Items.Add(item)
         Next
     End Sub
 

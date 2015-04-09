@@ -22,15 +22,15 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title1 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title2 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title3 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title4 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.tc_modes = New System.Windows.Forms.TabControl()
         Me.tp_training = New System.Windows.Forms.TabPage()
@@ -77,6 +77,7 @@ Partial Class Form1
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.tc_modes.SuspendLayout()
         Me.tp_training.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -89,6 +90,7 @@ Partial Class Form1
         CType(Me.chart_error, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
+        Me.TableLayoutPanel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'OpenFileDialog1
@@ -336,6 +338,7 @@ Partial Class Form1
         Me.GroupBox3.Controls.Add(Me.TableLayoutPanel2)
         Me.GroupBox3.Font = New System.Drawing.Font("Segoe UI", 8.5!, System.Drawing.FontStyle.Bold)
         Me.GroupBox3.Location = New System.Drawing.Point(6, 332)
+        Me.GroupBox3.MinimumSize = New System.Drawing.Size(567, 0)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(567, 112)
         Me.GroupBox3.TabIndex = 23
@@ -425,34 +428,39 @@ Partial Class Form1
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.btn_selectInput)
-        Me.GroupBox1.Controls.Add(Me.tb_input)
+        Me.GroupBox1.AutoSize = True
+        Me.GroupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox1.Controls.Add(Me.TableLayoutPanel4)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(6, 6)
+        Me.GroupBox1.MinimumSize = New System.Drawing.Size(567, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(565, 95)
+        Me.GroupBox1.Size = New System.Drawing.Size(567, 76)
         Me.GroupBox1.TabIndex = 30
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "INPUT"
         '
         'Label1
         '
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Label1.AutoSize = True
+        Me.TableLayoutPanel4.SetColumnSpan(Me.Label1, 2)
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(6, 16)
+        Me.Label1.Location = New System.Drawing.Point(3, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(404, 26)
         Me.Label1.TabIndex = 11
         Me.Label1.Text = "Select csv file containing raw input data." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "The file should not have any headers." & _
     " Each row represents one ""example"" of inputs."
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'btn_selectInput
         '
+        Me.btn_selectInput.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.btn_selectInput.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_selectInput.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_selectInput.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
-        Me.btn_selectInput.Location = New System.Drawing.Point(533, 58)
+        Me.btn_selectInput.Location = New System.Drawing.Point(530, 29)
         Me.btn_selectInput.Name = "btn_selectInput"
         Me.btn_selectInput.Size = New System.Drawing.Size(23, 23)
         Me.btn_selectInput.TabIndex = 10
@@ -460,8 +468,9 @@ Partial Class Form1
         '
         'tb_input
         '
+        Me.tb_input.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.tb_input.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_input.Location = New System.Drawing.Point(9, 58)
+        Me.tb_input.Location = New System.Drawing.Point(3, 30)
         Me.tb_input.Name = "tb_input"
         Me.tb_input.Size = New System.Drawing.Size(521, 20)
         Me.tb_input.TabIndex = 9
@@ -472,8 +481,9 @@ Partial Class Form1
         Me.GroupBox2.Controls.Add(Me.TableLayoutPanel3)
         Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold)
         Me.GroupBox2.Location = New System.Drawing.Point(6, 107)
+        Me.GroupBox2.MinimumSize = New System.Drawing.Size(567, 0)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(565, 219)
+        Me.GroupBox2.Size = New System.Drawing.Size(567, 219)
         Me.GroupBox2.TabIndex = 22
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "HIDDEN LAYERS"
@@ -493,14 +503,14 @@ Partial Class Form1
         Me.DataGridView1.AllowDrop = True
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.HiddenLayerNumber, Me.HiddenLayerNeuronCount, Me.HiddenLayerActivationFunction})
         Me.DataGridView1.Cursor = System.Windows.Forms.Cursors.Arrow
@@ -509,7 +519,7 @@ Partial Class Form1
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
         Me.TableLayoutPanel3.SetRowSpan(Me.DataGridView1, 2)
-        Me.DataGridView1.Size = New System.Drawing.Size(523, 192)
+        Me.DataGridView1.Size = New System.Drawing.Size(525, 192)
         Me.DataGridView1.TabIndex = 10
         '
         'HiddenLayerNumber
@@ -533,26 +543,26 @@ Partial Class Form1
         'chart_error200
         '
         Me.chart_error200.BackColor = System.Drawing.Color.Transparent
-        ChartArea1.Name = "ChartArea1"
-        Me.chart_error200.ChartAreas.Add(ChartArea1)
-        Legend1.BackColor = System.Drawing.Color.Transparent
-        Legend1.Name = "Legend1"
-        Me.chart_error200.Legends.Add(Legend1)
+        ChartArea3.Name = "ChartArea1"
+        Me.chart_error200.ChartAreas.Add(ChartArea3)
+        Legend3.BackColor = System.Drawing.Color.Transparent
+        Legend3.Name = "Legend1"
+        Me.chart_error200.Legends.Add(Legend3)
         Me.chart_error200.Location = New System.Drawing.Point(910, 273)
         Me.chart_error200.Name = "chart_error200"
-        Series1.ChartArea = "ChartArea1"
-        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Series1.YValuesPerPoint = 6
-        Me.chart_error200.Series.Add(Series1)
+        Series3.ChartArea = "ChartArea1"
+        Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series3.Legend = "Legend1"
+        Series3.Name = "Series1"
+        Series3.YValuesPerPoint = 6
+        Me.chart_error200.Series.Add(Series3)
         Me.chart_error200.Size = New System.Drawing.Size(294, 185)
         Me.chart_error200.TabIndex = 29
         Me.chart_error200.Text = "Network error (RMSE)"
-        Title1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title1.Name = "Title1"
-        Title1.Text = "Network error (RMSE)"
-        Me.chart_error200.Titles.Add(Title1)
+        Title3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title3.Name = "Title1"
+        Title3.Text = "Network error (RMSE)"
+        Me.chart_error200.Titles.Add(Title3)
         '
         'lb_iterationNum
         '
@@ -575,26 +585,26 @@ Partial Class Form1
         'chart_error
         '
         Me.chart_error.BackColor = System.Drawing.Color.Transparent
-        ChartArea2.Name = "ChartArea1"
-        Me.chart_error.ChartAreas.Add(ChartArea2)
-        Legend2.BackColor = System.Drawing.Color.Transparent
-        Legend2.Name = "Legend1"
-        Me.chart_error.Legends.Add(Legend2)
+        ChartArea4.Name = "ChartArea1"
+        Me.chart_error.ChartAreas.Add(ChartArea4)
+        Legend4.BackColor = System.Drawing.Color.Transparent
+        Legend4.Name = "Legend1"
+        Me.chart_error.Legends.Add(Legend4)
         Me.chart_error.Location = New System.Drawing.Point(759, 6)
         Me.chart_error.Name = "chart_error"
-        Series2.ChartArea = "ChartArea1"
-        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Series2.YValuesPerPoint = 6
-        Me.chart_error.Series.Add(Series2)
+        Series4.ChartArea = "ChartArea1"
+        Series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series4.Legend = "Legend1"
+        Series4.Name = "Series1"
+        Series4.YValuesPerPoint = 6
+        Me.chart_error.Series.Add(Series4)
         Me.chart_error.Size = New System.Drawing.Size(469, 320)
         Me.chart_error.TabIndex = 26
         Me.chart_error.Text = "Network error (RMSE)"
-        Title2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title2.Name = "Title1"
-        Title2.Text = "Network error (RMSE)"
-        Me.chart_error.Titles.Add(Title2)
+        Title4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title4.Name = "Title1"
+        Title4.Text = "Network error (RMSE)"
+        Me.chart_error.Titles.Add(Title4)
         '
         'Button1
         '
@@ -680,8 +690,27 @@ Partial Class Form1
         Me.TableLayoutPanel3.RowCount = 2
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23.0!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(559, 198)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(561, 198)
         Me.TableLayoutPanel3.TabIndex = 32
+        '
+        'TableLayoutPanel4
+        '
+        Me.TableLayoutPanel4.AutoSize = True
+        Me.TableLayoutPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.TableLayoutPanel4.ColumnCount = 2
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel4.Controls.Add(Me.Label1, 0, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.tb_input, 0, 1)
+        Me.TableLayoutPanel4.Controls.Add(Me.btn_selectInput, 1, 1)
+        Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(3, 18)
+        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
+        Me.TableLayoutPanel4.RowCount = 2
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(561, 55)
+        Me.TableLayoutPanel4.TabIndex = 32
         '
         'Form1
         '
@@ -712,6 +741,8 @@ Partial Class Form1
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
         Me.TableLayoutPanel3.ResumeLayout(False)
+        Me.TableLayoutPanel4.ResumeLayout(False)
+        Me.TableLayoutPanel4.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -762,5 +793,6 @@ Partial Class Form1
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents TableLayoutPanel3 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents TableLayoutPanel4 As System.Windows.Forms.TableLayoutPanel
 
 End Class

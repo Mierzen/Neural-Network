@@ -86,7 +86,7 @@ Module ANN
             Form1.lb_iterationNum.Update()
 
             Dim chart200_pointCount As Integer = Form1.chart_error200.Series("Series1").Points.Count
-            If chart200_pointCount <= 200 Then
+            If chart200_pointCount <= Form1.tb_graphSecondaryPoints.Text Then
                 Form1.chart_error200.Series("Series1").Points.Add(err)
             Else
                 Form1.chart_error200.Series("Series1").Points.RemoveAt(0)

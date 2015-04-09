@@ -112,4 +112,8 @@
             lb_biasNotice.Visible = True
         End If
     End Sub
+
+    Private Sub tc_modes_Selecting(sender As Object, e As TabControlCancelEventArgs) Handles tc_modes.Selecting
+        panel_charts.Visible = False
+    End Sub
 End Class

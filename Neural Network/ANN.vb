@@ -79,6 +79,20 @@ Module ANN
             i += 1
             Form1.lb_currentError.Text = err
             Form1.lb_currentError.Update()
+
+            'update charts
+            Form1.chart_error.Series("Series1").Points.Add(err)
+            Form1.chart_error.Update()
+            Form1.lb_iterationNum.Update()
+
+            Dim chart200_pointCount As Integer = Form1.chart_error200.Series("Series1").Points.Count
+            If chart200_pointCount <= 200 Then
+                Form1.chart_error200.Series("Series1").Points.Add(err)
+            Else
+                Form1.chart_error200.Series("Series1").Points.RemoveAt(0)
+                Form1.chart_error200.Series("Series1").Points.Add(err)
+            End If
+            Form1.chart_error200.Update()
         Loop While (err > CDbl(Form1.tb_maxError.Text)) AndAlso (i <= CInt(Form1.tb_maxEpochs.Text))
         'NetworkOperation.networkCalculate(network)
         'TODO: normaliseData()

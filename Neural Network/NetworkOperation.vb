@@ -191,19 +191,6 @@ Module NetworkOperation
         Dim MSE As Double = exampleErrorSum / numInputLines
         Dim RMSE As Double = Math.Sqrt(MSE)
 
-        Form1.chart_error.Series("Series1").Points.Add(RMSE)
-        Form1.chart_error.Update()
-        Form1.lb_iterationNum.Update()
-
-        Dim chart200_pointCount As Integer = Form1.chart_error200.Series("Series1").Points.Count
-        If chart200_pointCount <= 200 Then
-            Form1.chart_error200.Series("Series1").Points.Add(RMSE)
-        Else
-            Form1.chart_error200.Series("Series1").Points.RemoveAt(0)
-            Form1.chart_error200.Series("Series1").Points.Add(RMSE)
-        End If
-        Form1.chart_error200.Update()
-
         Return RMSE
     End Function
 End Module

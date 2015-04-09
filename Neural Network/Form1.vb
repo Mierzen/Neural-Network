@@ -78,7 +78,7 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lb_biasNotice.Visible = False
-
+        panel_stats.Visible = False
         panel_charts.Visible = False
 
         DataGridView1.Columns(0).ReadOnly = True

@@ -73,7 +73,7 @@ Module ANN
         NetworkOperation.loadTrainingData() 'TODO: Split data into training, validation and testing sets
 
         If Form1.chk_showGraph.Checked Then
-            Form1.chart_error200.Titles(0).Text = "Network error (RMSE)" & vbNewLine & "Last " & Form1.tb_graphSecondaryPoints.Text & " iterations"
+            Form1.chart_errorSecondary.Titles(0).Text = "Network error (RMSE)" & vbNewLine & "Last " & Form1.tb_graphSecondaryPoints.Text & " iterations"
 
             Form1.panel_charts.Visible = True
 
@@ -98,14 +98,14 @@ Module ANN
             Form1.chart_error.Update()
             Form1.lb_iterationNum.Update()
 
-            Dim chart200_pointCount As Integer = Form1.chart_error200.Series("Series1").Points.Count
+            Dim chart200_pointCount As Integer = Form1.chart_errorSecondary.Series("Series1").Points.Count
             If chart200_pointCount <= Form1.tb_graphSecondaryPoints.Text Then
-                Form1.chart_error200.Series("Series1").Points.Add(err)
+                Form1.chart_errorSecondary.Series("Series1").Points.Add(err)
             Else
-                Form1.chart_error200.Series("Series1").Points.RemoveAt(0)
-                Form1.chart_error200.Series("Series1").Points.Add(err)
+                Form1.chart_errorSecondary.Series("Series1").Points.RemoveAt(0)
+                Form1.chart_errorSecondary.Series("Series1").Points.Add(err)
             End If
-            Form1.chart_error200.Update()
+            Form1.chart_errorSecondary.Update()
         Loop While (err > CDbl(Form1.tb_maxError.Text)) AndAlso (i <= CInt(Form1.tb_maxEpochs.Text))
         'NetworkOperation.networkCalculate(network)
         'TODO: normaliseData()

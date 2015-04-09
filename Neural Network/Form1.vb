@@ -77,6 +77,8 @@
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        panel_charts.Visible = False
+
         DataGridView1.Columns(0).ReadOnly = True
 
         Dim activationFunctionColumn As DataGridViewComboBoxColumn = DataGridView1.Columns("HiddenLayerActivationFunction")

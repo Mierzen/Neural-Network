@@ -71,6 +71,17 @@ Module ANN
         'TODO: add training mode and calculation mode ↴
         'load training data into memory
         NetworkOperation.loadTrainingData() 'TODO: Split data into training, validation and testing sets
+
+        If Form1.chk_showGraph.Checked Then
+            Form1.panel_charts.Visible = True
+
+            Form1.panel_charts.Update()
+        End If
+
+        'center form on screen
+        Form1.Top = (My.Computer.Screen.WorkingArea.Height \ 2) - (Form1.Height \ 2)
+        Form1.Left = (My.Computer.Screen.WorkingArea.Width \ 2) - (Form1.Width \ 2)
+
         Dim err As Double = 0
         i = 1
         Do

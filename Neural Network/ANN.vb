@@ -29,9 +29,7 @@ Module ANN
         ReDim actualOutputs(numOutputs - 1)
 
         validateCSV("input") 'TODO: just check this again after everything is done
-        If Form1.chk_learningMode.Checked Then
-            validateCSV("output")
-        End If
+        validateCSV("output")
 
         If expectedOutputsPerLine <> numOutputs Then
             MsgBox("The number of outputs as set up in the network do not agree with the number of outputs in the training data.")

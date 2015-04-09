@@ -73,8 +73,6 @@ Partial Class Form1
         Me.Label11 = New System.Windows.Forms.Label()
         Me.tp_calculation = New System.Windows.Forms.TabPage()
         Me.chart_error = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.chk_learningMode = New System.Windows.Forms.CheckBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
         Me.chart_errorSecondary = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -690,27 +688,6 @@ Partial Class Form1
         Title2.Text = "Network error (RMSE)"
         Me.chart_error.Titles.Add(Title2)
         '
-        'chk_learningMode
-        '
-        Me.chk_learningMode.AutoSize = True
-        Me.chk_learningMode.Checked = True
-        Me.chk_learningMode.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.chk_learningMode.Location = New System.Drawing.Point(644, -5)
-        Me.chk_learningMode.Name = "chk_learningMode"
-        Me.chk_learningMode.Size = New System.Drawing.Size(96, 17)
-        Me.chk_learningMode.TabIndex = 23
-        Me.chk_learningMode.Text = "Learning mode"
-        Me.chk_learningMode.UseVisualStyleBackColor = True
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(746, -4)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(39, 13)
-        Me.Label3.TabIndex = 24
-        Me.Label3.Text = "Label3"
-        '
         'TableLayoutPanel6
         '
         Me.TableLayoutPanel6.AutoSize = True
@@ -836,9 +813,7 @@ Partial Class Form1
         Me.ClientSize = New System.Drawing.Size(1354, 733)
         Me.Controls.Add(Me.panel_stats)
         Me.Controls.Add(Me.panel_charts)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.tc_modes)
-        Me.Controls.Add(Me.chk_learningMode)
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Form1"
         Me.Padding = New System.Windows.Forms.Padding(0, 0, 8, 8)
@@ -879,7 +854,6 @@ Partial Class Form1
     Friend WithEvents tc_modes As System.Windows.Forms.TabControl
     Friend WithEvents tp_training As System.Windows.Forms.TabPage
     Friend WithEvents chart_error As System.Windows.Forms.DataVisualization.Charting.Chart
-    Friend WithEvents chk_learningMode As System.Windows.Forms.CheckBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents tp_calculation As System.Windows.Forms.TabPage
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
@@ -897,7 +871,6 @@ Partial Class Form1
     Friend WithEvents tb_output As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents btn_selectOutput As System.Windows.Forms.Button
-    Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
     Friend WithEvents HiddenLayerNumber As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents HiddenLayerNeuronCount As System.Windows.Forms.DataGridViewTextBoxColumn

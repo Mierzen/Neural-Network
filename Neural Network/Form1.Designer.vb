@@ -41,7 +41,7 @@ Partial Class Form1
         Me.tb_input = New System.Windows.Forms.TextBox()
         Me.btn_selectInput = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tlp_advancedSettings = New System.Windows.Forms.TableLayoutPanel()
         Me.tb_maxEpochs = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -89,7 +89,7 @@ Partial Class Form1
         Me.GroupBox1.SuspendLayout()
         Me.TableLayoutPanel4.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
-        Me.TableLayoutPanel1.SuspendLayout()
+        Me.tlp_advancedSettings.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -226,7 +226,7 @@ Partial Class Form1
         '
         Me.GroupBox4.AutoSize = True
         Me.GroupBox4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox4.Controls.Add(Me.TableLayoutPanel1)
+        Me.GroupBox4.Controls.Add(Me.tlp_advancedSettings)
         Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox4.Location = New System.Drawing.Point(3, 428)
         Me.GroupBox4.Name = "GroupBox4"
@@ -235,41 +235,41 @@ Partial Class Form1
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "ADVANCED SETTINGS"
         '
-        'TableLayoutPanel1
+        'tlp_advancedSettings
         '
-        Me.TableLayoutPanel1.AutoSize = True
-        Me.TableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.TableLayoutPanel1.ColumnCount = 6
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel1.Controls.Add(Me.tb_maxEpochs, 3, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label9, 2, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label7, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.tb_learningRate, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label8, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.chk_showGraph, 4, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.tb_momentum, 1, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.chk_updateBias, 0, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.tb_maxError, 3, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label10, 2, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.lb_graphSecondary, 4, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.tb_graphSecondaryPoints, 5, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.lb_biasNotice, 2, 2)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 19)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.Padding = New System.Windows.Forms.Padding(0, 0, 8, 8)
-        Me.TableLayoutPanel1.RowCount = 3
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(561, 83)
-        Me.TableLayoutPanel1.TabIndex = 32
+        Me.tlp_advancedSettings.AutoSize = True
+        Me.tlp_advancedSettings.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.tlp_advancedSettings.ColumnCount = 6
+        Me.tlp_advancedSettings.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.tlp_advancedSettings.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.tlp_advancedSettings.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.tlp_advancedSettings.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.tlp_advancedSettings.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.tlp_advancedSettings.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.tlp_advancedSettings.Controls.Add(Me.tb_maxEpochs, 3, 0)
+        Me.tlp_advancedSettings.Controls.Add(Me.Label9, 2, 0)
+        Me.tlp_advancedSettings.Controls.Add(Me.Label7, 0, 0)
+        Me.tlp_advancedSettings.Controls.Add(Me.tb_learningRate, 1, 0)
+        Me.tlp_advancedSettings.Controls.Add(Me.Label8, 0, 1)
+        Me.tlp_advancedSettings.Controls.Add(Me.chk_showGraph, 4, 0)
+        Me.tlp_advancedSettings.Controls.Add(Me.tb_momentum, 1, 1)
+        Me.tlp_advancedSettings.Controls.Add(Me.chk_updateBias, 0, 2)
+        Me.tlp_advancedSettings.Controls.Add(Me.tb_maxError, 3, 1)
+        Me.tlp_advancedSettings.Controls.Add(Me.Label10, 2, 1)
+        Me.tlp_advancedSettings.Controls.Add(Me.lb_graphSecondary, 4, 1)
+        Me.tlp_advancedSettings.Controls.Add(Me.tb_graphSecondaryPoints, 5, 1)
+        Me.tlp_advancedSettings.Controls.Add(Me.lb_biasNotice, 2, 2)
+        Me.tlp_advancedSettings.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tlp_advancedSettings.Location = New System.Drawing.Point(3, 19)
+        Me.tlp_advancedSettings.Name = "tlp_advancedSettings"
+        Me.tlp_advancedSettings.Padding = New System.Windows.Forms.Padding(0, 0, 8, 8)
+        Me.tlp_advancedSettings.RowCount = 3
+        Me.tlp_advancedSettings.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.tlp_advancedSettings.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.tlp_advancedSettings.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.tlp_advancedSettings.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tlp_advancedSettings.Size = New System.Drawing.Size(561, 83)
+        Me.tlp_advancedSettings.TabIndex = 32
         '
         'tb_maxEpochs
         '
@@ -334,7 +334,7 @@ Partial Class Form1
         Me.chk_showGraph.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.chk_showGraph.AutoSize = True
         Me.chk_showGraph.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.TableLayoutPanel1.SetColumnSpan(Me.chk_showGraph, 2)
+        Me.tlp_advancedSettings.SetColumnSpan(Me.chk_showGraph, 2)
         Me.chk_showGraph.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
         Me.chk_showGraph.Location = New System.Drawing.Point(320, 4)
         Me.chk_showGraph.Name = "chk_showGraph"
@@ -360,7 +360,7 @@ Partial Class Form1
         Me.chk_updateBias.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chk_updateBias.Checked = True
         Me.chk_updateBias.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.TableLayoutPanel1.SetColumnSpan(Me.chk_updateBias, 2)
+        Me.tlp_advancedSettings.SetColumnSpan(Me.chk_updateBias, 2)
         Me.chk_updateBias.Dock = System.Windows.Forms.DockStyle.Top
         Me.chk_updateBias.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
         Me.chk_updateBias.Location = New System.Drawing.Point(3, 55)
@@ -401,7 +401,7 @@ Partial Class Form1
         Me.lb_graphSecondary.MaximumSize = New System.Drawing.Size(179, 0)
         Me.lb_graphSecondary.Name = "lb_graphSecondary"
         Me.lb_graphSecondary.Padding = New System.Windows.Forms.Padding(0, 6, 0, 0)
-        Me.TableLayoutPanel1.SetRowSpan(Me.lb_graphSecondary, 2)
+        Me.tlp_advancedSettings.SetRowSpan(Me.lb_graphSecondary, 2)
         Me.lb_graphSecondary.Size = New System.Drawing.Size(179, 32)
         Me.lb_graphSecondary.TabIndex = 35
         Me.lb_graphSecondary.Text = "Number of previous iterations to plot on secondary chart:"
@@ -411,7 +411,7 @@ Partial Class Form1
         Me.tb_graphSecondaryPoints.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tb_graphSecondaryPoints.Location = New System.Drawing.Point(505, 29)
         Me.tb_graphSecondaryPoints.Name = "tb_graphSecondaryPoints"
-        Me.TableLayoutPanel1.SetRowSpan(Me.tb_graphSecondaryPoints, 2)
+        Me.tlp_advancedSettings.SetRowSpan(Me.tb_graphSecondaryPoints, 2)
         Me.tb_graphSecondaryPoints.Size = New System.Drawing.Size(38, 20)
         Me.tb_graphSecondaryPoints.TabIndex = 36
         Me.tb_graphSecondaryPoints.Text = "50"
@@ -421,7 +421,7 @@ Partial Class Form1
         '
         Me.lb_biasNotice.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lb_biasNotice.AutoSize = True
-        Me.TableLayoutPanel1.SetColumnSpan(Me.lb_biasNotice, 2)
+        Me.tlp_advancedSettings.SetColumnSpan(Me.lb_biasNotice, 2)
         Me.lb_biasNotice.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lb_biasNotice.Location = New System.Drawing.Point(144, 63)
         Me.lb_biasNotice.Name = "lb_biasNotice"
@@ -848,8 +848,8 @@ Partial Class Form1
         Me.TableLayoutPanel4.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
-        Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel1.PerformLayout()
+        Me.tlp_advancedSettings.ResumeLayout(False)
+        Me.tlp_advancedSettings.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -901,7 +901,7 @@ Partial Class Form1
     Friend WithEvents tb_graphSecondaryPoints As System.Windows.Forms.TextBox
     Friend WithEvents lb_graphSecondary As System.Windows.Forms.Label
     Friend WithEvents chk_showGraph As System.Windows.Forms.CheckBox
-    Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents tlp_advancedSettings As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents tb_maxEpochs As System.Windows.Forms.TextBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents tb_maxError As System.Windows.Forms.TextBox

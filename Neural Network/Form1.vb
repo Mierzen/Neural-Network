@@ -33,6 +33,8 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'validateTextboxes()
+
         Application.UseWaitCursor() = True
 
         Me.Select()
@@ -77,6 +79,11 @@
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim textboxes = tlp_advancedSettings.Controls.OfType(Of TextBox)()
+        For Each tb In textboxes
+            AddHandler tb.TextChanged, AddressOf tbTextChanged
+        Next
+
         lb_biasNotice.Visible = False
         panel_stats.Visible = False
         panel_charts.Visible = False
@@ -92,6 +99,45 @@
             activationFunctionColumn.Items.Add(item)
             combo_outputLayerAF.Items.Add(item)
         Next
+    End Sub
+
+    Private Sub tbTextChanged(sender As Object, e As EventArgs)
+        Dim tb = DirectCast(sender, TextBox)
+        Dim tbContents As String = tb.Text
+
+        If IsNumeric(tbContents) = False Then
+            MsgBox("Please enter only numeric values.", MsgBoxStyle.OkOnly Or vbCritical, "Non-numeric input")
+            Exit Sub
+        End If
+        If Math.Sign(CDbl(tbContents)) = -1 Then
+            MsgBox("Please enter only positive values.", MsgBoxStyle.OkOnly Or vbCritical, "Negative input")
+            Exit Sub
+        End If
+
+
+        'list of textboxes that can contain only integers
+        Dim intList As New List(Of TextBox)
+        intList.AddRange({tb_maxEpochs, tb_graphSecondaryPoints})
+
+        Dim zeroAllowedList As New List(Of TextBox)
+        zeroAllowedList.Add(tb_momentum)
+
+        If intList.Contains(tb) Then 'check if it contains only positive, non-zero integers
+            Dim parseResult As Boolean
+            Integer.TryParse(tbContents, parseResult)
+
+            If parseResult = False And tbContents <> "0" Then
+                MsgBox("Please enter only integer values.", MsgBoxStyle.OkOnly Or vbCritical, "Non-integer input")
+                Exit Sub
+            End If
+        End If
+
+        If zeroAllowedList.Contains(tb) = False Then
+            If tbContents = "0" Then
+                MsgBox("Please enter a non-zero value.", MsgBoxStyle.OkOnly Or vbCritical, "Zero input")
+                Exit Sub
+            End If
+        End If
     End Sub
 
     Private Sub btn_addRow_Click(sender As Object, e As EventArgs) Handles btn_addRow.Click

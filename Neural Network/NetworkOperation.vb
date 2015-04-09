@@ -169,17 +169,18 @@ Module NetworkOperation
                 Next
             Next
 
-            'TODO: Add the option to update bias or not
-            For layer = 1 To network.LayerCount - 1 'for each layer (except input layer)
-                For i = 0 To network.Layers(layer).NeuronCount - 1 'each neuron in the current layer
+            If Form1.chk_updateBias.Checked Then
+                For layer = 1 To network.LayerCount - 1 'for each layer (except input layer)
+                    For i = 0 To network.Layers(layer).NeuronCount - 1 'each neuron in the current layer
 
-                    network.Layers(layer).BiasDeltas(i) = learningRate * network.Layers(layer).Deltas(i)
+                        network.Layers(layer).BiasDeltas(i) = learningRate * network.Layers(layer).Deltas(i)
 
-                    network.Layers(layer).Bias(i) -= network.Layers(layer).BiasDeltas(i) + momentum * network.Layers(layer).PreviousBiasDeltas(i)
+                        network.Layers(layer).Bias(i) -= network.Layers(layer).BiasDeltas(i) + momentum * network.Layers(layer).PreviousBiasDeltas(i)
 
-                    network.Layers(layer).PreviousBiasDeltas(i) = network.Layers(layer).BiasDeltas(i)
+                        network.Layers(layer).PreviousBiasDeltas(i) = network.Layers(layer).BiasDeltas(i)
+                    Next
                 Next
-            Next
+            End If
         Next
 
         'todo vv

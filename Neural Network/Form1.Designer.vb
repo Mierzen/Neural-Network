@@ -23,7 +23,6 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Title2 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
@@ -34,7 +33,6 @@ Partial Class Form1
         Me.tc_modes = New System.Windows.Forms.TabControl()
         Me.tp_training = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -65,18 +63,19 @@ Partial Class Form1
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.combo_outputLayerAF = New System.Windows.Forms.ComboBox()
-        Me.tb_output = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.tb_numOutputs = New System.Windows.Forms.TextBox()
+        Me.tb_output = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btn_selectOutput = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
+        Me.tp_calculation = New System.Windows.Forms.TabPage()
         Me.chart_error200 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.lb_iterationNum = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.chart_error = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.tp_calculation = New System.Windows.Forms.TabPage()
         Me.chk_learningMode = New System.Windows.Forms.CheckBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
@@ -147,20 +146,6 @@ Partial Class Form1
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel5.Size = New System.Drawing.Size(730, 539)
         Me.TableLayoutPanel5.TabIndex = 32
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Button1.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Location = New System.Drawing.Point(605, 228)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button1.Name = "Button1"
-        Me.TableLayoutPanel5.SetRowSpan(Me.Button1, 4)
-        Me.Button1.Size = New System.Drawing.Size(123, 82)
-        Me.Button1.TabIndex = 18
-        Me.Button1.Text = "TRAIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "THE" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "NETWORK"
-        Me.Button1.UseVisualStyleBackColor = False
         '
         'GroupBox1
         '
@@ -560,16 +545,16 @@ Partial Class Form1
         Me.combo_outputLayerAF.Size = New System.Drawing.Size(167, 21)
         Me.combo_outputLayerAF.TabIndex = 29
         '
-        'tb_output
+        'Label4
         '
-        Me.tb_output.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.TableLayoutPanel2.SetColumnSpan(Me.tb_output, 4)
-        Me.tb_output.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_output.Location = New System.Drawing.Point(3, 30)
-        Me.tb_output.Name = "tb_output"
-        Me.tb_output.Size = New System.Drawing.Size(518, 20)
-        Me.tb_output.TabIndex = 23
-        Me.tb_output.Text = "C:\Users\Stephan Taljaard\Desktop\output.csv"
+        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(154, 62)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(154, 13)
+        Me.Label4.TabIndex = 28
+        Me.Label4.Text = "Output layer activation function"
         '
         'Label6
         '
@@ -585,17 +570,6 @@ Partial Class Form1
     "g." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "The file should not have any headers. Each row represents one ""example"" of o" & _
     "utputs."
         '
-        'Label4
-        '
-        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(154, 62)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(154, 13)
-        Me.Label4.TabIndex = 28
-        Me.Label4.Text = "Output layer activation function"
-        '
         'tb_numOutputs
         '
         Me.tb_numOutputs.Anchor = System.Windows.Forms.AnchorStyles.Left
@@ -606,6 +580,17 @@ Partial Class Form1
         Me.tb_numOutputs.TabIndex = 27
         Me.tb_numOutputs.Text = "2"
         Me.tb_numOutputs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'tb_output
+        '
+        Me.tb_output.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.TableLayoutPanel2.SetColumnSpan(Me.tb_output, 4)
+        Me.tb_output.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_output.Location = New System.Drawing.Point(3, 30)
+        Me.tb_output.Name = "tb_output"
+        Me.tb_output.Size = New System.Drawing.Size(518, 20)
+        Me.tb_output.TabIndex = 23
+        Me.tb_output.Text = "C:\Users\Stephan Taljaard\Desktop\output.csv"
         '
         'Label2
         '
@@ -630,6 +615,20 @@ Partial Class Form1
         Me.btn_selectOutput.TabIndex = 30
         Me.btn_selectOutput.UseVisualStyleBackColor = True
         '
+        'Button1
+        '
+        Me.Button1.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Button1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Location = New System.Drawing.Point(605, 228)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button1.Name = "Button1"
+        Me.TableLayoutPanel5.SetRowSpan(Me.Button1, 4)
+        Me.Button1.Size = New System.Drawing.Size(123, 82)
+        Me.Button1.TabIndex = 18
+        Me.Button1.Text = "TRAIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "THE" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "NETWORK"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'Label11
         '
         Me.Label11.Anchor = System.Windows.Forms.AnchorStyles.Right
@@ -643,6 +642,17 @@ Partial Class Form1
         Me.Label11.Text = "→"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'tp_calculation
+        '
+        Me.tp_calculation.BackColor = System.Drawing.SystemColors.Control
+        Me.tp_calculation.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tp_calculation.Location = New System.Drawing.Point(4, 22)
+        Me.tp_calculation.Name = "tp_calculation"
+        Me.tp_calculation.Padding = New System.Windows.Forms.Padding(3)
+        Me.tp_calculation.Size = New System.Drawing.Size(739, 598)
+        Me.tp_calculation.TabIndex = 1
+        Me.tp_calculation.Text = "CALCULATION MODE"
+        '
         'chart_error200
         '
         Me.chart_error200.BackColor = System.Drawing.Color.Transparent
@@ -650,14 +660,10 @@ Partial Class Form1
         Me.chart_error200.ChartAreas.Add(ChartArea1)
         Me.TableLayoutPanel6.SetColumnSpan(Me.chart_error200, 2)
         Me.chart_error200.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend2.BackColor = System.Drawing.Color.Transparent
-        Legend2.Name = "Legend1"
-        Me.chart_error200.Legends.Add(Legend2)
         Me.chart_error200.Location = New System.Drawing.Point(3, 342)
         Me.chart_error200.Name = "chart_error200"
         Series2.ChartArea = "ChartArea1"
         Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series2.Legend = "Legend1"
         Series2.Name = "Series1"
         Series2.YValuesPerPoint = 6
         Me.chart_error200.Series.Add(Series2)
@@ -699,7 +705,9 @@ Partial Class Form1
         Me.chart_error.ChartAreas.Add(ChartArea2)
         Me.TableLayoutPanel6.SetColumnSpan(Me.chart_error, 2)
         Me.chart_error.Dock = System.Windows.Forms.DockStyle.Fill
+        Legend1.Alignment = System.Drawing.StringAlignment.Center
         Legend1.BackColor = System.Drawing.Color.Transparent
+        Legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom
         Legend1.Name = "Legend1"
         Me.chart_error.Legends.Add(Legend1)
         Me.chart_error.Location = New System.Drawing.Point(3, 16)
@@ -717,17 +725,6 @@ Partial Class Form1
         Title1.Name = "Title1"
         Title1.Text = "Network error (RMSE)"
         Me.chart_error.Titles.Add(Title1)
-        '
-        'tp_calculation
-        '
-        Me.tp_calculation.BackColor = System.Drawing.SystemColors.Control
-        Me.tp_calculation.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tp_calculation.Location = New System.Drawing.Point(4, 22)
-        Me.tp_calculation.Name = "tp_calculation"
-        Me.tp_calculation.Padding = New System.Windows.Forms.Padding(3)
-        Me.tp_calculation.Size = New System.Drawing.Size(1231, 598)
-        Me.tp_calculation.TabIndex = 1
-        Me.tp_calculation.Text = "CALCULATION MODE"
         '
         'chk_learningMode
         '

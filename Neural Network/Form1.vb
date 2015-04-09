@@ -35,10 +35,6 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Application.UseWaitCursor() = True
 
-        'TODO: remove this->
-        Dim inputs() As Double = {1, 0.25, -0.5}
-        Dim weights() As Double = {0.5, 0.5, 0.5}
-
         Me.Select()
 
         Dim dataIsValid As Boolean = True

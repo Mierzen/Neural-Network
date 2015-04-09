@@ -81,6 +81,8 @@ Partial Class Form1
         Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.lb_currentError = New System.Windows.Forms.Label()
+        Me.panel_charts = New System.Windows.Forms.Panel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.tc_modes.SuspendLayout()
         Me.tp_training.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
@@ -96,6 +98,8 @@ Partial Class Form1
         CType(Me.chart_error200, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chart_error, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel6.SuspendLayout()
+        Me.panel_charts.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'OpenFileDialog1
@@ -760,7 +764,7 @@ Partial Class Form1
         Me.TableLayoutPanel6.Controls.Add(Me.chart_error, 0, 1)
         Me.TableLayoutPanel6.Controls.Add(Me.Label5, 0, 0)
         Me.TableLayoutPanel6.Controls.Add(Me.lb_iterationNum, 1, 0)
-        Me.TableLayoutPanel6.Location = New System.Drawing.Point(765, 12)
+        Me.TableLayoutPanel6.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
         Me.TableLayoutPanel6.RowCount = 3
         Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle())
@@ -774,7 +778,7 @@ Partial Class Form1
         Me.Label12.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(790, 586)
+        Me.Label12.Location = New System.Drawing.Point(6, 7)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(135, 13)
         Me.Label12.TabIndex = 31
@@ -785,21 +789,41 @@ Partial Class Form1
         '
         Me.lb_currentError.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.lb_currentError.AutoSize = True
-        Me.lb_currentError.Location = New System.Drawing.Point(957, 586)
+        Me.lb_currentError.Location = New System.Drawing.Point(147, 7)
         Me.lb_currentError.Name = "lb_currentError"
         Me.lb_currentError.Size = New System.Drawing.Size(35, 13)
         Me.lb_currentError.TabIndex = 32
         Me.lb_currentError.Text = "it num"
         Me.lb_currentError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'panel_charts
+        '
+        Me.panel_charts.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.panel_charts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.panel_charts.Controls.Add(Me.Panel1)
+        Me.panel_charts.Controls.Add(Me.TableLayoutPanel6)
+        Me.panel_charts.Location = New System.Drawing.Point(776, 34)
+        Me.panel_charts.Name = "panel_charts"
+        Me.panel_charts.Size = New System.Drawing.Size(483, 585)
+        Me.panel_charts.TabIndex = 33
+        '
+        'Panel1
+        '
+        Me.Panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Panel1.Controls.Add(Me.Label12)
+        Me.Panel1.Controls.Add(Me.lb_currentError)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel1.Location = New System.Drawing.Point(0, 554)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(481, 29)
+        Me.Panel1.TabIndex = 34
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1354, 648)
-        Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.lb_currentError)
-        Me.Controls.Add(Me.TableLayoutPanel6)
+        Me.Controls.Add(Me.panel_charts)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.tc_modes)
         Me.Controls.Add(Me.chk_learningMode)
@@ -830,6 +854,10 @@ Partial Class Form1
         CType(Me.chart_error, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel6.ResumeLayout(False)
         Me.TableLayoutPanel6.PerformLayout()
+        Me.panel_charts.ResumeLayout(False)
+        Me.panel_charts.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -886,5 +914,7 @@ Partial Class Form1
     Friend WithEvents TableLayoutPanel6 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents lb_currentError As System.Windows.Forms.Label
+    Friend WithEvents panel_charts As System.Windows.Forms.Panel
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
 
 End Class

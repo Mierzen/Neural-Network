@@ -22,13 +22,13 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title5 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim ChartArea6 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title6 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea9 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series9 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title9 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea10 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series10 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title10 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.tc_modes = New System.Windows.Forms.TabControl()
         Me.tp_training = New System.Windows.Forms.TabPage()
@@ -662,24 +662,24 @@ Partial Class Form1
         'chart_error200
         '
         Me.chart_error200.BackColor = System.Drawing.Color.Transparent
-        ChartArea5.Name = "ChartArea1"
-        Me.chart_error200.ChartAreas.Add(ChartArea5)
+        ChartArea9.Name = "ChartArea1"
+        Me.chart_error200.ChartAreas.Add(ChartArea9)
         Me.TableLayoutPanel6.SetColumnSpan(Me.chart_error200, 2)
         Me.chart_error200.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chart_error200.Location = New System.Drawing.Point(3, 342)
         Me.chart_error200.Name = "chart_error200"
-        Series5.ChartArea = "ChartArea1"
-        Series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series5.Name = "Series1"
-        Series5.YValuesPerPoint = 6
-        Me.chart_error200.Series.Add(Series5)
+        Series9.ChartArea = "ChartArea1"
+        Series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series9.Name = "Series1"
+        Series9.YValuesPerPoint = 6
+        Me.chart_error200.Series.Add(Series9)
         Me.chart_error200.Size = New System.Drawing.Size(469, 185)
         Me.chart_error200.TabIndex = 29
         Me.chart_error200.Text = "Network error (RMSE)"
-        Title5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title5.Name = "Title1"
-        Title5.Text = "Network error (RMSE)"
-        Me.chart_error200.Titles.Add(Title5)
+        Title9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title9.Name = "Title1"
+        Title9.Text = "Network error (RMSE)"
+        Me.chart_error200.Titles.Add(Title9)
         '
         'lb_iterationNum
         '
@@ -707,30 +707,30 @@ Partial Class Form1
         'chart_error
         '
         Me.chart_error.BackColor = System.Drawing.Color.Transparent
-        ChartArea6.Name = "ChartArea1"
-        Me.chart_error.ChartAreas.Add(ChartArea6)
+        ChartArea10.Name = "ChartArea1"
+        Me.chart_error.ChartAreas.Add(ChartArea10)
         Me.TableLayoutPanel6.SetColumnSpan(Me.chart_error, 2)
         Me.chart_error.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend3.Alignment = System.Drawing.StringAlignment.Center
-        Legend3.BackColor = System.Drawing.Color.Transparent
-        Legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom
-        Legend3.Name = "Legend1"
-        Me.chart_error.Legends.Add(Legend3)
+        Legend5.Alignment = System.Drawing.StringAlignment.Center
+        Legend5.BackColor = System.Drawing.Color.Transparent
+        Legend5.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom
+        Legend5.Name = "Legend1"
+        Me.chart_error.Legends.Add(Legend5)
         Me.chart_error.Location = New System.Drawing.Point(3, 16)
         Me.chart_error.Name = "chart_error"
-        Series6.ChartArea = "ChartArea1"
-        Series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series6.Legend = "Legend1"
-        Series6.Name = "Series1"
-        Series6.YValuesPerPoint = 6
-        Me.chart_error.Series.Add(Series6)
+        Series10.ChartArea = "ChartArea1"
+        Series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series10.Legend = "Legend1"
+        Series10.Name = "Series1"
+        Series10.YValuesPerPoint = 6
+        Me.chart_error.Series.Add(Series10)
         Me.chart_error.Size = New System.Drawing.Size(469, 320)
         Me.chart_error.TabIndex = 26
         Me.chart_error.Text = "Network error (RMSE)"
-        Title6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title6.Name = "Title1"
-        Title6.Text = "Network error (RMSE)"
-        Me.chart_error.Titles.Add(Title6)
+        Title10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title10.Name = "Title1"
+        Title10.Text = "Network error (RMSE)"
+        Me.chart_error.Titles.Add(Title10)
         '
         'chk_learningMode
         '
@@ -822,6 +822,8 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(1354, 648)
         Me.Controls.Add(Me.panel_charts)
         Me.Controls.Add(Me.Label3)
@@ -829,6 +831,7 @@ Partial Class Form1
         Me.Controls.Add(Me.chk_learningMode)
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Form1"
+        Me.Padding = New System.Windows.Forms.Padding(0, 0, 8, 8)
         Me.Text = "Form1"
         Me.tc_modes.ResumeLayout(False)
         Me.tp_training.ResumeLayout(False)

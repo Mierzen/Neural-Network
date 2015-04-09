@@ -78,6 +78,8 @@ Partial Class Form1
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.tc_modes.SuspendLayout()
         Me.tp_training.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -91,6 +93,7 @@ Partial Class Form1
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.TableLayoutPanel4.SuspendLayout()
+        Me.TableLayoutPanel5.SuspendLayout()
         Me.SuspendLayout()
         '
         'OpenFileDialog1
@@ -111,15 +114,12 @@ Partial Class Form1
         'tp_training
         '
         Me.tp_training.BackColor = System.Drawing.SystemColors.Control
+        Me.tp_training.Controls.Add(Me.TableLayoutPanel5)
         Me.tp_training.Controls.Add(Me.GroupBox4)
-        Me.tp_training.Controls.Add(Me.GroupBox3)
-        Me.tp_training.Controls.Add(Me.GroupBox1)
-        Me.tp_training.Controls.Add(Me.GroupBox2)
         Me.tp_training.Controls.Add(Me.chart_error200)
         Me.tp_training.Controls.Add(Me.lb_iterationNum)
         Me.tp_training.Controls.Add(Me.Label5)
         Me.tp_training.Controls.Add(Me.chart_error)
-        Me.tp_training.Controls.Add(Me.Button1)
         Me.tp_training.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tp_training.Location = New System.Drawing.Point(4, 22)
         Me.tp_training.Name = "tp_training"
@@ -337,7 +337,7 @@ Partial Class Form1
         Me.GroupBox3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.GroupBox3.Controls.Add(Me.TableLayoutPanel2)
         Me.GroupBox3.Font = New System.Drawing.Font("Segoe UI", 8.5!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox3.Location = New System.Drawing.Point(6, 332)
+        Me.GroupBox3.Location = New System.Drawing.Point(3, 310)
         Me.GroupBox3.MinimumSize = New System.Drawing.Size(567, 0)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(567, 112)
@@ -432,7 +432,7 @@ Partial Class Form1
         Me.GroupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.GroupBox1.Controls.Add(Me.TableLayoutPanel4)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(6, 6)
+        Me.GroupBox1.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox1.MinimumSize = New System.Drawing.Size(567, 0)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(567, 76)
@@ -480,7 +480,7 @@ Partial Class Form1
         '
         Me.GroupBox2.Controls.Add(Me.TableLayoutPanel3)
         Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox2.Location = New System.Drawing.Point(6, 107)
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 85)
         Me.GroupBox2.MinimumSize = New System.Drawing.Size(567, 0)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(567, 219)
@@ -608,14 +608,17 @@ Partial Class Form1
         '
         'Button1
         '
+        Me.Button1.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Button1.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Location = New System.Drawing.Point(576, 14)
+        Me.Button1.Location = New System.Drawing.Point(636, 176)
         Me.Button1.Margin = New System.Windows.Forms.Padding(2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(195, 30)
+        Me.TableLayoutPanel5.SetRowSpan(Me.Button1, 3)
+        Me.Button1.Size = New System.Drawing.Size(97, 82)
         Me.Button1.TabIndex = 18
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Text = "TRAIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "THE" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "NETWORK"
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'tp_calculation
         '
@@ -712,6 +715,38 @@ Partial Class Form1
         Me.TableLayoutPanel4.Size = New System.Drawing.Size(561, 55)
         Me.TableLayoutPanel4.TabIndex = 32
         '
+        'TableLayoutPanel5
+        '
+        Me.TableLayoutPanel5.ColumnCount = 3
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 92.27129!))
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.728707!))
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
+        Me.TableLayoutPanel5.Controls.Add(Me.GroupBox1, 0, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.GroupBox2, 0, 1)
+        Me.TableLayoutPanel5.Controls.Add(Me.GroupBox3, 0, 2)
+        Me.TableLayoutPanel5.Controls.Add(Me.Button1, 2, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.Label11, 1, 0)
+        Me.TableLayoutPanel5.Location = New System.Drawing.Point(3, 6)
+        Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
+        Me.TableLayoutPanel5.RowCount = 3
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(735, 434)
+        Me.TableLayoutPanel5.TabIndex = 32
+        '
+        'Label11
+        '
+        Me.Label11.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(611, 209)
+        Me.Label11.Name = "Label11"
+        Me.TableLayoutPanel5.SetRowSpan(Me.Label11, 3)
+        Me.Label11.Size = New System.Drawing.Size(20, 15)
+        Me.Label11.TabIndex = 31
+        Me.Label11.Text = "➡"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -743,6 +778,8 @@ Partial Class Form1
         Me.TableLayoutPanel3.ResumeLayout(False)
         Me.TableLayoutPanel4.ResumeLayout(False)
         Me.TableLayoutPanel4.PerformLayout()
+        Me.TableLayoutPanel5.ResumeLayout(False)
+        Me.TableLayoutPanel5.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -794,5 +831,7 @@ Partial Class Form1
     Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents TableLayoutPanel3 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents TableLayoutPanel4 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents TableLayoutPanel5 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents Label11 As System.Windows.Forms.Label
 
 End Class

@@ -82,6 +82,7 @@ Partial Class Form1
         Me.lb_currentError = New System.Windows.Forms.Label()
         Me.panel_charts = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lb_biasNotice = New System.Windows.Forms.Label()
         Me.tc_modes.SuspendLayout()
         Me.tp_training.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
@@ -257,6 +258,7 @@ Partial Class Form1
         Me.TableLayoutPanel1.Controls.Add(Me.Label10, 2, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.lb_graphSecondary, 4, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.tb_graphSecondaryPoints, 5, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.lb_biasNotice, 2, 2)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 19)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -807,6 +809,18 @@ Partial Class Form1
         Me.Panel1.Size = New System.Drawing.Size(481, 29)
         Me.Panel1.TabIndex = 34
         '
+        'lb_biasNotice
+        '
+        Me.lb_biasNotice.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lb_biasNotice.AutoSize = True
+        Me.TableLayoutPanel1.SetColumnSpan(Me.lb_biasNotice, 2)
+        Me.lb_biasNotice.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_biasNotice.Location = New System.Drawing.Point(144, 63)
+        Me.lb_biasNotice.Name = "lb_biasNotice"
+        Me.lb_biasNotice.Size = New System.Drawing.Size(150, 12)
+        Me.lb_biasNotice.TabIndex = 41
+        Me.lb_biasNotice.Text = "If not, biases will be kept equal to 1."
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -907,5 +921,6 @@ Partial Class Form1
     Friend WithEvents lb_currentError As System.Windows.Forms.Label
     Friend WithEvents panel_charts As System.Windows.Forms.Panel
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents lb_biasNotice As System.Windows.Forms.Label
 
 End Class

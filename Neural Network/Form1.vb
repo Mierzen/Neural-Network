@@ -77,6 +77,8 @@
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        lb_biasNotice.Visible = False
+
         panel_charts.Visible = False
 
         DataGridView1.Columns(0).ReadOnly = True
@@ -100,6 +102,14 @@
         OpenFileDialog1.ShowDialog()
         If OpenFileDialog1.FileName <> "" Then
             tb_output.Text = OpenFileDialog1.FileName
+        End If
+    End Sub
+
+    Private Sub chk_updateBias_CheckedChanged(sender As Object, e As EventArgs) Handles chk_updateBias.CheckedChanged
+        If chk_updateBias.Checked Then
+            lb_biasNotice.Visible = False
+        Else
+            lb_biasNotice.Visible = True
         End If
     End Sub
 End Class

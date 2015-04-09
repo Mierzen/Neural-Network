@@ -22,78 +22,79 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title3 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title4 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title2 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title1 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.tc_modes = New System.Windows.Forms.TabControl()
         Me.tp_training = New System.Windows.Forms.TabPage()
+        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.tb_input = New System.Windows.Forms.TextBox()
+        Me.btn_selectInput = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.chk_showGraphSecondary = New System.Windows.Forms.CheckBox()
-        Me.chk_showGraph = New System.Windows.Forms.CheckBox()
-        Me.chk_updateBias = New System.Windows.Forms.CheckBox()
         Me.tb_maxEpochs = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.tb_graphSecondaryPoints = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.lb_graphSecondary = New System.Windows.Forms.Label()
         Me.tb_learningRate = New System.Windows.Forms.TextBox()
+        Me.chk_showGraphSecondary = New System.Windows.Forms.CheckBox()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.chk_showGraph = New System.Windows.Forms.CheckBox()
         Me.tb_momentum = New System.Windows.Forms.TextBox()
+        Me.chk_updateBias = New System.Windows.Forms.CheckBox()
         Me.tb_maxError = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.btn_selectOutput = New System.Windows.Forms.Button()
-        Me.combo_outputLayerAF = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.tb_numOutputs = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.tb_output = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.btn_selectInput = New System.Windows.Forms.Button()
-        Me.tb_input = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.btn_addRow = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.HiddenLayerNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HiddenLayerNeuronCount = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HiddenLayerActivationFunction = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.btn_addRow = New System.Windows.Forms.Button()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.combo_outputLayerAF = New System.Windows.Forms.ComboBox()
+        Me.tb_output = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.tb_numOutputs = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.btn_selectOutput = New System.Windows.Forms.Button()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.chart_error200 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.lb_iterationNum = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.chart_error = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.tp_calculation = New System.Windows.Forms.TabPage()
         Me.chk_learningMode = New System.Windows.Forms.CheckBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label11 = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
         Me.tc_modes.SuspendLayout()
         Me.tp_training.SuspendLayout()
+        Me.TableLayoutPanel5.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.TableLayoutPanel4.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.TableLayoutPanel3.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox3.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.chart_error200, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chart_error, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TableLayoutPanel2.SuspendLayout()
-        Me.TableLayoutPanel3.SuspendLayout()
-        Me.TableLayoutPanel4.SuspendLayout()
-        Me.TableLayoutPanel5.SuspendLayout()
+        Me.TableLayoutPanel6.SuspendLayout()
         Me.SuspendLayout()
         '
         'OpenFileDialog1
@@ -108,34 +109,137 @@ Partial Class Form1
         Me.tc_modes.Location = New System.Drawing.Point(12, 12)
         Me.tc_modes.Name = "tc_modes"
         Me.tc_modes.SelectedIndex = 0
-        Me.tc_modes.Size = New System.Drawing.Size(1239, 624)
+        Me.tc_modes.Size = New System.Drawing.Size(747, 624)
         Me.tc_modes.TabIndex = 21
         '
         'tp_training
         '
         Me.tp_training.BackColor = System.Drawing.SystemColors.Control
         Me.tp_training.Controls.Add(Me.TableLayoutPanel5)
-        Me.tp_training.Controls.Add(Me.GroupBox4)
-        Me.tp_training.Controls.Add(Me.chart_error200)
-        Me.tp_training.Controls.Add(Me.lb_iterationNum)
-        Me.tp_training.Controls.Add(Me.Label5)
-        Me.tp_training.Controls.Add(Me.chart_error)
         Me.tp_training.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tp_training.Location = New System.Drawing.Point(4, 22)
         Me.tp_training.Name = "tp_training"
         Me.tp_training.Padding = New System.Windows.Forms.Padding(3)
-        Me.tp_training.Size = New System.Drawing.Size(1231, 598)
+        Me.tp_training.Size = New System.Drawing.Size(739, 598)
         Me.tp_training.TabIndex = 0
         Me.tp_training.Text = "TRAINING MODE"
+        '
+        'TableLayoutPanel5
+        '
+        Me.TableLayoutPanel5.AutoSize = True
+        Me.TableLayoutPanel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.TableLayoutPanel5.ColumnCount = 3
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel5.Controls.Add(Me.GroupBox1, 0, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.GroupBox4, 0, 3)
+        Me.TableLayoutPanel5.Controls.Add(Me.GroupBox2, 0, 1)
+        Me.TableLayoutPanel5.Controls.Add(Me.GroupBox3, 0, 2)
+        Me.TableLayoutPanel5.Controls.Add(Me.Button1, 2, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.Label11, 1, 0)
+        Me.TableLayoutPanel5.Location = New System.Drawing.Point(3, 6)
+        Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
+        Me.TableLayoutPanel5.RowCount = 4
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(730, 539)
+        Me.TableLayoutPanel5.TabIndex = 32
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Button1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Location = New System.Drawing.Point(605, 228)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button1.Name = "Button1"
+        Me.TableLayoutPanel5.SetRowSpan(Me.Button1, 4)
+        Me.Button1.Size = New System.Drawing.Size(123, 82)
+        Me.Button1.TabIndex = 18
+        Me.Button1.Text = "TRAIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "THE" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "NETWORK"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.AutoSize = True
+        Me.GroupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox1.Controls.Add(Me.TableLayoutPanel4)
+        Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Location = New System.Drawing.Point(3, 3)
+        Me.GroupBox1.MinimumSize = New System.Drawing.Size(567, 0)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(567, 76)
+        Me.GroupBox1.TabIndex = 30
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "INPUT"
+        '
+        'TableLayoutPanel4
+        '
+        Me.TableLayoutPanel4.AutoSize = True
+        Me.TableLayoutPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.TableLayoutPanel4.ColumnCount = 2
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel4.Controls.Add(Me.Label1, 0, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.tb_input, 0, 1)
+        Me.TableLayoutPanel4.Controls.Add(Me.btn_selectInput, 1, 1)
+        Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(3, 18)
+        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
+        Me.TableLayoutPanel4.RowCount = 2
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(561, 55)
+        Me.TableLayoutPanel4.TabIndex = 32
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label1.AutoSize = True
+        Me.TableLayoutPanel4.SetColumnSpan(Me.Label1, 2)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(3, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(404, 26)
+        Me.Label1.TabIndex = 11
+        Me.Label1.Text = "Select csv file containing raw input data." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "The file should not have any headers." & _
+    " Each row represents one ""example"" of inputs."
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'tb_input
+        '
+        Me.tb_input.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.tb_input.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_input.Location = New System.Drawing.Point(3, 30)
+        Me.tb_input.Name = "tb_input"
+        Me.tb_input.Size = New System.Drawing.Size(521, 20)
+        Me.tb_input.TabIndex = 9
+        Me.tb_input.Text = "C:\Users\Stephan Taljaard\Desktop\test.csv"
+        '
+        'btn_selectInput
+        '
+        Me.btn_selectInput.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btn_selectInput.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_selectInput.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_selectInput.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
+        Me.btn_selectInput.Location = New System.Drawing.Point(530, 29)
+        Me.btn_selectInput.Name = "btn_selectInput"
+        Me.btn_selectInput.Size = New System.Drawing.Size(23, 23)
+        Me.btn_selectInput.TabIndex = 10
+        Me.btn_selectInput.UseVisualStyleBackColor = True
         '
         'GroupBox4
         '
         Me.GroupBox4.AutoSize = True
         Me.GroupBox4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.GroupBox4.Controls.Add(Me.TableLayoutPanel1)
-        Me.GroupBox4.Location = New System.Drawing.Point(6, 479)
+        Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox4.Location = New System.Drawing.Point(3, 428)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(560, 108)
+        Me.GroupBox4.Size = New System.Drawing.Size(567, 108)
         Me.GroupBox4.TabIndex = 31
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "ADVANCED SETTINGS"
@@ -173,50 +277,8 @@ Partial Class Form1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(554, 86)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(561, 86)
         Me.TableLayoutPanel1.TabIndex = 32
-        '
-        'chk_showGraphSecondary
-        '
-        Me.chk_showGraphSecondary.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.chk_showGraphSecondary.AutoSize = True
-        Me.chk_showGraphSecondary.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.TableLayoutPanel1.SetColumnSpan(Me.chk_showGraphSecondary, 2)
-        Me.chk_showGraphSecondary.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
-        Me.chk_showGraphSecondary.Location = New System.Drawing.Point(320, 30)
-        Me.chk_showGraphSecondary.Name = "chk_showGraphSecondary"
-        Me.chk_showGraphSecondary.Size = New System.Drawing.Size(165, 17)
-        Me.chk_showGraphSecondary.TabIndex = 34
-        Me.chk_showGraphSecondary.Text = "Show secondary error graph?"
-        Me.chk_showGraphSecondary.UseVisualStyleBackColor = True
-        '
-        'chk_showGraph
-        '
-        Me.chk_showGraph.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.chk_showGraph.AutoSize = True
-        Me.chk_showGraph.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.TableLayoutPanel1.SetColumnSpan(Me.chk_showGraph, 2)
-        Me.chk_showGraph.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
-        Me.chk_showGraph.Location = New System.Drawing.Point(320, 4)
-        Me.chk_showGraph.Name = "chk_showGraph"
-        Me.chk_showGraph.Size = New System.Drawing.Size(113, 17)
-        Me.chk_showGraph.TabIndex = 33
-        Me.chk_showGraph.Text = "Show error graph?"
-        Me.chk_showGraph.UseVisualStyleBackColor = True
-        '
-        'chk_updateBias
-        '
-        Me.chk_updateBias.AutoSize = True
-        Me.chk_updateBias.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.TableLayoutPanel1.SetColumnSpan(Me.chk_updateBias, 2)
-        Me.chk_updateBias.Dock = System.Windows.Forms.DockStyle.Top
-        Me.chk_updateBias.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
-        Me.chk_updateBias.Location = New System.Drawing.Point(3, 55)
-        Me.chk_updateBias.Name = "chk_updateBias"
-        Me.chk_updateBias.Size = New System.Drawing.Size(135, 17)
-        Me.chk_updateBias.TabIndex = 32
-        Me.chk_updateBias.Text = "Update biases as well?"
-        Me.chk_updateBias.UseVisualStyleBackColor = True
         '
         'tb_maxEpochs
         '
@@ -285,6 +347,20 @@ Partial Class Form1
         Me.tb_learningRate.Text = "0.15"
         Me.tb_learningRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
+        'chk_showGraphSecondary
+        '
+        Me.chk_showGraphSecondary.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.chk_showGraphSecondary.AutoSize = True
+        Me.chk_showGraphSecondary.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.TableLayoutPanel1.SetColumnSpan(Me.chk_showGraphSecondary, 2)
+        Me.chk_showGraphSecondary.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
+        Me.chk_showGraphSecondary.Location = New System.Drawing.Point(320, 30)
+        Me.chk_showGraphSecondary.Name = "chk_showGraphSecondary"
+        Me.chk_showGraphSecondary.Size = New System.Drawing.Size(165, 17)
+        Me.chk_showGraphSecondary.TabIndex = 34
+        Me.chk_showGraphSecondary.Text = "Show secondary error graph?"
+        Me.chk_showGraphSecondary.UseVisualStyleBackColor = True
+        '
         'Label8
         '
         Me.Label8.Anchor = System.Windows.Forms.AnchorStyles.Left
@@ -297,6 +373,20 @@ Partial Class Form1
         Me.Label8.Text = "Momentum:"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'chk_showGraph
+        '
+        Me.chk_showGraph.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.chk_showGraph.AutoSize = True
+        Me.chk_showGraph.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.TableLayoutPanel1.SetColumnSpan(Me.chk_showGraph, 2)
+        Me.chk_showGraph.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
+        Me.chk_showGraph.Location = New System.Drawing.Point(320, 4)
+        Me.chk_showGraph.Name = "chk_showGraph"
+        Me.chk_showGraph.Size = New System.Drawing.Size(113, 17)
+        Me.chk_showGraph.TabIndex = 33
+        Me.chk_showGraph.Text = "Show error graph?"
+        Me.chk_showGraph.UseVisualStyleBackColor = True
+        '
         'tb_momentum
         '
         Me.tb_momentum.Anchor = System.Windows.Forms.AnchorStyles.Left
@@ -307,6 +397,20 @@ Partial Class Form1
         Me.tb_momentum.TabIndex = 31
         Me.tb_momentum.Text = "0.1"
         Me.tb_momentum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'chk_updateBias
+        '
+        Me.chk_updateBias.AutoSize = True
+        Me.chk_updateBias.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.TableLayoutPanel1.SetColumnSpan(Me.chk_updateBias, 2)
+        Me.chk_updateBias.Dock = System.Windows.Forms.DockStyle.Top
+        Me.chk_updateBias.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
+        Me.chk_updateBias.Location = New System.Drawing.Point(3, 55)
+        Me.chk_updateBias.Name = "chk_updateBias"
+        Me.chk_updateBias.Size = New System.Drawing.Size(135, 17)
+        Me.chk_updateBias.TabIndex = 32
+        Me.chk_updateBias.Text = "Update biases as well?"
+        Me.chk_updateBias.UseVisualStyleBackColor = True
         '
         'tb_maxError
         '
@@ -331,6 +435,78 @@ Partial Class Form1
         Me.Label10.Text = "Max. network error;:"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.TableLayoutPanel3)
+        Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 85)
+        Me.GroupBox2.MinimumSize = New System.Drawing.Size(567, 0)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(567, 219)
+        Me.GroupBox2.TabIndex = 22
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "HIDDEN LAYERS"
+        '
+        'TableLayoutPanel3
+        '
+        Me.TableLayoutPanel3.ColumnCount = 2
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel3.Controls.Add(Me.DataGridView1, 1, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.btn_addRow, 0, 1)
+        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 18)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 2
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(561, 198)
+        Me.TableLayoutPanel3.TabIndex = 32
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowDrop = True
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToResizeRows = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.HiddenLayerNumber, Me.HiddenLayerNeuronCount, Me.HiddenLayerActivationFunction})
+        Me.DataGridView1.Cursor = System.Windows.Forms.Cursors.Arrow
+        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridView1.Location = New System.Drawing.Point(33, 3)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowHeadersVisible = False
+        Me.TableLayoutPanel3.SetRowSpan(Me.DataGridView1, 2)
+        Me.DataGridView1.Size = New System.Drawing.Size(525, 192)
+        Me.DataGridView1.TabIndex = 10
+        '
+        'HiddenLayerNumber
+        '
+        Me.HiddenLayerNumber.HeaderText = "Hidden Layer #"
+        Me.HiddenLayerNumber.Name = "HiddenLayerNumber"
+        Me.HiddenLayerNumber.Width = 159
+        '
+        'HiddenLayerNeuronCount
+        '
+        Me.HiddenLayerNeuronCount.HeaderText = "# neurons per layer"
+        Me.HiddenLayerNeuronCount.Name = "HiddenLayerNeuronCount"
+        Me.HiddenLayerNeuronCount.Width = 159
+        '
+        'HiddenLayerActivationFunction
+        '
+        Me.HiddenLayerActivationFunction.HeaderText = "Activation Function"
+        Me.HiddenLayerActivationFunction.Name = "HiddenLayerActivationFunction"
+        Me.HiddenLayerActivationFunction.Width = 193
+        '
+        'btn_addRow
+        '
+        Me.btn_addRow.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_addRow.Location = New System.Drawing.Point(3, 26)
+        Me.btn_addRow.Name = "btn_addRow"
+        Me.btn_addRow.Size = New System.Drawing.Size(24, 23)
+        Me.btn_addRow.TabIndex = 11
+        Me.btn_addRow.Text = "+"
+        Me.btn_addRow.UseVisualStyleBackColor = True
+        '
         'GroupBox3
         '
         Me.GroupBox3.AutoSize = True
@@ -345,17 +521,33 @@ Partial Class Form1
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "OUTPUT"
         '
-        'btn_selectOutput
+        'TableLayoutPanel2
         '
-        Me.btn_selectOutput.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.btn_selectOutput.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_selectOutput.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_selectOutput.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
-        Me.btn_selectOutput.Location = New System.Drawing.Point(527, 29)
-        Me.btn_selectOutput.Name = "btn_selectOutput"
-        Me.btn_selectOutput.Size = New System.Drawing.Size(23, 23)
-        Me.btn_selectOutput.TabIndex = 30
-        Me.btn_selectOutput.UseVisualStyleBackColor = True
+        Me.TableLayoutPanel2.AutoSize = True
+        Me.TableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.TableLayoutPanel2.ColumnCount = 5
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel2.Controls.Add(Me.combo_outputLayerAF, 3, 2)
+        Me.TableLayoutPanel2.Controls.Add(Me.Label4, 2, 2)
+        Me.TableLayoutPanel2.Controls.Add(Me.Label6, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.tb_numOutputs, 1, 2)
+        Me.TableLayoutPanel2.Controls.Add(Me.tb_output, 0, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.Label2, 0, 2)
+        Me.TableLayoutPanel2.Controls.Add(Me.btn_selectOutput, 4, 1)
+        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 19)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.Padding = New System.Windows.Forms.Padding(0, 0, 8, 8)
+        Me.TableLayoutPanel2.RowCount = 3
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(561, 90)
+        Me.TableLayoutPanel2.TabIndex = 32
         '
         'combo_outputLayerAF
         '
@@ -367,6 +559,31 @@ Partial Class Form1
         Me.combo_outputLayerAF.Name = "combo_outputLayerAF"
         Me.combo_outputLayerAF.Size = New System.Drawing.Size(167, 21)
         Me.combo_outputLayerAF.TabIndex = 29
+        '
+        'tb_output
+        '
+        Me.tb_output.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.TableLayoutPanel2.SetColumnSpan(Me.tb_output, 4)
+        Me.tb_output.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_output.Location = New System.Drawing.Point(3, 30)
+        Me.tb_output.Name = "tb_output"
+        Me.tb_output.Size = New System.Drawing.Size(518, 20)
+        Me.tb_output.TabIndex = 23
+        Me.tb_output.Text = "C:\Users\Stephan Taljaard\Desktop\output.csv"
+        '
+        'Label6
+        '
+        Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label6.AutoSize = True
+        Me.TableLayoutPanel2.SetColumnSpan(Me.Label6, 5)
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(3, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(411, 26)
+        Me.Label6.TabIndex = 12
+        Me.Label6.Text = "Select csv file containing raw output data (expected outputs), for use in trainin" & _
+    "g." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "The file should not have any headers. Each row represents one ""example"" of o" & _
+    "utputs."
         '
         'Label4
         '
@@ -401,224 +618,105 @@ Partial Class Form1
         Me.Label2.TabIndex = 26
         Me.Label2.Text = "Number of outputs:"
         '
-        'tb_output
+        'btn_selectOutput
         '
-        Me.tb_output.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.TableLayoutPanel2.SetColumnSpan(Me.tb_output, 4)
-        Me.tb_output.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_output.Location = New System.Drawing.Point(3, 30)
-        Me.tb_output.Name = "tb_output"
-        Me.tb_output.Size = New System.Drawing.Size(518, 20)
-        Me.tb_output.TabIndex = 23
-        Me.tb_output.Text = "C:\Users\Stephan Taljaard\Desktop\output.csv"
+        Me.btn_selectOutput.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btn_selectOutput.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_selectOutput.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_selectOutput.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
+        Me.btn_selectOutput.Location = New System.Drawing.Point(527, 29)
+        Me.btn_selectOutput.Name = "btn_selectOutput"
+        Me.btn_selectOutput.Size = New System.Drawing.Size(23, 23)
+        Me.btn_selectOutput.TabIndex = 30
+        Me.btn_selectOutput.UseVisualStyleBackColor = True
         '
-        'Label6
+        'Label11
         '
-        Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label6.AutoSize = True
-        Me.TableLayoutPanel2.SetColumnSpan(Me.Label6, 5)
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(3, 0)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(411, 26)
-        Me.Label6.TabIndex = 12
-        Me.Label6.Text = "Select csv file containing raw output data (expected outputs), for use in trainin" & _
-    "g." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "The file should not have any headers. Each row represents one ""example"" of o" & _
-    "utputs."
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.AutoSize = True
-        Me.GroupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox1.Controls.Add(Me.TableLayoutPanel4)
-        Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(3, 3)
-        Me.GroupBox1.MinimumSize = New System.Drawing.Size(567, 0)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(567, 76)
-        Me.GroupBox1.TabIndex = 30
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "INPUT"
-        '
-        'Label1
-        '
-        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label1.AutoSize = True
-        Me.TableLayoutPanel4.SetColumnSpan(Me.Label1, 2)
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(404, 26)
-        Me.Label1.TabIndex = 11
-        Me.Label1.Text = "Select csv file containing raw input data." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "The file should not have any headers." & _
-    " Each row represents one ""example"" of inputs."
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'btn_selectInput
-        '
-        Me.btn_selectInput.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.btn_selectInput.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_selectInput.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_selectInput.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
-        Me.btn_selectInput.Location = New System.Drawing.Point(530, 29)
-        Me.btn_selectInput.Name = "btn_selectInput"
-        Me.btn_selectInput.Size = New System.Drawing.Size(23, 23)
-        Me.btn_selectInput.TabIndex = 10
-        Me.btn_selectInput.UseVisualStyleBackColor = True
-        '
-        'tb_input
-        '
-        Me.tb_input.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.tb_input.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_input.Location = New System.Drawing.Point(3, 30)
-        Me.tb_input.Name = "tb_input"
-        Me.tb_input.Size = New System.Drawing.Size(521, 20)
-        Me.tb_input.TabIndex = 9
-        Me.tb_input.Text = "C:\Users\Stephan Taljaard\Desktop\test.csv"
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.TableLayoutPanel3)
-        Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 85)
-        Me.GroupBox2.MinimumSize = New System.Drawing.Size(567, 0)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(567, 219)
-        Me.GroupBox2.TabIndex = 22
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "HIDDEN LAYERS"
-        '
-        'btn_addRow
-        '
-        Me.btn_addRow.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_addRow.Location = New System.Drawing.Point(3, 26)
-        Me.btn_addRow.Name = "btn_addRow"
-        Me.btn_addRow.Size = New System.Drawing.Size(24, 23)
-        Me.btn_addRow.TabIndex = 11
-        Me.btn_addRow.Text = "+"
-        Me.btn_addRow.UseVisualStyleBackColor = True
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.AllowDrop = True
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToResizeRows = False
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.HiddenLayerNumber, Me.HiddenLayerNeuronCount, Me.HiddenLayerActivationFunction})
-        Me.DataGridView1.Cursor = System.Windows.Forms.Cursors.Arrow
-        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView1.Location = New System.Drawing.Point(33, 3)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowHeadersVisible = False
-        Me.TableLayoutPanel3.SetRowSpan(Me.DataGridView1, 2)
-        Me.DataGridView1.Size = New System.Drawing.Size(525, 192)
-        Me.DataGridView1.TabIndex = 10
-        '
-        'HiddenLayerNumber
-        '
-        Me.HiddenLayerNumber.HeaderText = "Hidden Layer #"
-        Me.HiddenLayerNumber.Name = "HiddenLayerNumber"
-        Me.HiddenLayerNumber.Width = 159
-        '
-        'HiddenLayerNeuronCount
-        '
-        Me.HiddenLayerNeuronCount.HeaderText = "# neurons per layer"
-        Me.HiddenLayerNeuronCount.Name = "HiddenLayerNeuronCount"
-        Me.HiddenLayerNeuronCount.Width = 159
-        '
-        'HiddenLayerActivationFunction
-        '
-        Me.HiddenLayerActivationFunction.HeaderText = "Activation Function"
-        Me.HiddenLayerActivationFunction.Name = "HiddenLayerActivationFunction"
-        Me.HiddenLayerActivationFunction.Width = 193
+        Me.Label11.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(576, 259)
+        Me.Label11.Name = "Label11"
+        Me.TableLayoutPanel5.SetRowSpan(Me.Label11, 4)
+        Me.Label11.Size = New System.Drawing.Size(24, 21)
+        Me.Label11.TabIndex = 31
+        Me.Label11.Text = "→"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'chart_error200
         '
         Me.chart_error200.BackColor = System.Drawing.Color.Transparent
-        ChartArea3.Name = "ChartArea1"
-        Me.chart_error200.ChartAreas.Add(ChartArea3)
-        Legend3.BackColor = System.Drawing.Color.Transparent
-        Legend3.Name = "Legend1"
-        Me.chart_error200.Legends.Add(Legend3)
-        Me.chart_error200.Location = New System.Drawing.Point(910, 273)
+        ChartArea1.Name = "ChartArea1"
+        Me.chart_error200.ChartAreas.Add(ChartArea1)
+        Me.TableLayoutPanel6.SetColumnSpan(Me.chart_error200, 2)
+        Me.chart_error200.Dock = System.Windows.Forms.DockStyle.Fill
+        Legend2.BackColor = System.Drawing.Color.Transparent
+        Legend2.Name = "Legend1"
+        Me.chart_error200.Legends.Add(Legend2)
+        Me.chart_error200.Location = New System.Drawing.Point(3, 342)
         Me.chart_error200.Name = "chart_error200"
-        Series3.ChartArea = "ChartArea1"
-        Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series3.Legend = "Legend1"
-        Series3.Name = "Series1"
-        Series3.YValuesPerPoint = 6
-        Me.chart_error200.Series.Add(Series3)
-        Me.chart_error200.Size = New System.Drawing.Size(294, 185)
+        Series2.ChartArea = "ChartArea1"
+        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Series2.YValuesPerPoint = 6
+        Me.chart_error200.Series.Add(Series2)
+        Me.chart_error200.Size = New System.Drawing.Size(469, 185)
         Me.chart_error200.TabIndex = 29
         Me.chart_error200.Text = "Network error (RMSE)"
-        Title3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title3.Name = "Title1"
-        Title3.Text = "Network error (RMSE)"
-        Me.chart_error200.Titles.Add(Title3)
+        Title2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title2.Name = "Title1"
+        Title2.Text = "Network error (RMSE)"
+        Me.chart_error200.Titles.Add(Title2)
         '
         'lb_iterationNum
         '
+        Me.lb_iterationNum.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.lb_iterationNum.AutoSize = True
-        Me.lb_iterationNum.Location = New System.Drawing.Point(1200, 561)
+        Me.lb_iterationNum.Location = New System.Drawing.Point(112, 0)
         Me.lb_iterationNum.Name = "lb_iterationNum"
-        Me.lb_iterationNum.Size = New System.Drawing.Size(14, 15)
+        Me.lb_iterationNum.Size = New System.Drawing.Size(35, 13)
         Me.lb_iterationNum.TabIndex = 28
-        Me.lb_iterationNum.Text = "0"
+        Me.lb_iterationNum.Text = "it num"
+        Me.lb_iterationNum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label5
         '
+        Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(1060, 561)
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(3, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(106, 15)
+        Me.Label5.Size = New System.Drawing.Size(103, 13)
         Me.Label5.TabIndex = 27
         Me.Label5.Text = "Iteration number:"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'chart_error
         '
         Me.chart_error.BackColor = System.Drawing.Color.Transparent
-        ChartArea4.Name = "ChartArea1"
-        Me.chart_error.ChartAreas.Add(ChartArea4)
-        Legend4.BackColor = System.Drawing.Color.Transparent
-        Legend4.Name = "Legend1"
-        Me.chart_error.Legends.Add(Legend4)
-        Me.chart_error.Location = New System.Drawing.Point(759, 6)
+        ChartArea2.Name = "ChartArea1"
+        Me.chart_error.ChartAreas.Add(ChartArea2)
+        Me.TableLayoutPanel6.SetColumnSpan(Me.chart_error, 2)
+        Me.chart_error.Dock = System.Windows.Forms.DockStyle.Fill
+        Legend1.BackColor = System.Drawing.Color.Transparent
+        Legend1.Name = "Legend1"
+        Me.chart_error.Legends.Add(Legend1)
+        Me.chart_error.Location = New System.Drawing.Point(3, 16)
         Me.chart_error.Name = "chart_error"
-        Series4.ChartArea = "ChartArea1"
-        Series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series4.Legend = "Legend1"
-        Series4.Name = "Series1"
-        Series4.YValuesPerPoint = 6
-        Me.chart_error.Series.Add(Series4)
+        Series1.ChartArea = "ChartArea1"
+        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Series1.YValuesPerPoint = 6
+        Me.chart_error.Series.Add(Series1)
         Me.chart_error.Size = New System.Drawing.Size(469, 320)
         Me.chart_error.TabIndex = 26
         Me.chart_error.Text = "Network error (RMSE)"
-        Title4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title4.Name = "Title1"
-        Title4.Text = "Network error (RMSE)"
-        Me.chart_error.Titles.Add(Title4)
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Button1.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Location = New System.Drawing.Point(636, 176)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button1.Name = "Button1"
-        Me.TableLayoutPanel5.SetRowSpan(Me.Button1, 3)
-        Me.Button1.Size = New System.Drawing.Size(97, 82)
-        Me.Button1.TabIndex = 18
-        Me.Button1.Text = "TRAIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "THE" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "NETWORK"
-        Me.Button1.UseVisualStyleBackColor = False
+        Title1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title1.Name = "Title1"
+        Title1.Text = "Network error (RMSE)"
+        Me.chart_error.Titles.Add(Title1)
         '
         'tp_calculation
         '
@@ -636,7 +734,7 @@ Partial Class Form1
         Me.chk_learningMode.AutoSize = True
         Me.chk_learningMode.Checked = True
         Me.chk_learningMode.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.chk_learningMode.Location = New System.Drawing.Point(1286, 219)
+        Me.chk_learningMode.Location = New System.Drawing.Point(644, -5)
         Me.chk_learningMode.Name = "chk_learningMode"
         Me.chk_learningMode.Size = New System.Drawing.Size(96, 17)
         Me.chk_learningMode.TabIndex = 23
@@ -646,112 +744,38 @@ Partial Class Form1
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(1326, 120)
+        Me.Label3.Location = New System.Drawing.Point(746, -4)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(39, 13)
         Me.Label3.TabIndex = 24
         Me.Label3.Text = "Label3"
         '
-        'TableLayoutPanel2
+        'TableLayoutPanel6
         '
-        Me.TableLayoutPanel2.AutoSize = True
-        Me.TableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.TableLayoutPanel2.ColumnCount = 5
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel2.Controls.Add(Me.combo_outputLayerAF, 3, 2)
-        Me.TableLayoutPanel2.Controls.Add(Me.Label4, 2, 2)
-        Me.TableLayoutPanel2.Controls.Add(Me.Label6, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.tb_numOutputs, 1, 2)
-        Me.TableLayoutPanel2.Controls.Add(Me.tb_output, 0, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.Label2, 0, 2)
-        Me.TableLayoutPanel2.Controls.Add(Me.btn_selectOutput, 4, 1)
-        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 19)
-        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.Padding = New System.Windows.Forms.Padding(0, 0, 8, 8)
-        Me.TableLayoutPanel2.RowCount = 3
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(561, 90)
-        Me.TableLayoutPanel2.TabIndex = 32
-        '
-        'TableLayoutPanel3
-        '
-        Me.TableLayoutPanel3.ColumnCount = 2
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel3.Controls.Add(Me.DataGridView1, 1, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.btn_addRow, 0, 1)
-        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 18)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 2
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(561, 198)
-        Me.TableLayoutPanel3.TabIndex = 32
-        '
-        'TableLayoutPanel4
-        '
-        Me.TableLayoutPanel4.AutoSize = True
-        Me.TableLayoutPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.TableLayoutPanel4.ColumnCount = 2
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel4.Controls.Add(Me.Label1, 0, 0)
-        Me.TableLayoutPanel4.Controls.Add(Me.tb_input, 0, 1)
-        Me.TableLayoutPanel4.Controls.Add(Me.btn_selectInput, 1, 1)
-        Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(3, 18)
-        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
-        Me.TableLayoutPanel4.RowCount = 2
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(561, 55)
-        Me.TableLayoutPanel4.TabIndex = 32
-        '
-        'TableLayoutPanel5
-        '
-        Me.TableLayoutPanel5.ColumnCount = 3
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 92.27129!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.728707!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
-        Me.TableLayoutPanel5.Controls.Add(Me.GroupBox1, 0, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.GroupBox2, 0, 1)
-        Me.TableLayoutPanel5.Controls.Add(Me.GroupBox3, 0, 2)
-        Me.TableLayoutPanel5.Controls.Add(Me.Button1, 2, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.Label11, 1, 0)
-        Me.TableLayoutPanel5.Location = New System.Drawing.Point(3, 6)
-        Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
-        Me.TableLayoutPanel5.RowCount = 3
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(735, 434)
-        Me.TableLayoutPanel5.TabIndex = 32
-        '
-        'Label11
-        '
-        Me.Label11.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(611, 209)
-        Me.Label11.Name = "Label11"
-        Me.TableLayoutPanel5.SetRowSpan(Me.Label11, 3)
-        Me.Label11.Size = New System.Drawing.Size(20, 15)
-        Me.Label11.TabIndex = 31
-        Me.Label11.Text = "➡"
-        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.TableLayoutPanel6.AutoSize = True
+        Me.TableLayoutPanel6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.TableLayoutPanel6.ColumnCount = 2
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel6.Controls.Add(Me.chart_error200, 0, 2)
+        Me.TableLayoutPanel6.Controls.Add(Me.chart_error, 0, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.Label5, 0, 0)
+        Me.TableLayoutPanel6.Controls.Add(Me.lb_iterationNum, 1, 0)
+        Me.TableLayoutPanel6.Location = New System.Drawing.Point(765, 12)
+        Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
+        Me.TableLayoutPanel6.RowCount = 3
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel6.Size = New System.Drawing.Size(475, 530)
+        Me.TableLayoutPanel6.TabIndex = 30
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1354, 648)
+        Me.Controls.Add(Me.TableLayoutPanel6)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.tc_modes)
         Me.Controls.Add(Me.chk_learningMode)
@@ -761,25 +785,27 @@ Partial Class Form1
         Me.tc_modes.ResumeLayout(False)
         Me.tp_training.ResumeLayout(False)
         Me.tp_training.PerformLayout()
+        Me.TableLayoutPanel5.ResumeLayout(False)
+        Me.TableLayoutPanel5.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.TableLayoutPanel4.ResumeLayout(False)
+        Me.TableLayoutPanel4.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.TableLayoutPanel3.ResumeLayout(False)
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.chart_error200, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.chart_error, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
-        Me.TableLayoutPanel3.ResumeLayout(False)
-        Me.TableLayoutPanel4.ResumeLayout(False)
-        Me.TableLayoutPanel4.PerformLayout()
-        Me.TableLayoutPanel5.ResumeLayout(False)
-        Me.TableLayoutPanel5.PerformLayout()
+        CType(Me.chart_error200, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chart_error, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel6.ResumeLayout(False)
+        Me.TableLayoutPanel6.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -833,5 +859,6 @@ Partial Class Form1
     Friend WithEvents TableLayoutPanel4 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents TableLayoutPanel5 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents TableLayoutPanel6 As System.Windows.Forms.TableLayoutPanel
 
 End Class

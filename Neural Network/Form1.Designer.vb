@@ -42,9 +42,7 @@ Partial Class Form1
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.tb_maxEpochs = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.tb_graphSecondaryPoints = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.lb_graphSecondary = New System.Windows.Forms.Label()
         Me.tb_learningRate = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.chk_showGraph = New System.Windows.Forms.CheckBox()
@@ -52,6 +50,9 @@ Partial Class Form1
         Me.chk_updateBias = New System.Windows.Forms.CheckBox()
         Me.tb_maxError = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.lb_graphSecondary = New System.Windows.Forms.Label()
+        Me.tb_graphSecondaryPoints = New System.Windows.Forms.TextBox()
+        Me.lb_biasNotice = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -75,14 +76,13 @@ Partial Class Form1
         Me.chk_learningMode = New System.Windows.Forms.CheckBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
+        Me.chart_errorSecondary = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.lb_currentError = New System.Windows.Forms.Label()
         Me.panel_charts = New System.Windows.Forms.Panel()
-        Me.lb_biasNotice = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.lb_iterationNum = New System.Windows.Forms.Label()
         Me.panel_stats = New System.Windows.Forms.TableLayoutPanel()
-        Me.chart_errorSecondary = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.tc_modes.SuspendLayout()
         Me.tp_training.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
@@ -97,9 +97,9 @@ Partial Class Form1
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.chart_error, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel6.SuspendLayout()
+        CType(Me.chart_errorSecondary, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panel_charts.SuspendLayout()
         Me.panel_stats.SuspendLayout()
-        CType(Me.chart_errorSecondary, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'OpenFileDialog1
@@ -294,17 +294,6 @@ Partial Class Form1
         Me.Label9.Text = "Max. iterations (epochs):"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'tb_graphSecondaryPoints
-        '
-        Me.tb_graphSecondaryPoints.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_graphSecondaryPoints.Location = New System.Drawing.Point(505, 29)
-        Me.tb_graphSecondaryPoints.Name = "tb_graphSecondaryPoints"
-        Me.TableLayoutPanel1.SetRowSpan(Me.tb_graphSecondaryPoints, 2)
-        Me.tb_graphSecondaryPoints.Size = New System.Drawing.Size(38, 20)
-        Me.tb_graphSecondaryPoints.TabIndex = 36
-        Me.tb_graphSecondaryPoints.Text = "50"
-        Me.tb_graphSecondaryPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
         'Label7
         '
         Me.Label7.Anchor = System.Windows.Forms.AnchorStyles.Left
@@ -316,19 +305,6 @@ Partial Class Form1
         Me.Label7.TabIndex = 28
         Me.Label7.Text = "Learning rate:"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'lb_graphSecondary
-        '
-        Me.lb_graphSecondary.AutoSize = True
-        Me.lb_graphSecondary.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_graphSecondary.Location = New System.Drawing.Point(320, 26)
-        Me.lb_graphSecondary.MaximumSize = New System.Drawing.Size(179, 0)
-        Me.lb_graphSecondary.Name = "lb_graphSecondary"
-        Me.lb_graphSecondary.Padding = New System.Windows.Forms.Padding(0, 6, 0, 0)
-        Me.TableLayoutPanel1.SetRowSpan(Me.lb_graphSecondary, 2)
-        Me.lb_graphSecondary.Size = New System.Drawing.Size(179, 32)
-        Me.lb_graphSecondary.TabIndex = 35
-        Me.lb_graphSecondary.Text = "Number of previous iterations to plot on secondary chart:"
         '
         'tb_learningRate
         '
@@ -416,6 +392,42 @@ Partial Class Form1
         Me.Label10.TabIndex = 40
         Me.Label10.Text = "Max. network error;:"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lb_graphSecondary
+        '
+        Me.lb_graphSecondary.AutoSize = True
+        Me.lb_graphSecondary.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_graphSecondary.Location = New System.Drawing.Point(320, 26)
+        Me.lb_graphSecondary.MaximumSize = New System.Drawing.Size(179, 0)
+        Me.lb_graphSecondary.Name = "lb_graphSecondary"
+        Me.lb_graphSecondary.Padding = New System.Windows.Forms.Padding(0, 6, 0, 0)
+        Me.TableLayoutPanel1.SetRowSpan(Me.lb_graphSecondary, 2)
+        Me.lb_graphSecondary.Size = New System.Drawing.Size(179, 32)
+        Me.lb_graphSecondary.TabIndex = 35
+        Me.lb_graphSecondary.Text = "Number of previous iterations to plot on secondary chart:"
+        '
+        'tb_graphSecondaryPoints
+        '
+        Me.tb_graphSecondaryPoints.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_graphSecondaryPoints.Location = New System.Drawing.Point(505, 29)
+        Me.tb_graphSecondaryPoints.Name = "tb_graphSecondaryPoints"
+        Me.TableLayoutPanel1.SetRowSpan(Me.tb_graphSecondaryPoints, 2)
+        Me.tb_graphSecondaryPoints.Size = New System.Drawing.Size(38, 20)
+        Me.tb_graphSecondaryPoints.TabIndex = 36
+        Me.tb_graphSecondaryPoints.Text = "50"
+        Me.tb_graphSecondaryPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'lb_biasNotice
+        '
+        Me.lb_biasNotice.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lb_biasNotice.AutoSize = True
+        Me.TableLayoutPanel1.SetColumnSpan(Me.lb_biasNotice, 2)
+        Me.lb_biasNotice.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lb_biasNotice.Location = New System.Drawing.Point(144, 63)
+        Me.lb_biasNotice.Name = "lb_biasNotice"
+        Me.lb_biasNotice.Size = New System.Drawing.Size(150, 12)
+        Me.lb_biasNotice.TabIndex = 41
+        Me.lb_biasNotice.Text = "If not, biases will be kept equal to 1."
         '
         'GroupBox2
         '
@@ -646,7 +658,7 @@ Partial Class Form1
         Me.tp_calculation.Location = New System.Drawing.Point(4, 22)
         Me.tp_calculation.Name = "tp_calculation"
         Me.tp_calculation.Padding = New System.Windows.Forms.Padding(3)
-        Me.tp_calculation.Size = New System.Drawing.Size(739, 598)
+        Me.tp_calculation.Size = New System.Drawing.Size(739, 542)
         Me.tp_calculation.TabIndex = 1
         Me.tp_calculation.Text = "CALCULATION MODE"
         '
@@ -717,6 +729,28 @@ Partial Class Form1
         Me.TableLayoutPanel6.Size = New System.Drawing.Size(475, 539)
         Me.TableLayoutPanel6.TabIndex = 30
         '
+        'chart_errorSecondary
+        '
+        Me.chart_errorSecondary.BackColor = System.Drawing.Color.Transparent
+        ChartArea2.Name = "ChartArea1"
+        Me.chart_errorSecondary.ChartAreas.Add(ChartArea2)
+        Me.TableLayoutPanel6.SetColumnSpan(Me.chart_errorSecondary, 2)
+        Me.chart_errorSecondary.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.chart_errorSecondary.Location = New System.Drawing.Point(3, 329)
+        Me.chart_errorSecondary.Name = "chart_errorSecondary"
+        Series1.ChartArea = "ChartArea1"
+        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series1.Name = "Series1"
+        Series1.YValuesPerPoint = 6
+        Me.chart_errorSecondary.Series.Add(Series1)
+        Me.chart_errorSecondary.Size = New System.Drawing.Size(469, 207)
+        Me.chart_errorSecondary.TabIndex = 29
+        Me.chart_errorSecondary.Text = "Network error (RMSE)"
+        Title1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title1.Name = "Title1"
+        Title1.Text = "Network error (RMSE)"
+        Me.chart_errorSecondary.Titles.Add(Title1)
+        '
         'Label12
         '
         Me.Label12.AutoSize = True
@@ -749,18 +783,6 @@ Partial Class Form1
         Me.panel_charts.Name = "panel_charts"
         Me.panel_charts.Size = New System.Drawing.Size(483, 547)
         Me.panel_charts.TabIndex = 33
-        '
-        'lb_biasNotice
-        '
-        Me.lb_biasNotice.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lb_biasNotice.AutoSize = True
-        Me.TableLayoutPanel1.SetColumnSpan(Me.lb_biasNotice, 2)
-        Me.lb_biasNotice.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_biasNotice.Location = New System.Drawing.Point(144, 63)
-        Me.lb_biasNotice.Name = "lb_biasNotice"
-        Me.lb_biasNotice.Size = New System.Drawing.Size(150, 12)
-        Me.lb_biasNotice.TabIndex = 41
-        Me.lb_biasNotice.Text = "If not, biases will be kept equal to 1."
         '
         'Label5
         '
@@ -805,28 +827,6 @@ Partial Class Form1
         Me.panel_stats.Size = New System.Drawing.Size(141, 52)
         Me.panel_stats.TabIndex = 37
         '
-        'chart_errorSecondary
-        '
-        Me.chart_errorSecondary.BackColor = System.Drawing.Color.Transparent
-        ChartArea2.Name = "ChartArea1"
-        Me.chart_errorSecondary.ChartAreas.Add(ChartArea2)
-        Me.TableLayoutPanel6.SetColumnSpan(Me.chart_errorSecondary, 2)
-        Me.chart_errorSecondary.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.chart_errorSecondary.Location = New System.Drawing.Point(3, 329)
-        Me.chart_errorSecondary.Name = "chart_errorSecondary"
-        Series1.ChartArea = "ChartArea1"
-        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series1.Name = "Series1"
-        Series1.YValuesPerPoint = 6
-        Me.chart_errorSecondary.Series.Add(Series1)
-        Me.chart_errorSecondary.Size = New System.Drawing.Size(469, 207)
-        Me.chart_errorSecondary.TabIndex = 29
-        Me.chart_errorSecondary.Text = "Network error (RMSE)"
-        Title1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title1.Name = "Title1"
-        Title1.Text = "Network error (RMSE)"
-        Me.chart_errorSecondary.Titles.Add(Title1)
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -842,6 +842,7 @@ Partial Class Form1
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Form1"
         Me.Padding = New System.Windows.Forms.Padding(0, 0, 8, 8)
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         Me.tc_modes.ResumeLayout(False)
         Me.tp_training.ResumeLayout(False)
@@ -865,11 +866,11 @@ Partial Class Form1
         Me.TableLayoutPanel2.PerformLayout()
         CType(Me.chart_error, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel6.ResumeLayout(False)
+        CType(Me.chart_errorSecondary, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panel_charts.ResumeLayout(False)
         Me.panel_charts.PerformLayout()
         Me.panel_stats.ResumeLayout(False)
         Me.panel_stats.PerformLayout()
-        CType(Me.chart_errorSecondary, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

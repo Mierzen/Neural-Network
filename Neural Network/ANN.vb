@@ -111,6 +111,20 @@ Module ANN
         'TODO: normaliseData()
 
         Beep()
+
+        If MsgBox("Save the neural network?", vbYesNo Or MsgBoxStyle.Question, "Save?") = MsgBoxResult.Yes Then
+            Dim path As String
+
+            If Form1.SaveFileDialog1.ShowDialog() = DialogResult.OK Then
+                path = Form1.SaveFileDialog1.FileName.ToString
+
+                If (path IsNot Nothing) Then
+                    NetworkOperation.Save(network, path)
+                End If
+            End If
+        End If
+
+        Beep()
     End Sub
 
     Private Sub validateCSV(csvType As String)

@@ -83,6 +83,7 @@ Partial Class Form1
         Me.Label5 = New System.Windows.Forms.Label()
         Me.lb_iterationNum = New System.Windows.Forms.Label()
         Me.panel_stats = New System.Windows.Forms.TableLayoutPanel()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.tc_modes.SuspendLayout()
         Me.tp_training.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
@@ -822,6 +823,12 @@ Partial Class Form1
         Me.panel_stats.Size = New System.Drawing.Size(141, 52)
         Me.panel_stats.TabIndex = 37
         '
+        'SaveFileDialog1
+        '
+        Me.SaveFileDialog1.DefaultExt = "xml"
+        Me.SaveFileDialog1.Filter = "xml files|*.xml|All files|*.*"
+        Me.SaveFileDialog1.Title = "Save neural network file"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -920,5 +927,6 @@ Partial Class Form1
     Friend WithEvents lb_iterationNum As System.Windows.Forms.Label
     Friend WithEvents chart_errorSecondary As System.Windows.Forms.DataVisualization.Charting.Chart
     Friend WithEvents panel_stats As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
 
 End Class

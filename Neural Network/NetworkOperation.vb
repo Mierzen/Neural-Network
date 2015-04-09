@@ -1,4 +1,5 @@
 ﻿Imports NeuralNetwork.Activation
+Imports System.Xml
 
 Module NetworkOperation
     Public Sub loadTrainingData()
@@ -194,4 +195,77 @@ Module NetworkOperation
 
         Return RMSE
     End Function
+
+    Public Sub Save(network As BackpropagationNetwork, FilePath As String)
+        Dim settings As New XmlWriterSettings
+        settings.Indent = True
+
+        Dim writer As XmlWriter = XmlWriter.Create(FilePath, settings)
+
+        With writer
+            .WriteComment("Backpropagation Neural Network, created " & Date.Now().ToString)
+            .WriteStartElement("Network")
+
+            .WriteStartElement("Network-Parameters")
+
+            .WriteElementString("numInputs", numInputs.ToString)
+            .WriteElementString("LayerCount", network.LayerCount.ToString)
+            .WriteElementString("numOutputs", numOutputs.ToString)
+
+            .WriteStartElement("Layers")
+            Dim l As Integer = 0
+            For Each layer As Layer In network.Layers
+                .WriteStartElement("Layer")
+
+                .WriteAttributeString("Index", l.ToString)
+                .WriteAttributeString("NeuronCount", layer.NeuronCount.ToString)
+                .WriteAttributeString("Type", layer.LayerType.ToString)
+                .WriteAttributeString("ActivationFunction", layer.ActivationFunction.ToString)
+
+                .WriteEndElement() 'Layer
+
+                l += 1
+            Next
+
+            .WriteEndElement() 'Layers
+            .WriteEndElement() 'Network-Parameters
+
+            ' Weights and biases
+            .WriteStartElement("Weights-and-Biases")
+
+            For layer = 0 To network.LayerCount - 2 'for each layer except output layer
+                Dim currentLayer As Layer = network.Layers(layer)
+                Dim nextLayer As Layer = network.Layers(layer + 1)
+
+                .WriteStartElement("Layer")
+                .WriteAttributeString("Index", layer.ToString)
+
+                For i = 0 To currentLayer.NeuronCount - 1
+
+                    .WriteStartElement("Neuron")
+
+                    .WriteAttributeString("Index", i.ToString)
+                    .WriteAttributeString("Bias", currentLayer.Bias(i).ToString)
+
+                    For j = 0 To nextLayer.NeuronCount - 1
+                        .WriteStartElement("Connection")
+                        .WriteAttributeString("Index", j.ToString)
+
+                        .WriteString(currentLayer.Weights(i, j).ToString())
+
+                        .WriteEndElement() 'Connection
+                    Next
+
+                    .WriteEndElement() 'Neuron
+                Next
+                .WriteEndElement() 'layer
+            Next
+
+            .WriteEndElement() 'Weights-and-Biases
+
+            .WriteEndElement() 'Network
+
+            .Close()
+        End With
+    End Sub
 End Module

@@ -73,6 +73,8 @@ Module ANN
         NetworkOperation.loadTrainingData() 'TODO: Split data into training, validation and testing sets
 
         If Form1.chk_showGraph.Checked Then
+            Form1.chart_error200.Titles(0).Text = "Network error (RMSE)" & vbNewLine & "Last " & Form1.tb_graphSecondaryPoints.Text & " iterations"
+
             Form1.panel_charts.Visible = True
 
             Form1.panel_charts.Update()

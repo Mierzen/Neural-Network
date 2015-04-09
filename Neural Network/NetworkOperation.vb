@@ -98,7 +98,7 @@ Module NetworkOperation
         Next
     End Sub
 
-    Public Sub trainNetwork(ByRef network As BackpropagationNetwork, learningRate As Double, momentum As Double)
+    Public Function trainNetwork(ByRef network As BackpropagationNetwork, learningRate As Double, momentum As Double) As Double
         'TODO: add epoch looping
         Dim exampleError(numInputLines - 1) As Double
         For ex = 0 To numInputLines - 1 'for each example
@@ -203,5 +203,7 @@ Module NetworkOperation
             Form1.chart_error200.Series("Series1").Points.Add(RMSE)
         End If
         Form1.chart_error200.Update()
-    End Sub
+
+        Return RMSE
+    End Function
 End Module

@@ -71,13 +71,19 @@ Module ANN
         'TODO: add training mode and calculation mode ↴
         'load training data into memory
         NetworkOperation.loadTrainingData() 'TODO: Split data into training, validation and testing sets
-        For i = 0 To 1000
+        Dim err As Double = 0
+        i = 1
+        Do
             Form1.lb_iterationNum.Text = i
-            NetworkOperation.trainNetwork(network, 0.1, 0.15) 'TODO: add configurable parameters
-        Next
+            err = NetworkOperation.trainNetwork(network, CDbl(Form1.tb_learningRate.Text), CDbl(Form1.tb_momentum.Text))
+            i += 1
+            Form1.lb_currentError.Text = err
+            Form1.lb_currentError.Update()
+        Loop While (err > CDbl(Form1.tb_maxError.Text)) AndAlso (i <= CInt(Form1.tb_maxEpochs.Text))
         'NetworkOperation.networkCalculate(network)
         'TODO: normaliseData()
 
+        Beep()
     End Sub
 
     Private Sub validateCSV(csvType As String)

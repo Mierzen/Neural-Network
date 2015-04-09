@@ -22,13 +22,13 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea9 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series9 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title9 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim ChartArea10 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series10 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title10 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea11 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series11 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title11 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea12 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend6 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series12 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title12 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.tc_modes = New System.Windows.Forms.TabControl()
         Me.tp_training = New System.Windows.Forms.TabPage()
@@ -46,7 +46,6 @@ Partial Class Form1
         Me.Label7 = New System.Windows.Forms.Label()
         Me.lb_graphSecondary = New System.Windows.Forms.Label()
         Me.tb_learningRate = New System.Windows.Forms.TextBox()
-        Me.chk_showGraphSecondary = New System.Windows.Forms.CheckBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.chk_showGraph = New System.Windows.Forms.CheckBox()
         Me.tb_momentum = New System.Windows.Forms.TextBox()
@@ -150,7 +149,7 @@ Partial Class Form1
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(730, 539)
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(730, 536)
         Me.TableLayoutPanel5.TabIndex = 32
         '
         'GroupBox1
@@ -230,7 +229,7 @@ Partial Class Form1
         Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox4.Location = New System.Drawing.Point(3, 428)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(567, 108)
+        Me.GroupBox4.Size = New System.Drawing.Size(567, 105)
         Me.GroupBox4.TabIndex = 31
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "ADVANCED SETTINGS"
@@ -248,17 +247,16 @@ Partial Class Form1
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.Controls.Add(Me.tb_maxEpochs, 3, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label9, 2, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.tb_graphSecondaryPoints, 5, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.Label7, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.lb_graphSecondary, 4, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.tb_learningRate, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.chk_showGraphSecondary, 4, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Label8, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.chk_showGraph, 4, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.tb_momentum, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.chk_updateBias, 0, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.tb_maxError, 3, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Label10, 2, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.lb_graphSecondary, 4, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.tb_graphSecondaryPoints, 5, 1)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 19)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -268,7 +266,7 @@ Partial Class Form1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(561, 86)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(561, 83)
         Me.TableLayoutPanel1.TabIndex = 32
         '
         'tb_maxEpochs
@@ -297,8 +295,9 @@ Partial Class Form1
         'tb_graphSecondaryPoints
         '
         Me.tb_graphSecondaryPoints.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_graphSecondaryPoints.Location = New System.Drawing.Point(505, 55)
+        Me.tb_graphSecondaryPoints.Location = New System.Drawing.Point(505, 29)
         Me.tb_graphSecondaryPoints.Name = "tb_graphSecondaryPoints"
+        Me.TableLayoutPanel1.SetRowSpan(Me.tb_graphSecondaryPoints, 2)
         Me.tb_graphSecondaryPoints.Size = New System.Drawing.Size(38, 20)
         Me.tb_graphSecondaryPoints.TabIndex = 36
         Me.tb_graphSecondaryPoints.Text = "50"
@@ -320,12 +319,14 @@ Partial Class Form1
         '
         Me.lb_graphSecondary.AutoSize = True
         Me.lb_graphSecondary.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lb_graphSecondary.Location = New System.Drawing.Point(320, 52)
+        Me.lb_graphSecondary.Location = New System.Drawing.Point(320, 26)
+        Me.lb_graphSecondary.MaximumSize = New System.Drawing.Size(179, 0)
         Me.lb_graphSecondary.Name = "lb_graphSecondary"
         Me.lb_graphSecondary.Padding = New System.Windows.Forms.Padding(0, 6, 0, 0)
-        Me.lb_graphSecondary.Size = New System.Drawing.Size(179, 19)
+        Me.TableLayoutPanel1.SetRowSpan(Me.lb_graphSecondary, 2)
+        Me.lb_graphSecondary.Size = New System.Drawing.Size(179, 32)
         Me.lb_graphSecondary.TabIndex = 35
-        Me.lb_graphSecondary.Text = "Number of previous iterations to plot:"
+        Me.lb_graphSecondary.Text = "Number of previous iterations to plot on secondary chart:"
         '
         'tb_learningRate
         '
@@ -337,20 +338,6 @@ Partial Class Form1
         Me.tb_learningRate.TabIndex = 29
         Me.tb_learningRate.Text = "0.15"
         Me.tb_learningRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'chk_showGraphSecondary
-        '
-        Me.chk_showGraphSecondary.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.chk_showGraphSecondary.AutoSize = True
-        Me.chk_showGraphSecondary.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.TableLayoutPanel1.SetColumnSpan(Me.chk_showGraphSecondary, 2)
-        Me.chk_showGraphSecondary.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
-        Me.chk_showGraphSecondary.Location = New System.Drawing.Point(320, 30)
-        Me.chk_showGraphSecondary.Name = "chk_showGraphSecondary"
-        Me.chk_showGraphSecondary.Size = New System.Drawing.Size(165, 17)
-        Me.chk_showGraphSecondary.TabIndex = 34
-        Me.chk_showGraphSecondary.Text = "Show secondary error graph?"
-        Me.chk_showGraphSecondary.UseVisualStyleBackColor = True
         '
         'Label8
         '
@@ -626,7 +613,7 @@ Partial Class Form1
         Me.Button1.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Button1.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Location = New System.Drawing.Point(605, 228)
+        Me.Button1.Location = New System.Drawing.Point(605, 227)
         Me.Button1.Margin = New System.Windows.Forms.Padding(2)
         Me.Button1.Name = "Button1"
         Me.TableLayoutPanel5.SetRowSpan(Me.Button1, 4)
@@ -640,7 +627,7 @@ Partial Class Form1
         Me.Label11.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(576, 259)
+        Me.Label11.Location = New System.Drawing.Point(576, 257)
         Me.Label11.Name = "Label11"
         Me.TableLayoutPanel5.SetRowSpan(Me.Label11, 4)
         Me.Label11.Size = New System.Drawing.Size(24, 21)
@@ -662,24 +649,24 @@ Partial Class Form1
         'chart_error200
         '
         Me.chart_error200.BackColor = System.Drawing.Color.Transparent
-        ChartArea9.Name = "ChartArea1"
-        Me.chart_error200.ChartAreas.Add(ChartArea9)
+        ChartArea11.Name = "ChartArea1"
+        Me.chart_error200.ChartAreas.Add(ChartArea11)
         Me.TableLayoutPanel6.SetColumnSpan(Me.chart_error200, 2)
         Me.chart_error200.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chart_error200.Location = New System.Drawing.Point(3, 342)
         Me.chart_error200.Name = "chart_error200"
-        Series9.ChartArea = "ChartArea1"
-        Series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series9.Name = "Series1"
-        Series9.YValuesPerPoint = 6
-        Me.chart_error200.Series.Add(Series9)
+        Series11.ChartArea = "ChartArea1"
+        Series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series11.Name = "Series1"
+        Series11.YValuesPerPoint = 6
+        Me.chart_error200.Series.Add(Series11)
         Me.chart_error200.Size = New System.Drawing.Size(469, 185)
         Me.chart_error200.TabIndex = 29
         Me.chart_error200.Text = "Network error (RMSE)"
-        Title9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title9.Name = "Title1"
-        Title9.Text = "Network error (RMSE)"
-        Me.chart_error200.Titles.Add(Title9)
+        Title11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title11.Name = "Title1"
+        Title11.Text = "Network error (RMSE)"
+        Me.chart_error200.Titles.Add(Title11)
         '
         'lb_iterationNum
         '
@@ -707,30 +694,30 @@ Partial Class Form1
         'chart_error
         '
         Me.chart_error.BackColor = System.Drawing.Color.Transparent
-        ChartArea10.Name = "ChartArea1"
-        Me.chart_error.ChartAreas.Add(ChartArea10)
+        ChartArea12.Name = "ChartArea1"
+        Me.chart_error.ChartAreas.Add(ChartArea12)
         Me.TableLayoutPanel6.SetColumnSpan(Me.chart_error, 2)
         Me.chart_error.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend5.Alignment = System.Drawing.StringAlignment.Center
-        Legend5.BackColor = System.Drawing.Color.Transparent
-        Legend5.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom
-        Legend5.Name = "Legend1"
-        Me.chart_error.Legends.Add(Legend5)
+        Legend6.Alignment = System.Drawing.StringAlignment.Center
+        Legend6.BackColor = System.Drawing.Color.Transparent
+        Legend6.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom
+        Legend6.Name = "Legend1"
+        Me.chart_error.Legends.Add(Legend6)
         Me.chart_error.Location = New System.Drawing.Point(3, 16)
         Me.chart_error.Name = "chart_error"
-        Series10.ChartArea = "ChartArea1"
-        Series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series10.Legend = "Legend1"
-        Series10.Name = "Series1"
-        Series10.YValuesPerPoint = 6
-        Me.chart_error.Series.Add(Series10)
+        Series12.ChartArea = "ChartArea1"
+        Series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series12.Legend = "Legend1"
+        Series12.Name = "Series1"
+        Series12.YValuesPerPoint = 6
+        Me.chart_error.Series.Add(Series12)
         Me.chart_error.Size = New System.Drawing.Size(469, 320)
         Me.chart_error.TabIndex = 26
         Me.chart_error.Text = "Network error (RMSE)"
-        Title10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title10.Name = "Title1"
-        Title10.Text = "Network error (RMSE)"
-        Me.chart_error.Titles.Add(Title10)
+        Title12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title12.Name = "Title1"
+        Title12.Text = "Network error (RMSE)"
+        Me.chart_error.Titles.Add(Title12)
         '
         'chk_learningMode
         '
@@ -902,7 +889,6 @@ Partial Class Form1
     Friend WithEvents chk_updateBias As System.Windows.Forms.CheckBox
     Friend WithEvents tb_graphSecondaryPoints As System.Windows.Forms.TextBox
     Friend WithEvents lb_graphSecondary As System.Windows.Forms.Label
-    Friend WithEvents chk_showGraphSecondary As System.Windows.Forms.CheckBox
     Friend WithEvents chk_showGraph As System.Windows.Forms.CheckBox
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents tb_maxEpochs As System.Windows.Forms.TextBox

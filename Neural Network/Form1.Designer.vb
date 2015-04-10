@@ -83,6 +83,10 @@ Partial Class Form1
         Me.lb_iterationNum = New System.Windows.Forms.Label()
         Me.panel_stats = New System.Windows.Forms.TableLayoutPanel()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.tb_calcInputs = New System.Windows.Forms.TextBox()
+        Me.tb_calcOutputs = New System.Windows.Forms.TextBox()
+        Me.btn_calculateExample = New System.Windows.Forms.Button()
+        Me.tlp_calcExample = New System.Windows.Forms.TableLayoutPanel()
         Me.tc_modes.SuspendLayout()
         Me.tp_training.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
@@ -101,6 +105,7 @@ Partial Class Form1
         CType(Me.chart_errorSecondary, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panel_charts.SuspendLayout()
         Me.panel_stats.SuspendLayout()
+        Me.tlp_calcExample.SuspendLayout()
         Me.SuspendLayout()
         '
         'OpenFileDialog1
@@ -657,6 +662,7 @@ Partial Class Form1
         'tp_calculation
         '
         Me.tp_calculation.BackColor = System.Drawing.SystemColors.Control
+        Me.tp_calculation.Controls.Add(Me.tlp_calcExample)
         Me.tp_calculation.Controls.Add(Me.btn_loadNetwork)
         Me.tp_calculation.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tp_calculation.Location = New System.Drawing.Point(4, 22)
@@ -828,6 +834,56 @@ Partial Class Form1
         Me.SaveFileDialog1.Filter = "xml files|*.xml|All files|*.*"
         Me.SaveFileDialog1.Title = "Save neural network file"
         '
+        'tb_calcInputs
+        '
+        Me.tb_calcInputs.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tb_calcInputs.Location = New System.Drawing.Point(3, 3)
+        Me.tb_calcInputs.Multiline = True
+        Me.tb_calcInputs.Name = "tb_calcInputs"
+        Me.tlp_calcExample.SetRowSpan(Me.tb_calcInputs, 3)
+        Me.tb_calcInputs.Size = New System.Drawing.Size(131, 196)
+        Me.tb_calcInputs.TabIndex = 1
+        Me.tb_calcInputs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'tb_calcOutputs
+        '
+        Me.tb_calcOutputs.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tb_calcOutputs.Location = New System.Drawing.Point(302, 3)
+        Me.tb_calcOutputs.Multiline = True
+        Me.tb_calcOutputs.Name = "tb_calcOutputs"
+        Me.tb_calcOutputs.ReadOnly = True
+        Me.tlp_calcExample.SetRowSpan(Me.tb_calcOutputs, 3)
+        Me.tb_calcOutputs.Size = New System.Drawing.Size(128, 196)
+        Me.tb_calcOutputs.TabIndex = 2
+        '
+        'btn_calculateExample
+        '
+        Me.btn_calculateExample.Location = New System.Drawing.Point(154, 88)
+        Me.btn_calculateExample.Name = "btn_calculateExample"
+        Me.btn_calculateExample.Size = New System.Drawing.Size(97, 23)
+        Me.btn_calculateExample.TabIndex = 3
+        Me.btn_calculateExample.Text = "CALCULATE"
+        Me.btn_calculateExample.UseVisualStyleBackColor = True
+        '
+        'tlp_calcExample
+        '
+        Me.tlp_calcExample.ColumnCount = 4
+        Me.tlp_calcExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.72848!))
+        Me.tlp_calcExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.271523!))
+        Me.tlp_calcExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 148.0!))
+        Me.tlp_calcExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133.0!))
+        Me.tlp_calcExample.Controls.Add(Me.tb_calcInputs, 0, 0)
+        Me.tlp_calcExample.Controls.Add(Me.tb_calcOutputs, 3, 0)
+        Me.tlp_calcExample.Controls.Add(Me.btn_calculateExample, 2, 1)
+        Me.tlp_calcExample.Location = New System.Drawing.Point(99, 105)
+        Me.tlp_calcExample.Name = "tlp_calcExample"
+        Me.tlp_calcExample.RowCount = 3
+        Me.tlp_calcExample.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.40625!))
+        Me.tlp_calcExample.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.59375!))
+        Me.tlp_calcExample.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 73.0!))
+        Me.tlp_calcExample.Size = New System.Drawing.Size(433, 202)
+        Me.tlp_calcExample.TabIndex = 4
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -871,6 +927,8 @@ Partial Class Form1
         Me.panel_charts.PerformLayout()
         Me.panel_stats.ResumeLayout(False)
         Me.panel_stats.PerformLayout()
+        Me.tlp_calcExample.ResumeLayout(False)
+        Me.tlp_calcExample.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -929,5 +987,9 @@ Partial Class Form1
     Friend WithEvents panel_stats As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
     Friend WithEvents btn_loadNetwork As System.Windows.Forms.Button
+    Friend WithEvents tlp_calcExample As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents tb_calcInputs As System.Windows.Forms.TextBox
+    Friend WithEvents tb_calcOutputs As System.Windows.Forms.TextBox
+    Friend WithEvents btn_calculateExample As System.Windows.Forms.Button
 
 End Class

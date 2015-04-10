@@ -66,7 +66,6 @@ Module TrainingMode
             i += 1
         Next
 
-        'TODO: add training mode and calculation mode ↴
         'load training data into memory
         NetworkOperation.loadTrainingData() 'TODO: Split data into training, validation and testing sets
 
@@ -107,7 +106,6 @@ Module TrainingMode
             End If
             Form1.chart_errorSecondary.Update()
         Loop While (err > CDbl(Form1.tb_maxError.Text)) AndAlso (i <= CInt(Form1.tb_maxEpochs.Text))
-        'NetworkOperation.networkCalculate(network)
         'TODO: normaliseData()
 
         Beep()

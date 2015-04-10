@@ -48,6 +48,23 @@
     End Class
 
     Public NotInheritable Class File
+
+#Region "generic"
+        ''' <summary>
+        ''' Get the number of lines in a (text-based) file.
+        ''' </summary>
+        ''' <param name="filePath">Path of the file to be checked.</param>
+        ''' <returns>The number of lines; -1 if check failed.</returns>
+        ''' <remarks></remarks>
+        Public Shared Function GetLineCount(filePath As String) As Integer
+            If System.IO.Path.HasExtension(filePath) = False Then
+                Return -1
+            Else
+                Return System.IO.File.ReadAllLines(filePath.ToString).Length
+            End If
+        End Function
+#End Region
+
         Public NotInheritable Class CSV
             ''' <summary>
             ''' Checks if each line of a csv file is of the same lenght (same number of entries).

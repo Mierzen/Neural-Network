@@ -84,6 +84,9 @@
             AddHandler tb.TextChanged, AddressOf tbTextChanged
         Next
 
+        AddHandler rd_calcExample.CheckedChanged, AddressOf radio_CheckedChanged
+        AddHandler rd_calcDataSet.CheckedChanged, AddressOf radio_CheckedChanged
+
         lb_biasNotice.Visible = False
         panel_stats.Visible = False
         panel_charts.Visible = False
@@ -183,7 +186,7 @@
         End If
 
         If networkLoaded = True Then
-            tlp_calcExample.Visible = True
+            gb_calcMode.Visible = True
         End If
     End Sub
 
@@ -210,5 +213,15 @@
         outputString = Strings.Left(outputString, Len(outputString) - 1)
 
         tb_calcOutputs.Text = outputString
+    End Sub
+
+    Private Sub radio_CheckedChanged(sender As Object, e As EventArgs)
+        If rd_calcExample.Checked Then
+            tlp_calcExample.Visible = True
+            'Other panel.Visible = False
+        ElseIf rd_calcDataSet.Checked Then
+            tlp_calcExample.Visible = False
+            'Other panel.Visible = True
+        End If
     End Sub
 End Class

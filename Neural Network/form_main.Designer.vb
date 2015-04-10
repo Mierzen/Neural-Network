@@ -73,6 +73,9 @@ Partial Class form_main
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.tp_calculation = New System.Windows.Forms.TabPage()
+        Me.gb_calcMode = New System.Windows.Forms.GroupBox()
+        Me.rd_calcDataSet = New System.Windows.Forms.RadioButton()
+        Me.rd_calcExample = New System.Windows.Forms.RadioButton()
         Me.tlp_calcExample = New System.Windows.Forms.TableLayoutPanel()
         Me.tb_calcInputs = New System.Windows.Forms.TextBox()
         Me.tb_calcOutputs = New System.Windows.Forms.TextBox()
@@ -88,9 +91,6 @@ Partial Class form_main
         Me.lb_iterationNum = New System.Windows.Forms.Label()
         Me.panel_stats = New System.Windows.Forms.TableLayoutPanel()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
-        Me.gb_calcMode = New System.Windows.Forms.GroupBox()
-        Me.rd_calcExample = New System.Windows.Forms.RadioButton()
-        Me.rd_calcDataSet = New System.Windows.Forms.RadioButton()
         Me.tc_modes.SuspendLayout()
         Me.tp_training.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
@@ -104,13 +104,13 @@ Partial Class form_main
         Me.GroupBox3.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.tp_calculation.SuspendLayout()
+        Me.gb_calcMode.SuspendLayout()
         Me.tlp_calcExample.SuspendLayout()
         CType(Me.chart_error, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel6.SuspendLayout()
         CType(Me.chart_errorSecondary, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panel_charts.SuspendLayout()
         Me.panel_stats.SuspendLayout()
-        Me.gb_calcMode.SuspendLayout()
         Me.SuspendLayout()
         '
         'OpenFileDialog1
@@ -676,6 +676,40 @@ Partial Class form_main
         Me.tp_calculation.TabIndex = 1
         Me.tp_calculation.Text = "CALCULATION MODE"
         '
+        'gb_calcMode
+        '
+        Me.gb_calcMode.Controls.Add(Me.rd_calcDataSet)
+        Me.gb_calcMode.Controls.Add(Me.rd_calcExample)
+        Me.gb_calcMode.Location = New System.Drawing.Point(6, 61)
+        Me.gb_calcMode.Name = "gb_calcMode"
+        Me.gb_calcMode.Size = New System.Drawing.Size(196, 50)
+        Me.gb_calcMode.TabIndex = 5
+        Me.gb_calcMode.TabStop = False
+        Me.gb_calcMode.Text = "CALCULATION MODE"
+        Me.gb_calcMode.Visible = False
+        '
+        'rd_calcDataSet
+        '
+        Me.rd_calcDataSet.AutoSize = True
+        Me.rd_calcDataSet.Location = New System.Drawing.Point(121, 19)
+        Me.rd_calcDataSet.Name = "rd_calcDataSet"
+        Me.rd_calcDataSet.Size = New System.Drawing.Size(65, 17)
+        Me.rd_calcDataSet.TabIndex = 1
+        Me.rd_calcDataSet.TabStop = True
+        Me.rd_calcDataSet.Text = "Data set"
+        Me.rd_calcDataSet.UseVisualStyleBackColor = True
+        '
+        'rd_calcExample
+        '
+        Me.rd_calcExample.AutoSize = True
+        Me.rd_calcExample.Location = New System.Drawing.Point(6, 19)
+        Me.rd_calcExample.Name = "rd_calcExample"
+        Me.rd_calcExample.Size = New System.Drawing.Size(96, 17)
+        Me.rd_calcExample.TabIndex = 0
+        Me.rd_calcExample.TabStop = True
+        Me.rd_calcExample.Text = "Single example"
+        Me.rd_calcExample.UseVisualStyleBackColor = True
+        '
         'tlp_calcExample
         '
         Me.tlp_calcExample.ColumnCount = 4
@@ -889,39 +923,6 @@ Partial Class form_main
         Me.SaveFileDialog1.Filter = "xml files|*.xml|All files|*.*"
         Me.SaveFileDialog1.Title = "Save neural network file"
         '
-        'gb_calcMode
-        '
-        Me.gb_calcMode.Controls.Add(Me.rd_calcDataSet)
-        Me.gb_calcMode.Controls.Add(Me.rd_calcExample)
-        Me.gb_calcMode.Location = New System.Drawing.Point(6, 61)
-        Me.gb_calcMode.Name = "gb_calcMode"
-        Me.gb_calcMode.Size = New System.Drawing.Size(196, 50)
-        Me.gb_calcMode.TabIndex = 5
-        Me.gb_calcMode.TabStop = False
-        Me.gb_calcMode.Text = "CALCULATION MODE"
-        '
-        'rd_calcExample
-        '
-        Me.rd_calcExample.AutoSize = True
-        Me.rd_calcExample.Location = New System.Drawing.Point(6, 19)
-        Me.rd_calcExample.Name = "rd_calcExample"
-        Me.rd_calcExample.Size = New System.Drawing.Size(96, 17)
-        Me.rd_calcExample.TabIndex = 0
-        Me.rd_calcExample.TabStop = True
-        Me.rd_calcExample.Text = "Single example"
-        Me.rd_calcExample.UseVisualStyleBackColor = True
-        '
-        'rd_calcDataSet
-        '
-        Me.rd_calcDataSet.AutoSize = True
-        Me.rd_calcDataSet.Location = New System.Drawing.Point(121, 19)
-        Me.rd_calcDataSet.Name = "rd_calcDataSet"
-        Me.rd_calcDataSet.Size = New System.Drawing.Size(65, 17)
-        Me.rd_calcDataSet.TabIndex = 1
-        Me.rd_calcDataSet.TabStop = True
-        Me.rd_calcDataSet.Text = "Data set"
-        Me.rd_calcDataSet.UseVisualStyleBackColor = True
-        '
         'form_main
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -960,6 +961,8 @@ Partial Class form_main
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
         Me.tp_calculation.ResumeLayout(False)
+        Me.gb_calcMode.ResumeLayout(False)
+        Me.gb_calcMode.PerformLayout()
         Me.tlp_calcExample.ResumeLayout(False)
         Me.tlp_calcExample.PerformLayout()
         CType(Me.chart_error, System.ComponentModel.ISupportInitialize).EndInit()
@@ -969,8 +972,6 @@ Partial Class form_main
         Me.panel_charts.PerformLayout()
         Me.panel_stats.ResumeLayout(False)
         Me.panel_stats.PerformLayout()
-        Me.gb_calcMode.ResumeLayout(False)
-        Me.gb_calcMode.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

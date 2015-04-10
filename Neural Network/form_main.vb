@@ -252,6 +252,10 @@
     Private Sub btn_calcDataSet_Click(sender As Object, e As EventArgs) Handles btn_calcDataSet.Click
         Dim inputPath As String = tb_calcInputDataSet.Text
         Dim outputPath As String = tb_calcOutputDataSet.Text
+        Dim networkInputCount As Integer = calcNetwork.Layers(0).NeuronCount
+        Dim inputNumCount As Integer = Util.File.CSV.GetFieldCount(inputPath)
+        Dim numInputLines As Integer = Util.File.GetLineCount(inputPath)
+        Dim inputDataSet(numInputLines - 1, networkInputCount) As Double
 
         'check for data entry
         If inputPath = "" OrElse outputPath = "" Then
@@ -269,13 +273,11 @@
             Exit Sub
         End If
 
-        If Util.File.CSV.GetFieldCount(inputPath) <> calcNetwork.Layers(0).NeuronCount Then
-            MsgBox("The neural network is incompatible with the data set." & vbNewLine & vbNewLine & "The number of inputs as set up in the network do not agree with the number of inputs in the data set.", vbOKOnly Or MsgBoxStyle.Critical, "Incompatible input data set")
+        If inputNumCount <> networkInputCount Then
+            MsgBox("The neural network is incompatible with the data set." & vbNewLine & vbNewLine & "The number of inputs as set up in the network " & networkInputCount & " do not agree with the number of inputs in the data set " & inputNumCount & ".", vbOKOnly Or MsgBoxStyle.Critical, "Incompatible input data set")
             Exit Sub
         End If
 
-        Dim numInputLines As Integer = Util.File.GetLineCount(inputPath)
-        Dim inputDataSet(numInputLines - 1, calcNetwork.Layers(0).NeuronCount - 1) As Double
 
         'read input data into memory
         Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(inputPath)

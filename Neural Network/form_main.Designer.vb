@@ -76,7 +76,7 @@ Partial Class form_main
         Me.gb_calcMode = New System.Windows.Forms.GroupBox()
         Me.rd_calcDataSet = New System.Windows.Forms.RadioButton()
         Me.rd_calcExample = New System.Windows.Forms.RadioButton()
-        Me.tlp_calcExample = New System.Windows.Forms.TableLayoutPanel()
+        Me.tlp_calculateExample = New System.Windows.Forms.TableLayoutPanel()
         Me.tb_calcInputs = New System.Windows.Forms.TextBox()
         Me.tb_calcOutputs = New System.Windows.Forms.TextBox()
         Me.btn_calculateExample = New System.Windows.Forms.Button()
@@ -119,7 +119,7 @@ Partial Class form_main
         Me.TableLayoutPanel2.SuspendLayout()
         Me.tp_calculation.SuspendLayout()
         Me.gb_calcMode.SuspendLayout()
-        Me.tlp_calcExample.SuspendLayout()
+        Me.tlp_calculateExample.SuspendLayout()
         CType(Me.chart_error, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel6.SuspendLayout()
         CType(Me.chart_errorSecondary, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -686,7 +686,7 @@ Partial Class form_main
         Me.tp_calculation.BackColor = System.Drawing.SystemColors.Control
         Me.tp_calculation.Controls.Add(Me.tlp_calculateDataSet)
         Me.tp_calculation.Controls.Add(Me.gb_calcMode)
-        Me.tp_calculation.Controls.Add(Me.tlp_calcExample)
+        Me.tp_calculation.Controls.Add(Me.tlp_calculateExample)
         Me.tp_calculation.Controls.Add(Me.btn_loadNetwork)
         Me.tp_calculation.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tp_calculation.Location = New System.Drawing.Point(4, 22)
@@ -730,30 +730,30 @@ Partial Class form_main
         Me.rd_calcExample.Text = "Single example"
         Me.rd_calcExample.UseVisualStyleBackColor = True
         '
-        'tlp_calcExample
+        'tlp_calculateExample
         '
-        Me.tlp_calcExample.AutoSize = True
-        Me.tlp_calcExample.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.tlp_calcExample.ColumnCount = 5
-        Me.tlp_calcExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.tlp_calcExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.tlp_calcExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.tlp_calcExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.tlp_calcExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.tlp_calcExample.Controls.Add(Me.Label13, 1, 1)
-        Me.tlp_calcExample.Controls.Add(Me.Label3, 3, 1)
-        Me.tlp_calcExample.Controls.Add(Me.tb_calcInputs, 0, 0)
-        Me.tlp_calcExample.Controls.Add(Me.tb_calcOutputs, 4, 0)
-        Me.tlp_calcExample.Controls.Add(Me.btn_calculateExample, 2, 1)
-        Me.tlp_calcExample.Location = New System.Drawing.Point(12, 117)
-        Me.tlp_calcExample.Name = "tlp_calcExample"
-        Me.tlp_calcExample.RowCount = 3
-        Me.tlp_calcExample.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.tlp_calcExample.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.tlp_calcExample.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.tlp_calcExample.Size = New System.Drawing.Size(515, 236)
-        Me.tlp_calcExample.TabIndex = 4
-        Me.tlp_calcExample.Visible = False
+        Me.tlp_calculateExample.AutoSize = True
+        Me.tlp_calculateExample.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.tlp_calculateExample.ColumnCount = 5
+        Me.tlp_calculateExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.tlp_calculateExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.tlp_calculateExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.tlp_calculateExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.tlp_calculateExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.tlp_calculateExample.Controls.Add(Me.Label13, 1, 1)
+        Me.tlp_calculateExample.Controls.Add(Me.Label3, 3, 1)
+        Me.tlp_calculateExample.Controls.Add(Me.tb_calcInputs, 0, 0)
+        Me.tlp_calculateExample.Controls.Add(Me.tb_calcOutputs, 4, 0)
+        Me.tlp_calculateExample.Controls.Add(Me.btn_calculateExample, 2, 1)
+        Me.tlp_calculateExample.Location = New System.Drawing.Point(12, 117)
+        Me.tlp_calculateExample.Name = "tlp_calculateExample"
+        Me.tlp_calculateExample.RowCount = 3
+        Me.tlp_calculateExample.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.tlp_calculateExample.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.tlp_calculateExample.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.tlp_calculateExample.Size = New System.Drawing.Size(515, 236)
+        Me.tlp_calculateExample.TabIndex = 4
+        Me.tlp_calculateExample.Visible = False
         '
         'tb_calcInputs
         '
@@ -763,7 +763,7 @@ Partial Class form_main
         Me.tb_calcInputs.MinimumSize = New System.Drawing.Size(170, 230)
         Me.tb_calcInputs.Multiline = True
         Me.tb_calcInputs.Name = "tb_calcInputs"
-        Me.tlp_calcExample.SetRowSpan(Me.tb_calcInputs, 3)
+        Me.tlp_calculateExample.SetRowSpan(Me.tb_calcInputs, 3)
         Me.tb_calcInputs.Size = New System.Drawing.Size(170, 230)
         Me.tb_calcInputs.TabIndex = 1
         Me.tb_calcInputs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -777,7 +777,7 @@ Partial Class form_main
         Me.tb_calcOutputs.Multiline = True
         Me.tb_calcOutputs.Name = "tb_calcOutputs"
         Me.tb_calcOutputs.ReadOnly = True
-        Me.tlp_calcExample.SetRowSpan(Me.tb_calcOutputs, 3)
+        Me.tlp_calculateExample.SetRowSpan(Me.tb_calcOutputs, 3)
         Me.tb_calcOutputs.Size = New System.Drawing.Size(170, 230)
         Me.tb_calcOutputs.TabIndex = 2
         Me.tb_calcOutputs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -1190,8 +1190,8 @@ Partial Class form_main
         Me.tp_calculation.PerformLayout()
         Me.gb_calcMode.ResumeLayout(False)
         Me.gb_calcMode.PerformLayout()
-        Me.tlp_calcExample.ResumeLayout(False)
-        Me.tlp_calcExample.PerformLayout()
+        Me.tlp_calculateExample.ResumeLayout(False)
+        Me.tlp_calculateExample.PerformLayout()
         CType(Me.chart_error, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel6.ResumeLayout(False)
         CType(Me.chart_errorSecondary, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1267,7 +1267,7 @@ Partial Class form_main
     Friend WithEvents panel_stats As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
     Friend WithEvents btn_loadNetwork As System.Windows.Forms.Button
-    Friend WithEvents tlp_calcExample As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents tlp_calculateExample As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents tb_calcInputs As System.Windows.Forms.TextBox
     Friend WithEvents tb_calcOutputs As System.Windows.Forms.TextBox
     Friend WithEvents btn_calculateExample As System.Windows.Forms.Button

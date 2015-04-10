@@ -4,7 +4,7 @@ Imports System.Text
 Imports NeuralNetwork.Activation
 Imports NeuralNetwork.BackpropagationNetwork
 
-Module ANN
+Module TrainingMode
     Public inputData(,) As Double
     Public numInputs As Integer
     Public numInputLines As Integer
@@ -19,7 +19,7 @@ Module ANN
     Public E As Double 'error (e.g. MSE, RMSE)
     Public deltak() As Double
 
-    Public Sub ANN_Start()
+    Public Sub Training_Start()
         numHiddenLayers = Form1.DataGridView1.RowCount
         ReDim numNodesInLayer(0 To numHiddenLayers + 1)
         numOutputs = Form1.tb_numOutputs.Text

@@ -71,7 +71,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ANN.vb" />
+    <Compile Include="TrainingMode.vb" />
     <Compile Include="Activation.vb" />
     <Compile Include="BackpropagationNetwork.vb" />
     <Compile Include="Form1.vb">

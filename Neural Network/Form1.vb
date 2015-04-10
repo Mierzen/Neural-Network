@@ -65,7 +65,7 @@
         If dataIsValid = False Then
             MsgBox("Please check the table values")
         Else
-            ANN.ANN_Start()
+            TrainingMode.Training_Start()
         End If
 
         Application.UseWaitCursor = False

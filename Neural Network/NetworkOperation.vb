@@ -8,7 +8,7 @@ Module NetworkOperation
             MyReader.TextFieldType = FileIO.FieldType.Delimited
             MyReader.SetDelimiters(",")
 
-            ReDim ANN.inputData(ANN.numInputLines - 1, ANN.numInputs - 1)
+            ReDim TrainingMode.inputData(TrainingMode.numInputLines - 1, TrainingMode.numInputs - 1)
             Dim i As Integer = 0
             Dim currentRow As String()
             While Not MyReader.EndOfData
@@ -19,7 +19,7 @@ Module NetworkOperation
                     Dim tempRow(3) As Double
                     Dim j As Integer = 0
                     For Each currentField In currentRow
-                        ANN.inputData(i, j) = currentField
+                        TrainingMode.inputData(i, j) = currentField
                         j += 1
                     Next
 
@@ -35,7 +35,7 @@ Module NetworkOperation
             MyReader.TextFieldType = FileIO.FieldType.Delimited
             MyReader.SetDelimiters(",")
 
-            ReDim ANN.expectedOutputs(ANN.numOutputLines - 1, ANN.expectedOutputsPerLine - 1)
+            ReDim TrainingMode.expectedOutputs(TrainingMode.numOutputLines - 1, TrainingMode.expectedOutputsPerLine - 1)
             Dim i As Integer = 0
             Dim currentRow As String()
             While Not MyReader.EndOfData
@@ -45,7 +45,7 @@ Module NetworkOperation
                     Dim currentField As String
                     Dim j As Integer = 0
                     For Each currentField In currentRow
-                        ANN.expectedOutputs(i, j) = currentField
+                        TrainingMode.expectedOutputs(i, j) = currentField
                         j += 1
                     Next
 

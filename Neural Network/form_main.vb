@@ -268,5 +268,38 @@
             MsgBox("Only csv output is supported.", vbOKOnly Or vbCritical, "Invalid output format")
             Exit Sub
         End If
+
+        Dim numInputLines As Integer = Util.File.GetLineCount(inputPath)
+        Dim inputDataSet(numInputLines - 1, calcNetwork.Layers(0).NeuronCount - 1) As Double
+
+        'read input data into memory
+        Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(inputPath)
+            MyReader.TextFieldType = FileIO.FieldType.Delimited
+            MyReader.SetDelimiters(",")
+
+            Dim i As Integer = 0
+            Dim currentRow As String()
+            While Not MyReader.EndOfData
+                Try
+                    currentRow = MyReader.ReadFields()
+
+                    Dim currentField As String
+                    Dim j As Integer = 0
+                    For Each currentField In currentRow
+                        inputDataSet(i, j) = currentField
+                        j += 1
+                    Next
+
+                    i += 1
+                Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
+                    MsgBox("Line " & ex.Message & "is not valid and will be skipped.")
+                End Try
+            End While
+        End Using
+
+        For i = 0 To numInputLines - 1
+            calcNetwork.Layers(0).Outputs = Util.Array.GetRow(i, inputDataSet)
+            networkCalculate(calcNetwork)
+        Next
     End Sub
 End Class

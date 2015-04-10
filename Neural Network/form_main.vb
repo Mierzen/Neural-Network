@@ -102,6 +102,8 @@
             activationFunctionColumn.Items.Add(item)
             combo_outputLayerAF.Items.Add(item)
         Next
+
+        tlp_calculateDataSet.Location = New Point(tlp_calculateExample.Location.X, tlp_calculateExample.Location.Y)
     End Sub
 
     Private Sub tbTextChanged(sender As Object, e As EventArgs)

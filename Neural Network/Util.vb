@@ -46,4 +46,40 @@
             val2 = stddev * v * t + mean
         End Sub
     End Class
+
+    Public NotInheritable Class File
+        Public NotInheritable Class CSV
+            ''' <summary>
+            ''' Checks if each line of a csv file is of the same lenght (same number of entries).
+            ''' </summary>
+            ''' <param name="csvPath">File path to the csv to be checked.</param>
+            ''' <param name="delimeter">The delimiter used in the csv file. Default = ,</param>
+            ''' <returns>True if all lines have the same number of parameters, false if not.</returns>
+            ''' <remarks></remarks>
+            Public Shared Function CheckSameLength(csvPath As String, Optional delimeter As String = ",") As Boolean
+                Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(csvPath)
+                    MyReader.TextFieldType = FileIO.FieldType.Delimited
+                    MyReader.SetDelimiters(delimeter)
+
+                    Dim numParameters As Integer = MyReader.ReadFields().Length
+                    Dim line As Integer = 1
+
+                    While Not MyReader.EndOfData
+                        Try
+                            If numParameters <> MyReader.ReadFields().Length Then
+                                Debug.WriteLine("Line " & line & " has an inconsistent number of entries.")
+                                Return False
+                            Else
+                                line += 1
+                            End If
+                        Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
+                            Debug.WriteLine("Line " & ex.Message & "is not valid and will be skipped.")
+                        End Try
+                    End While
+                End Using
+
+                Return True
+            End Function
+        End Class
+    End Class
 End Class

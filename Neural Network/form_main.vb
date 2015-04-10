@@ -253,8 +253,13 @@
         Dim inputPath As String = tb_calcInputDataSet.Text
         Dim outputPath As String = tb_calcOutputDataSet.Text
 
+        'check for data entry
+        If inputPath = "" OrElse outputPath = "" Then
+            MsgBox("Please select an input and output file.", vbOKOnly Or vbCritical, "Invalid input")
+        End If
+
         'validate input file
-        If Util.File.CSV.CheckSameLength(inputpath) = False Then
+        If Util.File.CSV.CheckSameLength(inputPath) = False Then
             MsgBox("All lines in the csv file are not the same lenght." & vbNewLine & "Please fix the line(s).", vbOKOnly Or vbCritical, "Invalid input dataset")
             Exit Sub
         End If

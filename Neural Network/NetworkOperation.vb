@@ -268,4 +268,8 @@ Module NetworkOperation
             .Close()
         End With
     End Sub
+
+    Public Sub Load(network As BackpropagationNetwork, FilePath As String)
+
+    End Sub
 End Module

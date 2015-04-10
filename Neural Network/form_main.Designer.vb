@@ -88,6 +88,9 @@ Partial Class form_main
         Me.lb_iterationNum = New System.Windows.Forms.Label()
         Me.panel_stats = New System.Windows.Forms.TableLayoutPanel()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.gb_calcMode = New System.Windows.Forms.GroupBox()
+        Me.rd_calcExample = New System.Windows.Forms.RadioButton()
+        Me.rd_calcDataSet = New System.Windows.Forms.RadioButton()
         Me.tc_modes.SuspendLayout()
         Me.tp_training.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
@@ -107,6 +110,7 @@ Partial Class form_main
         CType(Me.chart_errorSecondary, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panel_charts.SuspendLayout()
         Me.panel_stats.SuspendLayout()
+        Me.gb_calcMode.SuspendLayout()
         Me.SuspendLayout()
         '
         'OpenFileDialog1
@@ -661,6 +665,7 @@ Partial Class form_main
         'tp_calculation
         '
         Me.tp_calculation.BackColor = System.Drawing.SystemColors.Control
+        Me.tp_calculation.Controls.Add(Me.gb_calcMode)
         Me.tp_calculation.Controls.Add(Me.tlp_calcExample)
         Me.tp_calculation.Controls.Add(Me.btn_loadNetwork)
         Me.tp_calculation.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -884,6 +889,39 @@ Partial Class form_main
         Me.SaveFileDialog1.Filter = "xml files|*.xml|All files|*.*"
         Me.SaveFileDialog1.Title = "Save neural network file"
         '
+        'gb_calcMode
+        '
+        Me.gb_calcMode.Controls.Add(Me.rd_calcDataSet)
+        Me.gb_calcMode.Controls.Add(Me.rd_calcExample)
+        Me.gb_calcMode.Location = New System.Drawing.Point(6, 61)
+        Me.gb_calcMode.Name = "gb_calcMode"
+        Me.gb_calcMode.Size = New System.Drawing.Size(196, 50)
+        Me.gb_calcMode.TabIndex = 5
+        Me.gb_calcMode.TabStop = False
+        Me.gb_calcMode.Text = "CALCULATION MODE"
+        '
+        'rd_calcExample
+        '
+        Me.rd_calcExample.AutoSize = True
+        Me.rd_calcExample.Location = New System.Drawing.Point(6, 19)
+        Me.rd_calcExample.Name = "rd_calcExample"
+        Me.rd_calcExample.Size = New System.Drawing.Size(96, 17)
+        Me.rd_calcExample.TabIndex = 0
+        Me.rd_calcExample.TabStop = True
+        Me.rd_calcExample.Text = "Single example"
+        Me.rd_calcExample.UseVisualStyleBackColor = True
+        '
+        'rd_calcDataSet
+        '
+        Me.rd_calcDataSet.AutoSize = True
+        Me.rd_calcDataSet.Location = New System.Drawing.Point(121, 19)
+        Me.rd_calcDataSet.Name = "rd_calcDataSet"
+        Me.rd_calcDataSet.Size = New System.Drawing.Size(65, 17)
+        Me.rd_calcDataSet.TabIndex = 1
+        Me.rd_calcDataSet.TabStop = True
+        Me.rd_calcDataSet.Text = "Data set"
+        Me.rd_calcDataSet.UseVisualStyleBackColor = True
+        '
         'form_main
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -931,6 +969,8 @@ Partial Class form_main
         Me.panel_charts.PerformLayout()
         Me.panel_stats.ResumeLayout(False)
         Me.panel_stats.PerformLayout()
+        Me.gb_calcMode.ResumeLayout(False)
+        Me.gb_calcMode.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -993,5 +1033,8 @@ Partial Class form_main
     Friend WithEvents tb_calcInputs As System.Windows.Forms.TextBox
     Friend WithEvents tb_calcOutputs As System.Windows.Forms.TextBox
     Friend WithEvents btn_calculateExample As System.Windows.Forms.Button
+    Friend WithEvents gb_calcMode As System.Windows.Forms.GroupBox
+    Friend WithEvents rd_calcDataSet As System.Windows.Forms.RadioButton
+    Friend WithEvents rd_calcExample As System.Windows.Forms.RadioButton
 
 End Class

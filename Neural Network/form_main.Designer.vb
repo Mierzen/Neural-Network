@@ -91,6 +91,8 @@ Partial Class form_main
         Me.lb_iterationNum = New System.Windows.Forms.Label()
         Me.panel_stats = New System.Windows.Forms.TableLayoutPanel()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.tc_modes.SuspendLayout()
         Me.tp_training.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
@@ -712,21 +714,26 @@ Partial Class form_main
         '
         'tlp_calcExample
         '
-        Me.tlp_calcExample.ColumnCount = 4
-        Me.tlp_calcExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.72848!))
-        Me.tlp_calcExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.271523!))
-        Me.tlp_calcExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 148.0!))
-        Me.tlp_calcExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 134.0!))
+        Me.tlp_calcExample.AutoSize = True
+        Me.tlp_calcExample.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.tlp_calcExample.ColumnCount = 5
+        Me.tlp_calcExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.tlp_calcExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.tlp_calcExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.tlp_calcExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.tlp_calcExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.tlp_calcExample.Controls.Add(Me.Label13, 1, 1)
+        Me.tlp_calcExample.Controls.Add(Me.Label3, 3, 1)
         Me.tlp_calcExample.Controls.Add(Me.tb_calcInputs, 0, 0)
-        Me.tlp_calcExample.Controls.Add(Me.tb_calcOutputs, 3, 0)
+        Me.tlp_calcExample.Controls.Add(Me.tb_calcOutputs, 4, 0)
         Me.tlp_calcExample.Controls.Add(Me.btn_calculateExample, 2, 1)
-        Me.tlp_calcExample.Location = New System.Drawing.Point(99, 105)
+        Me.tlp_calcExample.Location = New System.Drawing.Point(12, 117)
         Me.tlp_calcExample.Name = "tlp_calcExample"
         Me.tlp_calcExample.RowCount = 3
-        Me.tlp_calcExample.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.40625!))
-        Me.tlp_calcExample.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.59375!))
-        Me.tlp_calcExample.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 73.0!))
-        Me.tlp_calcExample.Size = New System.Drawing.Size(433, 202)
+        Me.tlp_calcExample.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.tlp_calcExample.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.tlp_calcExample.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.tlp_calcExample.Size = New System.Drawing.Size(515, 236)
         Me.tlp_calcExample.TabIndex = 4
         Me.tlp_calcExample.Visible = False
         '
@@ -734,27 +741,33 @@ Partial Class form_main
         '
         Me.tb_calcInputs.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tb_calcInputs.Location = New System.Drawing.Point(3, 3)
+        Me.tb_calcInputs.MaximumSize = New System.Drawing.Size(170, 230)
+        Me.tb_calcInputs.MinimumSize = New System.Drawing.Size(170, 230)
         Me.tb_calcInputs.Multiline = True
         Me.tb_calcInputs.Name = "tb_calcInputs"
         Me.tlp_calcExample.SetRowSpan(Me.tb_calcInputs, 3)
-        Me.tb_calcInputs.Size = New System.Drawing.Size(131, 196)
+        Me.tb_calcInputs.Size = New System.Drawing.Size(170, 230)
         Me.tb_calcInputs.TabIndex = 1
         Me.tb_calcInputs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'tb_calcOutputs
         '
         Me.tb_calcOutputs.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tb_calcOutputs.Location = New System.Drawing.Point(302, 3)
+        Me.tb_calcOutputs.Location = New System.Drawing.Point(342, 3)
+        Me.tb_calcOutputs.MaximumSize = New System.Drawing.Size(170, 230)
+        Me.tb_calcOutputs.MinimumSize = New System.Drawing.Size(170, 230)
         Me.tb_calcOutputs.Multiline = True
         Me.tb_calcOutputs.Name = "tb_calcOutputs"
         Me.tb_calcOutputs.ReadOnly = True
         Me.tlp_calcExample.SetRowSpan(Me.tb_calcOutputs, 3)
-        Me.tb_calcOutputs.Size = New System.Drawing.Size(128, 196)
+        Me.tb_calcOutputs.Size = New System.Drawing.Size(170, 230)
         Me.tb_calcOutputs.TabIndex = 2
+        Me.tb_calcOutputs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'btn_calculateExample
         '
-        Me.btn_calculateExample.Location = New System.Drawing.Point(154, 88)
+        Me.btn_calculateExample.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_calculateExample.Location = New System.Drawing.Point(209, 106)
         Me.btn_calculateExample.Name = "btn_calculateExample"
         Me.btn_calculateExample.Size = New System.Drawing.Size(97, 23)
         Me.btn_calculateExample.TabIndex = 3
@@ -923,6 +936,30 @@ Partial Class form_main
         Me.SaveFileDialog1.Filter = "xml files|*.xml|All files|*.*"
         Me.SaveFileDialog1.Title = "Save neural network file"
         '
+        'Label3
+        '
+        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(312, 107)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(24, 21)
+        Me.Label3.TabIndex = 32
+        Me.Label3.Text = "→"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label13
+        '
+        Me.Label13.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(179, 107)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(24, 21)
+        Me.Label13.TabIndex = 32
+        Me.Label13.Text = "→"
+        Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'form_main
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -961,6 +998,7 @@ Partial Class form_main
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
         Me.tp_calculation.ResumeLayout(False)
+        Me.tp_calculation.PerformLayout()
         Me.gb_calcMode.ResumeLayout(False)
         Me.gb_calcMode.PerformLayout()
         Me.tlp_calcExample.ResumeLayout(False)
@@ -1037,5 +1075,7 @@ Partial Class form_main
     Friend WithEvents gb_calcMode As System.Windows.Forms.GroupBox
     Friend WithEvents rd_calcDataSet As System.Windows.Forms.RadioButton
     Friend WithEvents rd_calcExample As System.Windows.Forms.RadioButton
+    Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
 
 End Class

@@ -182,5 +182,9 @@
         If path <> Nothing Then
             networkLoaded = NetworkOperation.Load(calcNetwork, path)
         End If
+
+        If networkLoaded = True Then
+            tlp_calcExample.Visible = True
+        End If
     End Sub
 End Class

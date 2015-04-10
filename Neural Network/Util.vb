@@ -1,5 +1,12 @@
 ﻿Public Class Util
     Public NotInheritable Class Array
+        ''' <summary>
+        ''' Extract a specific row from a Double array.
+        ''' </summary>
+        ''' <param name="rowNumber">The row to extract.</param>
+        ''' <param name="array">The array from which to extract the row.</param>
+        ''' <returns>A Double array of the same second dimension as the original, containing a specific row's data.</returns>
+        ''' <remarks></remarks>
         Public Shared Function GetRow(rowNumber As Integer, array As Double(,))
             Dim arrayParameterCount As Integer = array.GetLength(1)
 

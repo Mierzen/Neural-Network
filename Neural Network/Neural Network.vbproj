@@ -78,11 +78,11 @@
     <Compile Include="TrainingMode.vb" />
     <Compile Include="Activation.vb" />
     <Compile Include="BackpropagationNetwork.vb" />
-    <Compile Include="Form1.vb">
+    <Compile Include="form_main.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="form_main.Designer.vb">
+      <DependentUpon>form_main.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -104,8 +104,8 @@
     <Compile Include="Util.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="form_main.resx">
+      <DependentUpon>form_main.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

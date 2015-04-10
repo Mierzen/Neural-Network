@@ -74,23 +74,23 @@
 
         Public NotInheritable Class CSV
             ''' <summary>
-            ''' Checks if each line of a csv file is of the same lenght (same number of entries).
+            ''' Checks if each line of a csv file is of the same lenght (same number of fields).
             ''' </summary>
             ''' <param name="csvPath">File path to the csv to be checked.</param>
             ''' <param name="delimeter">The delimiter used in the csv file. Default = ,</param>
-            ''' <returns>True if all lines have the same number of parameters, false if not.</returns>
+            ''' <returns>True if all lines have the same number of fields, false if not.</returns>
             ''' <remarks></remarks>
-            Public Shared Function HasConsistentEntries(csvPath As String, Optional delimeter As String = ",") As Boolean
+            Public Shared Function HasConsistentFields(csvPath As String, Optional delimeter As String = ",") As Boolean
                 Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(csvPath)
                     MyReader.TextFieldType = FileIO.FieldType.Delimited
                     MyReader.SetDelimiters(delimeter)
 
-                    Dim numParameters As Integer = MyReader.ReadFields().Length
+                    Dim numFields As Integer = MyReader.ReadFields().Length
                     Dim line As Integer = 1
 
                     While Not MyReader.EndOfData
                         Try
-                            If numParameters <> MyReader.ReadFields().Length Then
+                            If numFields <> MyReader.ReadFields().Length Then
                                 Debug.WriteLine("Line " & line & " has an inconsistent number of entries.")
                                 Return False
                             Else

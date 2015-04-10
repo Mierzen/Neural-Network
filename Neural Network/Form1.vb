@@ -1,4 +1,4 @@
-﻿Public Class Form1
+﻿Public Class form_main
 
     Private Sub DataGridView1_RowsAdded(ByVal sender As System.Object, _
                   ByVal e As System.Windows.Forms.DataGridViewRowsAddedEventArgs) _
@@ -22,7 +22,7 @@
         If e.ColumnIndex = 1 Then
             ' 1 should be your column index
             Dim i As Integer
-            
+
             If Not (Integer.TryParse(Convert.ToString(e.FormattedValue), i)) OrElse (Math.Sign(CInt(e.FormattedValue)) = -1) OrElse e.FormattedValue = "" Then
                 e.Cancel = True
                 MsgBox("Please enter a positive integer for the number of neurons")

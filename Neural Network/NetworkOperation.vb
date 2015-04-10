@@ -4,7 +4,7 @@ Imports System.Xml
 Module NetworkOperation
     Public Sub loadTrainingData()
         'load testing inputs
-        Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(Form1.tb_input.Text)
+        Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(form_main.tb_input.Text)
             MyReader.TextFieldType = FileIO.FieldType.Delimited
             MyReader.SetDelimiters(",")
 
@@ -31,7 +31,7 @@ Module NetworkOperation
         End Using
 
         'load expected outputs
-        Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(Form1.tb_output.Text)
+        Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(form_main.tb_output.Text)
             MyReader.TextFieldType = FileIO.FieldType.Delimited
             MyReader.SetDelimiters(",")
 
@@ -170,7 +170,7 @@ Module NetworkOperation
                 Next
             Next
 
-            If Form1.chk_updateBias.Checked Then
+            If form_main.chk_updateBias.Checked Then
                 For layer = 1 To network.LayerCount - 1 'for each layer (except input layer)
                     For i = 0 To network.Layers(layer).NeuronCount - 1 'each neuron in the current layer
 

@@ -235,7 +235,7 @@ Public Class Layer
             If LayerType = ILayer.LayerType_.Input Then
                 _bias(i) = 0
             Else
-                If Form1.chk_updateBias.Checked = False Then _bias(i) = 1 Else _bias(i) = Util.Random.Gaussian()
+                If form_main.chk_updateBias.Checked = False Then _bias(i) = 1 Else _bias(i) = Util.Random.Gaussian()
             End If
         Next
     End Sub

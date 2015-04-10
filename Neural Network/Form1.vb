@@ -186,4 +186,29 @@
             tlp_calcExample.Visible = True
         End If
     End Sub
+
+    Private Sub btn_calculateExample_Click(sender As Object, e As EventArgs) Handles btn_calculateExample.Click
+        Dim networkNumInputs As Integer = calcNetwork.Layers(0).NeuronCount
+        Dim networkNumOutputs As Integer = calcNetwork.LastLayer.NeuronCount
+        Dim textboxNumInputs As Integer = tb_calcInputs.Lines.Count
+
+        If textboxNumInputs <> networkNumInputs Then
+            MsgBox("The number of inputs entered into the textbox does not equal the number required by the network." & vbNewLine & "Please enter " & networkNumInputs & If(networkNumInputs = 1, " input", " inputs") & " into the textbox.", MsgBoxStyle.OkOnly Or vbCritical, "Incorrect number of inputs")
+            Exit Sub
+        End If
+
+        For i = 0 To textboxNumInputs - 1
+            calcNetwork.Layers(0).Inputs(i) = tb_calcInputs.Lines(i)
+        Next
+
+        networkCalculate(calcNetwork)
+
+        Dim outputString As String = Nothing
+        For i = 0 To networkNumOutputs - 1
+            outputString &= calcNetwork.LastLayer.Outputs(i) & vbNewLine
+        Next
+        outputString = Strings.Left(outputString, Len(outputString) - 1)
+
+        tb_calcOutputs.Text = outputString
+    End Sub
 End Class

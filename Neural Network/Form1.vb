@@ -164,9 +164,8 @@
         panel_stats.Visible = False
     End Sub
 
+    Friend calcNetwork As New BackpropagationNetwork
     Private Sub btn_loadNetwork_Click(sender As Object, e As EventArgs) Handles btn_loadNetwork.Click
-        Dim calcNetwork As New BackpropagationNetwork
-
         Dim OpenFileDialog As New OpenFileDialog
         OpenFileDialog.Title = "Select neural network file to open"
         OpenFileDialog.Filter = "xml files|*.xml"

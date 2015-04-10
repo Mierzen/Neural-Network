@@ -259,7 +259,7 @@
         End If
 
         'validate input file
-        If Util.File.CSV.CheckSameLength(inputPath) = False Then
+        If Util.File.CSV.HasConsistentEntries(inputPath) = False Then
             MsgBox("All lines in the csv file are not the same lenght." & vbNewLine & "Please fix the line(s).", vbOKOnly Or vbCritical, "Invalid input dataset")
             Exit Sub
         End If

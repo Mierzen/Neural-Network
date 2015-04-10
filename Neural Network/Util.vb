@@ -80,7 +80,7 @@
             ''' <param name="delimeter">The delimiter used in the csv file. Default = ,</param>
             ''' <returns>True if all lines have the same number of parameters, false if not.</returns>
             ''' <remarks></remarks>
-            Public Shared Function CheckSameLength(csvPath As String, Optional delimeter As String = ",") As Boolean
+            Public Shared Function HasConsistentEntries(csvPath As String, Optional delimeter As String = ",") As Boolean
                 Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(csvPath)
                     MyReader.TextFieldType = FileIO.FieldType.Delimited
                     MyReader.SetDelimiters(delimeter)

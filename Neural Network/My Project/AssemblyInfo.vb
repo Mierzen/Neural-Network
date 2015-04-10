@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("ANNForBeginners")> 
-<Assembly: AssemblyDescription("")> 
+<Assembly: AssemblyTitle("Artificial Neural Network")> 
+<Assembly: AssemblyDescription("Artificial neural network that implements the backpropagation algorithm with momentum")> 
 <Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("ANNForBeginners")> 
-<Assembly: AssemblyCopyright("Copyright ©  2015")> 
+<Assembly: AssemblyProduct("Artificial Neural Network")> 
+<Assembly: AssemblyCopyright("Copyright ©  2015   Stéphan Taljaard")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.0.0")> 
-<Assembly: AssemblyFileVersion("1.0.0.0")> 
+<Assembly: AssemblyVersion("0.1")> 
+<Assembly: AssemblyFileVersion("0.1")> 

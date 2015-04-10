@@ -104,6 +104,31 @@
 
                 Return True
             End Function
+
+            ''' <summary>
+            ''' Gets the number of fields (entries/rows) in a csv file.
+            ''' </summary>
+            ''' <param name="csvPath">File path to the csv to be checked.</param>
+            ''' <param name="delimeter">The delimiter used in the csv file. Default = ,</param>
+            ''' <returns>The number of fields (entries/rows) in a csv file.</returns>
+            ''' <remarks></remarks>
+            Public Shared Function GetFieldCount(csvPath As String, Optional delimeter As String = ",") As Integer
+                Dim numEntries As Integer
+
+                Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(csvPath)
+                    MyReader.TextFieldType = FileIO.FieldType.Delimited
+                    MyReader.SetDelimiters(delimeter)
+
+                    numEntries = MyReader.ReadFields().Length
+                    Dim line As Integer = 1
+
+                    While Not MyReader.EndOfData
+                        numEntries = MyReader.ReadFields().Length
+                    End While
+                End Using
+
+                Return numEntries
+            End Function
         End Class
     End Class
 End Class

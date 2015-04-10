@@ -270,7 +270,7 @@ Module NetworkOperation
     End Sub
 
     Private doc As XmlDocument = Nothing
-    Public Function Load(network As BackpropagationNetwork, FilePath As String) As Boolean
+    Public Function Load(ByRef network As BackpropagationNetwork, FilePath As String) As Boolean
         On Error GoTo ErrorCode
 
         If FilePath = Nothing Then

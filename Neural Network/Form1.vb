@@ -175,7 +175,7 @@
 
         OpenFileDialog.ShowDialog()
         If OpenFileDialog.FileName <> "" Then
-            path = OpenFileDialog1.FileName
+            path = OpenFileDialog.FileName.ToString
         End If
 
         If path <> Nothing Then

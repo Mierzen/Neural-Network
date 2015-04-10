@@ -269,7 +269,77 @@ Module NetworkOperation
         End With
     End Sub
 
+    Private doc As XmlDocument = Nothing
     Public Sub Load(network As BackpropagationNetwork, FilePath As String)
+        If FilePath = Nothing Then
+            Exit Sub
+        End If
 
+        doc = New XmlDocument
+        doc.Load(FilePath)
+
+        Dim BasePath As String, numLayers As Integer, NeuronPath As String
+
+
+        BasePath = "Network/Network-Parameters/"
+        numLayers = CInt(xPathValue(BasePath & "LayerCount"))
+
+        BasePath &= "Layers/Layer"
+
+        'create layers
+        For l = 0 To numLayers - 1
+            Dim neuronCount As Integer = CInt(xPathValue((BasePath & "[@Index='") + l.ToString() + "']/@NeuronCount"))
+            Dim activationFunction As ActivationFunction = [Enum].Parse(GetType(ActivationFunction), xPathValue((BasePath & "[@Index='") + l.ToString() + "']/@ActivationFunction"))
+            Dim layerType As ILayer.LayerType_ = [Enum].Parse(GetType(ILayer.LayerType_), xPathValue((BasePath & "[@Index='") + l.ToString() + "']/@Type"))
+
+            network.AddLayer(New Layer(neuronCount, activationFunction, layerType))
+        Next
+
+        'assign weights and biases
+        'first assign random values and then re-assign new values (lazy). This avoids the NRE.
+        Dim i As Integer = 0
+        For Each layer As Layer In network.Layers
+            If layer.LayerType = ILayer.LayerType_.Output Then
+                Exit For
+            End If
+            layer.GenerateWeights(network, i)
+            i += 1
+        Next
+
+        For Each layer As Layer In network.Layers
+            layer.GenerateBias(network)
+        Next
+
+        'now assign new values
+        For layer = 0 To network.LayerCount - 2 'for each layer except output layer
+            BasePath = "Network/Weights-and-Biases/Layer[@Index='" & layer.ToString & "']/"
+
+            Dim currentLayer As Layer = network.Layers(layer)
+            Dim nextLayer As Layer = network.Layers(layer + 1)
+
+            For i = 0 To currentLayer.NeuronCount - 1
+                NeuronPath = "Neuron[@Index='" + i.ToString + "']/@Bias"
+
+                currentLayer.Bias(i) = CDbl(xPathValue(BasePath & NeuronPath))
+
+                For j = 0 To nextLayer.NeuronCount - 1
+                    Dim connectionPath As String
+                    connectionPath = "Neuron[@Index='" + i.ToString + "']/Connection[@Index='" + j.ToString + "']"
+                    currentLayer.Weights(i, j) = CDbl(xPathValue(BasePath & NeuronPath))
+                Next
+            Next
+        Next
+
+        doc = Nothing
     End Sub
+
+    Private Function xPathValue(xPath As String) As String
+        Dim node As XmlNode = doc.SelectSingleNode(xPath)
+
+        If node Is Nothing Then
+            Throw New ArgumentException("Cannot find specified node", xPath)
+        End If
+
+        Return node.InnerText
+    End Function
 End Module

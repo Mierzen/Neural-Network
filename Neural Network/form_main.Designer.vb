@@ -996,6 +996,7 @@ Partial Class form_main
         Me.tlp_calculateDataSet.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.tlp_calculateDataSet.Size = New System.Drawing.Size(573, 192)
         Me.tlp_calculateDataSet.TabIndex = 6
+        Me.tlp_calculateDataSet.Visible = False
         '
         'GroupBox5
         '

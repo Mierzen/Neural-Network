@@ -218,10 +218,10 @@
     Private Sub radio_CheckedChanged(sender As Object, e As EventArgs)
         If rd_calcExample.Checked Then
             tlp_calcExample.Visible = True
-            'Other panel.Visible = False
+            tlp_calculateDataSet.Visible = False
         ElseIf rd_calcDataSet.Checked Then
             tlp_calcExample.Visible = False
-            'Other panel.Visible = True
+            tlp_calculateDataSet.Visible = True
         End If
     End Sub
 End Class

@@ -129,6 +129,23 @@
 
                 Return numEntries
             End Function
+
+            ''' <summary>
+            ''' Create a csv file with UTF-8 encoding.
+            ''' </summary>
+            ''' <param name="filePath">Path where the file should be saved.</param>
+            ''' <param name="contents">Contents that should be written into the file.</param>
+            ''' <remarks></remarks>
+            Public Shared Sub Create(filePath As String, contents As String)
+                If Strings.Right(filePath, 4) <> ".csv" Then
+                    filePath &= ".csv"
+                End If
+
+                Dim fs As System.IO.FileStream = System.IO.File.Create(filePath)
+                Dim info As Byte() = New System.Text.UTF8Encoding(True).GetBytes(contents)
+                fs.Write(info, 0, info.Length)
+                fs.Close()
+            End Sub
         End Class
     End Class
 End Class

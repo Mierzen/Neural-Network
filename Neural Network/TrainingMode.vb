@@ -175,11 +175,4 @@ Module TrainingMode
             expectedOutputsPerLine = numParameters
         End If
     End Sub
-
-    Sub csvCreate(filePath As String, contents As String)
-        Dim fs As FileStream = File.Create(filePath)
-        Dim info As Byte() = New UTF8Encoding(True).GetBytes(contents)
-        fs.Write(info, 0, info.Length)
-        fs.Close()
-    End Sub
 End Module

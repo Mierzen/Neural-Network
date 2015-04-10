@@ -198,7 +198,7 @@
         End If
 
         For i = 0 To textboxNumInputs - 1
-            calcNetwork.Layers(0).Inputs(i) = tb_calcInputs.Lines(i)
+            calcNetwork.Layers(0).Outputs(i) = tb_calcInputs.Lines(i)
         Next
 
         networkCalculate(calcNetwork)

@@ -1,3 +1,0 @@
-﻿Module CalculationMode
-
-End Module

@@ -269,6 +269,11 @@
             Exit Sub
         End If
 
+        If Util.File.CSV.GetFieldCount(inputPath) <> calcNetwork.Layers(0).NeuronCount Then
+            MsgBox("The neural network is incompatible with the data set." & vbNewLine & vbNewLine & "The number of inputs as set up in the network do not agree with the number of inputs in the data set.", vbOKOnly Or MsgBoxStyle.Critical, "Incompatible input data set")
+            Exit Sub
+        End If
+
         Dim numInputLines As Integer = Util.File.GetLineCount(inputPath)
         Dim inputDataSet(numInputLines - 1, calcNetwork.Layers(0).NeuronCount - 1) As Double
 

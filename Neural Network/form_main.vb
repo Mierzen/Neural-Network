@@ -248,4 +248,20 @@
             End If
         End If
     End Sub
+
+    Private Sub btn_calcDataSet_Click(sender As Object, e As EventArgs) Handles btn_calcDataSet.Click
+        Dim inputPath As String = tb_calcInputDataSet.Text
+        Dim outputPath As String = tb_calcOutputDataSet.Text
+
+        'validate input file
+        If Util.File.CSV.CheckSameLength(inputpath) = False Then
+            MsgBox("All lines in the csv file are not the same lenght." & vbNewLine & "Please fix the line(s).", vbOKOnly Or vbCritical, "Invalid input dataset")
+            Exit Sub
+        End If
+
+        If Strings.Right(outputPath, 4) <> ".csv" Then
+            MsgBox("Only csv output is supported.", vbOKOnly Or vbCritical, "Invalid output format")
+            Exit Sub
+        End If
+    End Sub
 End Class

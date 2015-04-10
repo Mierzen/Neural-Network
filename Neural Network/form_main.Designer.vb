@@ -73,12 +73,26 @@ Partial Class form_main
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.tp_calculation = New System.Windows.Forms.TabPage()
+        Me.tlp_calculateDataSet = New System.Windows.Forms.TableLayoutPanel()
+        Me.btn_calcDataSet = New System.Windows.Forms.Button()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.TableLayoutPanel8 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.tb_calcOutputDataSet = New System.Windows.Forms.TextBox()
+        Me.btn_outputDataSet = New System.Windows.Forms.Button()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.tb_calcInputDataSet = New System.Windows.Forms.TextBox()
+        Me.btn_iputDataSet = New System.Windows.Forms.Button()
         Me.gb_calcMode = New System.Windows.Forms.GroupBox()
         Me.rd_calcDataSet = New System.Windows.Forms.RadioButton()
         Me.rd_calcExample = New System.Windows.Forms.RadioButton()
         Me.tlp_calculateExample = New System.Windows.Forms.TableLayoutPanel()
-        Me.tb_calcInputs = New System.Windows.Forms.TextBox()
-        Me.tb_calcOutputs = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.tb_calcInputExample = New System.Windows.Forms.TextBox()
+        Me.tb_calcOutputExample = New System.Windows.Forms.TextBox()
         Me.btn_calculateExample = New System.Windows.Forms.Button()
         Me.btn_loadNetwork = New System.Windows.Forms.Button()
         Me.chart_error = New System.Windows.Forms.DataVisualization.Charting.Chart()
@@ -91,20 +105,6 @@ Partial Class form_main
         Me.lb_iterationNum = New System.Windows.Forms.Label()
         Me.panel_stats = New System.Windows.Forms.TableLayoutPanel()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.tlp_calculateDataSet = New System.Windows.Forms.TableLayoutPanel()
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.tb_inputDataSet = New System.Windows.Forms.TextBox()
-        Me.btn_iputDataSet = New System.Windows.Forms.Button()
-        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
-        Me.TableLayoutPanel8 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.tb_outputDataSet = New System.Windows.Forms.TextBox()
-        Me.btn_outputDataSet = New System.Windows.Forms.Button()
-        Me.btn_calcDataSet = New System.Windows.Forms.Button()
         Me.tc_modes.SuspendLayout()
         Me.tp_training.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
@@ -118,6 +118,11 @@ Partial Class form_main
         Me.GroupBox3.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.tp_calculation.SuspendLayout()
+        Me.tlp_calculateDataSet.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
+        Me.TableLayoutPanel8.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
+        Me.TableLayoutPanel7.SuspendLayout()
         Me.gb_calcMode.SuspendLayout()
         Me.tlp_calculateExample.SuspendLayout()
         CType(Me.chart_error, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -125,11 +130,6 @@ Partial Class form_main
         CType(Me.chart_errorSecondary, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panel_charts.SuspendLayout()
         Me.panel_stats.SuspendLayout()
-        Me.tlp_calculateDataSet.SuspendLayout()
-        Me.GroupBox5.SuspendLayout()
-        Me.TableLayoutPanel7.SuspendLayout()
-        Me.GroupBox6.SuspendLayout()
-        Me.TableLayoutPanel8.SuspendLayout()
         Me.SuspendLayout()
         '
         'OpenFileDialog1
@@ -696,6 +696,177 @@ Partial Class form_main
         Me.tp_calculation.TabIndex = 1
         Me.tp_calculation.Text = "CALCULATION MODE"
         '
+        'tlp_calculateDataSet
+        '
+        Me.tlp_calculateDataSet.AutoSize = True
+        Me.tlp_calculateDataSet.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.tlp_calculateDataSet.ColumnCount = 1
+        Me.tlp_calculateDataSet.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tlp_calculateDataSet.Controls.Add(Me.btn_calcDataSet, 0, 2)
+        Me.tlp_calculateDataSet.Controls.Add(Me.GroupBox6, 0, 1)
+        Me.tlp_calculateDataSet.Controls.Add(Me.GroupBox5, 0, 0)
+        Me.tlp_calculateDataSet.Location = New System.Drawing.Point(12, 312)
+        Me.tlp_calculateDataSet.Name = "tlp_calculateDataSet"
+        Me.tlp_calculateDataSet.Padding = New System.Windows.Forms.Padding(0, 0, 0, 19)
+        Me.tlp_calculateDataSet.RowCount = 3
+        Me.tlp_calculateDataSet.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.tlp_calculateDataSet.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.tlp_calculateDataSet.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tlp_calculateDataSet.Size = New System.Drawing.Size(573, 192)
+        Me.tlp_calculateDataSet.TabIndex = 6
+        Me.tlp_calculateDataSet.Visible = False
+        '
+        'btn_calcDataSet
+        '
+        Me.btn_calcDataSet.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btn_calcDataSet.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_calcDataSet.Location = New System.Drawing.Point(238, 161)
+        Me.btn_calcDataSet.Margin = New System.Windows.Forms.Padding(3, 8, 3, 8)
+        Me.btn_calcDataSet.MinimumSize = New System.Drawing.Size(97, 23)
+        Me.btn_calcDataSet.Name = "btn_calcDataSet"
+        Me.btn_calcDataSet.Size = New System.Drawing.Size(97, 23)
+        Me.btn_calcDataSet.TabIndex = 33
+        Me.btn_calcDataSet.Text = "CALCULATE"
+        Me.btn_calcDataSet.UseVisualStyleBackColor = True
+        '
+        'GroupBox6
+        '
+        Me.GroupBox6.AutoSize = True
+        Me.GroupBox6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox6.Controls.Add(Me.TableLayoutPanel8)
+        Me.GroupBox6.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox6.Location = New System.Drawing.Point(3, 86)
+        Me.GroupBox6.MinimumSize = New System.Drawing.Size(567, 0)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(567, 64)
+        Me.GroupBox6.TabIndex = 32
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "OUTPUT"
+        '
+        'TableLayoutPanel8
+        '
+        Me.TableLayoutPanel8.AutoSize = True
+        Me.TableLayoutPanel8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.TableLayoutPanel8.ColumnCount = 2
+        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel8.Controls.Add(Me.Label15, 0, 0)
+        Me.TableLayoutPanel8.Controls.Add(Me.tb_calcOutputDataSet, 0, 1)
+        Me.TableLayoutPanel8.Controls.Add(Me.btn_outputDataSet, 1, 1)
+        Me.TableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel8.Location = New System.Drawing.Point(3, 19)
+        Me.TableLayoutPanel8.Name = "TableLayoutPanel8"
+        Me.TableLayoutPanel8.RowCount = 2
+        Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel8.Size = New System.Drawing.Size(561, 42)
+        Me.TableLayoutPanel8.TabIndex = 32
+        '
+        'Label15
+        '
+        Me.Label15.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label15.AutoSize = True
+        Me.TableLayoutPanel8.SetColumnSpan(Me.Label15, 2)
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(3, 0)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(426, 13)
+        Me.Label15.TabIndex = 11
+        Me.Label15.Text = "Select the file path and name where the output from the neural network should be " & _
+    "saved."
+        Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'tb_calcOutputDataSet
+        '
+        Me.tb_calcOutputDataSet.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.tb_calcOutputDataSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_calcOutputDataSet.Location = New System.Drawing.Point(3, 17)
+        Me.tb_calcOutputDataSet.Name = "tb_calcOutputDataSet"
+        Me.tb_calcOutputDataSet.Size = New System.Drawing.Size(521, 20)
+        Me.tb_calcOutputDataSet.TabIndex = 9
+        '
+        'btn_outputDataSet
+        '
+        Me.btn_outputDataSet.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btn_outputDataSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_outputDataSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_outputDataSet.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
+        Me.btn_outputDataSet.Location = New System.Drawing.Point(530, 16)
+        Me.btn_outputDataSet.Name = "btn_outputDataSet"
+        Me.btn_outputDataSet.Size = New System.Drawing.Size(23, 23)
+        Me.btn_outputDataSet.TabIndex = 10
+        Me.btn_outputDataSet.UseVisualStyleBackColor = True
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.AutoSize = True
+        Me.GroupBox5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox5.Controls.Add(Me.TableLayoutPanel7)
+        Me.GroupBox5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox5.Location = New System.Drawing.Point(3, 3)
+        Me.GroupBox5.MinimumSize = New System.Drawing.Size(567, 0)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(567, 77)
+        Me.GroupBox5.TabIndex = 31
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "INPUT"
+        '
+        'TableLayoutPanel7
+        '
+        Me.TableLayoutPanel7.AutoSize = True
+        Me.TableLayoutPanel7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.TableLayoutPanel7.ColumnCount = 2
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel7.Controls.Add(Me.Label14, 0, 0)
+        Me.TableLayoutPanel7.Controls.Add(Me.tb_calcInputDataSet, 0, 1)
+        Me.TableLayoutPanel7.Controls.Add(Me.btn_iputDataSet, 1, 1)
+        Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel7.Location = New System.Drawing.Point(3, 19)
+        Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
+        Me.TableLayoutPanel7.RowCount = 2
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel7.Size = New System.Drawing.Size(561, 55)
+        Me.TableLayoutPanel7.TabIndex = 32
+        '
+        'Label14
+        '
+        Me.Label14.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label14.AutoSize = True
+        Me.TableLayoutPanel7.SetColumnSpan(Me.Label14, 2)
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(3, 0)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(369, 26)
+        Me.Label14.TabIndex = 11
+        Me.Label14.Text = "Select csv file containing raw input data." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "The file should not have any headers." & _
+    " Each row represents one set of inputs."
+        Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'tb_calcInputDataSet
+        '
+        Me.tb_calcInputDataSet.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.tb_calcInputDataSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tb_calcInputDataSet.Location = New System.Drawing.Point(3, 30)
+        Me.tb_calcInputDataSet.Name = "tb_calcInputDataSet"
+        Me.tb_calcInputDataSet.Size = New System.Drawing.Size(521, 20)
+        Me.tb_calcInputDataSet.TabIndex = 9
+        '
+        'btn_iputDataSet
+        '
+        Me.btn_iputDataSet.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btn_iputDataSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_iputDataSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_iputDataSet.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
+        Me.btn_iputDataSet.Location = New System.Drawing.Point(530, 29)
+        Me.btn_iputDataSet.Name = "btn_iputDataSet"
+        Me.btn_iputDataSet.Size = New System.Drawing.Size(23, 23)
+        Me.btn_iputDataSet.TabIndex = 10
+        Me.btn_iputDataSet.UseVisualStyleBackColor = True
+        '
         'gb_calcMode
         '
         Me.gb_calcMode.Controls.Add(Me.rd_calcDataSet)
@@ -742,8 +913,8 @@ Partial Class form_main
         Me.tlp_calculateExample.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.tlp_calculateExample.Controls.Add(Me.Label13, 1, 1)
         Me.tlp_calculateExample.Controls.Add(Me.Label3, 3, 1)
-        Me.tlp_calculateExample.Controls.Add(Me.tb_calcInputs, 0, 0)
-        Me.tlp_calculateExample.Controls.Add(Me.tb_calcOutputs, 4, 0)
+        Me.tlp_calculateExample.Controls.Add(Me.tb_calcInputExample, 0, 0)
+        Me.tlp_calculateExample.Controls.Add(Me.tb_calcOutputExample, 4, 0)
         Me.tlp_calculateExample.Controls.Add(Me.btn_calculateExample, 2, 1)
         Me.tlp_calculateExample.Location = New System.Drawing.Point(12, 117)
         Me.tlp_calculateExample.Name = "tlp_calculateExample"
@@ -755,32 +926,56 @@ Partial Class form_main
         Me.tlp_calculateExample.TabIndex = 4
         Me.tlp_calculateExample.Visible = False
         '
-        'tb_calcInputs
+        'Label13
         '
-        Me.tb_calcInputs.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tb_calcInputs.Location = New System.Drawing.Point(3, 3)
-        Me.tb_calcInputs.MaximumSize = New System.Drawing.Size(170, 230)
-        Me.tb_calcInputs.MinimumSize = New System.Drawing.Size(170, 230)
-        Me.tb_calcInputs.Multiline = True
-        Me.tb_calcInputs.Name = "tb_calcInputs"
-        Me.tlp_calculateExample.SetRowSpan(Me.tb_calcInputs, 3)
-        Me.tb_calcInputs.Size = New System.Drawing.Size(170, 230)
-        Me.tb_calcInputs.TabIndex = 1
-        Me.tb_calcInputs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.Label13.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(179, 107)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(24, 21)
+        Me.Label13.TabIndex = 32
+        Me.Label13.Text = "→"
+        Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'tb_calcOutputs
+        'Label3
         '
-        Me.tb_calcOutputs.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tb_calcOutputs.Location = New System.Drawing.Point(342, 3)
-        Me.tb_calcOutputs.MaximumSize = New System.Drawing.Size(170, 230)
-        Me.tb_calcOutputs.MinimumSize = New System.Drawing.Size(170, 230)
-        Me.tb_calcOutputs.Multiline = True
-        Me.tb_calcOutputs.Name = "tb_calcOutputs"
-        Me.tb_calcOutputs.ReadOnly = True
-        Me.tlp_calculateExample.SetRowSpan(Me.tb_calcOutputs, 3)
-        Me.tb_calcOutputs.Size = New System.Drawing.Size(170, 230)
-        Me.tb_calcOutputs.TabIndex = 2
-        Me.tb_calcOutputs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(312, 107)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(24, 21)
+        Me.Label3.TabIndex = 32
+        Me.Label3.Text = "→"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'tb_calcInputExample
+        '
+        Me.tb_calcInputExample.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tb_calcInputExample.Location = New System.Drawing.Point(3, 3)
+        Me.tb_calcInputExample.MaximumSize = New System.Drawing.Size(170, 230)
+        Me.tb_calcInputExample.MinimumSize = New System.Drawing.Size(170, 230)
+        Me.tb_calcInputExample.Multiline = True
+        Me.tb_calcInputExample.Name = "tb_calcInputExample"
+        Me.tlp_calculateExample.SetRowSpan(Me.tb_calcInputExample, 3)
+        Me.tb_calcInputExample.Size = New System.Drawing.Size(170, 230)
+        Me.tb_calcInputExample.TabIndex = 1
+        Me.tb_calcInputExample.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'tb_calcOutputExample
+        '
+        Me.tb_calcOutputExample.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tb_calcOutputExample.Location = New System.Drawing.Point(342, 3)
+        Me.tb_calcOutputExample.MaximumSize = New System.Drawing.Size(170, 230)
+        Me.tb_calcOutputExample.MinimumSize = New System.Drawing.Size(170, 230)
+        Me.tb_calcOutputExample.Multiline = True
+        Me.tb_calcOutputExample.Name = "tb_calcOutputExample"
+        Me.tb_calcOutputExample.ReadOnly = True
+        Me.tlp_calculateExample.SetRowSpan(Me.tb_calcOutputExample, 3)
+        Me.tb_calcOutputExample.Size = New System.Drawing.Size(170, 230)
+        Me.tb_calcOutputExample.TabIndex = 2
+        Me.tb_calcOutputExample.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'btn_calculateExample
         '
@@ -954,201 +1149,6 @@ Partial Class form_main
         Me.SaveFileDialog1.Filter = "xml files|*.xml|All files|*.*"
         Me.SaveFileDialog1.Title = "Save neural network file"
         '
-        'Label3
-        '
-        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(312, 107)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(24, 21)
-        Me.Label3.TabIndex = 32
-        Me.Label3.Text = "→"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label13
-        '
-        Me.Label13.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(179, 107)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(24, 21)
-        Me.Label13.TabIndex = 32
-        Me.Label13.Text = "→"
-        Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'tlp_calculateDataSet
-        '
-        Me.tlp_calculateDataSet.AutoSize = True
-        Me.tlp_calculateDataSet.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.tlp_calculateDataSet.ColumnCount = 1
-        Me.tlp_calculateDataSet.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlp_calculateDataSet.Controls.Add(Me.btn_calcDataSet, 0, 2)
-        Me.tlp_calculateDataSet.Controls.Add(Me.GroupBox6, 0, 1)
-        Me.tlp_calculateDataSet.Controls.Add(Me.GroupBox5, 0, 0)
-        Me.tlp_calculateDataSet.Location = New System.Drawing.Point(12, 312)
-        Me.tlp_calculateDataSet.Name = "tlp_calculateDataSet"
-        Me.tlp_calculateDataSet.Padding = New System.Windows.Forms.Padding(0, 0, 0, 19)
-        Me.tlp_calculateDataSet.RowCount = 3
-        Me.tlp_calculateDataSet.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.tlp_calculateDataSet.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.tlp_calculateDataSet.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.tlp_calculateDataSet.Size = New System.Drawing.Size(573, 192)
-        Me.tlp_calculateDataSet.TabIndex = 6
-        Me.tlp_calculateDataSet.Visible = False
-        '
-        'GroupBox5
-        '
-        Me.GroupBox5.AutoSize = True
-        Me.GroupBox5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox5.Controls.Add(Me.TableLayoutPanel7)
-        Me.GroupBox5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox5.Location = New System.Drawing.Point(3, 3)
-        Me.GroupBox5.MinimumSize = New System.Drawing.Size(567, 0)
-        Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(567, 77)
-        Me.GroupBox5.TabIndex = 31
-        Me.GroupBox5.TabStop = False
-        Me.GroupBox5.Text = "INPUT"
-        '
-        'TableLayoutPanel7
-        '
-        Me.TableLayoutPanel7.AutoSize = True
-        Me.TableLayoutPanel7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.TableLayoutPanel7.ColumnCount = 2
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel7.Controls.Add(Me.Label14, 0, 0)
-        Me.TableLayoutPanel7.Controls.Add(Me.tb_inputDataSet, 0, 1)
-        Me.TableLayoutPanel7.Controls.Add(Me.btn_iputDataSet, 1, 1)
-        Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel7.Location = New System.Drawing.Point(3, 19)
-        Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
-        Me.TableLayoutPanel7.RowCount = 2
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel7.Size = New System.Drawing.Size(561, 55)
-        Me.TableLayoutPanel7.TabIndex = 32
-        '
-        'Label14
-        '
-        Me.Label14.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label14.AutoSize = True
-        Me.TableLayoutPanel7.SetColumnSpan(Me.Label14, 2)
-        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(3, 0)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(369, 26)
-        Me.Label14.TabIndex = 11
-        Me.Label14.Text = "Select csv file containing raw input data." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "The file should not have any headers." & _
-    " Each row represents one set of inputs."
-        Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'tb_inputDataSet
-        '
-        Me.tb_inputDataSet.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.tb_inputDataSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_inputDataSet.Location = New System.Drawing.Point(3, 30)
-        Me.tb_inputDataSet.Name = "tb_inputDataSet"
-        Me.tb_inputDataSet.Size = New System.Drawing.Size(521, 20)
-        Me.tb_inputDataSet.TabIndex = 9
-        '
-        'btn_iputDataSet
-        '
-        Me.btn_iputDataSet.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.btn_iputDataSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_iputDataSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_iputDataSet.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
-        Me.btn_iputDataSet.Location = New System.Drawing.Point(530, 29)
-        Me.btn_iputDataSet.Name = "btn_iputDataSet"
-        Me.btn_iputDataSet.Size = New System.Drawing.Size(23, 23)
-        Me.btn_iputDataSet.TabIndex = 10
-        Me.btn_iputDataSet.UseVisualStyleBackColor = True
-        '
-        'GroupBox6
-        '
-        Me.GroupBox6.AutoSize = True
-        Me.GroupBox6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.GroupBox6.Controls.Add(Me.TableLayoutPanel8)
-        Me.GroupBox6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox6.Location = New System.Drawing.Point(3, 86)
-        Me.GroupBox6.MinimumSize = New System.Drawing.Size(567, 0)
-        Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(567, 64)
-        Me.GroupBox6.TabIndex = 32
-        Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "OUTPUT"
-        '
-        'TableLayoutPanel8
-        '
-        Me.TableLayoutPanel8.AutoSize = True
-        Me.TableLayoutPanel8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.TableLayoutPanel8.ColumnCount = 2
-        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel8.Controls.Add(Me.Label15, 0, 0)
-        Me.TableLayoutPanel8.Controls.Add(Me.tb_outputDataSet, 0, 1)
-        Me.TableLayoutPanel8.Controls.Add(Me.btn_outputDataSet, 1, 1)
-        Me.TableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel8.Location = New System.Drawing.Point(3, 19)
-        Me.TableLayoutPanel8.Name = "TableLayoutPanel8"
-        Me.TableLayoutPanel8.RowCount = 2
-        Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel8.Size = New System.Drawing.Size(561, 42)
-        Me.TableLayoutPanel8.TabIndex = 32
-        '
-        'Label15
-        '
-        Me.Label15.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label15.AutoSize = True
-        Me.TableLayoutPanel8.SetColumnSpan(Me.Label15, 2)
-        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(3, 0)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(426, 13)
-        Me.Label15.TabIndex = 11
-        Me.Label15.Text = "Select the file path and name where the output from the neural network should be " & _
-    "saved."
-        Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'tb_outputDataSet
-        '
-        Me.tb_outputDataSet.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.tb_outputDataSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_outputDataSet.Location = New System.Drawing.Point(3, 17)
-        Me.tb_outputDataSet.Name = "tb_outputDataSet"
-        Me.tb_outputDataSet.Size = New System.Drawing.Size(521, 20)
-        Me.tb_outputDataSet.TabIndex = 9
-        '
-        'btn_outputDataSet
-        '
-        Me.btn_outputDataSet.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.btn_outputDataSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_outputDataSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_outputDataSet.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
-        Me.btn_outputDataSet.Location = New System.Drawing.Point(530, 16)
-        Me.btn_outputDataSet.Name = "btn_outputDataSet"
-        Me.btn_outputDataSet.Size = New System.Drawing.Size(23, 23)
-        Me.btn_outputDataSet.TabIndex = 10
-        Me.btn_outputDataSet.UseVisualStyleBackColor = True
-        '
-        'btn_calcDataSet
-        '
-        Me.btn_calcDataSet.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.btn_calcDataSet.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_calcDataSet.Location = New System.Drawing.Point(238, 161)
-        Me.btn_calcDataSet.Margin = New System.Windows.Forms.Padding(3, 8, 3, 8)
-        Me.btn_calcDataSet.MinimumSize = New System.Drawing.Size(97, 23)
-        Me.btn_calcDataSet.Name = "btn_calcDataSet"
-        Me.btn_calcDataSet.Size = New System.Drawing.Size(97, 23)
-        Me.btn_calcDataSet.TabIndex = 33
-        Me.btn_calcDataSet.Text = "CALCULATE"
-        Me.btn_calcDataSet.UseVisualStyleBackColor = True
-        '
         'form_main
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -1188,6 +1188,16 @@ Partial Class form_main
         Me.TableLayoutPanel2.PerformLayout()
         Me.tp_calculation.ResumeLayout(False)
         Me.tp_calculation.PerformLayout()
+        Me.tlp_calculateDataSet.ResumeLayout(False)
+        Me.tlp_calculateDataSet.PerformLayout()
+        Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox6.PerformLayout()
+        Me.TableLayoutPanel8.ResumeLayout(False)
+        Me.TableLayoutPanel8.PerformLayout()
+        Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
+        Me.TableLayoutPanel7.ResumeLayout(False)
+        Me.TableLayoutPanel7.PerformLayout()
         Me.gb_calcMode.ResumeLayout(False)
         Me.gb_calcMode.PerformLayout()
         Me.tlp_calculateExample.ResumeLayout(False)
@@ -1199,16 +1209,6 @@ Partial Class form_main
         Me.panel_charts.PerformLayout()
         Me.panel_stats.ResumeLayout(False)
         Me.panel_stats.PerformLayout()
-        Me.tlp_calculateDataSet.ResumeLayout(False)
-        Me.tlp_calculateDataSet.PerformLayout()
-        Me.GroupBox5.ResumeLayout(False)
-        Me.GroupBox5.PerformLayout()
-        Me.TableLayoutPanel7.ResumeLayout(False)
-        Me.TableLayoutPanel7.PerformLayout()
-        Me.GroupBox6.ResumeLayout(False)
-        Me.GroupBox6.PerformLayout()
-        Me.TableLayoutPanel8.ResumeLayout(False)
-        Me.TableLayoutPanel8.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1268,8 +1268,8 @@ Partial Class form_main
     Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
     Friend WithEvents btn_loadNetwork As System.Windows.Forms.Button
     Friend WithEvents tlp_calculateExample As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents tb_calcInputs As System.Windows.Forms.TextBox
-    Friend WithEvents tb_calcOutputs As System.Windows.Forms.TextBox
+    Friend WithEvents tb_calcInputExample As System.Windows.Forms.TextBox
+    Friend WithEvents tb_calcOutputExample As System.Windows.Forms.TextBox
     Friend WithEvents btn_calculateExample As System.Windows.Forms.Button
     Friend WithEvents gb_calcMode As System.Windows.Forms.GroupBox
     Friend WithEvents rd_calcDataSet As System.Windows.Forms.RadioButton
@@ -1280,12 +1280,12 @@ Partial Class form_main
     Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
     Friend WithEvents TableLayoutPanel8 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents Label15 As System.Windows.Forms.Label
-    Friend WithEvents tb_outputDataSet As System.Windows.Forms.TextBox
+    Friend WithEvents tb_calcOutputDataSet As System.Windows.Forms.TextBox
     Friend WithEvents btn_outputDataSet As System.Windows.Forms.Button
     Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
     Friend WithEvents TableLayoutPanel7 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents tb_inputDataSet As System.Windows.Forms.TextBox
+    Friend WithEvents tb_calcInputDataSet As System.Windows.Forms.TextBox
     Friend WithEvents btn_iputDataSet As System.Windows.Forms.Button
     Friend WithEvents btn_calcDataSet As System.Windows.Forms.Button
 

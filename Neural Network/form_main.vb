@@ -195,7 +195,7 @@
     Private Sub btn_calculateExample_Click(sender As Object, e As EventArgs) Handles btn_calculateExample.Click
         Dim networkNumInputs As Integer = calcNetwork.Layers(0).NeuronCount
         Dim networkNumOutputs As Integer = calcNetwork.LastLayer.NeuronCount
-        Dim textboxNumInputs As Integer = tb_calcInputs.Lines.Count
+        Dim textboxNumInputs As Integer = tb_calcInputExample.Lines.Count
 
         If textboxNumInputs <> networkNumInputs Then
             MsgBox("The number of inputs entered into the textbox does not equal the number required by the network." & vbNewLine & "Please enter " & networkNumInputs & If(networkNumInputs = 1, " input", " inputs") & " into the textbox.", MsgBoxStyle.OkOnly Or vbCritical, "Incorrect number of inputs")
@@ -203,7 +203,7 @@
         End If
 
         For i = 0 To textboxNumInputs - 1
-            calcNetwork.Layers(0).Outputs(i) = tb_calcInputs.Lines(i)
+            calcNetwork.Layers(0).Outputs(i) = tb_calcInputExample.Lines(i)
         Next
 
         networkCalculate(calcNetwork)
@@ -214,7 +214,7 @@
         Next
         outputString = Strings.Left(outputString, Len(outputString) - 1)
 
-        tb_calcOutputs.Text = outputString
+        tb_calcOutputExample.Text = outputString
     End Sub
 
     Private Sub radio_CheckedChanged(sender As Object, e As EventArgs)
@@ -230,7 +230,7 @@
     Private Sub btn_iputDataSet_Click(sender As Object, e As EventArgs) Handles btn_iputDataSet.Click
         OpenFileDialog1.ShowDialog()
         If OpenFileDialog1.FileName <> "" Then
-            tb_inputDataSet.Text = OpenFileDialog1.FileName
+            tb_calcInputDataSet.Text = OpenFileDialog1.FileName
         End If
     End Sub
 
@@ -244,7 +244,7 @@
             path = SaveFileDialog.FileName.ToString
 
             If (path IsNot Nothing) Then
-                tb_outputDataSet.Text = path
+                tb_calcOutputDataSet.Text = path
             End If
         End If
     End Sub

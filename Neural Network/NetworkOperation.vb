@@ -270,9 +270,11 @@ Module NetworkOperation
     End Sub
 
     Private doc As XmlDocument = Nothing
-    Public Sub Load(network As BackpropagationNetwork, FilePath As String)
+    Public Function Load(network As BackpropagationNetwork, FilePath As String) As Boolean
+        On Error GoTo ErrorCode
+
         If FilePath = Nothing Then
-            Exit Sub
+            Return False
         End If
 
         doc = New XmlDocument
@@ -331,7 +333,13 @@ Module NetworkOperation
         Next
 
         doc = Nothing
-    End Sub
+
+        Return True
+
+ErrorCode:
+        Return False
+
+    End Function
 
     Private Function xPathValue(xPath As String) As String
         Dim node As XmlNode = doc.SelectSingleNode(xPath)

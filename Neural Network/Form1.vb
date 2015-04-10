@@ -178,8 +178,9 @@
             path = OpenFileDialog.FileName.ToString
         End If
 
+        Dim networkLoaded As Boolean
         If path <> Nothing Then
-            NetworkOperation.Load(calcNetwork, path)
+            networkLoaded = NetworkOperation.Load(calcNetwork, path)
         End If
     End Sub
 End Class

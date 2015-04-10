@@ -226,4 +226,26 @@
             tlp_calculateDataSet.Visible = True
         End If
     End Sub
+
+    Private Sub btn_iputDataSet_Click(sender As Object, e As EventArgs) Handles btn_iputDataSet.Click
+        OpenFileDialog1.ShowDialog()
+        If OpenFileDialog1.FileName <> "" Then
+            tb_inputDataSet.Text = OpenFileDialog1.FileName
+        End If
+    End Sub
+
+    Private Sub btn_outputDataSet_Click(sender As Object, e As EventArgs) Handles btn_outputDataSet.Click
+        Dim path As String
+        Dim SaveFileDialog As New SaveFileDialog
+        SaveFileDialog.Title = "Select file path for output"
+        SaveFileDialog.Filter = "csv files|*.csv|All files|*.*"
+
+        If SaveFileDialog.ShowDialog() = DialogResult.OK Then
+            path = SaveFileDialog.FileName.ToString
+
+            If (path IsNot Nothing) Then
+                tb_outputDataSet.Text = path
+            End If
+        End If
+    End Sub
 End Class

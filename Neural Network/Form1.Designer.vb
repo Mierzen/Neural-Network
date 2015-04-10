@@ -215,7 +215,6 @@ Partial Class form_main
         Me.tb_input.Name = "tb_input"
         Me.tb_input.Size = New System.Drawing.Size(521, 20)
         Me.tb_input.TabIndex = 9
-        Me.tb_input.Text = "C:\Users\Stephan Taljaard\Desktop\test.csv"
         '
         'btn_selectInput
         '
@@ -607,7 +606,6 @@ Partial Class form_main
         Me.tb_output.Name = "tb_output"
         Me.tb_output.Size = New System.Drawing.Size(518, 20)
         Me.tb_output.TabIndex = 23
-        Me.tb_output.Text = "C:\Users\Stephan Taljaard\Desktop\output.csv"
         '
         'Label2
         '

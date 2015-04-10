@@ -302,9 +302,25 @@
             End While
         End Using
 
+        Dim csvOutputString As String = ""
+
         For i = 0 To numInputLines - 1
             calcNetwork.Layers(0).Outputs = Util.Array.GetRow(i, inputDataSet)
             networkCalculate(calcNetwork)
+
+            For j = 0 To calcNetwork.LastLayer.NeuronCount - 1
+                csvOutputString &= calcNetwork.LastLayer.Outputs(j)
+                csvOutputString &= ","
+            Next
+
+            csvOutputString = Strings.Left(csvOutputString, Len(csvOutputString) - 1)
+            csvOutputString &= vbNewLine
         Next
+
+        csvOutputString = Strings.Left(csvOutputString, Len(csvOutputString) - 1)
+
+        Util.File.CSV.Create(outputPath, csvOutputString)
+
+        Beep()
     End Sub
 End Class

@@ -325,7 +325,7 @@ Module NetworkOperation
                 For j = 0 To nextLayer.NeuronCount - 1
                     Dim connectionPath As String
                     connectionPath = "Neuron[@Index='" + i.ToString + "']/Connection[@Index='" + j.ToString + "']"
-                    currentLayer.Weights(i, j) = CDbl(xPathValue(BasePath & NeuronPath))
+                    currentLayer.Weights(i, j) = CDbl(xPathValue(BasePath & connectionPath))
                 Next
             Next
         Next

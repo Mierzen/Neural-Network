@@ -36,7 +36,7 @@
         Me.Select()
 
         'validate input file
-        Select Case TrainingMode.validateCSV(tb_input.Text, numInputs, numInputLines) 'TODO: just check this again after everything is done
+        Select Case TrainingMode.validateCSV(tb_input.Text, numInputLines, numInputs) 'TODO: just check this again after everything is done
             Case "FileNotExist"
                 MsgBox("Please make sure the selected input training data file exists and is of the correct format.", vbOKOnly Or vbCritical, "Invalid input training file")
                 Exit Sub

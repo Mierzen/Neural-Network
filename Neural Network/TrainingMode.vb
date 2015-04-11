@@ -117,7 +117,7 @@ Module TrainingMode
                     NetworkOperation.Save(network, path)
 
                     Dim openTargetDir As MsgBoxResult
-                    openTargetDir = MsgBox("Done!" & vbNewLine & vbNewLine & "Open Windows Explorer to view the outputs?", _
+                    openTargetDir = MsgBox("Done!" & vbNewLine & vbNewLine & "Open Windows Explorer to view the neural network file?", _
                                            MsgBoxStyle.YesNo Or MsgBoxStyle.DefaultButton2 Or MsgBoxStyle.MsgBoxSetForeground)
                     If openTargetDir = MsgBoxResult.Yes Then
                         Diagnostics.Process.Start("Explorer.exe", System.IO.Path.GetDirectoryName(path))

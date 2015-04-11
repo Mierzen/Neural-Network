@@ -36,7 +36,6 @@ Module TrainingMode
 
         ReDim actualOutputs(numOutputs - 1)
 
-        validateCSV("input") 'TODO: just check this again after everything is done
         validateCSV("output")
 
         Application.UseWaitCursor = True
@@ -135,54 +134,25 @@ Module TrainingMode
         Beep()
     End Sub
 
-    Private Sub validateCSV(csvType As String)
-        csvType = Strings.LCase(csvType)
+    Public Function validateCSV(filePath As String, ByRef numLines As Integer, ByRef numFields As Integer) As String
 
-        If csvType <> "input" Then
-            If csvType <> "output" Then
-                Throw New ArgumentException("Please specify ONLY ""input"" or ""output"".", csvType)
-            End If
+        If filePath = "" OrElse filePath = Nothing OrElse Strings.LCase(Strings.Right(filePath, 4)) <> ".csv" OrElse System.IO.File.Exists(filePath) = False Then
+            Return "FileNotExist"
         End If
 
-        Dim csvPath As String
-        If csvType = "input" Then
-            csvPath = form_main.tb_input.Text
-        Else 'output
-            csvPath = form_main.tb_output.Text
+        If Util.File.CSV.HasConsistentFields(filePath) = False Then
+            Return "NotConsistentFields"
         End If
 
-        Dim numParameters As Integer
-        Dim numLines As Integer
-
-        'check if each line of the csv is the same lenght (same number of parameters)
-        Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(csvPath)
-            MyReader.TextFieldType = FileIO.FieldType.Delimited
-            MyReader.SetDelimiters(",")
-
-            numParameters = MyReader.ReadFields().Length
-            numLines = 1
-
-            While Not MyReader.EndOfData
-                Try
-                    If numParameters <> MyReader.ReadFields().Length Then
-                        MsgBox("All lines in the csv file are not the same lenght." & vbNewLine & "Please fix the line(s).")
-                        Exit Sub
-                    Else
-                        numLines += 1
-                    End If
-                Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
-                    MsgBox("Line " & ex.Message & "is not valid and will be skipped.")
-                End Try
-            End While
-        End Using
-
-        'save the number of inputs per line and number of lines (NUMBER OF INPUTS)
-        If csvType = "input" Then
-            numInputs = numParameters
-            numInputLines = numLines
+        Dim tempLineCount As Integer = Util.File.GetLineCount(filePath)
+        If tempLineCount <= 0 Then
+            Return "FileEmpty"
         Else
-            numOutputLines = numLines
-            expectedOutputsPerLine = numParameters
+            numLines = tempLineCount
         End If
-    End Sub
+
+        numFields = Util.File.CSV.GetFieldCount(filePath)
+
+        Return "Success"
+    End Function
 End Module

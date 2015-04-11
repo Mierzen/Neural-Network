@@ -38,13 +38,13 @@
         'validate input file
         Select Case TrainingMode.validateCSV(tb_input.Text, numInputs, numInputLines) 'TODO: just check this again after everything is done
             Case "FileNotExist"
-                MsgBox("Please make sure the selected input file exists and is of the correct format.", vbOKOnly Or vbCritical, "Invalid input file")
+                MsgBox("Please make sure the selected input training data file exists and is of the correct format.", vbOKOnly Or vbCritical, "Invalid input training file")
                 Exit Sub
             Case "NotConsistentFields"
-                MsgBox("All lines in the input csv file are not the same lenght (the same number of parameters)." & vbNewLine & "Please fix the line(s).", vbOKOnly Or vbCritical, "Invalid input file")
+                MsgBox("All lines in the input training data csv file are not the same lenght (the same number of parameters)." & vbNewLine & "Please fix the line(s).", vbOKOnly Or vbCritical, "Invalid input training file")
                 Exit Sub
             Case "FileEmpty"
-                MsgBox("Please make sure the selected input file is not empty.", vbOKOnly Or vbCritical, "Empty input file")
+                MsgBox("Please make sure the selected input training data file is not empty.", vbOKOnly Or vbCritical, "Empty input file training file")
                 Exit Sub
         End Select
 
@@ -91,7 +91,19 @@
             MsgBox("Not all rows in the table are correct." & vbNewLine & vbNewLine & "Please enter at least one row and make sure that all values are correct." & vbNewLine & "The hidden layer neuron count should be a positive, non-zero integer and an activation function should be selected per row.", vbOKOnly Or vbCritical, "Incorrect hidden layer input")
         Else
             'validate output layer entry.
-            'TODO: actually, it would be better if all of a specific type of checking is at the same place (cf. TrainingMode.vb)
+            Select Case TrainingMode.validateCSV(tb_output.Text, numOutputLines, expectedOutputsPerLine) 'TODO: just check this again after everything is done
+                Case "FileNotExist"
+                    MsgBox("Please make sure the selected output training data file exists and is of the correct format.", vbOKOnly Or vbCritical, "Invalid output training file")
+                    Exit Sub
+                Case "NotConsistentFields"
+                    MsgBox("All lines in the output training data csv file are not the same lenght (the same number of parameters)." & vbNewLine & "Please fix the line(s).", vbOKOnly Or vbCritical, "Invalid output training file")
+                    Exit Sub
+                Case "FileEmpty"
+                    MsgBox("Please make sure the selected output training data file is not empty.", vbOKOnly Or vbCritical, "Empty output file training file")
+                    Exit Sub
+            End Select
+
+
             If combo_outputLayerAF.Text = "" OrElse combo_outputLayerAF.Text = Nothing OrElse combo_outputLayerAF.SelectedItem = Nothing Then
                 MsgBox("Please select an activation function to use for the output layer.", vbOKOnly Or vbCritical, "Output layer activation function not selected")
                 Exit Sub

@@ -36,8 +36,6 @@ Module TrainingMode
 
         ReDim actualOutputs(numOutputs - 1)
 
-        validateCSV("output")
-
         Application.UseWaitCursor = True
 
         If expectedOutputsPerLine <> numOutputs Then

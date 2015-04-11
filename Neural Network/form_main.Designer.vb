@@ -22,6 +22,8 @@ Partial Class form_main
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(form_main))
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
@@ -29,7 +31,6 @@ Partial Class form_main
         Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Title1 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(form_main))
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.tc_modes = New System.Windows.Forms.TabControl()
         Me.tp_training = New System.Windows.Forms.TabPage()
@@ -103,6 +104,7 @@ Partial Class form_main
         Me.lb_iterationNum = New System.Windows.Forms.Label()
         Me.panel_stats = New System.Windows.Forms.TableLayoutPanel()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.ToolTip_RoT = New System.Windows.Forms.ToolTip(Me.components)
         Me.tc_modes.SuspendLayout()
         Me.tp_training.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
@@ -470,6 +472,7 @@ Partial Class form_main
         Me.GroupBox2.TabIndex = 22
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "HIDDEN LAYERS"
+        Me.ToolTip_RoT.SetToolTip(Me.GroupBox2, resources.GetString("GroupBox2.ToolTip"))
         '
         'TableLayoutPanel3
         '
@@ -503,6 +506,7 @@ Partial Class form_main
         Me.TableLayoutPanel3.SetRowSpan(Me.DataGridView1, 2)
         Me.DataGridView1.Size = New System.Drawing.Size(525, 191)
         Me.DataGridView1.TabIndex = 10
+        Me.ToolTip_RoT.SetToolTip(Me.DataGridView1, resources.GetString("DataGridView1.ToolTip"))
         '
         'HiddenLayerNumber
         '
@@ -1128,6 +1132,14 @@ Partial Class form_main
         Me.SaveFileDialog1.Filter = "xml files|*.xml|All files|*.*"
         Me.SaveFileDialog1.Title = "Save neural network file"
         '
+        'ToolTip_RoT
+        '
+        Me.ToolTip_RoT.AutoPopDelay = 5000
+        Me.ToolTip_RoT.InitialDelay = 200
+        Me.ToolTip_RoT.ReshowDelay = 100
+        Me.ToolTip_RoT.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.ToolTip_RoT.ToolTipTitle = "Rules of thumb"
+        '
         'form_main
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -1265,5 +1277,6 @@ Partial Class form_main
     Friend WithEvents tb_calcInputDataSet As System.Windows.Forms.TextBox
     Friend WithEvents btn_iputDataSet As System.Windows.Forms.Button
     Friend WithEvents btn_calcDataSet As System.Windows.Forms.Button
+    Friend WithEvents ToolTip_RoT As System.Windows.Forms.ToolTip
 
 End Class

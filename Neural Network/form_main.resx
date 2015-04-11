@@ -129,6 +129,39 @@
   <metadata name="HiddenLayerActivationFunction.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="ToolTip_RoT.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>296, 17</value>
+  </metadata>
+  <data name="DataGridView1.ToolTip" xml:space="preserve">
+    <value>Hidden layers:
+1 hidden layer:  linear seperable functions/decisions;  approximate any function containing a continuous mapping from one finite space to another.
+2 hidden layers: arbitrary decision boundarys to arbitrary accuracy with rational activation functions;  aproximate any smooth mapping to any accuracy.
+
+
+Hidden neurons:
+Between the size of the input layer and the size of the output layer.
+2/3 the size of the input layer + size of the output layer.
+Less than twice the size of the input layer.
+
+Activation function:
+Sigmoid returns values from 0 to 1.
+Hyperbolic tangent returns values from -1 to 1.</value>
+  </data>
+  <data name="GroupBox2.ToolTip" xml:space="preserve">
+    <value>Hidden layers:
+1 hidden layer:  linear seperable functions/decisions;  approximate any function containing a continuous mapping from one finite space to another.
+2 hidden layers: arbitrary decision boundarys to arbitrary accuracy with rational activation functions;  aproximate any smooth mapping to any accuracy.
+
+
+Hidden neurons:
+Between the size of the input layer and the size of the output layer.
+2/3 the size of the input layer + size of the output layer.
+Less than twice the size of the input layer.
+
+Activation function:
+Sigmoid returns values from 0 to 1.
+Hyperbolic tangent returns values from -1 to 1.</value>
+  </data>
   <metadata name="SaveFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>159, 17</value>
   </metadata>

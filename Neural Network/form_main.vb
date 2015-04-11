@@ -243,7 +243,7 @@
         Dim textboxNumInputs As Integer = tb_calcInputExample.Lines.Count
 
         If textboxNumInputs <> networkNumInputs Then
-            MsgBox("The number of inputs entered into the textbox does not equal the number required by the network." & vbNewLine & "Please enter " & networkNumInputs & If(networkNumInputs = 1, " input", " inputs") & " into the textbox.", MsgBoxStyle.OkOnly Or vbCritical, "Incorrect number of inputs")
+            MsgBox("The number of input parameters entered into the textbox does not equal the number required by the network." & vbNewLine & "Please enter " & networkNumInputs & If(networkNumInputs = 1, " input", " inputs") & " into the textbox." & vbNewLine & "Please note the input parameters should be entered one per line.", MsgBoxStyle.OkOnly Or vbCritical, "Incorrect number of input parameters")
             Exit Sub
         End If
 

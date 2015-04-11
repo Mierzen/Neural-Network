@@ -16,7 +16,6 @@ Module NetworkOperation
                     currentRow = MyReader.ReadFields()
 
                     Dim currentField As String
-                    Dim tempRow(3) As Double
                     Dim j As Integer = 0
                     For Each currentField In currentRow
                         TrainingMode.inputData(i, j) = currentField

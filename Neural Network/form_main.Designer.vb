@@ -24,13 +24,13 @@ Partial Class form_main
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(form_main))
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title2 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title1 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title3 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title4 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.tc_modes = New System.Windows.Forms.TabControl()
         Me.tp_training = New System.Windows.Forms.TabPage()
@@ -39,7 +39,6 @@ Partial Class form_main
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tb_input = New System.Windows.Forms.TextBox()
-        Me.btn_selectInput = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.tlp_advancedSettings = New System.Windows.Forms.TableLayoutPanel()
         Me.tb_maxEpochs = New System.Windows.Forms.TextBox()
@@ -66,7 +65,6 @@ Partial Class form_main
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.tb_output = New System.Windows.Forms.TextBox()
-        Me.btn_selectOutput = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.combo_outputLayerAF = New System.Windows.Forms.ComboBox()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -78,12 +76,10 @@ Partial Class form_main
         Me.TableLayoutPanel8 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.tb_calcOutputDataSet = New System.Windows.Forms.TextBox()
-        Me.btn_outputDataSet = New System.Windows.Forms.Button()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.tb_calcInputDataSet = New System.Windows.Forms.TextBox()
-        Me.btn_iputDataSet = New System.Windows.Forms.Button()
         Me.gb_calcMode = New System.Windows.Forms.GroupBox()
         Me.rd_calcDataSet = New System.Windows.Forms.RadioButton()
         Me.rd_calcExample = New System.Windows.Forms.RadioButton()
@@ -105,6 +101,11 @@ Partial Class form_main
         Me.panel_stats = New System.Windows.Forms.TableLayoutPanel()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolTip_RoT = New System.Windows.Forms.ToolTip(Me.components)
+        Me.btn_selectInput = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btn_selectOutput = New System.Windows.Forms.Button()
+        Me.btn_outputDataSet = New System.Windows.Forms.Button()
+        Me.btn_iputDataSet = New System.Windows.Forms.Button()
         Me.tc_modes.SuspendLayout()
         Me.tp_training.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
@@ -130,6 +131,7 @@ Partial Class form_main
         CType(Me.chart_errorSecondary, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panel_charts.SuspendLayout()
         Me.panel_stats.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'OpenFileDialog1
@@ -238,18 +240,6 @@ Partial Class form_main
         Me.tb_input.Name = "tb_input"
         Me.tb_input.Size = New System.Drawing.Size(521, 20)
         Me.tb_input.TabIndex = 9
-        '
-        'btn_selectInput
-        '
-        Me.btn_selectInput.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.btn_selectInput.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_selectInput.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_selectInput.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
-        Me.btn_selectInput.Location = New System.Drawing.Point(530, 29)
-        Me.btn_selectInput.Name = "btn_selectInput"
-        Me.btn_selectInput.Size = New System.Drawing.Size(23, 23)
-        Me.btn_selectInput.TabIndex = 10
-        Me.btn_selectInput.UseVisualStyleBackColor = True
         '
         'GroupBox4
         '
@@ -463,6 +453,7 @@ Partial Class form_main
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.PictureBox1)
         Me.GroupBox2.Controls.Add(Me.TableLayoutPanel3)
         Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(3, 86)
@@ -600,18 +591,6 @@ Partial Class form_main
         Me.tb_output.Name = "tb_output"
         Me.tb_output.Size = New System.Drawing.Size(518, 20)
         Me.tb_output.TabIndex = 23
-        '
-        'btn_selectOutput
-        '
-        Me.btn_selectOutput.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.btn_selectOutput.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_selectOutput.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_selectOutput.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
-        Me.btn_selectOutput.Location = New System.Drawing.Point(527, 29)
-        Me.btn_selectOutput.Name = "btn_selectOutput"
-        Me.btn_selectOutput.Size = New System.Drawing.Size(23, 23)
-        Me.btn_selectOutput.TabIndex = 30
-        Me.btn_selectOutput.UseVisualStyleBackColor = True
         '
         'Label4
         '
@@ -769,18 +748,6 @@ Partial Class form_main
         Me.tb_calcOutputDataSet.Size = New System.Drawing.Size(521, 20)
         Me.tb_calcOutputDataSet.TabIndex = 9
         '
-        'btn_outputDataSet
-        '
-        Me.btn_outputDataSet.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.btn_outputDataSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_outputDataSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_outputDataSet.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
-        Me.btn_outputDataSet.Location = New System.Drawing.Point(530, 16)
-        Me.btn_outputDataSet.Name = "btn_outputDataSet"
-        Me.btn_outputDataSet.Size = New System.Drawing.Size(23, 23)
-        Me.btn_outputDataSet.TabIndex = 10
-        Me.btn_outputDataSet.UseVisualStyleBackColor = True
-        '
         'GroupBox5
         '
         Me.GroupBox5.AutoSize = True
@@ -837,18 +804,6 @@ Partial Class form_main
         Me.tb_calcInputDataSet.Name = "tb_calcInputDataSet"
         Me.tb_calcInputDataSet.Size = New System.Drawing.Size(521, 20)
         Me.tb_calcInputDataSet.TabIndex = 9
-        '
-        'btn_iputDataSet
-        '
-        Me.btn_iputDataSet.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.btn_iputDataSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_iputDataSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_iputDataSet.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
-        Me.btn_iputDataSet.Location = New System.Drawing.Point(530, 29)
-        Me.btn_iputDataSet.Name = "btn_iputDataSet"
-        Me.btn_iputDataSet.Size = New System.Drawing.Size(23, 23)
-        Me.btn_iputDataSet.TabIndex = 10
-        Me.btn_iputDataSet.UseVisualStyleBackColor = True
         '
         'gb_calcMode
         '
@@ -985,30 +940,30 @@ Partial Class form_main
         'chart_error
         '
         Me.chart_error.BackColor = System.Drawing.Color.Transparent
-        ChartArea1.Name = "ChartArea_big"
-        Me.chart_error.ChartAreas.Add(ChartArea1)
+        ChartArea3.Name = "ChartArea_big"
+        Me.chart_error.ChartAreas.Add(ChartArea3)
         Me.TableLayoutPanel6.SetColumnSpan(Me.chart_error, 2)
         Me.chart_error.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend1.Alignment = System.Drawing.StringAlignment.Center
-        Legend1.BackColor = System.Drawing.Color.Transparent
-        Legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom
-        Legend1.Name = "Legend_big"
-        Me.chart_error.Legends.Add(Legend1)
+        Legend2.Alignment = System.Drawing.StringAlignment.Center
+        Legend2.BackColor = System.Drawing.Color.Transparent
+        Legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom
+        Legend2.Name = "Legend_big"
+        Me.chart_error.Legends.Add(Legend2)
         Me.chart_error.Location = New System.Drawing.Point(3, 3)
         Me.chart_error.Name = "chart_error"
-        Series2.ChartArea = "ChartArea_big"
-        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series2.Legend = "Legend_big"
-        Series2.Name = "Series_output1"
-        Series2.YValuesPerPoint = 6
-        Me.chart_error.Series.Add(Series2)
+        Series3.ChartArea = "ChartArea_big"
+        Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series3.Legend = "Legend_big"
+        Series3.Name = "Series_output1"
+        Series3.YValuesPerPoint = 6
+        Me.chart_error.Series.Add(Series3)
         Me.chart_error.Size = New System.Drawing.Size(469, 320)
         Me.chart_error.TabIndex = 26
         Me.chart_error.Text = "Network error (RMSE)"
-        Title2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title2.Name = "title_big"
-        Title2.Text = "Network error (RMSE)"
-        Me.chart_error.Titles.Add(Title2)
+        Title3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title3.Name = "title_big"
+        Title3.Text = "Network error (RMSE)"
+        Me.chart_error.Titles.Add(Title3)
         '
         'TableLayoutPanel6
         '
@@ -1031,24 +986,24 @@ Partial Class form_main
         'chart_errorSecondary
         '
         Me.chart_errorSecondary.BackColor = System.Drawing.Color.Transparent
-        ChartArea2.Name = "ChartArea_secondary"
-        Me.chart_errorSecondary.ChartAreas.Add(ChartArea2)
+        ChartArea4.Name = "ChartArea_secondary"
+        Me.chart_errorSecondary.ChartAreas.Add(ChartArea4)
         Me.TableLayoutPanel6.SetColumnSpan(Me.chart_errorSecondary, 2)
         Me.chart_errorSecondary.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chart_errorSecondary.Location = New System.Drawing.Point(3, 329)
         Me.chart_errorSecondary.Name = "chart_errorSecondary"
-        Series1.ChartArea = "ChartArea_secondary"
-        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series1.Name = "Series_secondary_1"
-        Series1.YValuesPerPoint = 6
-        Me.chart_errorSecondary.Series.Add(Series1)
+        Series4.ChartArea = "ChartArea_secondary"
+        Series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series4.Name = "Series_secondary_1"
+        Series4.YValuesPerPoint = 6
+        Me.chart_errorSecondary.Series.Add(Series4)
         Me.chart_errorSecondary.Size = New System.Drawing.Size(469, 207)
         Me.chart_errorSecondary.TabIndex = 29
         Me.chart_errorSecondary.Text = "Network error (RMSE)"
-        Title1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title1.Name = "Title_secondary"
-        Title1.Text = "Network error (RMSE)"
-        Me.chart_errorSecondary.Titles.Add(Title1)
+        Title4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title4.Name = "Title_secondary"
+        Title4.Text = "Network error (RMSE)"
+        Me.chart_errorSecondary.Titles.Add(Title4)
         '
         'Label12
         '
@@ -1140,6 +1095,67 @@ Partial Class form_main
         Me.ToolTip_RoT.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
         Me.ToolTip_RoT.ToolTipTitle = "Rules of thumb"
         '
+        'btn_selectInput
+        '
+        Me.btn_selectInput.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btn_selectInput.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_selectInput.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_selectInput.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
+        Me.btn_selectInput.Location = New System.Drawing.Point(530, 29)
+        Me.btn_selectInput.Name = "btn_selectInput"
+        Me.btn_selectInput.Size = New System.Drawing.Size(23, 23)
+        Me.btn_selectInput.TabIndex = 10
+        Me.btn_selectInput.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Image = Global.NeuralNetwork.My.Resources.Resources.Info
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 13)
+        Me.PictureBox1.MaximumSize = New System.Drawing.Size(31, 31)
+        Me.PictureBox1.MinimumSize = New System.Drawing.Size(31, 31)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(31, 31)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 38
+        Me.PictureBox1.TabStop = False
+        '
+        'btn_selectOutput
+        '
+        Me.btn_selectOutput.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btn_selectOutput.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_selectOutput.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_selectOutput.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
+        Me.btn_selectOutput.Location = New System.Drawing.Point(527, 29)
+        Me.btn_selectOutput.Name = "btn_selectOutput"
+        Me.btn_selectOutput.Size = New System.Drawing.Size(23, 23)
+        Me.btn_selectOutput.TabIndex = 30
+        Me.btn_selectOutput.UseVisualStyleBackColor = True
+        '
+        'btn_outputDataSet
+        '
+        Me.btn_outputDataSet.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btn_outputDataSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_outputDataSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_outputDataSet.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
+        Me.btn_outputDataSet.Location = New System.Drawing.Point(530, 16)
+        Me.btn_outputDataSet.Name = "btn_outputDataSet"
+        Me.btn_outputDataSet.Size = New System.Drawing.Size(23, 23)
+        Me.btn_outputDataSet.TabIndex = 10
+        Me.btn_outputDataSet.UseVisualStyleBackColor = True
+        '
+        'btn_iputDataSet
+        '
+        Me.btn_iputDataSet.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btn_iputDataSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_iputDataSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_iputDataSet.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
+        Me.btn_iputDataSet.Location = New System.Drawing.Point(530, 29)
+        Me.btn_iputDataSet.Name = "btn_iputDataSet"
+        Me.btn_iputDataSet.Size = New System.Drawing.Size(23, 23)
+        Me.btn_iputDataSet.TabIndex = 10
+        Me.btn_iputDataSet.UseVisualStyleBackColor = True
+        '
         'form_main
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -1200,6 +1216,7 @@ Partial Class form_main
         Me.panel_charts.PerformLayout()
         Me.panel_stats.ResumeLayout(False)
         Me.panel_stats.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1278,5 +1295,6 @@ Partial Class form_main
     Friend WithEvents btn_iputDataSet As System.Windows.Forms.Button
     Friend WithEvents btn_calcDataSet As System.Windows.Forms.Button
     Friend WithEvents ToolTip_RoT As System.Windows.Forms.ToolTip
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
 
 End Class

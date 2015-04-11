@@ -143,6 +143,10 @@
         panel_stats.Visible = False
         panel_charts.Visible = False
 
+        Dim tt As New ToolTip()
+        tt = ToolTip_RoT
+        tt.SetToolTip(PictureBox1, ToolTip_RoT.GetToolTip(GroupBox2))
+
         DataGridView1.Columns(0).ReadOnly = True
 
         Dim activationFunctionColumn As DataGridViewComboBoxColumn = DataGridView1.Columns("HiddenLayerActivationFunction")

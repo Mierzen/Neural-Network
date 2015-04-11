@@ -22,9 +22,6 @@ Partial Class form_main
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
@@ -66,11 +63,11 @@ Partial Class form_main
         Me.btn_addRow = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.combo_outputLayerAF = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.tb_output = New System.Windows.Forms.TextBox()
         Me.btn_selectOutput = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.combo_outputLayerAF = New System.Windows.Forms.ComboBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.tp_calculation = New System.Windows.Forms.TabPage()
@@ -365,6 +362,8 @@ Partial Class form_main
         Me.chk_showGraph.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.chk_showGraph.AutoSize = True
         Me.chk_showGraph.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chk_showGraph.Checked = True
+        Me.chk_showGraph.CheckState = System.Windows.Forms.CheckState.Checked
         Me.tlp_advancedSettings.SetColumnSpan(Me.chk_showGraph, 2)
         Me.chk_showGraph.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
         Me.chk_showGraph.Location = New System.Drawing.Point(320, 4)
@@ -493,37 +492,13 @@ Partial Class form_main
         Me.DataGridView1.AllowDrop = True
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.HiddenLayerNumber, Me.HiddenLayerNeuronCount, Me.HiddenLayerActivationFunction})
         Me.DataGridView1.Cursor = System.Windows.Forms.Cursors.Arrow
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.EnableHeadersVisualStyles = False
         Me.DataGridView1.Location = New System.Drawing.Point(33, 3)
         Me.DataGridView1.Name = "DataGridView1"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridView1.RowHeadersVisible = False
         Me.TableLayoutPanel3.SetRowSpan(Me.DataGridView1, 2)
         Me.DataGridView1.Size = New System.Drawing.Size(525, 191)
@@ -598,29 +573,6 @@ Partial Class form_main
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(561, 90)
         Me.TableLayoutPanel2.TabIndex = 32
         '
-        'combo_outputLayerAF
-        '
-        Me.combo_outputLayerAF.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.TableLayoutPanel2.SetColumnSpan(Me.combo_outputLayerAF, 3)
-        Me.combo_outputLayerAF.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.combo_outputLayerAF.FormattingEnabled = True
-        Me.combo_outputLayerAF.Location = New System.Drawing.Point(163, 58)
-        Me.combo_outputLayerAF.Name = "combo_outputLayerAF"
-        Me.combo_outputLayerAF.Size = New System.Drawing.Size(167, 21)
-        Me.combo_outputLayerAF.TabIndex = 29
-        '
-        'Label4
-        '
-        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label4.AutoSize = True
-        Me.TableLayoutPanel2.SetColumnSpan(Me.Label4, 2)
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(3, 62)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(154, 13)
-        Me.Label4.TabIndex = 28
-        Me.Label4.Text = "Output layer activation function"
-        '
         'Label6
         '
         Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.Left
@@ -656,6 +608,29 @@ Partial Class form_main
         Me.btn_selectOutput.Size = New System.Drawing.Size(23, 23)
         Me.btn_selectOutput.TabIndex = 30
         Me.btn_selectOutput.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label4.AutoSize = True
+        Me.TableLayoutPanel2.SetColumnSpan(Me.Label4, 2)
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(3, 62)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(154, 13)
+        Me.Label4.TabIndex = 28
+        Me.Label4.Text = "Output layer activation function"
+        '
+        'combo_outputLayerAF
+        '
+        Me.combo_outputLayerAF.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.TableLayoutPanel2.SetColumnSpan(Me.combo_outputLayerAF, 3)
+        Me.combo_outputLayerAF.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.combo_outputLayerAF.FormattingEnabled = True
+        Me.combo_outputLayerAF.Location = New System.Drawing.Point(163, 58)
+        Me.combo_outputLayerAF.Name = "combo_outputLayerAF"
+        Me.combo_outputLayerAF.Size = New System.Drawing.Size(167, 21)
+        Me.combo_outputLayerAF.TabIndex = 29
         '
         'Button1
         '

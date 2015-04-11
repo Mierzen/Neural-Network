@@ -297,26 +297,31 @@
     Private Sub btn_calcDataSet_Click(sender As Object, e As EventArgs) Handles btn_calcDataSet.Click
         Dim inputPath As String = tb_calcInputDataSet.Text
         Dim outputPath As String = tb_calcOutputDataSet.Text
+
+        'check for data entry
+        If inputPath = "" OrElse inputPath = Nothing OrElse outputPath = "" OrElse outputPath = Nothing Then
+            MsgBox("Please select an input and output file.", vbOKOnly Or vbCritical, "Invalid input")
+            Exit Sub
+        End If
+
+        'validate input file
+        Dim temp1 As Integer, temp2 As Integer
+        Select Case TrainingMode.validateCSV(inputPath, temp1, temp2)
+            Case "FileNotExist"
+                MsgBox("Please make sure the selected input data file exists and is of the correct format.", vbOKOnly Or vbCritical, "Invalid input data file")
+                Exit Sub
+            Case "NotConsistentFields"
+                MsgBox("All lines in the input data file are not the same lenght (the same number of parameters)." & vbNewLine & "Please fix the line(s).", vbOKOnly Or vbCritical, "Invalid input data file")
+                Exit Sub
+            Case "FileEmpty"
+                MsgBox("Please make sure the selected input data file is not empty.", vbOKOnly Or vbCritical, "Empty input data file")
+                Exit Sub
+        End Select
+
         Dim networkInputCount As Integer = calcNetwork.Layers(0).NeuronCount
         Dim inputNumCount As Integer = Util.File.CSV.GetFieldCount(inputPath)
         Dim numInputLines As Integer = Util.File.GetLineCount(inputPath)
         Dim inputDataSet(numInputLines - 1, networkInputCount) As Double
-
-        'check for data entry
-        If inputPath = "" OrElse outputPath = "" Then
-            MsgBox("Please select an input and output file.", vbOKOnly Or vbCritical, "Invalid input")
-        End If
-
-        'validate input file
-        If Util.File.CSV.HasConsistentFields(inputPath) = False Then
-            MsgBox("All lines in the csv file are not the same lenght." & vbNewLine & "Please fix the line(s).", vbOKOnly Or vbCritical, "Invalid input dataset")
-            Exit Sub
-        End If
-
-        If Strings.Right(outputPath, 4) <> ".csv" Then
-            MsgBox("Only csv output is supported.", vbOKOnly Or vbCritical, "Invalid output format")
-            Exit Sub
-        End If
 
         If inputNumCount <> networkInputCount Then
             MsgBox("The neural network is incompatible with the data set." & vbNewLine & vbNewLine & "The number of inputs as set up in the network " & networkInputCount & " do not agree with the number of inputs in the data set " & inputNumCount & ".", vbOKOnly Or MsgBoxStyle.Critical, "Incompatible input data set")

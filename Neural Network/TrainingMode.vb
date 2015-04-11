@@ -93,16 +93,16 @@ Module TrainingMode
             form_main.lb_currentError.Update()
 
             'update charts
-            form_main.chart_error.Series("Series1").Points.Add(err)
+            form_main.chart_error.Series(0).Points.Add(err)
             form_main.chart_error.Update()
             form_main.lb_iterationNum.Update()
 
-            Dim chart200_pointCount As Integer = form_main.chart_errorSecondary.Series("Series1").Points.Count
+            Dim chart200_pointCount As Integer = form_main.chart_errorSecondary.Series(0).Points.Count
             If chart200_pointCount <= form_main.tb_graphSecondaryPoints.Text Then
-                form_main.chart_errorSecondary.Series("Series1").Points.Add(err)
+                form_main.chart_errorSecondary.Series(0).Points.Add(err)
             Else
-                form_main.chart_errorSecondary.Series("Series1").Points.RemoveAt(0)
-                form_main.chart_errorSecondary.Series("Series1").Points.Add(err)
+                form_main.chart_errorSecondary.Series(0).Points.RemoveAt(0)
+                form_main.chart_errorSecondary.Series(0).Points.Add(err)
             End If
             form_main.chart_errorSecondary.Update()
         Loop While (err > CDbl(form_main.tb_maxError.Text)) AndAlso (i <= CInt(form_main.tb_maxEpochs.Text))

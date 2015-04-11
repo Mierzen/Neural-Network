@@ -39,6 +39,7 @@ Partial Class form_main
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tb_input = New System.Windows.Forms.TextBox()
+        Me.btn_selectInput = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.tlp_advancedSettings = New System.Windows.Forms.TableLayoutPanel()
         Me.tb_maxEpochs = New System.Windows.Forms.TextBox()
@@ -56,6 +57,8 @@ Partial Class form_main
         Me.lb_biasNotice = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btn_deleteRow = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.HiddenLayerNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HiddenLayerNeuronCount = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -65,6 +68,7 @@ Partial Class form_main
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.tb_output = New System.Windows.Forms.TextBox()
+        Me.btn_selectOutput = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.combo_outputLayerAF = New System.Windows.Forms.ComboBox()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -76,10 +80,12 @@ Partial Class form_main
         Me.TableLayoutPanel8 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.tb_calcOutputDataSet = New System.Windows.Forms.TextBox()
+        Me.btn_outputDataSet = New System.Windows.Forms.Button()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.tb_calcInputDataSet = New System.Windows.Forms.TextBox()
+        Me.btn_iputDataSet = New System.Windows.Forms.Button()
         Me.gb_calcMode = New System.Windows.Forms.GroupBox()
         Me.rd_calcDataSet = New System.Windows.Forms.RadioButton()
         Me.rd_calcExample = New System.Windows.Forms.RadioButton()
@@ -101,11 +107,6 @@ Partial Class form_main
         Me.panel_stats = New System.Windows.Forms.TableLayoutPanel()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ToolTip_RoT = New System.Windows.Forms.ToolTip(Me.components)
-        Me.btn_selectInput = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.btn_selectOutput = New System.Windows.Forms.Button()
-        Me.btn_outputDataSet = New System.Windows.Forms.Button()
-        Me.btn_iputDataSet = New System.Windows.Forms.Button()
         Me.tc_modes.SuspendLayout()
         Me.tp_training.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
@@ -115,6 +116,7 @@ Partial Class form_main
         Me.tlp_advancedSettings.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -131,7 +133,6 @@ Partial Class form_main
         CType(Me.chart_errorSecondary, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panel_charts.SuspendLayout()
         Me.panel_stats.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'OpenFileDialog1
@@ -240,6 +241,18 @@ Partial Class form_main
         Me.tb_input.Name = "tb_input"
         Me.tb_input.Size = New System.Drawing.Size(521, 20)
         Me.tb_input.TabIndex = 9
+        '
+        'btn_selectInput
+        '
+        Me.btn_selectInput.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btn_selectInput.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_selectInput.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_selectInput.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
+        Me.btn_selectInput.Location = New System.Drawing.Point(530, 29)
+        Me.btn_selectInput.Name = "btn_selectInput"
+        Me.btn_selectInput.Size = New System.Drawing.Size(23, 23)
+        Me.btn_selectInput.TabIndex = 10
+        Me.btn_selectInput.UseVisualStyleBackColor = True
         '
         'GroupBox4
         '
@@ -453,7 +466,6 @@ Partial Class form_main
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.PictureBox1)
         Me.GroupBox2.Controls.Add(Me.TableLayoutPanel3)
         Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(3, 86)
@@ -470,16 +482,44 @@ Partial Class form_main
         Me.TableLayoutPanel3.ColumnCount = 2
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel3.Controls.Add(Me.btn_deleteRow, 0, 2)
+        Me.TableLayoutPanel3.Controls.Add(Me.PictureBox1, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.DataGridView1, 1, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.btn_addRow, 0, 1)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 19)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 2
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17.0!))
+        Me.TableLayoutPanel3.RowCount = 3
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel3.Size = New System.Drawing.Size(561, 197)
         Me.TableLayoutPanel3.TabIndex = 32
+        '
+        'btn_deleteRow
+        '
+        Me.btn_deleteRow.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_deleteRow.Location = New System.Drawing.Point(3, 70)
+        Me.btn_deleteRow.MinimumSize = New System.Drawing.Size(24, 24)
+        Me.btn_deleteRow.Name = "btn_deleteRow"
+        Me.btn_deleteRow.Size = New System.Drawing.Size(24, 24)
+        Me.btn_deleteRow.TabIndex = 38
+        Me.btn_deleteRow.Text = "-"
+        Me.btn_deleteRow.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBox1.Image = Global.NeuralNetwork.My.Resources.Resources.Info
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox1.MaximumSize = New System.Drawing.Size(31, 31)
+        Me.PictureBox1.MinimumSize = New System.Drawing.Size(31, 31)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(31, 31)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 38
+        Me.PictureBox1.TabStop = False
         '
         'DataGridView1
         '
@@ -491,10 +531,10 @@ Partial Class form_main
         Me.DataGridView1.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.EnableHeadersVisualStyles = False
-        Me.DataGridView1.Location = New System.Drawing.Point(33, 3)
+        Me.DataGridView1.Location = New System.Drawing.Point(40, 3)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
-        Me.TableLayoutPanel3.SetRowSpan(Me.DataGridView1, 2)
+        Me.TableLayoutPanel3.SetRowSpan(Me.DataGridView1, 3)
         Me.DataGridView1.Size = New System.Drawing.Size(525, 191)
         Me.DataGridView1.TabIndex = 10
         Me.ToolTip_RoT.SetToolTip(Me.DataGridView1, resources.GetString("DataGridView1.ToolTip"))
@@ -520,9 +560,10 @@ Partial Class form_main
         'btn_addRow
         '
         Me.btn_addRow.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_addRow.Location = New System.Drawing.Point(3, 26)
+        Me.btn_addRow.Location = New System.Drawing.Point(3, 40)
+        Me.btn_addRow.MinimumSize = New System.Drawing.Size(24, 24)
         Me.btn_addRow.Name = "btn_addRow"
-        Me.btn_addRow.Size = New System.Drawing.Size(24, 23)
+        Me.btn_addRow.Size = New System.Drawing.Size(24, 24)
         Me.btn_addRow.TabIndex = 11
         Me.btn_addRow.Text = "+"
         Me.btn_addRow.UseVisualStyleBackColor = True
@@ -591,6 +632,18 @@ Partial Class form_main
         Me.tb_output.Name = "tb_output"
         Me.tb_output.Size = New System.Drawing.Size(518, 20)
         Me.tb_output.TabIndex = 23
+        '
+        'btn_selectOutput
+        '
+        Me.btn_selectOutput.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btn_selectOutput.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_selectOutput.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_selectOutput.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
+        Me.btn_selectOutput.Location = New System.Drawing.Point(527, 29)
+        Me.btn_selectOutput.Name = "btn_selectOutput"
+        Me.btn_selectOutput.Size = New System.Drawing.Size(23, 23)
+        Me.btn_selectOutput.TabIndex = 30
+        Me.btn_selectOutput.UseVisualStyleBackColor = True
         '
         'Label4
         '
@@ -748,6 +801,18 @@ Partial Class form_main
         Me.tb_calcOutputDataSet.Size = New System.Drawing.Size(521, 20)
         Me.tb_calcOutputDataSet.TabIndex = 9
         '
+        'btn_outputDataSet
+        '
+        Me.btn_outputDataSet.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btn_outputDataSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_outputDataSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_outputDataSet.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
+        Me.btn_outputDataSet.Location = New System.Drawing.Point(530, 16)
+        Me.btn_outputDataSet.Name = "btn_outputDataSet"
+        Me.btn_outputDataSet.Size = New System.Drawing.Size(23, 23)
+        Me.btn_outputDataSet.TabIndex = 10
+        Me.btn_outputDataSet.UseVisualStyleBackColor = True
+        '
         'GroupBox5
         '
         Me.GroupBox5.AutoSize = True
@@ -804,6 +869,18 @@ Partial Class form_main
         Me.tb_calcInputDataSet.Name = "tb_calcInputDataSet"
         Me.tb_calcInputDataSet.Size = New System.Drawing.Size(521, 20)
         Me.tb_calcInputDataSet.TabIndex = 9
+        '
+        'btn_iputDataSet
+        '
+        Me.btn_iputDataSet.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btn_iputDataSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_iputDataSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_iputDataSet.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
+        Me.btn_iputDataSet.Location = New System.Drawing.Point(530, 29)
+        Me.btn_iputDataSet.Name = "btn_iputDataSet"
+        Me.btn_iputDataSet.Size = New System.Drawing.Size(23, 23)
+        Me.btn_iputDataSet.TabIndex = 10
+        Me.btn_iputDataSet.UseVisualStyleBackColor = True
         '
         'gb_calcMode
         '
@@ -1095,67 +1172,6 @@ Partial Class form_main
         Me.ToolTip_RoT.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
         Me.ToolTip_RoT.ToolTipTitle = "Rules of thumb"
         '
-        'btn_selectInput
-        '
-        Me.btn_selectInput.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.btn_selectInput.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_selectInput.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_selectInput.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
-        Me.btn_selectInput.Location = New System.Drawing.Point(530, 29)
-        Me.btn_selectInput.Name = "btn_selectInput"
-        Me.btn_selectInput.Size = New System.Drawing.Size(23, 23)
-        Me.btn_selectInput.TabIndex = 10
-        Me.btn_selectInput.UseVisualStyleBackColor = True
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Image = Global.NeuralNetwork.My.Resources.Resources.Info
-        Me.PictureBox1.Location = New System.Drawing.Point(3, 13)
-        Me.PictureBox1.MaximumSize = New System.Drawing.Size(31, 31)
-        Me.PictureBox1.MinimumSize = New System.Drawing.Size(31, 31)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(31, 31)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 38
-        Me.PictureBox1.TabStop = False
-        '
-        'btn_selectOutput
-        '
-        Me.btn_selectOutput.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.btn_selectOutput.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_selectOutput.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_selectOutput.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
-        Me.btn_selectOutput.Location = New System.Drawing.Point(527, 29)
-        Me.btn_selectOutput.Name = "btn_selectOutput"
-        Me.btn_selectOutput.Size = New System.Drawing.Size(23, 23)
-        Me.btn_selectOutput.TabIndex = 30
-        Me.btn_selectOutput.UseVisualStyleBackColor = True
-        '
-        'btn_outputDataSet
-        '
-        Me.btn_outputDataSet.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.btn_outputDataSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_outputDataSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_outputDataSet.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
-        Me.btn_outputDataSet.Location = New System.Drawing.Point(530, 16)
-        Me.btn_outputDataSet.Name = "btn_outputDataSet"
-        Me.btn_outputDataSet.Size = New System.Drawing.Size(23, 23)
-        Me.btn_outputDataSet.TabIndex = 10
-        Me.btn_outputDataSet.UseVisualStyleBackColor = True
-        '
-        'btn_iputDataSet
-        '
-        Me.btn_iputDataSet.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.btn_iputDataSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_iputDataSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_iputDataSet.Image = Global.NeuralNetwork.My.Resources.Resources.openfolder
-        Me.btn_iputDataSet.Location = New System.Drawing.Point(530, 29)
-        Me.btn_iputDataSet.Name = "btn_iputDataSet"
-        Me.btn_iputDataSet.Size = New System.Drawing.Size(23, 23)
-        Me.btn_iputDataSet.TabIndex = 10
-        Me.btn_iputDataSet.UseVisualStyleBackColor = True
-        '
         'form_main
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -1188,6 +1204,7 @@ Partial Class form_main
         Me.tlp_advancedSettings.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
@@ -1216,7 +1233,6 @@ Partial Class form_main
         Me.panel_charts.PerformLayout()
         Me.panel_stats.ResumeLayout(False)
         Me.panel_stats.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1296,5 +1312,6 @@ Partial Class form_main
     Friend WithEvents btn_calcDataSet As System.Windows.Forms.Button
     Friend WithEvents ToolTip_RoT As System.Windows.Forms.ToolTip
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents btn_deleteRow As System.Windows.Forms.Button
 
 End Class

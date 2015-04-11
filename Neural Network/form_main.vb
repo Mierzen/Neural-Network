@@ -394,4 +394,10 @@
             Diagnostics.Process.Start("Explorer.exe", outputPath)
         End If
     End Sub
+
+    Private Sub btn_deleteRow_Click(sender As Object, e As EventArgs) Handles btn_deleteRow.Click
+        If DataGridView1.Rows.Count <> 0 Then
+            DataGridView1.Rows.RemoveAt(DataGridView1.Rows.Count - 1)
+        End If
+    End Sub
 End Class

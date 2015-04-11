@@ -68,9 +68,7 @@ Partial Class form_main
         Me.combo_outputLayerAF = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.tb_numOutputs = New System.Windows.Forms.TextBox()
         Me.tb_output = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.btn_selectOutput = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -574,13 +572,11 @@ Partial Class form_main
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel2.Controls.Add(Me.combo_outputLayerAF, 3, 2)
-        Me.TableLayoutPanel2.Controls.Add(Me.Label4, 2, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.Label6, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.tb_numOutputs, 1, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.tb_output, 0, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.Label2, 0, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.btn_selectOutput, 4, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.Label4, 0, 2)
+        Me.TableLayoutPanel2.Controls.Add(Me.combo_outputLayerAF, 2, 2)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 19)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -589,16 +585,17 @@ Partial Class form_main
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(561, 90)
         Me.TableLayoutPanel2.TabIndex = 32
         '
         'combo_outputLayerAF
         '
         Me.combo_outputLayerAF.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.TableLayoutPanel2.SetColumnSpan(Me.combo_outputLayerAF, 2)
+        Me.TableLayoutPanel2.SetColumnSpan(Me.combo_outputLayerAF, 3)
         Me.combo_outputLayerAF.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.combo_outputLayerAF.FormattingEnabled = True
-        Me.combo_outputLayerAF.Location = New System.Drawing.Point(314, 58)
+        Me.combo_outputLayerAF.Location = New System.Drawing.Point(163, 58)
         Me.combo_outputLayerAF.Name = "combo_outputLayerAF"
         Me.combo_outputLayerAF.Size = New System.Drawing.Size(167, 21)
         Me.combo_outputLayerAF.TabIndex = 29
@@ -607,8 +604,9 @@ Partial Class form_main
         '
         Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Label4.AutoSize = True
+        Me.TableLayoutPanel2.SetColumnSpan(Me.Label4, 2)
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(154, 62)
+        Me.Label4.Location = New System.Drawing.Point(3, 62)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(154, 13)
         Me.Label4.TabIndex = 28
@@ -628,17 +626,6 @@ Partial Class form_main
     "g." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "The file should not have any headers. Each row represents one ""example"" of o" & _
     "utputs."
         '
-        'tb_numOutputs
-        '
-        Me.tb_numOutputs.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.tb_numOutputs.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tb_numOutputs.Location = New System.Drawing.Point(106, 58)
-        Me.tb_numOutputs.Name = "tb_numOutputs"
-        Me.tb_numOutputs.Size = New System.Drawing.Size(42, 20)
-        Me.tb_numOutputs.TabIndex = 27
-        Me.tb_numOutputs.Text = "2"
-        Me.tb_numOutputs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
         'tb_output
         '
         Me.tb_output.Anchor = System.Windows.Forms.AnchorStyles.Left
@@ -648,17 +635,6 @@ Partial Class form_main
         Me.tb_output.Name = "tb_output"
         Me.tb_output.Size = New System.Drawing.Size(518, 20)
         Me.tb_output.TabIndex = 23
-        '
-        'Label2
-        '
-        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(3, 62)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(97, 13)
-        Me.Label2.TabIndex = 26
-        Me.Label2.Text = "Number of outputs:"
         '
         'btn_selectOutput
         '
@@ -1248,8 +1224,6 @@ Partial Class form_main
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents combo_outputLayerAF As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents tb_numOutputs As System.Windows.Forms.TextBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents tb_output As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents btn_selectOutput As System.Windows.Forms.Button

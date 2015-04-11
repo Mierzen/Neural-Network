@@ -234,6 +234,8 @@
 
         If networkLoaded = True Then
             gb_calcMode.Visible = True
+        Else
+            MsgBox("An error occurred when trying to load the neural network file." & vbNewLine & "Please select only files with the correct format and contents.", vbOKOnly Or vbCritical, "Error occurred when loading")
         End If
     End Sub
 

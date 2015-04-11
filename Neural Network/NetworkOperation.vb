@@ -128,7 +128,7 @@ Module NetworkOperation
 
                 Else 'hidden layer
 
-                    For i = 0 To network.Layers(l).NeuronCount - 1 'for each neuron in the current layer
+                    For i = 1 To network.Layers(l).NeuronCount - 1 'for each neuron in the current layer
 
                         'for each neuron in the next layer (the layer nearer to the output), calculate the delta_j_tempSum (for use in calculating delta_j)
                         Dim delta_j_tempSum As Double = 0
@@ -148,7 +148,7 @@ Module NetworkOperation
 
 
             'update the weights
-            For layer = 1 To network.LayerCount - 1 'for each layer (except input layer)
+            For layer = 2 To network.LayerCount - 1 'for each layer (except input layer)
                 Dim currentLayer As Layer = network.Layers(layer)
                 Dim prevLayer As Layer = network.Layers(layer - 1)
                 'If network.Layers(layer).LayerType = ILayer.LayerType_.Input Then
@@ -232,9 +232,8 @@ Module NetworkOperation
             ' Weights and biases
             .WriteStartElement("Weights-and-Biases")
 
-            For layer = 0 To network.LayerCount - 2 'for each layer except output layer
+            For layer = 0 To network.LayerCount - 1 'for each layer
                 Dim currentLayer As Layer = network.Layers(layer)
-                Dim nextLayer As Layer = network.Layers(layer + 1)
 
                 .WriteStartElement("Layer")
                 .WriteAttributeString("Index", layer.ToString)
@@ -246,14 +245,19 @@ Module NetworkOperation
                     .WriteAttributeString("Index", i.ToString)
                     .WriteAttributeString("Bias", currentLayer.Bias(i).ToString)
 
-                    For j = 0 To nextLayer.NeuronCount - 1
-                        .WriteStartElement("Connection")
-                        .WriteAttributeString("Index", j.ToString)
+                    If layer = network.LayerCount - 1 Then 'then we are at the output layer - it has no weights saved, so skip to prevent NPE
+                        'do nothing
+                    Else
+                        Dim nextLayer As Layer = network.Layers(layer + 1)
+                        For j = 0 To nextLayer.NeuronCount - 1
+                            .WriteStartElement("Connection")
+                            .WriteAttributeString("Index", j.ToString)
 
-                        .WriteString(currentLayer.Weights(i, j).ToString())
+                            .WriteString(currentLayer.Weights(i, j).ToString())
 
-                        .WriteEndElement() 'Connection
-                    Next
+                            .WriteEndElement() 'Connection
+                        Next
+                    End If
 
                     .WriteEndElement() 'Neuron
                 Next
@@ -312,22 +316,26 @@ Module NetworkOperation
         Next
 
         'now assign new values
-        For layer = 0 To network.LayerCount - 2 'for each layer except output layer
+        For layer = 0 To network.LayerCount - 1 'for each layer
             BasePath = "Network/Weights-and-Biases/Layer[@Index='" & layer.ToString & "']/"
 
             Dim currentLayer As Layer = network.Layers(layer)
-            Dim nextLayer As Layer = network.Layers(layer + 1)
 
             For i = 0 To currentLayer.NeuronCount - 1
                 NeuronPath = "Neuron[@Index='" + i.ToString + "']/@Bias"
 
                 currentLayer.Bias(i) = CDbl(xPathValue(BasePath & NeuronPath))
 
-                For j = 0 To nextLayer.NeuronCount - 1
-                    Dim connectionPath As String
-                    connectionPath = "Neuron[@Index='" + i.ToString + "']/Connection[@Index='" + j.ToString + "']"
-                    currentLayer.Weights(i, j) = CDbl(xPathValue(BasePath & connectionPath))
-                Next
+                If layer = network.LayerCount - 1 Then 'then we are at the output layer - it has no weights saved, so skip to prevent error
+                    'do nothing
+                Else
+                    Dim nextLayer As Layer = network.Layers(layer + 1)
+                    For j = 0 To nextLayer.NeuronCount - 1
+                        Dim connectionPath As String
+                        connectionPath = "Neuron[@Index='" + i.ToString + "']/Connection[@Index='" + j.ToString + "']"
+                        currentLayer.Weights(i, j) = CDbl(xPathValue(BasePath & connectionPath))
+                    Next
+                End If
             Next
         Next
 

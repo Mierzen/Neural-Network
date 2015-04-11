@@ -115,11 +115,16 @@ Module TrainingMode
 
                 If (path IsNot Nothing) Then
                     NetworkOperation.Save(network, path)
+
+                    Dim openTargetDir As MsgBoxResult
+                    openTargetDir = MsgBox("Done!" & vbNewLine & vbNewLine & "Open Windows Explorer to view the outputs?", _
+                                           MsgBoxStyle.YesNo Or MsgBoxStyle.DefaultButton2 Or MsgBoxStyle.MsgBoxSetForeground)
+                    If openTargetDir = MsgBoxResult.Yes Then
+                        Diagnostics.Process.Start("Explorer.exe", System.IO.Path.GetDirectoryName(path))
+                    End If
                 End If
             End If
         End If
-
-        Beep()
     End Sub
 
     Public Function validateCSV(filePath As String, ByRef numLines As Integer, ByRef numFields As Integer) As String

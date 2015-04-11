@@ -374,5 +374,11 @@
         Util.File.CSV.Create(outputPath, csvOutputString)
 
         Beep()
+        Dim openTargetDir As MsgBoxResult
+        openTargetDir = MsgBox("Done!" & vbNewLine & vbNewLine & "Open the output file with the default program?", _
+                               MsgBoxStyle.YesNo Or MsgBoxStyle.DefaultButton2 Or MsgBoxStyle.MsgBoxSetForeground)
+        If openTargetDir = MsgBoxResult.Yes Then
+            Diagnostics.Process.Start("Explorer.exe", outputPath)
+        End If
     End Sub
 End Class

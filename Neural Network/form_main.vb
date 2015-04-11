@@ -38,13 +38,13 @@
         'validate input file
         Select Case TrainingMode.validateCSV(tb_input.Text, numInputLines, numInputs) 'TODO: just check this again after everything is done
             Case "FileNotExist"
-                MsgBox("Please make sure the selected input training data file exists and is of the correct format.", vbOKOnly Or vbCritical, "Invalid input training file")
+                MsgBox("Please make sure the selected input training data file exists and is of the correct format.", vbOKOnly Or vbCritical, "Invalid input training data file")
                 Exit Sub
             Case "NotConsistentFields"
-                MsgBox("All lines in the input training data csv file are not the same lenght (the same number of parameters)." & vbNewLine & "Please fix the line(s).", vbOKOnly Or vbCritical, "Invalid input training file")
+                MsgBox("All lines in the input training data file are not the same length (the same number of parameters)." & vbNewLine & "Please fix the line(s).", vbOKOnly Or vbCritical, "Invalid input training data file")
                 Exit Sub
             Case "FileEmpty"
-                MsgBox("Please make sure the selected input training data file is not empty.", vbOKOnly Or vbCritical, "Empty input file training file")
+                MsgBox("Please make sure the selected input training data file is not empty.", vbOKOnly Or vbCritical, "Empty input training data file")
                 Exit Sub
         End Select
 
@@ -93,13 +93,13 @@
             'validate output layer entry.
             Select Case TrainingMode.validateCSV(tb_output.Text, numOutputLines, expectedOutputsPerLine) 'TODO: just check this again after everything is done
                 Case "FileNotExist"
-                    MsgBox("Please make sure the selected output training data file exists and is of the correct format.", vbOKOnly Or vbCritical, "Invalid output training file")
+                    MsgBox("Please make sure the selected output training data file exists and is of the correct format.", vbOKOnly Or vbCritical, "Invalid output training data file")
                     Exit Sub
                 Case "NotConsistentFields"
-                    MsgBox("All lines in the output training data csv file are not the same lenght (the same number of parameters)." & vbNewLine & "Please fix the line(s).", vbOKOnly Or vbCritical, "Invalid output training file")
+                    MsgBox("All lines in the output training data file are not the same length (the same number of parameters)." & vbNewLine & "Please fix the line(s).", vbOKOnly Or vbCritical, "Invalid output training file")
                     Exit Sub
                 Case "FileEmpty"
-                    MsgBox("Please make sure the selected output training data file is not empty.", vbOKOnly Or vbCritical, "Empty output file training file")
+                    MsgBox("Please make sure the selected output training data file is not empty.", vbOKOnly Or vbCritical, "Empty output training data file")
                     Exit Sub
             End Select
 
@@ -311,7 +311,7 @@
                 MsgBox("Please make sure the selected input data file exists and is of the correct format.", vbOKOnly Or vbCritical, "Invalid input data file")
                 Exit Sub
             Case "NotConsistentFields"
-                MsgBox("All lines in the input data file are not the same lenght (the same number of parameters)." & vbNewLine & "Please fix the line(s).", vbOKOnly Or vbCritical, "Invalid input data file")
+                MsgBox("All lines in the input data file are not the same length (the same number of parameters)." & vbNewLine & "Please fix the line(s).", vbOKOnly Or vbCritical, "Invalid input data file")
                 Exit Sub
             Case "FileEmpty"
                 MsgBox("Please make sure the selected input data file is not empty.", vbOKOnly Or vbCritical, "Empty input data file")

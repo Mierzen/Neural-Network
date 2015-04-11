@@ -35,8 +35,6 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         'validateTextboxes()
 
-        Application.UseWaitCursor() = True
-
         Me.Select()
 
         Dim dataIsValid As Boolean = True

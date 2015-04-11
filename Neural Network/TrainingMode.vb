@@ -31,6 +31,8 @@ Module TrainingMode
         validateCSV("input") 'TODO: just check this again after everything is done
         validateCSV("output")
 
+        Application.UseWaitCursor = True
+
         If expectedOutputsPerLine <> numOutputs Then
             MsgBox("The number of outputs as set up in the network do not agree with the number of outputs in the training data.", vbOKOnly Or MsgBoxStyle.Critical, "Incorrect output size")
             Exit Sub

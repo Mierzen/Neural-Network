@@ -77,6 +77,13 @@
         If dataIsValid = False Then
             MsgBox("Not all rows in the table are correct." & vbNewLine & vbNewLine & "Please enter at least one row and make sure that all values are correct." & vbNewLine & "The hidden layer neuron count should be a positive, non-zero integer and an activation function should be selected per row.", vbOKOnly Or vbCritical, "Incorrect hidden layer input")
         Else
+            'validate output layer entry.
+            'TODO: actually, it would be better if all of a specific type of checking is at the same place (cf. TrainingMode.vb)
+            If combo_outputLayerAF.Text = "" OrElse combo_outputLayerAF.Text = Nothing OrElse combo_outputLayerAF.SelectedItem = Nothing Then
+                MsgBox("Please select an activation function to use for the output layer.", vbOKOnly Or vbCritical, "Output layer activation function not selected")
+                Exit Sub
+            End If
+
             TrainingMode.Training_Start()
         End If
 

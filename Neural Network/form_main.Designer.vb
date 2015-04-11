@@ -132,7 +132,6 @@ Partial Class form_main
         '
         'OpenFileDialog1
         '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         Me.OpenFileDialog1.Filter = "csv files|*.csv"
         Me.OpenFileDialog1.Title = "Select file to open"
         '

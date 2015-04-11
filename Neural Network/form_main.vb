@@ -324,7 +324,7 @@
         Dim inputDataSet(numInputLines - 1, networkInputCount) As Double
 
         If inputNumCount <> networkInputCount Then
-            MsgBox("The neural network is incompatible with the data set." & vbNewLine & vbNewLine & "The number of inputs as set up in the network " & networkInputCount & " do not agree with the number of inputs in the data set " & inputNumCount & ".", vbOKOnly Or MsgBoxStyle.Critical, "Incompatible input data set")
+            MsgBox("The neural network is incompatible with the data set." & vbNewLine & vbNewLine & "The number of input parameters as set up in the network (" & networkInputCount & ") do not agree with the number of inputs in the data set (" & inputNumCount & ").", vbOKOnly Or MsgBoxStyle.Critical, "Incompatible input data set")
             Exit Sub
         End If
 

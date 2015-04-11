@@ -91,7 +91,7 @@
             MsgBox("Not all rows in the table are correct." & vbNewLine & vbNewLine & "Please enter at least one row and make sure that all values are correct." & vbNewLine & "The hidden layer neuron count should be a positive, non-zero integer and an activation function should be selected per row.", vbOKOnly Or vbCritical, "Incorrect hidden layer input")
         Else
             'validate output layer entry.
-            Select Case TrainingMode.validateCSV(tb_output.Text, numOutputLines, expectedOutputsPerLine) 'TODO: just check this again after everything is done
+            Select Case TrainingMode.validateCSV(tb_output.Text, numOutputLines, expectedOutputsPerLine)
                 Case "FileNotExist"
                     MsgBox("Please make sure the selected output training data file exists and is of the correct format.", vbOKOnly Or vbCritical, "Invalid output training data file")
                     Exit Sub

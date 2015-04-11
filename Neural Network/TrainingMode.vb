@@ -42,7 +42,6 @@ Module TrainingMode
             End If
         Next
         network.AddLayer(New Layer(numOutputs, [Enum].Parse(GetType(ActivationFunction), form_main.combo_outputLayerAF.SelectedItem), ILayer.LayerType_.Output))
-        'TODO: check if this^ is right
 
         Dim i As Integer = 0
         For Each layer As Layer In network.Layers

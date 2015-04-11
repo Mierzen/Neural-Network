@@ -99,7 +99,6 @@ Module NetworkOperation
     End Sub
 
     Public Function trainNetwork(ByRef network As BackpropagationNetwork, learningRate As Double, momentum As Double) As Double
-        'TODO: add epoch looping
         Dim exampleError(numInputLines - 1) As Double
         For ex = 0 To numInputLines - 1 'for each example
 
@@ -151,11 +150,7 @@ Module NetworkOperation
             For layer = 2 To network.LayerCount - 1 'for each layer (except input layer)
                 Dim currentLayer As Layer = network.Layers(layer)
                 Dim prevLayer As Layer = network.Layers(layer - 1)
-                'If network.Layers(layer).LayerType = ILayer.LayerType_.Input Then
-                'do nothing, the input layer does not have weights (or const weights = 1)
-                'Else
 
-                'TODO: maak seker oor die 0 (begin van die video)v
                 For i = 0 To prevLayer.NeuronCount - 1 'for each neuron in the previous layer
 
                     For j = 0 To currentLayer.NeuronCount - 1 'each neuron in the current layer
@@ -183,7 +178,6 @@ Module NetworkOperation
             End If
         Next
 
-        'todo vv
         Dim exampleErrorSum As Double
         For i = 0 To numInputLines - 1
             exampleErrorSum += exampleError(i)

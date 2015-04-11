@@ -110,7 +110,14 @@
                 Exit Sub
             End If
 
-            TrainingMode.Training_Start()
+            Dim result As MsgBoxResult
+            result = MsgBox("About to start training of the neural network." & vbNewLine & "Be warned, this may take a while. Until multithreading is implemented, the training can not be cancelled by conventional means." & vbNewLine & vbNewLine & "Are you sure you still want to continue?", vbYesNo Or vbQuestion, "Continue?")
+            If result = vbYes Then
+                TrainingMode.Training_Start()
+            Else
+                Application.UseWaitCursor = False
+                Exit Sub
+            End If
         End If
 
         Application.UseWaitCursor = False

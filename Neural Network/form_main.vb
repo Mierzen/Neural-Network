@@ -33,25 +33,39 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        'validateTextboxes()
-
         Me.Select()
 
         Dim dataIsValid As Boolean = True
-        'TODO: check if each rows' AF has been selected chosen
+
         If DataGridView1.Rows.Count() = 0 Then
             dataIsValid = False
         Else
             For i = 1 To DataGridView1.Rows.Count()
-                Dim n As Object = DataGridView1.Rows(i - 1).Cells(1).FormattedValue
+                'check HiddenLayerNeuronCount column
+                Dim n As Object = DataGridView1.Rows(i - 1).Cells("HiddenLayerNeuronCount").FormattedValue
 
-                If n = "" Then
+                If n = "" OrElse n = Nothing Then
+                    dataIsValid = False
+                    Exit For
+                End If
+
+                Dim temp As Boolean
+                Integer.TryParse(n.ToString, temp)
+                If temp = False Then
                     dataIsValid = False
                     Exit For
                 End If
 
                 If Math.Sign(CInt(n)) <> 1 Then
                     dataIsValid = False
+                    Exit For
+                End If
+
+                'check HiddenLayerActivationFunction column
+                n = DataGridView1.Rows(i - 1).Cells("HiddenLayerActivationFunction").FormattedValue
+                If n = "" OrElse n = Nothing Then
+                    dataIsValid = False
+                    Exit For
                 End If
 
                 If dataIsValid = False Then
@@ -61,7 +75,7 @@
         End If
 
         If dataIsValid = False Then
-            MsgBox("Please check the table values")
+            MsgBox("Not all rows in the table are correct." & vbNewLine & vbNewLine & "Please enter at least one row and make sure that all values are correct." & vbNewLine & "The hidden layer neuron count should be a positive, non-zero integer and an activation function should be selected per row.", vbOKOnly Or vbCritical, "Incorrect hidden layer input")
         Else
             TrainingMode.Training_Start()
         End If

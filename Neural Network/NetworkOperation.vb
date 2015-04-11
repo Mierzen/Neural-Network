@@ -3,40 +3,6 @@ Imports System.Xml
 
 Module NetworkOperation
     Public Sub loadTrainingData()
-        Dim result As MsgBoxResult, temp As Boolean, method As String = Nothing, scalingFromI_str As String = Nothing, scalingToI_str As String = Nothing, scalingFromI As Double = Nothing, scalingToI As Double = Nothing, scalingFromO_str As String = Nothing, scalingToO_str As String = Nothing, scalingFromO As Double = Nothing, scalingToO As Double = Nothing
-        result = MsgBox("Is the data already normalised?" & vbNewLine & "Answering ""no"" will enable you to normalize the input and output data.", vbYesNo Or vbQuestion, "Normalised?")
-
-        If result = MsgBoxResult.No Then
-            While Not (method = "1" OrElse method = "2" OrElse method = "0")
-                method = InputBox("Data will be normalized." & vbNewLine & "Please choose the method to normalise the data." & vbNewLine & vbNewLine & "Enter 1 to use reciprocal normalisation." & vbNewLine & "Enter 2 to use feature scaling." & vbNewLine & "Enter 0 to use the data as-is.", "Choose normalisation technique")
-                If method = "0" Then
-                    result = vbYes
-                End If
-            End While
-
-            If method = "2" Then
-                While scalingFromI_str = Nothing Or Double.TryParse(scalingFromI, temp) = False
-                    scalingFromI_str = InputBox("Enter the lower bound to scale the input to:", "Input lower bound")
-                End While
-                scalingFromI = CDbl(scalingFromI_str)
-
-                While scalingToI_str = Nothing Or Double.TryParse(scalingToI_str, temp) = False
-                    scalingToI_str = InputBox("Enter the upper bound to scale the input to:", "Input upper bound")
-                End While
-                scalingToI = CDbl(scalingToI_str)
-
-                While scalingFromO_str = Nothing Or Double.TryParse(scalingFromO, temp) = False
-                    scalingFromO_str = InputBox("Enter the lower bound to scale the output to:", "Output lower bound")
-                End While
-                scalingFromO = CDbl(scalingFromO_str)
-
-                While scalingToO_str = Nothing Or Double.TryParse(scalingToO_str, temp) = False
-                    scalingToO_str = InputBox("Enter the upper bound to scale the output to:", "Output upper bound")
-                End While
-                scalingToO = CDbl(scalingToO_str)
-            End If
-        End If
-
         'load testing inputs
         Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(form_main.tb_input.Text)
             MyReader.TextFieldType = FileIO.FieldType.Delimited
@@ -88,38 +54,6 @@ Module NetworkOperation
                 End Try
             End While
         End Using
-
-        'normalise the data if needed
-        If result = vbNo Then
-            If method = "1" Then
-                For i = 0 To TrainingMode.inputData.GetLength(0) - 1 'each row
-                    For j As Integer = 0 To TrainingMode.inputData.GetLength(1) - 1 'each column
-                        TrainingMode.inputData(i, j) = If(Double.TryParse(1 / TrainingMode.inputData(i, j), temp) = True, 1 / TrainingMode.inputData(i, j), Double.MaxValue)
-                    Next
-                    For j As Integer = 0 To TrainingMode.expectedOutputs.GetLength(1) - 1 'each column
-                        TrainingMode.expectedOutputs(i, j) = If(Double.TryParse(1 / TrainingMode.expectedOutputs(i, j), temp) = True, 1 / TrainingMode.expectedOutputs(i, j), Double.MaxValue)
-                    Next
-                Next
-
-            ElseIf method = "2" Then
-                For i = 0 To TrainingMode.inputData.GetLength(1) - 1 'each column
-                    Dim tempArray As Double() = Util.Array.GetColumn(i, TrainingMode.inputData)
-                    Dim maxI As Double = tempArray.Max
-                    Dim minI As Double = tempArray.Min
-                    tempArray = Util.Array.GetColumn(i, TrainingMode.expectedOutputs)
-                    Dim maxO As Double = tempArray.Max
-                    Dim minO As Double = tempArray.Min
-
-                    For j As Integer = 0 To TrainingMode.inputData.GetLength(0) - 1 'each row
-                        TrainingMode.inputData(i, j) = scalingFromI + (scalingToI - scalingFromI) * (TrainingMode.inputData(i, j) - minI) / (maxI - minI)
-                    Next
-                    For j As Integer = 0 To TrainingMode.expectedOutputs.GetLength(0) - 1 'each row
-                        TrainingMode.expectedOutputs(i, j) = scalingFromO + (scalingToO - scalingFromO) * (TrainingMode.expectedOutputs(i, j) - minO) / (maxO - minO)
-                    Next
-                Next
-
-            End If
-        End If
     End Sub
 
     Private Sub layerCalculate(network As BackpropagationNetwork, layerIndex As Integer)

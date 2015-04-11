@@ -18,18 +18,6 @@
 
             Return returnArray
         End Function
-
-        Public Shared Function GetColumn(columnNumber As Integer, array As Double(,))
-            Dim arrayRowCount As Integer = array.GetLength(0)
-
-            Dim returnArray(arrayRowCount - 1) As Double
-
-            For i = 0 To arrayRowCount - 1
-                returnArray(i) = array(i, columnNumber)
-            Next
-
-            Return returnArray
-        End Function
     End Class
 
     Public NotInheritable Class Random

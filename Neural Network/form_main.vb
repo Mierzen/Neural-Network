@@ -103,6 +103,7 @@
                     Exit Sub
             End Select
 
+            numOutputs = expectedOutputsPerLine
 
             If combo_outputLayerAF.Text = "" OrElse combo_outputLayerAF.Text = Nothing OrElse combo_outputLayerAF.SelectedItem = Nothing Then
                 MsgBox("Please select an activation function to use for the output layer.", vbOKOnly Or vbCritical, "Output layer activation function not selected")

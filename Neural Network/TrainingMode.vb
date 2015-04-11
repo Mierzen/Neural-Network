@@ -22,18 +22,8 @@ Module TrainingMode
     Public Sub Training_Start()
         numHiddenLayers = form_main.DataGridView1.RowCount
         ReDim numNodesInLayer(0 To numHiddenLayers + 1)
-
-        'lazy
-        If Util.File.CSV.HasConsistentFields(form_main.tb_output.Text) Then
-            numOutputs = Util.File.CSV.GetFieldCount(form_main.tb_output.Text)
-        Else
-            numOutputs = 1
-        End If
-
-
         ReDim layerSums(0 To numHiddenLayers + 1)
         ReDim deltak(0 To numOutputs - 1)
-
         ReDim actualOutputs(numOutputs - 1)
 
         Application.UseWaitCursor = True

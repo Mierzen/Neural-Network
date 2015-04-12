@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Backpropagation Neural Network, created 12-04-2015 18:46:40-->
+<Network>
+  <Network-Parameters>
+    <numInputs>3</numInputs>
+    <LayerCount>4</LayerCount>
+    <numOutputs>1</numOutputs>
+    <Layers>
+      <Layer Index="0" NeuronCount="3" Type="Input" ActivationFunction="Linear" />
+      <Layer Index="1" NeuronCount="3" Type="Hidden" ActivationFunction="Sigmoid" />
+      <Layer Index="2" NeuronCount="2" Type="Hidden" ActivationFunction="Sigmoid" />
+      <Layer Index="3" NeuronCount="1" Type="Output" ActivationFunction="Sigmoid" />
+    </Layers>
+  </Network-Parameters>
+  <Weights-and-Biases>
+    <Layer Index="0">
+      <Neuron Index="0" Bias="0">
+        <Connection Index="0">1</Connection>
+        <Connection Index="1">1</Connection>
+        <Connection Index="2">1</Connection>
+      </Neuron>
+      <Neuron Index="1" Bias="0">
+        <Connection Index="0">1</Connection>
+        <Connection Index="1">1</Connection>
+        <Connection Index="2">1</Connection>
+      </Neuron>
+      <Neuron Index="2" Bias="0">
+        <Connection Index="0">1</Connection>
+        <Connection Index="1">1</Connection>
+        <Connection Index="2">1</Connection>
+      </Neuron>
+    </Layer>
+    <Layer Index="1">
+      <Neuron Index="0" Bias="0.426487795339596">
+        <Connection Index="0">-0.45844590503194</Connection>
+        <Connection Index="1">0.115835988291897</Connection>
+      </Neuron>
+      <Neuron Index="1" Bias="2.44750126658293">
+        <Connection Index="0">0.547897884496967</Connection>
+        <Connection Index="1">1.12811932384059</Connection>
+      </Neuron>
+      <Neuron Index="2" Bias="-0.741490468950291">
+        <Connection Index="0">-1.68978886861454</Connection>
+        <Connection Index="1">0.404565814631154</Connection>
+      </Neuron>
+    </Layer>
+    <Layer Index="2">
+      <Neuron Index="0" Bias="-0.440203749620467">
+        <Connection Index="0">-1.45141816786622</Connection>
+      </Neuron>
+      <Neuron Index="1" Bias="0.424453534309102">
+        <Connection Index="0">-0.107855398629261</Connection>
+      </Neuron>
+    </Layer>
+    <Layer Index="3">
+      <Neuron Index="0" Bias="0.167728602597259" />
+    </Layer>
+  </Weights-and-Biases>
+</Network>
